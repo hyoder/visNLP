@@ -1,5 +1,9 @@
 * { margin: 0; padding: 0; }
 body { overflow: hidden; }
+h1
+{
+    margin: auto;
+}
 #navbar
 {
     top: 0px;
@@ -24,5 +28,5 @@ body { overflow: hidden; }
     display: inline-block;
     text-align: middle;
     vertical-align: middle;
-    width: 19vw;
+    width: 19.7vw;
 }
