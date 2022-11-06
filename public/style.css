@@ -9,14 +9,20 @@ body { overflow: hidden; }
 }
 #restofpage
 {
+    background-color: lightgrey;
     bottom: 0px;
     height: 92vh;
+    position: fixed;
     width: 100vw;
 }
 .navelement
 {
+    background-color: darkred;
+    border-width: 5px;
+    border-color: black;
+    color: whitesmoke;
     display: inline-block;
     text-align: middle;
     vertical-align: middle;
-    width: 20vw;
+    width: 19vw;
 }
