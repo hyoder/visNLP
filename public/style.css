@@ -2,6 +2,7 @@
 body { overflow: hidden; }
 h1
 {
+    font-size: 1.5vw;
     margin: auto;
     text-align: center;
 }
@@ -28,7 +29,6 @@ h1
     color: whitesmoke;
     display: inline-flex;
     height: 100%;
-    margin: 10px;
     vertical-align: middle; 
-    width: 16.4vw;
+    width: 16.365vw;
 }
