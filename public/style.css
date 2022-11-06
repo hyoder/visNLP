@@ -1,0 +1,14 @@
+* { margin: 0; padding: 0; }
+#navbar
+{
+    top: 0px;
+    position: fixed;
+    width: 100vw;
+}
+.navelement
+{
+    display: inline-block;
+    text-align: middle;
+    vertical-align: middle;
+    width: 20vw;
+}
