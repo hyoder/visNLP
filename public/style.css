@@ -23,11 +23,12 @@ h1
 .navelement
 {
     background-color: darkred;
-    border-width: 5px;
-    border-color: black;
+    border: 10px solid #000000;
+    box-sizing: border-box;
     color: whitesmoke;
     display: inline-flex;
     height: 100%;
+    margin: 10px;
     vertical-align: middle; 
-    width: 19.7vw;
+    width: 16.4vw;
 }
