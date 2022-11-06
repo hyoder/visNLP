@@ -9,7 +9,7 @@ body { overflow: hidden; }
 }
 #restofpage
 {
-    top: 8vh;
+    bottom: 0px;
     height: 92vh;
     width: 100vw;
 }
