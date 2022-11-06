@@ -26,9 +26,8 @@ h1
     border-width: 5px;
     border-color: black;
     color: whitesmoke;
-    display: inline-block;
+    display: inline-flex;
     height: 100%;
-    text-align: middle;
-    vertical-align: middle;
+    vertical-align: middle; 
     width: 19.7vw;
 }
