@@ -9,6 +9,7 @@ h1
 #navbar
 {
     top: 0px;
+    display: flex;
     height: 8vh;
     position: fixed;
     width: 100vw;
