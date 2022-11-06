@@ -1,8 +1,16 @@
 * { margin: 0; padding: 0; }
+body { overflow: hidden; }
 #navbar
 {
     top: 0px;
+    height: 8vh;
     position: fixed;
+    width: 100vw;
+}
+#restofpage
+{
+    top: 8vh;
+    height: 92vh;
     width: 100vw;
 }
 .navelement
