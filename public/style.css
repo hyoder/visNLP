@@ -25,10 +25,10 @@ h1
 .navelement
 {
     background-color: darkred;
-    border-bottom: 10px solid #000000;
-    border-left: 5px solid #000000;
-    border-right: 5px solid #000000;
-    border-top: 10px solid #000000;
+    border-bottom: 1vh solid #000000;
+    border-left: 0.5vh solid #000000;
+    border-right: 0.5vh solid #000000;
+    border-top: 1vh solid #000000;
     box-sizing: border-box;
     color: whitesmoke;
     display: inline-flex;
