@@ -2,7 +2,7 @@
 body { overflow: hidden; }
 h1
 {
-    font-size: 1.5vw;
+    font-size: 1.35vw;
     margin: auto;
     text-align: center;
 }
@@ -24,7 +24,7 @@ h1
 }
 .navelement
 {
-    background-color: darkred;
+    background-color: #8b0000;
     border-bottom: 1vh solid #000000;
     border-left: 0.5vh solid #000000;
     border-right: 0.5vh solid #000000;
@@ -35,4 +35,8 @@ h1
     height: 100%;
     vertical-align: middle; 
     width: 17vw;
+}
+.navelement:hover
+{
+    background-color: #8b3535;
 }
