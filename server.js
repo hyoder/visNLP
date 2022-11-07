@@ -7,8 +7,9 @@ const express = require( 'express' ),
 app.use( bodyp.json() );
 app.use( favicon( path.join( __dirname, 'public', 'favicon.ico' ) ) );
 app.use( express.static( path.join( __dirname + '/public' ) ) );
+app.use( express.static( path.join( __dirname + '/public' + '/views' ) ) );
 
-app.get('/',     ( req, res ) => { res.render( "index",      { msg: "", layout: false } ); } );
+app.get('/',     ( req, res ) => { res.render( "index",       { msg: "", layout: false } ); } );
 app.get('/w2v1', ( req, res ) => { res.render( "w2v1", { msg: "", layout: false } ); } );
 app.get('/w2v2', ( req, res ) => { res.render( "w2v2", { msg: "", layout: false } ); } );
 app.get('/p2v1', ( req, res ) => { res.render( "p2v1", { msg: "", layout: false } ); } );
