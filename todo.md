@@ -21,4 +21,5 @@ pages:
         - dm:                       not done
             - 
     - applications:                 not done
-        - 
+
+![layout](public/assets/layout.png)
