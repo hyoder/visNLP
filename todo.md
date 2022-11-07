@@ -21,5 +21,6 @@ pages:
         - dm:                       not done
             - 
     - applications:                 not done
+- adam optimizer:                   not done
 
 ![layout](public/assets/layout.png)
