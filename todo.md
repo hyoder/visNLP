@@ -25,8 +25,8 @@ pages:
         - dm:                       not done
             - 
     - applications:                 not done
-        - fake news (para2vec):      not done
-            - consistet with para2vec:       not done
+        - fake news (para2vec):     not done
+            - consistent with p2v:  not done
 - adam optimizer:                   not done
 
 ![layout](public/assets/layout.png)
