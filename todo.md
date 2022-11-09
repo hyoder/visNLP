@@ -13,7 +13,11 @@ pages:
             - loss / adam:          not done
             - output:               not done
     - applications:                 not done
-        - 
+        - song2vec (word2vec)       not done
+            - preprocessing:        not done
+            - train/model loop:     not done
+            - loss / adam:          not done
+            - output:               not done
 - para2vec:                         not done
     - learning:                     not done
         - dbow:                     not done
@@ -21,6 +25,8 @@ pages:
         - dm:                       not done
             - 
     - applications:                 not done
+        - fake news (para2vec)      not done
+            - consistet with para2vec       not done
 - adam optimizer:                   not done
 
 ![layout](public/assets/layout.png)
