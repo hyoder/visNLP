@@ -2,18 +2,17 @@ pages:
 - homepage:                         not done
 - word2vec:                         not done
     - learning:                     not done
+            - preprocessing         not done
         - cbow:                     not done
-            - preprocessing:        not done
             - train/model loop:     not done
             - loss / adam:          not done
             - output:               not done
         - skipgram:                 not done
-            - preprocessing:        not done
             - train/model loop:     not done
             - loss / adam:          not done
             - output:               not done
     - applications:                 not done
-        - song2vec (word2vec):       not done
+        - song2vec (word2vec):      not done
             - preprocessing:        not done
             - train/model loop:     not done
             - loss / adam:          not done
