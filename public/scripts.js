@@ -11,9 +11,9 @@ w2vbtn2.addEventListener('click', () => { fetch( '/w2v2', { method:'GET', } ).th
 p2vbtn1.addEventListener('click', () => { fetch( '/p2v1', { method:'GET', } ).then( response => response.json ); }, false );
 p2vbtn2.addEventListener('click', () => { fetch( '/p2v2', { method:'GET', } ).then( response => response.json ); }, false );
 adambtn.addEventListener('click', () => { fetch( '/adam', { method:'GET', } ).then( response => response.json ); }, false );
-homebtn.innerHTML += "\"onclick = window.location = 'https://visnlp.herokuapp.com/';\"";
-w2vbtn1.innerHTML += "\"onclick = window.location = 'https://visnlp.herokuapp.com/w2v1/';\"";
-w2vbtn2.innerHTML += "\"onclick = window.location = 'https://visnlp.herokuapp.com/w2v2/';\"";
-p2vbtn1.innerHTML += "\"onclick = window.location = 'https://visnlp.herokuapp.com/p2v1/';\"";
-p2vbtn2.innerHTML += "\"onclick = window.location = 'https://visnlp.herokuapp.com/p2v2/';\"";
-adambtn.innerHTML += "\"onclick = window.location = 'https://visnlp.herokuapp.com/adam/';\"";
+homebtn.onclick = "window.location = 'https://visnlp.herokuapp.com/';";
+w2vbtn1.onclick = "window.location = 'https://visnlp.herokuapp.com/w2v1/';";
+w2vbtn2.onclick = "window.location = 'https://visnlp.herokuapp.com/w2v2/';";
+p2vbtn1.onclick = "window.location = 'https://visnlp.herokuapp.com/p2v1/';";
+p2vbtn2.onclick = "window.location = 'https://visnlp.herokuapp.com/p2v2/';";
+adambtn.onclick = "window.location = 'https://visnlp.herokuapp.com/adam/';";
