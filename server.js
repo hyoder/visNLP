@@ -10,12 +10,12 @@ app.use( favicon( path.join( __dirname, 'public', 'favicon.ico' ) ) );
 app.use( express.static( path.join( __dirname + '/public' ) ) );
 app.use( express.static( path.join( __dirname + '/public/views' ) ) );
 
-app.get('/',     ( req, res ) => { res.render(      'index', function (err, html) { res.send(html); } ); } );
-app.get('/w2v1', ( req, res ) => { res.render('/views/w2v1', function (err, html) { res.send(html); } ); } );
-app.get('/w2v2', ( req, res ) => { res.render('/views/w2v2', function (err, html) { res.send(html); } ); } );
-app.get('/p2v1', ( req, res ) => { res.render('/views/p2v1', function (err, html) { res.send(html); } ); } );
-app.get('/p2v2', ( req, res ) => { res.render('/views/p2v2', function (err, html) { res.send(html); } ); } );
-app.get('/adam', ( req, res ) => { res.render('/views/adam', function (err, html) { res.send(html); } ); } );
+app.get('/',     ( req, res ) => { res.render(      'index.html', function (err, html) { res.send(html); } ); } );
+app.get('/w2v1', ( req, res ) => { res.render('/views/w2v1.html', function (err, html) { res.send(html); } ); } );
+app.get('/w2v2', ( req, res ) => { res.render('/views/w2v2.html', function (err, html) { res.send(html); } ); } );
+app.get('/p2v1', ( req, res ) => { res.render('/views/p2v1.html', function (err, html) { res.send(html); } ); } );
+app.get('/p2v2', ( req, res ) => { res.render('/views/p2v2.html', function (err, html) { res.send(html); } ); } );
+app.get('/adam', ( req, res ) => { res.render('/views/adam.html', function (err, html) { res.send(html); } ); } );
 
 /*
 app.use('/', router);
