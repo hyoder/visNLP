@@ -9,7 +9,6 @@ app.use( bodyp.json() );
 app.use( favicon( path.join( __dirname, 'public', 'favicon.ico' ) ) );
 app.use( express.static( path.join( __dirname + '/public' ) ) );
 app.set( "views", path.join( __dirname + "/public/views" ) );
-app.use( "views" );
 
 app.get('/',     ( req, res ) => { res.render( "index", { msg: "", layout: false } ); } );
 app.get('/w2v1', ( req, res ) => { res.render( "w2v1",  { msg: "", layout: false } ); } );
