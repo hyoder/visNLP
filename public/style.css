@@ -5,6 +5,10 @@ h1 {
     margin: auto;
     text-align: center;
 }
+button {
+    height: 7vh;
+    width: 25vw;
+}
 #navbar
 {
     top: 0px;
@@ -19,6 +23,11 @@ h1 {
     bottom: 0px;
     height: 92vh;
     position: fixed;
+    width: 100vw;
+}
+#btn_holder
+{
+    left: 25vw;
     width: 100vw;
 }
 .navelement
