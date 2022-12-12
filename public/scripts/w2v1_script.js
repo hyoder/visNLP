@@ -27,4 +27,4 @@ console.log(canv.attributes);
 console.log("ok");
 console.log(canv.dataset);
 //canv.attributes.dataset.status.addEventListener( "change", () => { canv_updater( canv.dataset.status ); } );
-window.onload = (e) => { console.log('page loaded'); canv_updater("init"); };
+window.onload = (e) => { console.log('page loaded'); canv_updater( canv.dataset.status ); };
