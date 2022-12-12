@@ -1,4 +1,5 @@
 const canv = document.getElementById( "w2v_canv" );
+console.log('init2');
 function canv_init()
 {
     canv.innerHTML  = "<h1>begin</h1>";
@@ -12,14 +13,17 @@ function canv_init()
     cbow_btn.addEventListener( "click", () => { canv.dataset.status = "onehot"; canv.dataset.mode = "cbow"; } );
     skip_btn.addEventListener( "click", () => { canv.dataset.status = "onehot"; canv.dataset.mode = "skipgram"; } );
 }
-function canv_init()
+function canv_onehot()
 {
     canv.innerHTML  = "";
 }
 function canv_updater( status )
 {
-         if( status === "init" )   {   init_canv(); }
-    else if( status === "onehot" ) { onehot_canv(); }
+    switch( status )
+    {
+        case "init":    { canv_init(); }
+        case 'onehot':  { canv_onehot(); }
+    }
 }
-canv.status.addEventListener( "change", () => { canv_updater(canv.dataset.status); } );
-window.onload = (e) => { console.log('init'); canv_updater("init"); };
+canv.dataset.status.addEventListener( "change", () => { canv_updater( canv.dataset.status ); } );
+window.onload = (e) => { console.log('init1'); canv_updater("init"); };
