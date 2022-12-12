@@ -21,5 +21,5 @@ function canv_updater( status )
          if( status === "init" )   {   init_canv(); }
     else if( status === "onehot" ) { onehot_canv(); }
 }
-canv.dataset.status.addEventListener( "change", () => { canv_updater(canv.dataset.status); } );
+canv.status.addEventListener( "change", () => { canv_updater(canv.dataset.status); } );
 window.onload = (e) => { console.log('init'); canv_updater("init"); };
