@@ -1,42 +1,51 @@
-* { margin: 0; padding: 0; }
-body { overflow: hidden; }
-h1 {
-    font-size: 1.35vw;
-    margin: auto;
+*
+{
+    margin:  0;
+    padding: 0;
+}
+body
+{
+    overflow: hidden;
+}
+h1
+{
+    font-size:  1.35vw;
+    margin:       auto;
     text-align: center;
 }
-button {
+button
+{
     height: 7vh;
     width: 25vw;
 }
 #navbar
 {
-    top: 0px;
-    display: flex;
-    height: 8vh;
+    top:        0px;
+    display:   flex;
+    height:     8vh;
     position: fixed;
-    width: 100vw;
+    width:    100vw;
 }
 #restofpage
 {
     background-color: lightgrey;
-    bottom: 0px;
-    height: 92vh;
+    bottom:     0px;
+    height:    92vh;
     position: fixed;
-    width: 100vw;
+    width:    100vw;
 }
-#btn_holder
+#w2v_canv
 {
-    left: 25vw;
+    text-align: center;
     width: 100vw;
 }
 .navelement
 {
     background-color: #8b0000;
-    border-bottom: 1vh solid #000000;
-    border-left: 0.5vh solid #000000;
+    border-bottom:  1vh solid #000000;
+    border-left:  0.5vh solid #000000;
     border-right: 0.5vh solid #000000;
-    border-top: 1vh solid #000000;
+    border-top:     1vh solid #000000;
     box-sizing: border-box;
     color: whitesmoke;
     display: inline-flex;
