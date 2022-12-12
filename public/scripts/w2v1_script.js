@@ -24,8 +24,5 @@ function canv_updater( status )
         case 'onehot':  { canv_onehot(); }
     }
 }
-console.log(canv.attributes);
-console.log("ok");
-console.log(canv.dataset);
-//canv.dataset.status.addEventListener( "change", () => { canv_updater( canv.dataset.status ); } );
+canv.dataset.status.addEventListener( "change", () => { console.log( canv.dataset.status ); canv_updater( canv.dataset.status ); } );
 window.onload = (e) => { console.log('page loaded'); canv_updater( canv.dataset.status ); };
