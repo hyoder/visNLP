@@ -22,4 +22,4 @@ function updater( status )
     else if( status === "onehot" ) { onehot_canv(); }
 }
 canv.dataset.status.addEventListener( "change", () => { updater(canv.dataset.status); } );
-window.onload = (e) => { updater("init"); }
+window.onload = (e) => { console.log('init'); updater("init"); }
