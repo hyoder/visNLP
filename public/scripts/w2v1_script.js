@@ -1,5 +1,6 @@
 const canv = document.getElementById( "w2v_canv" );
 console.log('init2');
+canv_init();
 function canv_init()
 {
     canv.innerHTML  = "<h1>begin</h1>";
