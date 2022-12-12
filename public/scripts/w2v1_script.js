@@ -17,6 +17,7 @@ function canv_onehot()
 }
 function canv_updater( status )
 {
+    console.log("updater");
     if( status === "init" ) { canv_init(); }
     switch( status )
     {
@@ -24,5 +25,5 @@ function canv_updater( status )
         case 'onehot':  { canv_onehot(); }
     }
 }
-canv.dataset.status.addEventListener( "change", () => { console.log( canv.dataset.status ); canv_updater( canv.dataset.status ); } );
-window.onload = (e) => { console.log('page loaded'); canv_updater( canv.dataset.status ); };
+canv.dataset.status.addEventListener( "change", () => { canv_updater( canv.dataset.status ); } );
+window.onload = (e) => { console.log('page loaded'); console.log( canv.dataset.status ); canv_updater( canv.dataset.status ); };
