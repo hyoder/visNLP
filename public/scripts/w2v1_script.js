@@ -1,4 +1,5 @@
-const canv = document.getElementById( "w2v_canv" );
+const canv = document.getElementById( "w2v_canv" ),
+    canv_status = canv.dataset.status;
 function canv_init()
 {
     canv.innerHTML  = "<h1>begin</h1>";
@@ -29,4 +30,4 @@ window.onload = (e) => {
     console.log('page loaded');
     canv_init();
 };
-canv.dataset.status.addEventListener( "change", () => { canv_updater( canv.dataset.status ); } );
+canv_status.addEventListener( "change", () => { canv_updater( canv.dataset.status ); } );
