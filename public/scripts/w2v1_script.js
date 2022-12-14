@@ -19,8 +19,9 @@ function canv_onehot()
 }
 function updater( page_status )
 {
-    page = statuses[ page_status ];
+    let page = statuses[ page_status ];
     console.log("updater");
+    console.log(page);
     switch( page )
     {
         case "init":    { canv_init();   }
