@@ -1,7 +1,7 @@
-const  canv = document.getElementById( "w2v_canv" ),
-page_status = 0,
-   statuses = ["init", "onehot"];
-function canv_init()
+const      canv = document.getElementById( "w2v_canv" ),
+       statuses = ["init", "onehot", "textprep"];
+let page_status = 0;
+function init()
 {
     canv.innerHTML  = "<h1>begin</h1>"
     canv.innerHTML += "<div style=\"height:3vh;\"></div>"
@@ -13,7 +13,11 @@ function canv_init()
     cbow_btn.addEventListener( "click", () => { updater(page_status++); canv.dataset.mode = "cbow"; } );
     skip_btn.addEventListener( "click", () => { updater(page_status++); canv.dataset.mode = "skipgram"; } );
 }
-function canv_onehot()
+function onehot()
+{
+    canv.innerHTML  = "";
+}
+function textprep()
 {
     canv.innerHTML  = "";
 }
@@ -24,8 +28,9 @@ function updater( page_status )
     console.log(page);
     switch( page )
     {
-        case   "init":   canv_init(); break;
-        case "onehot": canv_onehot(); break;
+        case   "init":       init(); break;
+        case "onehot":     onehot(); break;
+        case "textprep": textprep(); break;
     }
 }
 window.onload = (e) => {
