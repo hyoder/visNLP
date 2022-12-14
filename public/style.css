@@ -21,9 +21,11 @@ button
 #back_btn
 {
     display: none;
+    height: 5vh;
     position: fixed;
     right: 1vw;
-    top: 12vh;
+    top: 9vh;
+    width: 10vw;
 }
 #navbar
 {
