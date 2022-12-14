@@ -2,21 +2,21 @@ const canv = document.getElementById( "w2v_canv" ),
     canv_status = canv.dataset.status;
 function canv_init()
 {
-    canv.innerHTML  = "<h1>begin</h1>";
-    canv.innerHTML += "<div style=\"height:3vh;\"></div>";
-    canv.innerHTML += "<div id = \"btn_holder\">";
+    canv.innerHTML  = "<h1>begin</h1>"
+    canv.innerHTML += "<div style=\"height:3vh;\"></div>"
+    canv.innerHTML += "<div id = \"btn_holder\">"
     canv.innerHTML += "<button id = \"cbow_btn\">CBOW</button>"
     canv.innerHTML += "<button id = \"skip_btn\">skip-gram</button></div>"
     const cbow_btn = document.getElementById( "cbow_btn" ),
           skip_btn = document.getElementById( "skip_btn" );
-    cbow_btn.addEventListener( "click", () => { canv.dataset.status = "onehot"; canv.dataset.mode = "cbow"; } );
-    skip_btn.addEventListener( "click", () => { canv.dataset.status = "onehot"; canv.dataset.mode = "skipgram"; } );
+    cbow_btn.addEventListener( "click", () => { updater("onehot"); canv.dataset.mode = "cbow"; } );
+    skip_btn.addEventListener( "click", () => { updater("onehot"); canv.dataset.mode = "skipgram"; } );
 }
 function canv_onehot()
 {
     canv.innerHTML  = "";
 }
-function canv_updater( status )
+function updater( status )
 {
     console.log("updater");
     if( status === "init" ) { canv_init(); }
@@ -30,4 +30,4 @@ window.onload = (e) => {
     console.log('page loaded');
     canv_init();
 };
-canv_status.addEventListener( "change", () => { canv_updater( canv.dataset.status ); } );
+canv_status.addEventListener( "change", () => { updater("init"); } );
