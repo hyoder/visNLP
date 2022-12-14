@@ -24,8 +24,8 @@ function updater( page_status )
     console.log(page);
     switch( page )
     {
-        case init:    { canv_init();   }
-        case onehot:  { canv_onehot(); }
+        case   "init":   canv_init(); break;
+        case "onehot": canv_onehot(); break;
     }
 }
 window.onload = (e) => {
