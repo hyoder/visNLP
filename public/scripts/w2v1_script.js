@@ -10,8 +10,8 @@ function init()
     canv.innerHTML += "<button id = \"skip_btn\">skip-gram</button></div>"
     const cbow_btn = document.getElementById( "cbow_btn" ),
           skip_btn = document.getElementById( "skip_btn" );
-    cbow_btn.addEventListener( "click", () => { page_status++; updater(page_status); canv.dataset.mode = "cbow"; } );
-    skip_btn.addEventListener( "click", () => { page_status++; updater(page_status); canv.dataset.mode = "skipgram"; } );
+    cbow_btn.addEventListener( "click", () => { page_status++; canv.dataset.mode = "cbow"; } );
+    skip_btn.addEventListener( "click", () => { page_status++; canv.dataset.mode = "skipgram"; } );
 }
 function onehot()
 {
@@ -37,3 +37,4 @@ window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
 };
+page_status.addEventListener("change", () => { updater( page_status ); })
