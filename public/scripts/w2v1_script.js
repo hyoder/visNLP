@@ -10,8 +10,8 @@ function canv_init()
     canv.innerHTML += "<button id = \"skip_btn\">skip-gram</button></div>"
     const cbow_btn = document.getElementById( "cbow_btn" ),
           skip_btn = document.getElementById( "skip_btn" );
-    cbow_btn.addEventListener( "click", () => { updater("onehot"); canv.dataset.mode = "cbow"; } );
-    skip_btn.addEventListener( "click", () => { updater("onehot"); canv.dataset.mode = "skipgram"; } );
+    cbow_btn.addEventListener( "click", () => { updater(page_status++); canv.dataset.mode = "cbow"; } );
+    skip_btn.addEventListener( "click", () => { updater(page_status++); canv.dataset.mode = "skipgram"; } );
 }
 function canv_onehot()
 {
