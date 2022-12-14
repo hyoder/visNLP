@@ -18,6 +18,13 @@ button
     height: 7vh;
     width: 25vw;
 }
+#back_btn
+{
+    display: none;
+    position: fixed;
+    right: 1vw;
+    top: 12vh;
+}
 #navbar
 {
     top:        0px;

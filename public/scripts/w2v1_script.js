@@ -1,4 +1,5 @@
 const      canv = document.getElementById( "w2v_canv" ),
+       back_btn = document.getElementById( "back_btn" ),
        statuses = ["init", "onehot", "textprep"];
 let page_status = 0;
 function init()
@@ -10,8 +11,8 @@ function init()
     canv.innerHTML += "<button id = \"skip_btn\">skip-gram</button></div>"
     const cbow_btn = document.getElementById( "cbow_btn" ),
           skip_btn = document.getElementById( "skip_btn" );
-    cbow_btn.addEventListener( "click", () => { page_status++; canv.dataset.mode = "cbow"; } );
-    skip_btn.addEventListener( "click", () => { page_status++; canv.dataset.mode = "skipgram"; } );
+    cbow_btn.addEventListener( "click", () => { updater("r"); canv.dataset.mode = "cbow"; } );
+    skip_btn.addEventListener( "click", () => { updater("r"); canv.dataset.mode = "skipgram"; } );
 }
 function onehot()
 {
@@ -21,11 +22,13 @@ function textprep()
 {
     canv.innerHTML  = "";
 }
-function updater( page_status )
+function updater( r_or_l )
 {
+    if ( r_or_l === "r" ) { page_status++; }
+    if ( r_or_l === "l" ) { page_status--; }
+    if( page_status > 0 ) { back_btn.style.display = "inline-block"; }
+    else                  { back_btn.style.display = "none"; }
     let page = statuses[ page_status ];
-    console.log("updater");
-    console.log(page);
     switch( page )
     {
         case   "init":       init(); break;
@@ -37,4 +40,4 @@ window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
 };
-page_status.addEventListener("change", () => { updater( page_status ); })
+back_btn.addEventListener( "click", () => { updater("l"); } )
