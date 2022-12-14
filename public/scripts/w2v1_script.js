@@ -26,4 +26,9 @@ function canv_updater( status )
     }
 }
 canv.dataset.status.addEventListener( "change", () => { canv_updater( canv.dataset.status ); } );
-window.onload = (e) => { console.log('page loaded'); console.log( canv.dataset.status ); canv_updater( canv.dataset.status ); };
+window.onload = (e) => {
+    console.log('page loaded');
+    canv.dataset.status = "init";
+    canv.dataset.mode   = "init";
+    canv_updater( canv.dataset.status );
+};
