@@ -1,5 +1,6 @@
-const canv = document.getElementById( "w2v_canv" ),
-    canv_status = canv.dataset.status;
+const  canv = document.getElementById( "w2v_canv" ),
+page_status = 0,
+   statuses = ["init", "onehot"];
 function canv_init()
 {
     canv.innerHTML  = "<h1>begin</h1>"
@@ -16,11 +17,11 @@ function canv_onehot()
 {
     canv.innerHTML  = "";
 }
-function updater( status )
+function updater( page_status )
 {
+    page = statuses[ page_status ];
     console.log("updater");
-    if( status === "init" ) { canv_init(); }
-    switch( status )
+    switch( page )
     {
         case "init":    { canv_init();   }
         case 'onehot':  { canv_onehot(); }
@@ -28,6 +29,5 @@ function updater( status )
 }
 window.onload = (e) => {
     console.log('page loaded');
-    canv_init();
+    updater(page_status);
 };
-canv_status.addEventListener( "change", () => { updater("init"); } );
