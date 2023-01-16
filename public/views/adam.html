@@ -3,6 +3,8 @@
     <head>
         <title>adam optimizer - visNLP</title>
         <link rel="stylesheet" href="../style.css"/>
+        <script src="/public/libs/plotly.min.js"></script>
+        <script src="/public/scripts/surfaceplot.js"></script>
     </head>
     <body>
         <div id="navbar">
@@ -14,10 +16,46 @@
             <button class="navelement" id="navadam"  onclick="window.location='/public/views/adam.html'" ><h1>adam optimizer</h1></button>
         </div>
         <div id="restofpage">
+
             <div style="height:3vh;"></div>
             <h2>the adam optimizer!</h2>
-            <div style="height:10vh;"></div>
-            <h2>... someday</h2>
+
+            <div style="height:3vh;"></div>
+            <h2>some dynamic representation of tensor algebra: TODO</h2>
+
+            <div class="table">
+                <div>-0.111</div>
+                <div>-0.111</div>
+                <div>-0.111</div>
+                
+                <div>-0.123</div>
+                <div>&nbsp0.123</div>
+                <div>-0.123</div>
+                
+                <div>-0.333</div>
+                <div>-0.333</div>
+                <div>-0.333</div>
+                
+                <div>-0.444</div>
+                <div>-0.444</div>
+                <div>-0.464</div>
+
+                <link rel="stylesheet" href="../stylesheets/adamstyle.css"/>
+            </div>
+
+            <div style="height:3vh;"></div>
+            <h2>Example random surface with plotly:</h2>
+
+            <div class="wrapper">
+                <div id="chart"></div>
+                <script>
+                    Plotly.newPlot('chart',[{
+                        z: getData(),
+                        type: 'surface'
+                    }]);
+                </script>
+            </div>
+
         </div>
         <script src="../scripts.js"></script>
     </body>
