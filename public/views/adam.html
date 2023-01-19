@@ -17,44 +17,63 @@
         </div>
         <div id="restofpage">
 
-            <div style="height:3vh;"></div>
-            <h2>the adam optimizer!</h2>
+            <div class="page-title">Adam optimizer overview page</div>
+
+            <button id="navaadam"  onclick="window.location='/public/views/adamstep.html'" >
+                <h1>Adam - Step by Step</h1>
+            </button>
+
+            <h2 style="padding: 2%">TODO: Adam Overview + Diagram</h2>
 
             <div style="height:3vh;"></div>
-            <h2>some dynamic representation of tensor algebra: TODO</h2>
 
-            <div class="table">
-                <div>-0.111</div>
-                <div>-0.111</div>
-                <div>-0.111</div>
-                
-                <div>-0.123</div>
-                <div>&nbsp0.123</div>
-                <div>-0.123</div>
-                
-                <div>-0.333</div>
-                <div>-0.333</div>
-                <div>-0.333</div>
-                
-                <div>-0.444</div>
-                <div>-0.444</div>
-                <div>-0.464</div>
-
-                <link rel="stylesheet" href="../stylesheets/adamstyle.css"/>
-            </div>
-
-            <div style="height:3vh;"></div>
-            <h2>Example random surface with plotly:</h2>
+            <h2 style="padding: 2%">Demo: points moving on random surface with Plotly:</h2>
 
             <div class="wrapper">
                 <div id="chart"></div>
+
+                <button id="play-button">Play</button>
+                <button id="stop-button">Stop</button>
+
                 <script>
-                    Plotly.newPlot('chart',[{
-                        z: getData(),
-                        type: 'surface'
-                    }]);
+
+                    Plotly.newPlot('chart', getNewData(), getScaleLayout());
+
+                    var originalData = [getSurface()];
+                    var originalLayout = [getScaleLayout()];
+
+                    var frames = [
+                        {data: originalData.concat([{x: [1], y: [2], z: [1.3]}]), layout: originalLayout.concat([{title: "Frame 1"}])},
+                        {data: originalData.concat([{x: [2], y: [3], z: [1.1]}]), layout: originalLayout.concat([{title: "Frame 2"}])}
+                    ];
+
+                    document.getElementById("play-button").onclick = function() {
+                        var i = 0;
+                        function animate() {
+                            Plotly.animate('chart', frames[i], {
+                                transition: {
+                                    duration: 500,
+                                    easing: 'cubic-in-out'
+                                },
+                                frame: {
+                                    duration: 500
+                                }
+                                });
+                                i = (i + 1) % frames.length;
+                            }
+                        animate();
+                        animationInterval = setInterval(animate, 500);
+                        Plotly.relayout('chart', {dragmode: 'turntable'});
+                    };
+
+                    document.getElementById("stop-button").onclick = function() {
+                        clearInterval(animationInterval);
+                    };
+
                 </script>
             </div>
+
+            <h2 style="padding: 2%">TODO - integrate the real loss data to plot</h2>
 
         </div>
         <script src="../scripts.js"></script>
