@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>adam optimizer step by step - visNLP</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div id="navbar">
+        <button class="navelement" id="navhome" onclick="window.location='/'">
+            <h1>home</h1>
+        </button>
+        <button class="navelement" id="navword1" onclick="window.location='/public/views/w2v1.html'">
+            <h1>word2vec - learning</h1>
+        </button>
+        <button class="navelement" id="navword2" onclick="window.location='/public/views/w2v2.html'">
+            <h1>word2vec - applications</h1>
+        </button>
+        <button class="navelement" id="navpara1" onclick="window.location='/public/views/p2v1.html'">
+            <h1>para2vec - learning</h1>
+        </button>
+        <button class="navelement" id="navpara2" onclick="window.location='/public/views/p2v2.html'">
+            <h1>para2vec - applications</h1>
+        </button>
+        <button class="navelement" id="navadam" onclick="window.location='/public/views/adam.html'">
+            <h1>adam optimizer</h1>
+        </button>
+    </div>
+    <div id="restofpage">
+
+        <div class="page-title">Adam optimizer - Step by Step page</div>
+
+        <button id="navaadam2" onclick="window.location='/public/views/adam.html'">
+            <h1>Adam - Overview</h1>
+        </button>
+
+        <h2>TODO: dynamic representation of atomic Adam steps</h2>
+        <h2>TODO: add slider to better show progress within overall process</h2>
+
+        <section class="slider-wrapper">
+            <button class="slide-arrow" id="slide-arrow-prev">
+                &#8249;
+            </button>
+            <button class="slide-arrow" id="slide-arrow-next">
+                &#8250;
+            </button>
+            <ul class="slides-container" id="slides-container">
+                <li class="slide">
+                    <h1 style="font-size: 150%">steps applied on data - 1</h1> 
+
+                    <div class="table">
+                        <div>-0.111</div>
+                        <div>-0.111</div>
+                        <div>-0.111</div>
+            
+                        <div>-0.123</div>
+                        <div>&nbsp0.123</div>
+                        <div>-0.123</div>
+            
+                        <div>-0.333</div>
+                        <div>-0.333</div>
+                        <div>-0.333</div>
+            
+                        <div>-0.444</div>
+                        <div>-0.444</div>
+                        <div>-0.464</div>
+            
+                        <link rel="stylesheet" href="../stylesheets/adamstyle.css" />
+                    </div>
+
+                    <h1 style="font-size: 150%">corresponsing equasion component</h1>
+                    <h1 style="font-size: 150%">TODO</h1> 
+                    <h1 style="font-size: 150%">corresponding explanation / reasoning</h1>
+                    <h1 style="font-size: 150%">TODO</h1>   
+                </li>
+                <li class="slide">
+                    <h1 style="font-size: 150%">steps applied on data - 1</h1> 
+
+                    <div class="table">
+                        <div>-0.222</div>
+                        <div>-0.222</div>
+                        <div>-0.222</div>
+            
+                        <div>-0.222</div>
+                        <div>&nbsp0.222</div>
+                        <div>-0.222</div>
+            
+                        <div>-0.222</div>
+                        <div>-0.222</div>
+                        <div>-0.222</div>
+            
+                        <div>-0.222</div>
+                        <div>-0.222</div>
+                        <div>-0.222</div>
+            
+                        <link rel="stylesheet" href="../stylesheets/adamstyle.css" />
+                    </div>
+
+                    <h1 style="font-size: 150%">corresponsing equasion component</h1>
+                    <h1 style="font-size: 150%">TODO</h1> 
+                    <h1 style="font-size: 150%">corresponding explanation / reasoning</h1>
+                    <h1 style="font-size: 150%">TODO</h1>   
+                </li>
+                <li class="slide">
+                    <h1 style="font-size: 150%">steps applied on data - 3</h1> 
+
+                    <div class="table">
+                        <div>-0.333</div>
+                        <div>-0.333</div>
+                        <div>-0.333</div>
+            
+                        <div>-0.333</div>
+                        <div>&nbsp0.333</div>
+                        <div>-0.333</div>
+            
+                        <div>-0.333</div>
+                        <div>-0.333</div>
+                        <div>-0.333</div>
+            
+                        <div>-0.333</div>
+                        <div>-0.333</div>
+                        <div>-0.333</div>
+            
+                        <link rel="stylesheet" href="../stylesheets/adamstyle.css" />
+                    </div>
+
+                    <h1 style="font-size: 150%">corresponsing equasion component</h1>
+                    <h1 style="font-size: 150%">TODO</h1> 
+                    <h1 style="font-size: 150%">corresponding explanation / reasoning</h1>
+                    <h1 style="font-size: 150%">TODO</h1>   
+                </li>
+                <li class="slide"></li>
+            </ul>
+        </section>
+
+        <script>
+            const slidesContainer = document.getElementById("slides-container");
+            const slide = document.querySelector(".slide");
+            const prevButton = document.getElementById("slide-arrow-prev");
+            const nextButton = document.getElementById("slide-arrow-next");
+
+            nextButton.addEventListener("click", () => {
+                const slideWidth = slide.clientWidth;
+                slidesContainer.scrollLeft += slideWidth;
+            });
+
+            prevButton.addEventListener("click", () => {
+                const slideWidth = slide.clientWidth;
+                slidesContainer.scrollLeft -= slideWidth;
+            });
+        </script>
+
+        
+
+        <div style="height:3vh;"></div>
+        <h2>Demo: points moving on random surface with Plotly:</h2>
+
+    </div>
+    <script src="../scripts.js"></script>
+</body>
+
+</html>
