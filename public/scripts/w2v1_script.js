@@ -2,6 +2,7 @@ const      canv = document.getElementById( "w2v_canv" ),
        back_btn = document.getElementById( "back_btn" ),
        statuses = ["init", "onehot", "textprep"];
 let page_status = 0;
+back_btn.addEventListener( "click", () => { updater("l"); } )
 function init()
 {
     canv.innerHTML  = "<h1>begin</h1>"
@@ -27,8 +28,8 @@ function textprep()
 }
 function updater( val )
 {
-    if ( val ==  1 ) { page_status++; console.log(page_status); }
-    if ( val == -1 ) { page_status--; console.log(page_status); }
+    if ( val ==  1 ) { page_status++; }
+    if ( val == -1 ) { page_status--; }
     if( page_status > 0 ) { back_btn.style.display = "inline-block"; }
     else                  { back_btn.style.display = "none"; }
     let page = statuses[ page_status ];
@@ -45,4 +46,3 @@ window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
 };
-back_btn.addEventListener( "click", () => { updater("l"); } )
