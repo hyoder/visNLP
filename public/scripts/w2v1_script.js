@@ -2,7 +2,6 @@ const      canv = document.getElementById( "w2v_canv" ),
        back_btn = document.getElementById( "back_btn" ),
        statuses = ["init", "onehot", "textprep"];
 let page_status = 0;
-back_btn.addEventListener( "click", () => { updater("l"); } )
 function init()
 {
     canv.innerHTML  = "<h1>begin</h1>"
@@ -46,3 +45,4 @@ window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
 };
+back_btn.addEventListener( "click", () => { updater(-1); } )
