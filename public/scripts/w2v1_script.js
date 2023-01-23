@@ -27,15 +27,17 @@ function textprep()
 }
 function updater( val )
 {
-    if ( val == 1 ) { page_status++; }
-    if ( val == -1 ) { page_status--; }
+    if ( val ==  1 ) { page_status++; console.log(page_status); }
+    if ( val == -1 ) { page_status--; console.log(page_status); }
     if( page_status > 0 ) { back_btn.style.display = "inline-block"; }
     else                  { back_btn.style.display = "none"; }
     let page = statuses[ page_status ];
+    console.log("mode: " + canv.dataset.mode );
+    console.log("page: " + page);
     switch( page )
     {
-        case   "init":       init(); break;
-        case "onehot":     onehot(); break;
+        case     "init":     init(); break;
+        case   "onehot":   onehot(); break;
         case "textprep": textprep(); break;
     }
 }
