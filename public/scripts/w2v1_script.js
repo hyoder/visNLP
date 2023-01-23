@@ -11,8 +11,8 @@ function init()
     canv.innerHTML += "<button id = \"skip_btn\">skip-gram</button></div>"
     const cbow_btn = document.getElementById( "cbow_btn" ),
           skip_btn = document.getElementById( "skip_btn" );
-    cbow_btn.addEventListener( "click", () => { updater(1); canv.dataset.mode = "cbow"; } );
-    skip_btn.addEventListener( "click", () => { updater(1); canv.dataset.mode = "skipgram"; } );
+    cbow_btn.addEventListener( "click", () => { canv.dataset.mode = "cbow";     updater(1); } );
+    skip_btn.addEventListener( "click", () => { canv.dataset.mode = "skipgram"; updater(1); } );
 }
 function onehot()
 {
