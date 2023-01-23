@@ -11,21 +11,24 @@ function init()
     canv.innerHTML += "<button id = \"skip_btn\">skip-gram</button></div>"
     const cbow_btn = document.getElementById( "cbow_btn" ),
           skip_btn = document.getElementById( "skip_btn" );
-    cbow_btn.addEventListener( "click", () => { updater("r"); canv.dataset.mode = "cbow"; } );
-    skip_btn.addEventListener( "click", () => { updater("r"); canv.dataset.mode = "skipgram"; } );
+    cbow_btn.addEventListener( "click", () => { updater(1); canv.dataset.mode = "cbow"; } );
+    skip_btn.addEventListener( "click", () => { updater(1); canv.dataset.mode = "skipgram"; } );
 }
 function onehot()
 {
-    canv.innerHTML  = "";
+    canv.innerHTML  = "<h1>what are one-hot encoded vectors?</h1>";
+    if( canv.dataset.mode = "cbow"     ) { canv.innerHTML += "<h3>mode: CBOW</h3>";      }
+    if( canv.dataset.mode = "skipgram" ) { canv.innerHTML += "<h3>mode: skip-gram</h3>"; }
+    canv.innerHTML += "<br/><h2>it's easy</h2>";
 }
 function textprep()
 {
     canv.innerHTML  = "";
 }
-function updater( r_or_l )
+function updater( val )
 {
-    if ( r_or_l === "r" ) { page_status++; }
-    if ( r_or_l === "l" ) { page_status--; }
+    if ( val == 1 ) { page_status++; }
+    if ( val == -1 ) { page_status--; }
     if( page_status > 0 ) { back_btn.style.display = "inline-block"; }
     else                  { back_btn.style.display = "none"; }
     let page = statuses[ page_status ];
