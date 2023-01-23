@@ -52,11 +52,11 @@
                         function animate() {
                             Plotly.animate('chart', frames[i], {
                                 transition: {
-                                    duration: 500,
-                                    easing: 'cubic-in-out'
+                                    duration: 2000,
+                                    easing: 'linear'
                                 },
                                 frame: {
-                                    duration: 500
+                                    duration: 300
                                 }
                                 });
                                 i = (i + 1) % frames.length;

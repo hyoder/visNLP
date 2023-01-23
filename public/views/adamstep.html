@@ -4,6 +4,9 @@
 <head>
     <title>adam optimizer step by step - visNLP</title>
     <link rel="stylesheet" href="../style.css" />
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script type="text/javascript" src="/public/scripts/heatmap.js"></script>
 </head>
 
 <body>
@@ -36,6 +39,9 @@
         </button>
 
         <h2>TODO: dynamic representation of atomic Adam steps</h2>
+
+        
+
         <h2>TODO: add slider to better show progress within overall process</h2>
 
         <section class="slider-wrapper">
@@ -49,25 +55,7 @@
                 <li class="slide">
                     <h1 style="font-size: 150%">steps applied on data - 1</h1> 
 
-                    <div class="table">
-                        <div>-0.111</div>
-                        <div>-0.111</div>
-                        <div>-0.111</div>
-            
-                        <div>-0.123</div>
-                        <div>&nbsp0.123</div>
-                        <div>-0.123</div>
-            
-                        <div>-0.333</div>
-                        <div>-0.333</div>
-                        <div>-0.333</div>
-            
-                        <div>-0.444</div>
-                        <div>-0.444</div>
-                        <div>-0.464</div>
-            
-                        <link rel="stylesheet" href="../stylesheets/adamstyle.css" />
-                    </div>
+                    <div id="heatmap"></div>
 
                     <h1 style="font-size: 150%">corresponsing equasion component</h1>
                     <h1 style="font-size: 150%">TODO</h1> 
@@ -158,6 +146,7 @@
 
     </div>
     <script src="../scripts.js"></script>
+    <script type="text/javascript" src="/public/scripts/heatmap.js"></script>
 </body>
 
 </html>
