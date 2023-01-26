@@ -5,6 +5,19 @@ const      canv = document.getElementById( "canv" ),
         fwd_btn = document.getElementById( "fwd_btn" ),
        statuses = ["init", "onehot", "textprep"];
 let page_status = 0;
+function meta()
+{
+    let output  = "<div id=\"meta\">";
+        output += "<h2>word2vec - learning</h2>";
+        output += "<h3>page " + page_status + " out of ??</h3>";
+    if( page_status > 0 )
+    {
+        if( canv.dataset.mode === "cbow"     ) { meta += "<h3>mode: CBOW</h3>";      }
+        if( canv.dataset.mode === "skipgram" ) { meta += "<h3>mode: skip-gram</h3>"; }
+    }
+        output += "</div>"
+    return output;
+}
 function init()
 {
     setfooter( "default" );
@@ -29,19 +42,6 @@ function onehot()
     canv.innerHTML  = meta();
     canv.innerHTML += "<h1>what are one-hot encoded vectors?</h1>";
     canv.innerHTML += "<br/><h2>it's easy</h2>";
-}
-function meta()
-{
-    let output  = "<div id=\"meta\">";
-        output += "<h2>word2vec - learning</h2>";
-        output += "<h3>page " + page_status + " out of ??</h3>";
-    if( page_status > 0 )
-    {
-        if( canv.dataset.mode === "cbow"     ) { meta += "<h3>mode: CBOW</h3>";      }
-        if( canv.dataset.mode === "skipgram" ) { meta += "<h3>mode: skip-gram</h3>"; }
-    }
-        output += "</div>"
-    return output;
 }
 function setfooter( input )
 {
