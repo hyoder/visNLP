@@ -48,13 +48,14 @@ button {
 }
 
 #meta {
-    border: 0.5 dashed #000000;
-    height: 15%;
-    left: 0%;
+    border-bottom: 0.25vh dashed #000000;
+    border-right: 0.25vh dashed #000000;
+    height: 10vh;
+    left: 17vw;
     position: fixed;
     display: flex;
-    top: 0%;
-    width: 20%;
+    top: 8vw;
+    width: 16.25vw;
 }
 
 #navbar {
@@ -87,7 +88,10 @@ button {
 }
 
 #w2v_canv {
+    height: 77vh;
+    position: fixed;
     text-align: center;
+    top: 8vh;
     width: 83vw;
 }
 
