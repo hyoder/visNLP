@@ -6,9 +6,11 @@ function init()
 {
     canv.innerHTML  = "<h1>begin</h1>"
     canv.innerHTML += "<div style=\"height:3vh;\"></div>"
-    canv.innerHTML += "<div id = \"btn_holder\">"
-    canv.innerHTML += "<button id = \"cbow_btn\">CBOW</button>"
-    canv.innerHTML += "<button id = \"skip_btn\">skip-gram</button></div>"
+    let btn_holder  = "<div id = \"btn_holder\">"
+        btn_holder += "<button id = \"cbow_btn\">CBOW</button>"
+        btn_holder += "<button id = \"skip_btn\">skip-gram</button>"
+        btn_holder += "</div>";
+    canv.innerHTML += btn_holder;
     const cbow_btn = document.getElementById( "cbow_btn" ),
           skip_btn = document.getElementById( "skip_btn" );
     cbow_btn.addEventListener( "click", () => { canv.dataset.mode = "cbow";     updater(1); } );
