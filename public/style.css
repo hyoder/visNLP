@@ -30,6 +30,12 @@ button {
     top: 9vh;
     width: 10vw;
 }
+#footer {
+    bottom: 0px;
+    height: 15vh;
+    position: fixed;
+    width: 80vw;
+}
 
 #navbar {
     top: 0px;
@@ -41,10 +47,20 @@ button {
 
 #restofpage {
     background-color: lightgrey;
+    bottom: 15vh;
+    height: 77vh;
+    position: fixed;
+    right: 0px;
+    width: 80vw;
+}
+
+#sidebar {
+    background-color: grey;
     bottom: 0px;
+    left: 0px;
     height: 92vh;
     position: fixed;
-    width: 100vw;
+    width: 20vw;
 }
 
 #w2v_canv {
