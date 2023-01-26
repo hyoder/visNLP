@@ -37,7 +37,9 @@ button {
 }
 #footer {
     background-color: lightgray;
+    border-top: 1vh solid #000000;
     bottom: 0px;
+    box-sizing: border-box;
     display: inline-flex;
     height: 15vh;
     position: fixed;
@@ -64,7 +66,9 @@ button {
 
 #sidebar {
     background-color: grey;
+    border-right: 1vh solid #000000;
     bottom: 0px;
+    box-sizing: border-box;
     display: inline-flex;
     left: 0px;
     height: 92vh;
