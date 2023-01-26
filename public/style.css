@@ -47,6 +47,16 @@ button {
     width: 83vw;
 }
 
+#meta {
+    border: 0.5 dashed #000000;
+    height: 15%;
+    left: 0%;
+    position: fixed;
+    display: flex;
+    top: 0%;
+    width: 20%;
+}
+
 #navbar {
     top: 0px;
     display: flex;

@@ -16,9 +16,13 @@ function init()
 }
 function onehot()
 {
-    canv.innerHTML  = "<h1>what are one-hot encoded vectors?</h1>";
+    canv.innerHTML  = "<div id=\"meta\">";
+    canv.innerHTML += "<h2>word2vec - learning</h2>";
+    canv.innerHTML += "<h3>page 2/??</h3>";
     if( canv.dataset.mode === "cbow"     ) { canv.innerHTML += "<h3>mode: CBOW</h3>";      }
     if( canv.dataset.mode === "skipgram" ) { canv.innerHTML += "<h3>mode: skip-gram</h3>"; }
+    canv.innerHTML += "</div>"
+    canv.innerHTML += "<h1>what are one-hot encoded vectors?</h1>";
     canv.innerHTML += "<br/><h2>it's easy</h2>";
 }
 function textprep()
