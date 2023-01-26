@@ -30,10 +30,11 @@ button {
 #back_btn {
     display: none;
     height: 5vh;
-    left: 1vw;
     position: fixed;
+    right: 7vw;
     top: 9vh;
     width: 5vw;
+    z-index: 2;
 }
 
 #canv {
@@ -42,6 +43,7 @@ button {
     text-align: center;
     top: 8vh;
     width: 83vw;
+    z-index: 1;;
 }
 
 #footer {
@@ -59,10 +61,11 @@ button {
 #fwd_btn {
     display: none;
     height: 5vh;
-    left: 11vw;
     position: fixed;
     top: 9vh;
+    right: 1vw;
     width: 5vw;
+    z-index: 2;
 }
 
 #meta {
