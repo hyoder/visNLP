@@ -2,10 +2,12 @@ const      canv = document.getElementById( "canv" ),
         sidebar = document.getElementById( "sidebar"),
          footer = document.getElementById( "footer"),
        back_btn = document.getElementById( "back_btn" ),
+        fwd_btn = document.getElementById( "fwd_btn" ),
        statuses = ["init", "onehot", "textprep"];
 let page_status = 0;
 function init()
 {
+    setfooter( "default" );
     canv.innerHTML  = meta();
     let btn_holder  = "<div id = \"btn_holder\">"
         btn_holder += "<button id = \"cbow_btn\">CBOW</button>"
@@ -23,6 +25,7 @@ function init()
 }
 function onehot()
 {
+    setfooter( "default" );
     canv.innerHTML  = meta();
     canv.innerHTML += "<h1>what are one-hot encoded vectors?</h1>";
     canv.innerHTML += "<br/><h2>it's easy</h2>";
@@ -68,8 +71,8 @@ function updater( val )
 {
     if ( val ==  1 ) { page_status++; }
     if ( val == -1 ) { page_status--; }
-    if( page_status > 0 ) { back_btn.style.display = "inline-block"; }
-    else                  { back_btn.style.display = "none"; }
+    if( page_status > 0 ) { back_btn.style.display = "inline-block"; fwd_btn.style.display = "inline-block"; }
+    else                  { back_btn.style.display = "none"; fwd_btn.style.display = "none"; }
     let page = statuses[ page_status ];
     console.log("mode: " + canv.dataset.mode );
     console.log("page: " + page);

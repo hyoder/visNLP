@@ -30,10 +30,10 @@ button {
 #back_btn {
     display: none;
     height: 5vh;
+    left: 1vw;
     position: fixed;
-    right: 1vw;
     top: 9vh;
-    width: 10vw;
+    width: 5vw;
 }
 
 #canv {
@@ -54,6 +54,15 @@ button {
     position: fixed;
     right: 0px;
     width: 83vw;
+}
+
+#fwd_btn {
+    display: none;
+    height: 5vh;
+    left: 11vw;
+    position: fixed;
+    top: 9vh;
+    width: 5vw;
 }
 
 #meta {
