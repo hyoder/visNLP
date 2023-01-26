@@ -43,6 +43,7 @@ function onehot()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += "<div style=\"height:15vh\"></div>";
     canv.innerHTML += "<h1>what are one-hot encoded vectors?</h1>";
     canv.innerHTML += "<br/><h2>it's easy</h2>";
 }
