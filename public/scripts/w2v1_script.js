@@ -23,7 +23,9 @@ function init()
     setfooter( "default" );
     canv.dataset.mode = "n/a";
     canv.innerHTML  = meta();
-    let btn_holder  = "<div id = \"btn_holder\">"
+    canv.innerHTML += "<div style=\"height:10vh\"></div>";
+    canv.innerHTML += "<h2>select mode for word2vec:</h2>";
+    let btn_holder  = "<div style=\"position:fixed;right:16.5vw;top:35vh;\">"
         btn_holder += "<button id = \"cbow_btn\">CBOW</button>"
         btn_holder += "<button id = \"skip_btn\">skip-gram</button>"
         btn_holder += "</div>";
