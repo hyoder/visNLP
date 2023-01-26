@@ -1,11 +1,12 @@
-const      canv = document.getElementById( "w2v_canv" ),
+const      canv = document.getElementById( "canv" ),
+        sidebar = document.getElementById( "sidebar"),
+         footer = document.getElementById( "footer"),
        back_btn = document.getElementById( "back_btn" ),
        statuses = ["init", "onehot", "textprep"];
 let page_status = 0;
 function init()
 {
-    canv.innerHTML  = "<h1>begin</h1>"
-    canv.innerHTML += "<div style=\"height:3vh;\"></div>"
+    canv.innerHTML  = meta();
     let btn_holder  = "<div id = \"btn_holder\">"
         btn_holder += "<button id = \"cbow_btn\">CBOW</button>"
         btn_holder += "<button id = \"skip_btn\">skip-gram</button>"
@@ -15,18 +16,49 @@ function init()
           skip_btn = document.getElementById( "skip_btn" );
     cbow_btn.addEventListener( "click", () => { canv.dataset.mode = "cbow";     updater(1); } );
     skip_btn.addEventListener( "click", () => { canv.dataset.mode = "skipgram"; updater(1); } );
+    cbow_btn.addEventListener( "mouseover", () => { setfooter( "cbow" ); } );
+    skip_btn.addEventListener( "mouseover", () => { setfooter( "skip" ); } );
+    cbow_btn.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
+    skip_btn.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
 }
 function onehot()
 {
-    let meta = "<div id=\"meta\">";
-        meta += "<h2>word2vec - learning</h2>";
-        meta += "<h3>page 2/??</h3>";
-    if( canv.dataset.mode === "cbow"     ) { meta += "<h3>mode: CBOW</h3>";      }
-    if( canv.dataset.mode === "skipgram" ) { meta += "<h3>mode: skip-gram</h3>"; }
-        meta += "</div>"
-    canv.innerHTML  = meta;
+    canv.innerHTML  = meta();
     canv.innerHTML += "<h1>what are one-hot encoded vectors?</h1>";
     canv.innerHTML += "<br/><h2>it's easy</h2>";
+}
+function meta()
+{
+    let output  = "<div id=\"meta\">";
+        output += "<h2>word2vec - learning</h2>";
+        output += "<h3>page " + page_status + " out of ??</h3>";
+    if( page_status > 0 )
+    {
+        if( canv.dataset.mode === "cbow"     ) { meta += "<h3>mode: CBOW</h3>";      }
+        if( canv.dataset.mode === "skipgram" ) { meta += "<h3>mode: skip-gram</h3>"; }
+    }
+        output += "</div>"
+    return output;
+}
+function setfooter( input )
+{
+    if( input === "default" ) { footer.innerHTML = "<h2>info box will be here!</h2>"; return; }
+    switch ( page_status )
+    {
+        case 0: 
+            switch( input )
+            {
+                case "cbow": footer.innerHTML = "<h2>Continuous Bag of Words (CBOW) is one of the two primary settings for word2vec</h2>"; break;
+                case "skip": footer.innerHTML = "<h2>Skip-gram is one of the two primary settings for word2vec</h2>"; break;
+            }
+            break;
+        case 1: 
+            switch( input )
+            {
+
+            }
+            break;
+    }
 }
 function textprep()
 {

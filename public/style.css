@@ -35,6 +35,15 @@ button {
     top: 9vh;
     width: 10vw;
 }
+
+#canv {
+    height: 77vh;
+    position: fixed;
+    text-align: center;
+    top: 8vh;
+    width: 83vw;
+}
+
 #footer {
     background-color: lightgray;
     border-top: 1vh solid #000000;
@@ -85,14 +94,6 @@ button {
     height: 92vh;
     position: fixed;
     width: 17vw;
-}
-
-#w2v_canv {
-    height: 77vh;
-    position: fixed;
-    text-align: center;
-    top: 8vh;
-    width: 83vw;
 }
 
 .navelement {
