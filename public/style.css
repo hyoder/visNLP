@@ -36,7 +36,9 @@ button {
     width: 10vw;
 }
 #footer {
+    background-color: lightgray;
     bottom: 0px;
+    display: inline-flex;
     height: 15vh;
     position: fixed;
     right: 0px;
@@ -52,7 +54,7 @@ button {
 }
 
 #restofpage {
-    background-color: lightgrey;
+    background-color: whitesmoke;
     bottom: 15vh;
     height: 77vh;
     position: fixed;
@@ -63,6 +65,7 @@ button {
 #sidebar {
     background-color: grey;
     bottom: 0px;
+    display: inline-flex;
     left: 0px;
     height: 92vh;
     position: fixed;
