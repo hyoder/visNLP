@@ -71,7 +71,7 @@ button {
     height: 10vh;
     left: 17vw;
     position: fixed;
-    display: flex;
+    display: inline-grid;
     top: 8vh;
     width: 16.25vw;
 }
