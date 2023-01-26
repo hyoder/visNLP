@@ -12,8 +12,8 @@ function meta()
         output += "<h3>page " + page_status + " out of ??</h3>";
     if( page_status > 0 )
     {
-        if( canv.dataset.mode === "cbow"     ) { meta += "<h3>mode: CBOW</h3>";      }
-        if( canv.dataset.mode === "skipgram" ) { meta += "<h3>mode: skip-gram</h3>"; }
+        if( canv.dataset.mode === "cbow"     ) { output += "<h3>mode: CBOW</h3>";      }
+        if( canv.dataset.mode === "skipgram" ) { output += "<h3>mode: skip-gram</h3>"; }
     }
         output += "</div>"
     return output;
@@ -21,6 +21,7 @@ function meta()
 function init()
 {
     setfooter( "default" );
+    canv.dataset.mode = "n/a";
     canv.innerHTML  = meta();
     let btn_holder  = "<div id = \"btn_holder\">"
         btn_holder += "<button id = \"cbow_btn\">CBOW</button>"
