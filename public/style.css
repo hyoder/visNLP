@@ -45,7 +45,7 @@ button {
     width: 81.25vw;
     z-index: 1;;
 }
-#canv_nosidebar {
+#canv_NSB {
     height: 77vh;
     position: fixed;
     text-align: center;
@@ -65,7 +65,7 @@ button {
     right: 0px;
     width: 81.25vw;
 }
-#footer_nosidebar {
+#footer_NSB {
     background-color: lightgray;
     border-top: 1vh solid #000000;
     bottom: 0px;
@@ -116,7 +116,7 @@ button {
     width: 81.25vw;
 }
 
-#restofpage_nosidebar {
+#restofpage_NSBr {
     background-color: whitesmoke;
     bottom: 15vh;
     height: 77vh;

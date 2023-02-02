@@ -1,72 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>visNLP</title>
-        <link rel="stylesheet" href="./style.css"/>
-    </head>
-    <body>
-        <div id="navbar">
-          <button class="navelement" onclick="window.location='/'"     ><h1>home</h1></button>
-          <button class="navelement" onclick="window.location='/intro'"><h1>overview</h1></button>
-          <button class="navelement" onclick="window.location='/w2v'"  ><h1>word2vec</h1></button>
-          <button class="navelement" onclick="window.location='/s2v'"  ><h1>sen2vec</h1></button>
-          <button class="navelement" onclick="window.location='/p2v'"  ><h1>para2vec</h1></button>
-          <button class="navelement" onclick="window.location='/song'" ><h1>song2vec</h1></button>
-          <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
-          <button class="navelement" onclick="window.location='/adam'" ><h1>adam optimizer</h1></button>
+  <head>
+    <title>visNLP</title>
+    <link rel="stylesheet" href="./style.css"/>
+  </head>
+  <body>
+    <div id="navbar">
+      <button class="navelement" onclick="window.location='/'"     ><h1>home</h1></button>
+      <button class="navelement" onclick="window.location='/intro'"><h1>overview</h1></button>
+      <button class="navelement" onclick="window.location='/w2v'"  ><h1>word2vec</h1></button>
+      <button class="navelement" onclick="window.location='/s2v'"  ><h1>sen2vec</h1></button>
+      <button class="navelement" onclick="window.location='/p2v'"  ><h1>para2vec</h1></button>
+      <button class="navelement" onclick="window.location='/song'" ><h1>song2vec</h1></button>
+      <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
+      <button class="navelement" onclick="window.location='/adam'" ><h1>adam optimizer</h1></button>
+    </div>
+    <div id="restofpage_NSB">
+      <br><div class="landing-title">Welcome to the visNLP 2.0 Landing Page!</div> <br>
+      <div class="landing-desc">
+        <h2>Brief Project Statement + Project Credits Here..</h2><br>
+        <a target="_blank" href="http://130.215.45.87/">here's a link to the old website</a>
+      </div>
+      <div style="height:2vh;"></div>
+      <!-- <div style="align-items:center;"><img src="./assets/layout.png" style="height:60vh;margin-left:25vw;margin-right:25vw;width:50vw;"></div> -->
+      <div class="landing-container">
+        <div class="landing-button-group">
+          <a href="intro" class="landing-button">
+            <div class="landing-button-text">NLP Topics: Overview</div>
+            <div class="landing-button-description">Learn about NLP topics</div>
+          </a>
+          <a href="w2v" class="landing-button">
+            <div class="landing-button-text">Word Embeddings: word2vec</div>
+            <div class="landing-button-description">Learn about word embeddings and the word2vec algorithm</div>
+          </a>
+          <a href="s2v" class="landing-button">
+            <div class="landing-button-text">Contextualized: Sen2Vec</div>
+            <div class="landing-button-description">Learn about contextualized embeddings and the Sentance2Vec algorithm</div>
+          </a>
+          <a href="p2v" class="landing-button">
+            <div class="landing-button-text">Contextualized: Para2Vec</div>
+            <div class="landing-button-description">Learn about contextualized embeddings and the Paragraph2Vec algorithm</div>
+          </a>
+          <a href="adam" class="landing-button">
+            <div class="landing-button-text">Optimization: &nbsp Adam Optimizer</div>
+            <div class="landing-button-description">Learn about optimization and the Adam Optimizer</div>
+          </a>
+          <a href="news" class="landing-button">
+            <div class="landing-button-text">NLP Showcase: Fake News</div>
+            <div class="landing-button-description">Learn about NLP thorugh an interative application</div>
+          </a>
+          <a href="song" class="landing-button">
+            <div class="landing-button-text">NLP Showcase: Song Curation</div>
+            <div class="landing-button-description">Learn about NLP thorugh an interative application</div>
+          </a>
+          <a href="surv" class="landing-button">
+            <div class="landing-button-text">Complete Our Survey</div>
+            <div class="landing-button-description">Learn about NLP thorugh an interative application</div>
+          </a>
         </div>
-        <div id="restofpage_nosidebar">
-            <div style="height:2vh;"></div>
-            <div class="landing-title">Welcome to the visNLP 2.0 Landing Page!</div>
-            <div style="height:2vh;"></div>
-            <div class="landing-desc">
-              <h2>Brief Project Statement + Project Credits Here..</h2>
-              <a target="_blank" href="http://130.215.45.87/">here's a link to the old website</a>
-            </div>
-            <div style="height:2vh;"></div>
-            <!-- <div style="align-items:center;">
-                <img src="./assets/layout.png" style="height:60vh;margin-left:25vw;margin-right:25vw;width:50vw;">
-            </div> -->
-
-            <div class="landing-container">
-                <div class="landing-button-group">
-                  <a href="intro" class="landing-button">
-                    <div class="landing-button-text">NLP Topics: Overview</div>
-                    <div class="landing-button-description">Learn about NLP topics</div>
-                  </a>
-                  <a href="w2v" class="landing-button">
-                    <div class="landing-button-text">Word Embeddings: word2vec</div>
-                    <div class="landing-button-description">Learn about word embeddings and the word2vec algorithm</div>
-                  </a>
-                  <a href="s2v" class="landing-button">
-                    <div class="landing-button-text">Contextualized: Sen2Vec</div>
-                    <div class="landing-button-description">Learn about contextualized embeddings and the Sentance2Vec algorithm</div>
-                  </a>
-                  <a href="p2v" class="landing-button">
-                    <div class="landing-button-text">Contextualized: Para2Vec</div>
-                    <div class="landing-button-description">Learn about contextualized embeddings and the Paragraph2Vec algorithm</div>
-                  </a>
-                  <a href="adam" class="landing-button">
-                    <div class="landing-button-text">Optimization: &nbsp Adam Optimizer</div>
-                    <div class="landing-button-description">Learn about optimization and the Adam Optimizer</div>
-                  </a>
-                  
-                  <a href="news" class="landing-button">
-                    <div class="landing-button-text">NLP Showcase: Fake News</div>
-                    <div class="landing-button-description">Learn about NLP thorugh an interative application</div>
-                  </a>
-                  <a href="song" class="landing-button">
-                    <div class="landing-button-text">NLP Showcase: Song Curation</div>
-                    <div class="landing-button-description">Learn about NLP thorugh an interative application</div>
-                  </a>
-                  <a href="surv" class="landing-button">
-                    <div class="landing-button-text">Complete Our Survey</div>
-                    <div class="landing-button-description">Learn about NLP thorugh an interative application</div>
-                  </a>
-                </div>
-              </div>
-
-        </div>
-        <script src="./scripts.js"></script>
-    </body>
+      </div>
+    </div>
+    <script src="./scripts.js"></script>
+  </body>
 </html>
