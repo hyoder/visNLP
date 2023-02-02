@@ -13,6 +13,11 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    margin: auto;
+    text-align: center;
+}
+
 pre {
     font-size: 150%;
 }
@@ -26,9 +31,52 @@ button {
     display: none;
     height: 5vh;
     position: fixed;
-    right: 1vw;
+    right: 9.5vw;
     top: 9vh;
-    width: 10vw;
+    width: 5vw;
+    z-index: 2;
+}
+
+#canv {
+    height: 77vh;
+    position: fixed;
+    text-align: center;
+    top: 8vh;
+    width: 83vw;
+    z-index: 1;;
+}
+
+#footer {
+    background-color: lightgray;
+    border-top: 1vh solid #000000;
+    bottom: 0px;
+    box-sizing: border-box;
+    display: inline-flex;
+    height: 15vh;
+    position: fixed;
+    right: 0px;
+    width: 83vw;
+}
+
+#fwd_btn {
+    display: none;
+    height: 5vh;
+    position: fixed;
+    right: 2.5vw;
+    top: 9vh;
+    width: 5vw;
+    z-index: 2;
+}
+
+#meta {
+    border-bottom: 0.25vh dashed #000000;
+    border-right: 0.25vh dashed #000000;
+    height: 10vh;
+    left: 17vw;
+    position: fixed;
+    display: inline-grid;
+    top: 8vh;
+    width: 16.25vw;
 }
 
 #navbar {
@@ -40,16 +88,24 @@ button {
 }
 
 #restofpage {
-    background-color: lightgrey;
-    bottom: 0px;
-    height: 92vh;
+    background-color: whitesmoke;
+    bottom: 15vh;
+    height: 77vh;
     position: fixed;
-    width: 100vw;
+    right: 0px;
+    width: 83vw;
 }
 
-#w2v_canv {
-    text-align: center;
-    width: 100vw;
+#sidebar {
+    background-color: grey;
+    border-right: 1vh solid #000000;
+    bottom: 0px;
+    box-sizing: border-box;
+    display: inline-flex;
+    left: 0px;
+    height: 92vh;
+    position: fixed;
+    width: 17vw;
 }
 
 .navelement {

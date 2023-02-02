@@ -6,19 +6,22 @@
     </head>
     <body>
         <div id="navbar">
-            <button class="navelement" id="navhome"  onclick="window.location='/'"      ><h1>home</h1></button>
+            <button class="navelement" id="navhome"  onclick="window.location='/'"     ><h1>home</h1></button>
             <button class="navelement" id="navword1" onclick="window.location='/w2v1'" ><h1>word2vec - learning</h1></button>
             <button class="navelement" id="navword2" onclick="window.location='/w2v2'" ><h1>word2vec - applications</h1></button>
             <button class="navelement" id="navpara1" onclick="window.location='/p2v1'" ><h1>para2vec - learning</h1></button>
             <button class="navelement" id="navpara2" onclick="window.location='/p2v2'" ><h1>para2vec - applications</h1></button>
             <button class="navelement" id="navadam"  onclick="window.location='/adam'" ><h1>adam optimizer</h1></button>
         </div>
+        <div id="sidebar">
+            <h2>user controls will go here!</h2>
+        </div>
+        <div id="footer"></div>
         <div id="restofpage">
             <div style="height:3vh;"></div>
-            <button id="back_btn">go back</button>
-            <h2>word2vec - learning</h2>
-            <div style="height:3vh;"></div>
-            <div id="w2v_canv" data-mode="init"></div>
+            <button id="back_btn">←</button>
+            <button id="fwd_btn">→</button>
+            <div id="canv" data-mode="n/a"></div>
         </div>
         <script src="../scripts/w2v1_script.js"></script>
     </body>

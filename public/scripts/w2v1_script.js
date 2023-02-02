@@ -1,25 +1,71 @@
-const      canv = document.getElementById( "w2v_canv" ),
+const      canv = document.getElementById( "canv" ),
+        sidebar = document.getElementById( "sidebar"),
+         footer = document.getElementById( "footer"),
        back_btn = document.getElementById( "back_btn" ),
+        fwd_btn = document.getElementById( "fwd_btn" ),
        statuses = ["init", "onehot", "textprep"];
 let page_status = 0;
+function meta()
+{
+    let output  = "<div id=\"meta\">";
+        output += "<h2>word2vec - learning</h2>";
+        output += "<h3>page " + page_status + " out of ??</h3>";
+    if( page_status > 0 )
+    {
+        if( canv.dataset.mode === "cbow"     ) { output += "<h3>mode: CBOW</h3>";      }
+        if( canv.dataset.mode === "skipgram" ) { output += "<h3>mode: skip-gram</h3>"; }
+    }
+        output += "</div>"
+    return output;
+}
 function init()
 {
-    canv.innerHTML  = "<h1>begin</h1>"
-    canv.innerHTML += "<div style=\"height:3vh;\"></div>"
-    canv.innerHTML += "<div id = \"btn_holder\">"
-    canv.innerHTML += "<button id = \"cbow_btn\">CBOW</button>"
-    canv.innerHTML += "<button id = \"skip_btn\">skip-gram</button></div>"
+    setfooter( "default" );
+    canv.dataset.mode = "n/a";
+    canv.innerHTML  = meta();
+    canv.innerHTML += "<div style=\"height:15vh\"></div>";
+    canv.innerHTML += "<h2>select mode for word2vec:</h2>";
+    let btn_holder  = "<div style=\"position:fixed;right:16.5vw;top:35vh;\">"
+        btn_holder += "<button id = \"cbow_btn\">CBOW</button>"
+        btn_holder += "<button id = \"skip_btn\">skip-gram</button>"
+        btn_holder += "</div>";
+    canv.innerHTML += btn_holder;
     const cbow_btn = document.getElementById( "cbow_btn" ),
           skip_btn = document.getElementById( "skip_btn" );
     cbow_btn.addEventListener( "click", () => { canv.dataset.mode = "cbow";     updater(1); } );
     skip_btn.addEventListener( "click", () => { canv.dataset.mode = "skipgram"; updater(1); } );
+    cbow_btn.addEventListener( "mouseover", () => { setfooter( "cbow" ); } );
+    skip_btn.addEventListener( "mouseover", () => { setfooter( "skip" ); } );
+    cbow_btn.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
+    skip_btn.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
 }
 function onehot()
 {
-    canv.innerHTML  = "<h1>what are one-hot encoded vectors?</h1>";
-    if( canv.dataset.mode === "cbow"     ) { canv.innerHTML += "<h3>mode: CBOW</h3>";      }
-    if( canv.dataset.mode === "skipgram" ) { canv.innerHTML += "<h3>mode: skip-gram</h3>"; }
+    setfooter( "default" );
+    canv.innerHTML  = meta();
+    canv.innerHTML += "<div style=\"height:15vh\"></div>";
+    canv.innerHTML += "<h1>what are one-hot encoded vectors?</h1>";
     canv.innerHTML += "<br/><h2>it's easy</h2>";
+}
+function setfooter( input )
+{
+    if( input === "default" ) { footer.innerHTML = "<h2>info box will be here!</h2>"; return; }
+    switch ( page_status )
+    {
+        case 0: 
+            switch( input )
+            {
+                case "cbow": footer.innerHTML = "<h2>Continuous Bag of Words (CBOW) is one of the two primary settings for word2vec</h2>"; break;
+                case "skip": footer.innerHTML = "<h2>Skip-gram is one of the two primary settings for word2vec</h2>"; break;
+            }
+            break;
+        case 1: 
+            switch( input )
+            {
+
+            }
+            break;
+    }
 }
 function textprep()
 {
@@ -29,8 +75,8 @@ function updater( val )
 {
     if ( val ==  1 ) { page_status++; }
     if ( val == -1 ) { page_status--; }
-    if( page_status > 0 ) { back_btn.style.display = "inline-block"; }
-    else                  { back_btn.style.display = "none"; }
+    if( page_status > 0 ) { back_btn.style.display = "inline-block"; fwd_btn.style.display = "inline-block"; }
+    else                  { back_btn.style.display = "none"; fwd_btn.style.display = "none"; }
     let page = statuses[ page_status ];
     console.log("mode: " + canv.dataset.mode );
     console.log("page: " + page);
