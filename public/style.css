@@ -55,7 +55,7 @@ button {
     height: 15vh;
     position: fixed;
     right: 0px;
-    width: 83vw;
+    width: 81.25vw;
 }
 
 #fwd_btn {
@@ -93,7 +93,7 @@ button {
     height: 77vh;
     position: fixed;
     right: 0px;
-    width: 83vw;
+    width: 81.25vw;
 }
 
 #sidebar {
@@ -105,7 +105,7 @@ button {
     left: 0px;
     height: 92vh;
     position: fixed;
-    width: 17vw;
+    width: 18.75vw;
 }
 
 .navelement {
@@ -119,7 +119,6 @@ button {
     display: inline-flex;
     height: 100%;
     vertical-align: middle;
-    width: 17vw;
 }
 
 .navelement:hover {
