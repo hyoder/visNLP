@@ -9,6 +9,7 @@ function meta()
 {
     let output  = "<div id=\"meta\">";
         output += "<h2>word2vec</h2>";
+        output += "<h3>\"" + statuses[page_status] + "\"</h3>";
         output += "<h3>page " + page_status + " out of ??</h3>";
     if( page_status > 0 )
     {
@@ -49,14 +50,22 @@ function onehot()
 }
 function setfooter( input )
 {
+    switch( input )
+    {
+        case "default": footer.innerHTML = "<h2>info box will be here!</h2>"; break;
+        case "cbow": footer.innerHTML = "<h2>continuous bag of words (CBOW) is one of the two primary settings for word2vec</h2>"; break;
+        case "skip": footer.innerHTML = "<h2>skip-gram is one of the two primary settings for word2vec</h2>"; break;
+    }
+    
+    /* will switch to using this structure once there's enough footer settings to make it faster
     if( input === "default" ) { footer.innerHTML = "<h2>info box will be here!</h2>"; return; }
     switch ( page_status )
     {
         case 0: 
             switch( input )
             {
-                case "cbow": footer.innerHTML = "<h2>Continuous Bag of Words (CBOW) is one of the two primary settings for word2vec</h2>"; break;
-                case "skip": footer.innerHTML = "<h2>Skip-gram is one of the two primary settings for word2vec</h2>"; break;
+                case "cbow": footer.innerHTML = "<h2>continuous bag of words (CBOW) is one of the two primary settings for word2vec</h2>"; break;
+                case "skip": footer.innerHTML = "<h2>skip-gram is one of the two primary settings for word2vec</h2>"; break;
             }
             break;
         case 1: 
@@ -66,6 +75,7 @@ function setfooter( input )
             }
             break;
     }
+    */
 }
 function textprep()
 {
