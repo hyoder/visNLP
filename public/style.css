@@ -149,3 +149,65 @@ button {
 .slide:nth-child(4) {
     background-color: #da6f2b;
 }
+
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    /* temporary below - min 2 per row , max 4 per row */
+    min-width: 520px;
+    /* max-width: 1200px; */
+}
+  
+.landing-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.landing-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #2e302d;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 200px;
+    height: 120px;
+    transition: all 0.2s ease-in-out;
+}
+
+.landing-button:hover {
+    background-color: #f5f4f0;
+    color: #000;
+}
+
+.landing-button-text {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.landing-button-description {
+    display: none;
+}
+
+.landing-button:hover .landing-button-description {
+    display: block;
+}
+
+.landing-title{
+    color: blue;
+    text-align: center;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+    font-size: 30px;
+}
+
+.landing-description{
+    color: green;
+    text-align: center;
+    font-family: consolas;
+}
