@@ -71,12 +71,13 @@ button {
 #meta {
     border-bottom: 0.25vh dashed #000000;
     border-right: 0.25vh dashed #000000;
+    box-sizing: border-box;
     height: 10vh;
     left: 18.75vw;
     position: fixed;
     display: inline-grid;
     top: 8vh;
-    width: 18.75vw;
+    width: 18.8vw;
 }
 
 #navbar {
