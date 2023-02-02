@@ -241,7 +241,8 @@ button {
     height: 100vh;
     /* temporary below - min 2 per row , max 4 per row */
     min-width: 520px;
-    /* max-width: 1200px; */
+    max-width: 1080px;
+    margin: 0 auto;
 }
   
 .landing-button-group {
