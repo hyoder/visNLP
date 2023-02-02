@@ -72,11 +72,11 @@ button {
     border-bottom: 0.25vh dashed #000000;
     border-right: 0.25vh dashed #000000;
     height: 10vh;
-    left: 17vw;
+    left: 18.75vw;
     position: fixed;
     display: inline-grid;
     top: 8vh;
-    width: 16.25vw;
+    width: 12.5vw;
 }
 
 #navbar {

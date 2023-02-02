@@ -8,7 +8,7 @@ let page_status = 0;
 function meta()
 {
     let output  = "<div id=\"meta\">";
-        output += "<h2>word2vec - learning</h2>";
+        output += "<h2>word2vec</h2>";
         output += "<h3>page " + page_status + " out of ??</h3>";
     if( page_status > 0 )
     {
