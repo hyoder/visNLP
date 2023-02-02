@@ -47,6 +47,10 @@ function onehot()
     canv.innerHTML += "<h1>what are one-hot encoded vectors?</h1>";
     canv.innerHTML += "<br/><h2>it's easy</h2>";
 }
+function textprep()
+{
+    canv.innerHTML  = meta();
+}
 function setfooter( input )
 {
     switch( input )
@@ -64,10 +68,6 @@ function setfooter( input )
             {
             }
             break; } */
-}
-function textprep()
-{
-    canv.innerHTML  = "";
 }
 function updater( val )
 {
