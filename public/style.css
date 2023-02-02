@@ -42,7 +42,15 @@ button {
     position: fixed;
     text-align: center;
     top: 8vh;
-    width: 83vw;
+    width: 81.25vw;
+    z-index: 1;;
+}
+#canv_nosidebar {
+    height: 77vh;
+    position: fixed;
+    text-align: center;
+    top: 8vh;
+    width: 100vw;
     z-index: 1;;
 }
 
@@ -56,6 +64,17 @@ button {
     position: fixed;
     right: 0px;
     width: 81.25vw;
+}
+#footer_nosidebar {
+    background-color: lightgray;
+    border-top: 1vh solid #000000;
+    bottom: 0px;
+    box-sizing: border-box;
+    display: inline-flex;
+    height: 15vh;
+    position: fixed;
+    right: 0px;
+    width: 100vw;
 }
 
 #fwd_btn {
@@ -95,6 +114,15 @@ button {
     position: fixed;
     right: 0px;
     width: 81.25vw;
+}
+
+#restofpage_nosidebar {
+    background-color: whitesmoke;
+    bottom: 15vh;
+    height: 77vh;
+    position: fixed;
+    right: 0px;
+    width: 100vw;
 }
 
 #sidebar {

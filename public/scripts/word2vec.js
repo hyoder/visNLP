@@ -89,4 +89,5 @@ window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
 };
-back_btn.addEventListener( "click", () => { updater(-1); } )
+ fwd_btn.addEventListener( "click", () => { updater( 1); } );
+back_btn.addEventListener( "click", () => { updater(-1); } );
