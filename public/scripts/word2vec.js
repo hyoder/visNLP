@@ -8,8 +8,7 @@ let page_status = 0;
 function meta()
 {
     let output  = "<div id=\"meta\">";
-        output += "<h2>word2vec</h2>";
-        output += "<h3>\"" + statuses[page_status] + "\"</h3>";
+        output += "<h2>word2vec - \"" + statuses[page_status] + "\"</h2>";
         output += "<h3>page " + page_status + " out of ??</h3>";
     if( page_status > 0 )
     {
@@ -59,23 +58,12 @@ function setfooter( input )
     
     /* will switch to using this structure once there's enough footer settings to make it faster
     if( input === "default" ) { footer.innerHTML = "<h2>info box will be here!</h2>"; return; }
-    switch ( page_status )
-    {
+    switch ( page_status ) {
         case 0: 
             switch( input )
             {
-                case "cbow": footer.innerHTML = "<h2>continuous bag of words (CBOW) is one of the two primary settings for word2vec</h2>"; break;
-                case "skip": footer.innerHTML = "<h2>skip-gram is one of the two primary settings for word2vec</h2>"; break;
             }
-            break;
-        case 1: 
-            switch( input )
-            {
-
-            }
-            break;
-    }
-    */
+            break; } */
 }
 function textprep()
 {
