@@ -9,6 +9,7 @@
       "https": "1.0.0",
       "mime": "3.0.0",
       "path": "0.12.7",
+      "plotly": "1.0.6",
       "serve-favicon": "2.5.0"
     },
     "engines":
