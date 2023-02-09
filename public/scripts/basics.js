@@ -55,10 +55,10 @@ function updater( val )
 {
     if ( val ==  1 ) { page_status++; }
     if ( val == -1 ) { page_status--; }
-    if( page_status < statuses.length ) {  fwd_btn.display = "inline-block"; }
-    else                                {  fwd_btn.display = "none"; }
-    if( page_status > 0 )               { back_btn.display = "inline-block"; }
-    else                                { back_btn.display = "none"; }
+    if( page_status < statuses.length ) {  fwd_btn.style.display = "inline-block"; }
+    else                                {  fwd_btn.style.display = "none"; }
+    if( page_status > 0 )               { back_btn.style.display = "inline-block"; }
+    else                                { back_btn.style.display = "none"; }
     let page = statuses[ page_status ];
     console.log("page: " + page);
     switch( page )
