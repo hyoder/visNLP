@@ -8,7 +8,7 @@ function meta() // sets and returns page metadata for meta div (top left corner 
 {
     let output  = "<div id=\"meta_NSB\">";
         output += "<h2>basics - \"" + statuses[page_status] + "\"</h2>";
-        output += "<h3>page " + page_status + " out of ??</h3>";
+        output += "<h3>page " + (page_status+1) + " out of ??</h3>";
         output += "</div>"
     return output;
 }
@@ -55,7 +55,7 @@ function updater( val )
 {
     if ( val ==  1 ) { page_status++; }
     if ( val == -1 ) { page_status--; }
-    if( page_status < statuses.length ) {  fwd_btn.style.display = "inline-block"; }
+    if( page_status < statuses.length - 1 ) {  fwd_btn.style.display = "inline-block"; }
     else                                {  fwd_btn.style.display = "none"; }
     if( page_status > 0 )               { back_btn.style.display = "inline-block"; }
     else                                { back_btn.style.display = "none"; }
