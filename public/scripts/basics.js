@@ -16,30 +16,35 @@ function intro()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += "<div style='height=4vh'/>"
     canv.innerHTML += "<h2>intro to natural language processing</h2>";
 }
 function vectorization()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += "<div style='height=4vh'/>"
     canv.innerHTML += "<h2>what is word vectorization?</h2>";
 }
 function use_cases()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += "<div style='height=4vh'/>"
     canv.innerHTML += "<h2>how does it get used?</h2>";
 }
 function onehot()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += "<div style='height=4vh'/>"
     canv.innerHTML += "<h2>what are one-hot encoded vectors?</h2>";
 }
 function blackbox()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += "<div style='height=4vh'/>"
     canv.innerHTML += "<h2>what is the black box problem?</h2>";
 }
 
@@ -56,9 +61,9 @@ function updater( val )
     if ( val ==  1 ) { page_status++; }
     if ( val == -1 ) { page_status--; }
     if( page_status < statuses.length - 1 ) {  fwd_btn.style.display = "inline-block"; }
-    else                                {  fwd_btn.style.display = "none"; }
-    if( page_status > 0 )               { back_btn.style.display = "inline-block"; }
-    else                                { back_btn.style.display = "none"; }
+    else                                    {  fwd_btn.style.display = "none"; }
+    if( page_status > 0 )                   { back_btn.style.display = "inline-block"; }
+    else                                    { back_btn.style.display = "none"; }
     let page = statuses[ page_status ];
     console.log("page: " + page);
     switch( page )
