@@ -1,5 +1,5 @@
-const      canv = document.getElementById( "canv_nosidebar" ),
-         footer = document.getElementById( "footer_nosidebar"),
+const      canv = document.getElementById( "canv_NSB" ),
+         footer = document.getElementById( "footer_NSB"),
        back_btn = document.getElementById( "back_btn" ),
         fwd_btn = document.getElementById( "fwd_btn" ),
        statuses = ["intro", "vectorization", "use_cases", "onehot", "blackbox"];

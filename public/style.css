@@ -99,6 +99,18 @@ button {
     width: 18.8vw;
 }
 
+#meta_NSB {
+    border-bottom: 0.25vh dashed #000000;
+    border-right: 0.25vh dashed #000000;
+    box-sizing: border-box;
+    height: 10vh;
+    left: 0px;
+    position: fixed;
+    display: inline-grid;
+    top: 8vh;
+    width: 18.8vw;
+}
+
 #navbar {
     top: 0px;
     display: flex;
