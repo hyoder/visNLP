@@ -8,7 +8,7 @@ function meta() // sets and returns page metadata for meta div (top left corner 
 {
     let output  = "<div id=\"meta_NSB\">";
         output += "<h2>basics - \"" + statuses[page_status] + "\"</h2>";
-        output += "<h3>page " + (page_status+1) + " out of ??</h3>";
+        output += "<h4>page " + (page_status+1) + " out of ??</h4>";
         output += "</div>"
     return output;
 }

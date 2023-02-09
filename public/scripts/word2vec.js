@@ -9,7 +9,7 @@ function meta()
 {
     let output  = "<div id=\"meta\">";
         output += "<h2>word2vec - \"" + statuses[page_status] + "\"</h2>";
-        output += "<h3>page " + (page_status+1) + " out of ??</h3>";
+        output += "<h4>page " + (page_status+1) + " out of ??</h4>";
     if( page_status > 0 )
     {
         if( canv.dataset.mode === "cbow"     ) { output += "<h3>mode: CBOW</h3>";      }
