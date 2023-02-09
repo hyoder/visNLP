@@ -16,36 +16,36 @@ function intro()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height=4vh'/>"
-    canv.innerHTML += "<h2>intro to natural language processing</h2>";
+    canv.innerHTML += "<div style='height:5vh'/>"
+    canv.innerHTML += "<h1>intro to natural language processing</h1>";
 }
 function vectorization()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height=4vh'/>"
-    canv.innerHTML += "<h2>what is word vectorization?</h2>";
+    canv.innerHTML += "<div style='height:5vh'/>"
+    canv.innerHTML += "<h1>what is word vectorization?</h1>";
 }
 function use_cases()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height=4vh'/>"
-    canv.innerHTML += "<h2>how does it get used?</h2>";
+    canv.innerHTML += "<div style='height:5vh'/>"
+    canv.innerHTML += "<h1>how does it get used?</h1>";
 }
 function onehot()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height=4vh'/>"
-    canv.innerHTML += "<h2>what are one-hot encoded vectors?</h2>";
+    canv.innerHTML += "<div style='height:5vh'/>"
+    canv.innerHTML += "<h1>what are one-hot encoded vectors?</h1>";
 }
 function blackbox()
 {
     setfooter( "default" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height=4vh'/>"
-    canv.innerHTML += "<h2>what is the black box problem?</h2>";
+    canv.innerHTML += "<div style='height:5vh'/>"
+    canv.innerHTML += "<h1>what is the black box problem?</h1>";
 }
 
 function setfooter( input ) // takes input from event listener and then 
