@@ -18,6 +18,12 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    font-size: 2.25vw;
+    margin: auto;
+    text-align: center;
+}
+
 pre {
     font-size: 150%;
 }
