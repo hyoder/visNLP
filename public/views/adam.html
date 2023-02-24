@@ -3,8 +3,6 @@
     <head>
         <title>adam optimizer - visNLP</title>
         <link rel="stylesheet" href="../style.css"/>
-        <script src="/public/libs/plotly.min.js"></script>
-        <script src="/public/scripts/surfaceplot.js"></script>
     </head>
     <body>
         <div id="navbar">
@@ -17,21 +15,28 @@
             <button class="navelement" onclick="window.location='/song'" ><h1>song2vec</h1></button>
             <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
         </div>
-        <div id="restofpage">
 
-            <div class="page-title">Adam optimizer overview page</div>
-
-            <button id="navaadam"  onclick="window.location='/w2v'" >
-                <h1>Adam - Step by Step</h1>
+        <div id="sidebar">
+            <button id="switch_adam_button" onclick="window.location='/adamstep'" >
+                <h1>Switch to Adam Step-by-Step</h1>
             </button>
+        </div>
+
+        <div id="restofpage">
+            <div style="height:3vh;"></div>
+
+            <button id="back_btn">←</button>
+            <button id="fwd_btn">→</button>
+
+            
 
             <h2 style="padding: 2%">TODO: Adam Overview + Diagram</h2>
 
-            <div style="height:3vh;"></div>
+            
 
-            <h2 style="padding: 2%">Demo: points moving on random surface with Plotly:</h2>
+            <!-- <div id="canv" data-mode="n/a"></div> -->
 
-            <div class="wrapper">
+            <!-- <div class="wrapper">
                 <div id="chart"></div>
 
                 <button id="play-button">Play</button>
@@ -73,11 +78,9 @@
                     };
 
                 </script>
-            </div>
-
-            <h2 style="padding: 2%">TODO - integrate the real loss data to plot</h2>
+            </div> -->
 
         </div>
-        <script src="../scripts.js"></script>
+        <script src="../scripts/adam.js"></script>
     </body>
 </html>

@@ -4,9 +4,6 @@
 <head>
     <title>adam optimizer step by step - visNLP</title>
     <link rel="stylesheet" href="../style.css" />
-
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script type="text/javascript" src="/public/scripts/heatmap.js"></script>
 </head>
 
 <body>
@@ -20,21 +17,36 @@
         <button class="navelement" onclick="window.location='/song'" ><h1>song2vec</h1></button>
         <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
     </div>
-    <div id="restofpage">
 
-        <div class="page-title">Adam optimizer - Step by Step page</div>
-
-        <button id="navaadam2" onclick="window.location='/public/views/adam.html'">
-            <h1>Adam - Overview</h1>
+    <div id="sidebar_adam">
+        <button id="switch_adam_button" onclick="window.location='/adam'" >
+            <h1>Switch to Adam Overview</h1>
         </button>
+    </div>
 
-        <h2>TODO: dynamic representation of atomic Adam steps</h2>
+    <div id="footer_NSB"></div>
+
+    <div id="restofpage_adam">
+        <div style="height:3vh;"></div>
+        <button id="back_btn">←</button>
+        <button id="fwd_btn">→</button>
+        <div id="canv_adam"></div>
 
         
+    </div>
 
-        <h2>TODO: add slider to better show progress within overall process</h2>
+    <!-- <div id="footer"></div> -->
 
-        <section class="slider-wrapper">
+    <!-- <div id="restofpage">
+
+        <div style="height:3vh;"></div>
+        <button id="back_btn">←</button>
+        <button id="fwd_btn">→</button>
+        <div id="canv_NSB"></div>
+
+        <!-- <div class="page-title">Adam optimizer - Step by Step page</div> -->
+
+        <!-- <section class="slider-wrapper">
             <button class="slide-arrow" id="slide-arrow-prev">
                 &#8249;
             </button>
@@ -110,9 +122,9 @@
                 </li>
                 <li class="slide"></li>
             </ul>
-        </section>
+        </section> -->
 
-        <script>
+        <!-- <script>
             const slidesContainer = document.getElementById("slides-container");
             const slide = document.querySelector(".slide");
             const prevButton = document.getElementById("slide-arrow-prev");
@@ -127,16 +139,12 @@
                 const slideWidth = slide.clientWidth;
                 slidesContainer.scrollLeft -= slideWidth;
             });
-        </script>
+        </script> -->
 
-        
+    <!-- </div> --> -->
+    <script src="../scripts/adamstep.js"></script>
 
-        <div style="height:3vh;"></div>
-        <h2>Demo: points moving on random surface with Plotly:</h2>
-
-    </div>
-    <script src="../scripts.js"></script>
-    <script type="text/javascript" src="/public/scripts/heatmap.js"></script>
+    <!-- <script type="text/javascript" src="/public/scripts/heatmap.js"></script> -->
 </body>
 
 </html>
