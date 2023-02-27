@@ -2,10 +2,20 @@ const express = require( 'express' ),
           app = express(),
         bodyp = require( 'body-parser' ),
       favicon = require( 'serve-favicon' ),
-         path = require( 'path' );
+         path = require( 'path' ),
+      mongodb = require( 'mongodb' ),
+          uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_HOST}`,
+       client = new mongodb.MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+let w2v_data = undefined;
 app.use( bodyp.json() );
 app.use( favicon( path.join( __dirname, 'public', 'favicon.ico' ) ) );
 app.use( express.static( path.join( __dirname + '/public' ) ) );
+client.connect().then( () => { w2v_data = client.db( 'visNLP' ).collection( 'w2v' ) } );
+app.use( ( req, res, next ) =>
+{
+  if( w2v_data !== null ) { next(); }
+  else  { res.status( 503 ).send(); }
+} );
 
 app.get('/',          ( req, res ) => { res.sendFile( path.join( __dirname + '/public/index.html'          ) ); } );
 app.get('/intro',     ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/basics.html'    ) ); } );
