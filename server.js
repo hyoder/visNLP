@@ -4,8 +4,8 @@ const express = require( 'express' ),
       favicon = require( 'serve-favicon' ),
          path = require( 'path' ),
       mongodb = require( 'mongodb' ),
-          //uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_HOST}`,
-          uri = 'mongodb+srv://visNLP:JGJ5shZvVQfGhS3G@jvpufwd.mongodb.net/?retryWrites=true&w=majority'
+       dotenv = require( 'dotenv' ).config(),
+          uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_HOST}`,
        client = new mongodb.MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
 let w2v_data = undefined;
 app.use( bodyp.json() );
