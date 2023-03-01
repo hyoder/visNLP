@@ -1,21 +1,23 @@
 const      canv = document.getElementById( "canv_adam" ),
          footer = document.getElementById( "footer_NSB"),
-       back_btn = document.getElementById( "back_btn" ),
-        fwd_btn = document.getElementById( "fwd_btn" ),
+       back_btn = document.getElementById( "adam_back_btn" ),
+        fwd_btn = document.getElementById( "adam_fwd_btn" ),
+         ff_btn = document.getElementById( "adam_ff_btn")
+      reset_btn = document.getElementById( "adam_reset_btn" ),
         sidebar = document.getElementById( "sidebar_adam"),
        statuses = ["intro", "vectorization", "use_cases", "onehot", "blackbox"];
 let page_status = 0;
 let epoch_status = 0;
 let page_count = 5;
-let epoch_count = 40;
+let epoch_count = 7;
 function meta() // sets and returns page metadata for meta div (top left corner of canvas)
 {
     let output  = "<div id=\"meta_adam\">";
         output += "<h2>basics - \"" + statuses[page_status] + "\"</h2>";
-        output += "<h4>page " + (page_status+1) + " out of ??</h4>";
+        output += "<h4>page " + (page_status+1) + " out of " + (page_count) + "</h4>";
 
         //
-        output += "<h4>epoch number: " + (epoch_status) + " !</h4>";
+        output += "<h4>epoch number: " + (epoch_status) + " out of " + (epoch_count-1) + "</h4>";
 
         output += "</div>"
     return output;
@@ -81,11 +83,30 @@ function updater( val )
     } else if (val == -1){
         page_status--;
     }
+    // fast-forward (ff) button
+    // take to last page of each epoch
+    // otherwise increment epoch
+    if ( val == 'f' && page_status == page_count - 1) {
+        epoch_status++
+    } else if ( val == 'f' ){
+        page_status = page_count - 1
+    }
+    // reset button
+    if ( val == 'r' ){
+        page_status = 0
+        epoch_status = 0
+    }
 
     if (page_status <= 0 && epoch_status <= 0) { back_btn.style.display = "none"; }
     else { back_btn.style.display = "inline-block"; }
     if (page_status >= page_count-1 && epoch_status >= epoch_count -1) { fwd_btn.style.display = "none"; }
     else { fwd_btn.style.display = "inline-block"; }
+    if (page_status == 0 && epoch_status == 0) { reset_btn.style.display = "none"; }
+    else { reset_btn.style.display = "inline-block"; }
+    if (epoch_status < epoch_count - 1) { ff_btn.style.display = "inline-block"; }
+    else { ff_btn.style.display = "none"; }
+    
+
 
     let page = statuses[ page_status ];
     console.log("page: " + page);
@@ -100,8 +121,10 @@ function updater( val )
 }
 window.onload = (e) => {
     console.log('page loaded');
-    updater(page_status, epoch_status);
+    updater(page_status);
 };
- fwd_btn.addEventListener( "click", () => { updater( 1); } ); //adds listener to forwards and backwards button
-back_btn.addEventListener( "click", () => { updater(-1); } );
+  fwd_btn.addEventListener( "click", () => { updater( 1); } ); //adds listener to forwards and backwards button
+ back_btn.addEventListener( "click", () => { updater(-1); } );
+reset_btn.addEventListener( "click", () => { updater('r'); });
+   ff_btn.addEventListener( "click", () => { updater('f'); });
 switch_adam_btn.addEventListener('click', () => { fetch( '/adam', { method:'GET' } ).then( response => response.json ); }, false );

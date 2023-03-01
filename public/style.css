@@ -101,6 +101,47 @@ button {
     z-index: 2;
 }
 
+#adam_back_btn {
+    display: none;
+    height: 5vh;
+    position: fixed;
+    right: 23.5vw;
+    top: 9vh;
+    width: 5vw;
+    z-index: 2;
+}
+
+#adam_fwd_btn {
+    display: none;
+    height: 5vh;
+    position: fixed;
+    right: 16.5vw;
+    top: 9vh;
+    width: 5vw;
+    z-index: 2;
+}
+
+#adam_ff_btn {
+    display: none;
+    height: 5vh;
+    position: fixed;
+    right: 9.5vw;
+    top: 9vh;
+    width: 5vw;
+    z-index: 2;
+}
+
+#adam_reset_btn {
+    display: none;
+    height: 5vh;
+    position: fixed;
+    right: 2.5vw;
+    top: 9vh;
+    width: 5vw;
+    z-index: 2;
+}
+
+
 #meta {
     border-bottom: 0.25vh dashed #000000;
     border-right: 0.25vh dashed #000000;
