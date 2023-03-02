@@ -5,6 +5,7 @@ const      canv = document.getElementById( "canv" ),
         fwd_btn = document.getElementById( "fwd_btn" ),
        statuses = ["init", "onehot", "textprep"];
 let page_status = 0;
+let w2v_data;
 function meta()
 {
     let output  = "<div id=\"meta\">";
@@ -38,6 +39,7 @@ function init()
     skip_btn.addEventListener( "mouseover", () => { setfooter( "skip" ); } );
     cbow_btn.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
     skip_btn.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
+    getData(step);
 }
 function onehot()
 {
@@ -85,6 +87,14 @@ function updater( val )
         case "textprep": textprep(); break;
     }
 }
+//call with getData(0) for 0: Object
+function getData( step )
+{
+    fetch( '/adamdata?step='+step, { method: 'GET', headers: { "Content-Type": "application/json" } }, 0 )
+    .then( function (response) { response.json().then( function(data) { setData(data); } ) } );
+    return false;
+}
+function setData( json ) { w2v_data = json; console.log( w2v_data ); }
 window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
