@@ -1,6 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <style>
+            .plot{
+                display: block;
+                margin-top: -70px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                height: 450px;
+                width: 750px;
+            }
+            heading1{
+                font-size: 2.5vw;
+                margin: auto;
+                text-align: center;
+                vertical-align: middle;
+            }
+            news {
+                font-size: 1.75vw;
+                margin: auto;
+                text-align: center;
+                
+            }
+            #restofpageNews {
+                background-color: white;
+                bottom: 15vh;
+                height: 58vh;
+                position: fixed;
+                right: 0px;
+                width: 81.25vw;
+            }
+            #sidebar_news2vec{
+                background-color: grey;
+                border-right: 1vh solid #000000;
+                bottom: 0px;
+                box-sizing: border-box;
+                left: 0px;
+                height: 92vh;
+                position: fixed;
+                width: 18.75vw;
+            }
+            #carousel{
+                background-color: lightgrey;
+                border-top: 1vh solid #000000;
+                border-bottom: 1vh solid #000000;
+                bottom: 35vw;
+                left: 18.75vw;
+                box-sizing: border-box;
+                height: 10vh;
+                position: fixed;
+                width: 82vw;
+            }
+            #title{
+                background-color: white;
+                border-top: .5vh solid #000000;
+                bottom: 40vw;
+                left: 18.75vw;
+                box-sizing: border-box;
+                height: 10vh;
+                position: fixed;
+                width: 82vw;
+                vertical-align: middle;
+            }
+            #vectors_news2vec{
+                background-color: grey;
+                border-top: 1vh solid #000000;
+                border-right: 1vh solid #000000;
+                bottom: 0px;
+                box-sizing: border-box;
+                left: 0px;
+                height: 46vh;
+                position: fixed;
+                width: 18.75vw;
+            }
+            #true_btn {
+                  position: fixed;
+                  margin-left: 50px;
+                  margin-top: 30px;
+                  width: 80px;
+            }
+            #false_btn {
+                position: fixed;
+                margin-left: 130px;
+                margin-top: 30px;
+                width: 80px;
+            }
+            #news2vecbackground {
+                position: fixed;
+                margin-left: 30px;
+                margin-top: 125px;
+                width: 200px;
+            }
+        </style>
         <title>para2vec applications - visNLP</title>
         <link rel="stylesheet" href="../style.css"/>
     </head>
@@ -15,11 +107,33 @@
             <button class="navelement" onclick="window.location='/song'" ><h1>song2vec</h1></button>
             <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
         </div>
-        <div id="restofpage_NSB">
+        <div id="sidebar_news2vec">
+            <br>
+            <br>
+            <h2>Is this news article real or fake?</h2>        
+            <button id="true_btn"><h1>True</h1></button>
+            <button id="false_btn"><h1>False</h1></button>
+            <button id="news2vecbackground" onclick="window.location='/newsback'" >
+                <h1>News2Vec Background</h1>
+            </button>
+        </div>
+        <div id = "vectors_news2vec">
+
+        </div>
+        <div id="restofpageNews">
             <div style="height:3vh;"></div>
-            <h2>news2vec!</h2>
+            <h2>3D Plot Classification!</h2>
+            <h2></h2>
             <div style="height:10vh;"></div>
-            <h2>... someday</h2>
+            <img src="assets/plot.jpg" alt="An Example Plot" class = "plot"/>
+        </div>
+        <div id="carousel">
+            <br>
+            <news><center><b>https://www.nytimes.com/2023/03/01/us/politics/student-loan-debt-supreme-court-executive-power.html</b></center></news>
+        </div>
+        <div id="title">
+            <br>
+            <heading1><center><b>News2Vec Classification!</b></center></heading1>
         </div>
         <script src="../scripts.js"></script>
     </body>
