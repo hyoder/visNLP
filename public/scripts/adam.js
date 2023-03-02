@@ -75,6 +75,14 @@ function updater( val )
         case "blackbox":           blackbox(); break;
     }
 }
+//call with getData(0) for 0: Object
+function getData( step )
+{
+    fetch( '/adamdata?step='+step, { method: 'GET', headers: { "Content-Type": "application/json" } }, 0 )
+    .then( function (response) { response.json().then( function(data) { setData(data); } ) } );
+    return false;
+}
+function setData( json ) { w2v_data = json; console.log( w2v_data ); }
 window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
