@@ -26,7 +26,7 @@ app.get('/p2v',       ( req, res ) => { res.sendFile( path.join( __dirname + '/p
 app.get('/song',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/song2vec.html' ) ); } );
 app.get('/news',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/news2vec.html' ) ); } );
 app.get('/adam',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/adam.html'     ) ); } );
-app.get('/newsBack',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/newsBackground.html'     ) ); } );
+app.get('/newsback',  ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/newsback.html' ) ); } );
 app.get('/adamstep',  ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/adamstep.html'     ) ); } );
 
 app.listen( process.env.PORT || 3000, function()

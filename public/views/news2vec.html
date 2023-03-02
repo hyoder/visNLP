@@ -2,11 +2,14 @@
 <html lang="en">
     <head>
         <style>
-            .center {
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 50%;
+            .plot{
+                display: block;
+                margin-top: -70px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                height: 450px;
+                width: 750px;
             }
             heading1{
                 font-size: 2.5vw;
@@ -21,7 +24,7 @@
                 
             }
             #restofpageNews {
-                background-color: whitesmoke;
+                background-color: white;
                 bottom: 15vh;
                 height: 58vh;
                 position: fixed;
@@ -110,22 +113,19 @@
             <h2>Is this news article real or fake?</h2>        
             <button id="true_btn"><h1>True</h1></button>
             <button id="false_btn"><h1>False</h1></button>
-            <button id="news2vecbackground" onclick="window.location='/newsBack'" >
+            <button id="news2vecbackground" onclick="window.location='/newsback'" >
                 <h1>News2Vec Background</h1>
             </button>
         </div>
         <div id = "vectors_news2vec">
 
         </div>
-        <div id="footer">
-            <h2>Debating on whether or not to put steps in here</h2>
-        </div>
         <div id="restofpageNews">
             <div style="height:3vh;"></div>
             <h2>3D Plot Classification!</h2>
             <h2></h2>
             <div style="height:10vh;"></div>
-            <img src="./plot.jpg" alt="An Example Plot" class = "center"/>
+            <img src="assets/plot.jpg" alt="An Example Plot" class = "plot"/>
         </div>
         <div id="carousel">
             <br>
@@ -133,7 +133,7 @@
         </div>
         <div id="title">
             <br>
-            <heading1><center><b>news2vec!</b></center></heading1>
+            <heading1><center><b>News2Vec Classification!</b></center></heading1>
         </div>
         <script src="../scripts.js"></script>
     </body>
