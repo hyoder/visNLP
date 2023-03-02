@@ -3,7 +3,7 @@ const      canv = document.getElementById( "canv_NSB" ),
        back_btn = document.getElementById( "back_btn" ),
         fwd_btn = document.getElementById( "fwd_btn" ),
        statuses = ["intro", "vectorization", "use_cases", "onehot", "blackbox"];
-let page_status = 0;
+let page_status = 0, adam_data;
 function meta() // sets and returns page metadata for meta div (top left corner of canvas)
 {
     let output  = "<div id=\"meta_NSB\">";
@@ -82,7 +82,7 @@ function getData( step )
     .then( function (response) { response.json().then( function(data) { setData(data); } ) } );
     return false;
 }
-function setData( json ) { w2v_data = json; console.log( w2v_data ); }
+function setData( json ) { adam_data = json; console.log( adam_data ); }
 window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
