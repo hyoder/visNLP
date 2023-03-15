@@ -3,6 +3,7 @@
         "start": "node server.js"
     },
     "dependencies": {
+        "d3": "^6.7.0",
         "dotenv": "^16.0.3",
         "express": "4.18.1",
         "https": "1.0.0",
