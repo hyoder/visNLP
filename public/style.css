@@ -242,11 +242,12 @@ button {
     border-right: 1vh solid #000000;
     bottom: 0px;
     box-sizing: border-box;
-    display: inline-flex;
+    display: block;
     left: 0px;
     height: 92vh;
     position: fixed;
     width: 25vw;
+    padding: 10px;
 }
 
 #sidebar_NSB {
@@ -262,7 +263,6 @@ button {
 }
 #switch_adam_button {
     background-color:#49b293 ;
-    margin: 10px;
     padding: 5px;
     width: 100%;
 }

@@ -1,4 +1,5 @@
 const      canv = document.getElementById( "canv_adam" ),
+   sidebar_canv = document.getElementById( "sidebar_canv_adam"),
          footer = document.getElementById( "footer_adam"),
        back_btn = document.getElementById( "adam_back_btn" ),
         fwd_btn = document.getElementById( "adam_fwd_btn" ),
@@ -29,6 +30,9 @@ function meta() // sets and returns page metadata for meta div (top left corner 
 function intro()
 {
     setfooter( "intro" );
+
+    setsidebar( "default" );
+
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style='height:5vh'/>"
     canv.innerHTML += "<h3>intro to natural language processing</h3>";
@@ -81,7 +85,6 @@ function intro()
     table.classed('my-table-class', true);
     cells.classed('my-cell-class', true);
     thead.selectAll('th').classed('my-header-class', true);
-
 }
 
 function vectorization()
@@ -185,6 +188,13 @@ function setfooter( input ) // takes input from event listener and then
         case "use_cases":       footer.innerHTML = "<h2> use_cases desc </h2>"; break;
         case "onehot":          footer.innerHTML = "<h2> onehot desc </h2>"; break;
         case "blackbox":        footer.innerHTML = "<h2> blackbox desc </h2>"; break;
+    }
+}
+
+function setsidebar( input )
+{
+    switch( input ) {
+        case "default": sidebar_canv.innerHTML = "<h2> default sidebar content </h2>"; break;
     }
 }
 
