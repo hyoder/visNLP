@@ -60,7 +60,7 @@ button {
     z-index: 1;;
 }
 #canv_adam {
-    height: 77vh;
+    height: 72vh;
     position: fixed;
     text-align: center;
     top: 8vh;
@@ -89,6 +89,18 @@ button {
     position: fixed;
     right: 0px;
     width: 100vw;
+}
+
+#footer_adam {
+    background-color: lightgray;
+    border-top: 1vh solid #000000;
+    bottom: 0px;
+    box-sizing: border-box;
+    display: inline-flex;
+    height: 20vh;
+    position: fixed;
+    right: 0px;
+    width: 75vw;
 }
 
 #fwd_btn {
@@ -206,8 +218,8 @@ button {
 
 #restofpage_adam {
     background-color: whitesmoke;
-    bottom: 15vh;
-    height: 77vh;
+    bottom: 20vh;
+    height: 72vh; 
     position: fixed;
     right: 0px;
     width: 75vw;
@@ -440,4 +452,5 @@ button {
 #adam-tensor-a td {
     border: 1px solid black;
     background-color: lightgreen;
+    padding: 5px;
 }

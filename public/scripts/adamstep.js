@@ -1,5 +1,5 @@
 const      canv = document.getElementById( "canv_adam" ),
-         footer = document.getElementById( "footer_NSB"),
+         footer = document.getElementById( "footer_adam"),
        back_btn = document.getElementById( "adam_back_btn" ),
         fwd_btn = document.getElementById( "adam_fwd_btn" ),
          ff_btn = document.getElementById( "adam_ff_btn")
@@ -28,7 +28,7 @@ function meta() // sets and returns page metadata for meta div (top left corner 
 
 function intro()
 {
-    setfooter( "default" );
+    setfooter( "intro" );
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style='height:5vh'/>"
     canv.innerHTML += "<h3>intro to natural language processing</h3>";
@@ -86,17 +86,18 @@ function intro()
 
 function vectorization()
 {
-    setfooter( "default" );
+    setfooter( "vectorization" );
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style='height:5vh'/>"
     canv.innerHTML += "<h3>what is word vectorization?</h3>";
     // sample call and display for loss scalar (should be same for any step of an epoch)
     canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+
 }
 
 function use_cases()
 {
-    setfooter( "default" );
+    setfooter( "use_cases" );
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style='height:5vh'/>"
     canv.innerHTML += "<h3>how does it get used?</h3>";
@@ -106,7 +107,7 @@ function use_cases()
 
 function onehot()
 {
-    setfooter( "default" );
+    setfooter( "onehot" );
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style='height:5vh'/>"
     canv.innerHTML += "<h3>what are one-hot encoded vectors?</h3?";
@@ -116,20 +117,74 @@ function onehot()
 
 function blackbox()
 {
-    setfooter( "default" );
+    setfooter( "blackbox" );
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style='height:5vh'/>"
     canv.innerHTML += "<h3>what is the black box problem?</h3>";
     // sample call and display for loss scalar (should be same for any step of an epoch)
     canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+
+    // TEST CODE BELOW
+
+    // get desired tensor for this epoch
+    my_matrix = adam_data["curr_model_params"]["param_1"];
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    // ----- create a new HTML element to hold the table
+    const tableDiv = document.createElement('div');
+    tableDiv.id = 'adam-tensor-a';
+
+    // append the table element to the canvas element
+    mainContentContainer.appendChild(tableDiv);
+
+    // bind the data to a table using D3
+    const table = d3.select('#adam-tensor-a');
+    const thead = table.append('thead');
+    const tbody = table.append('tbody');
+
+    // add table headers
+    thead.append('tr')
+        .selectAll('th')
+        .enter()
+        .append('th')
+
+    const rows = table.selectAll('tr')
+        .data(my_matrix)
+        .enter()
+        .append('tr');
+
+    const cells = rows.selectAll('td')
+        .data(d => d)
+        .enter()
+        .append('td')
+        .text(d => {
+            const formatted = d.toFixed(4);
+            return (d >= 0 ? '\u00A0' : '') + formatted;
+        });
+
+    // add CSS classes to the table elements
+    table.classed('my-table-class', true);
+    cells.classed('my-cell-class', true);
+    thead.selectAll('th').classed('my-header-class', true);
+
 }
 
 function setfooter( input ) // takes input from event listener and then 
 {
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
-        case "yeah": footer.innerHTML = "<h2>this is the first footer option ! :)</h2>"; break;
-        case "ok": footer.innerHTML = "<h2>this is the second footer option ! :(</h2>"; break;
+        // real topics
+        case "vectorization":   footer.innerHTML = "<h2> vectorization desc </h2>"; break;
+        case "intro":           footer.innerHTML = "<h2> intro desc </h2>"; break;
+        case "use_cases":       footer.innerHTML = "<h2> use_cases desc </h2>"; break;
+        case "onehot":          footer.innerHTML = "<h2> onehot desc </h2>"; break;
+        case "blackbox":        footer.innerHTML = "<h2> blackbox desc </h2>"; break;
     }
 }
 
