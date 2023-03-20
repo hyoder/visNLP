@@ -36,7 +36,7 @@ function intro()
 
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style='height:11vh'/>"
-    canv.innerHTML += "<h3>page 1 title</h3>";
+    canv.innerHTML += "<h3>Page 1 Title (intro)</h3>";
     canv.innerHTML += "<div style='height:2vh'/>"
     // sample call and display for loss scalar (should be same for any step of an epoch)
     //canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
@@ -100,7 +100,7 @@ function vectorization()
 
     // set title
     canv.innerHTML += "<div style='height:11vh'/>"
-    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 2/4</h3>";
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 1/4</h3>";
     canv.innerHTML += "<div style='height:3vh'/>"
 
     // create a new HTML element to hold the main content container
@@ -123,7 +123,7 @@ function use_cases()
 
     // set title
     canv.innerHTML += "<div style='height:11vh'/>"
-    canv.innerHTML += "<h3>page 3 title</h3>";
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 2/4</h3>";
     canv.innerHTML += "<div style='height:3vh'/>"
 
     // create a new HTML element to hold the main content container
@@ -145,7 +145,7 @@ function onehot()
 
     // set title
     canv.innerHTML += "<div style='height:11vh'/>"
-    canv.innerHTML += "<h3>page 4 title</h3>";
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 3/4</h3>";
     canv.innerHTML += "<div style='height:3vh'/>"
 
     // create a new HTML element to hold the main content container
@@ -165,7 +165,7 @@ function blackbox()
     setsidebar( "default" );
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style='height:11vh'/>"
-    canv.innerHTML += "<h3>page 5 title</h3>";
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 4/4</h3>";
     canv.innerHTML += "<div style='height:3vh'/>"
 
     // TEST CODE BELOW
@@ -246,21 +246,21 @@ function setfooter( input ) // takes input from event listener and then
                                 footer_eq_title.innerHTML = "<h2> intro eq title </h2>";
                                 footer_eq.innerHTML = "<h2> intro eq </h2>";
                                 break;
-        case "vectorization":   footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Next, the square of the current gradient (g2t) is scaled by the complementary factor (1 -  β2), which determines how much weight to give to the new information. Beta-2 (β2) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.999 in this simulation.";
+        case "vectorization":   footer_desc.innerHTML = "Update the biased second raw moment estimate (vt). The biased second raw moment estimate vector is set to zero prior to updating. First, calculate the square of the current gradient (g2t) by squaring the current gradient (gt).";
+                                footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
+                                footer_eq.innerHTML = "<h2> vt ← β2 ● vt−1 + (1 − β2) ● <span style='color: #32cd32'>g</span> <span style='color: #00ffff'>2t</span> </h2>";
+                                break;
+        case "use_cases":       footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Next, the square of the current gradient (g2t) is scaled by the complementary factor (1 -  β2), which determines how much weight to give to the new information. Beta-2 (β2) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.999 in this simulation.";
                                 footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
                                 footer_eq.innerHTML = "<h2> vt ← β2 ● vt−1 + <span style='color: #32cd32'>(1 − β2)</span> <span style='color: #00ffff'>● g2t</span> </h2>";
                                 break;
-        case "use_cases":       footer_desc.innerHTML = "Continue updating the parameters (θt). Next, divide the previously computed bias corrected first moment estimate by the sum computed in pt.(2). Dividing the bias-corrected first moment estimate (m_hatt) by the bias-corrected second raw moment estimate (v_hatt) effectively scales bias-corrected first moment estimate (m_hatt) by a factor that is inversely proportional to the variance of the gradient. This ensures that the update step for the parameters is not biased towards one direction or the other due to the biased first moment estimate.";
-                                footer_eq_title.innerHTML = "<h2> placeholder eq title </h2>";
-                                footer_eq.innerHTML = "<h2> placeholder eq </h2>";
+        case "onehot":          footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Next, the previous estimate is scaled by the hyperparameter Beta-2 (β2), which determines how much weight to give to the past estimate.";
+                                footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
+                                footer_eq.innerHTML = "<h2> vt ← <span style='color: #32cd32'>β2</span> <span style='color: #00ffff'>● vt−1</span> + (1 − β2) ● g2t </h2>";
                                 break;
-        case "onehot":          footer_desc.innerHTML = "<h2> placeholder desc </h2>";
-                                footer_eq_title.innerHTML = "<h2> placeholder eq title </h2>";
-                                footer_eq.innerHTML = "<h2> placeholder eq </h2>";
-                                break;
-        case "blackbox":        footer_desc.innerHTML = "<h2> placeholder desc </h2>";
-                                footer_eq_title.innerHTML = "<h2> placeholder eq title </h2>";
-                                footer_eq.innerHTML = "<h2> placeholder eq </h2>";
+        case "blackbox":        footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Finally, sum both intermediate products calculated in pt.(2) and pt.(3). This yields the updated estimate of the biased second raw moment vector which will be later used to adjust the learning rate for each parameter during the optimization process. By taking into account the history of squared gradients, Adam optimization can adaptively adjust the learning rate for each parameter and converge more quickly to the optimal solution.";
+                                footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
+                                footer_eq.innerHTML = "<h2> vt ← <span style='color: #32cd32'>β2 ● vt−1</span> <span style='color: #00ffff'>+ (1 − β2) ● g2t</span> </h2>";
                                 break;                                
     }
 }
