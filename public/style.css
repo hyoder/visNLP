@@ -118,7 +118,7 @@ button {
     height: 5vh;
     position: fixed;
     right: 23.5vw;
-    top: 9vh;
+    top: 10vh;
     width: 5vw;
     z-index: 2;
 }
@@ -128,7 +128,7 @@ button {
     height: 5vh;
     position: fixed;
     right: 16.5vw;
-    top: 9vh;
+    top: 10vh;
     width: 5vw;
     z-index: 2;
 }
@@ -138,7 +138,7 @@ button {
     height: 5vh;
     position: fixed;
     right: 9.5vw;
-    top: 9vh;
+    top: 10vh;
     width: 5vw;
     z-index: 2;
 }
@@ -148,7 +148,7 @@ button {
     height: 5vh;
     position: fixed;
     right: 2.5vw;
-    top: 9vh;
+    top: 10vh;
     width: 5vw;
     z-index: 2;
 }
@@ -192,7 +192,7 @@ button {
 
 #meta_adam h5 {
     display: inline-block;
-    color: blue;
+    color: rgb(41, 182, 41);
     font-size: 2vw;
     margin-top: 1.5vh;
     margin-left: 2px;
@@ -246,6 +246,19 @@ button {
     width: 75vw;
 }
 
+#restofpage_overview {
+    background-color: whitesmoke;
+    bottom: 0vh;
+    height: 92vh; 
+    position: fixed;
+    right: 0px;
+    width: 75vw;
+    overflow: scroll;
+    box-sizing: border-box;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
 #sidebar {
     background-color: grey;
     border-right: 1vh solid #000000;
@@ -283,9 +296,14 @@ button {
     width: 18.75vw;
 }
 #switch_adam_button {
-    background-color:#49b293 ;
+    /* background-color:#49b293 ; */
+    background-color: lightgray;
+    border-radius: 5px;
     padding: 5px;
     width: 100%;
+}
+#switch_adam_button:hover {
+    background-color:white;
 }
 
 .navelement {
