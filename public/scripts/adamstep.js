@@ -222,6 +222,7 @@ function blackbox()
 
 }
 
+
 // Create new div elements for the three sections of the footer
 const footer_desc = document.createElement("div");
 footer_desc.classList.add("footer_adam_desc");
@@ -248,7 +249,7 @@ function setfooter( input ) // takes input from event listener and then
                                 break;
         case "vectorization":   footer_desc.innerHTML = "Update the biased second raw moment estimate (vt). The biased second raw moment estimate vector is set to zero prior to updating. First, calculate the square of the current gradient (g2t) by squaring the current gradient (gt).";
                                 footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
-                                footer_eq.innerHTML = "<h2> vt ← β2 ● vt−1 + (1 − β2) ● <span style='color: #32cd32'>g</span> <span style='color: #00ffff'>2t</span> </h2>";
+                                footer_eq.innerHTML = "<h2> vt ← β<sup>2</sup> ● v<sup>t−1</sup> + (1 − β<sup>2</sup>) ● <span style='color: #32cd32'>g</span><span style='color: #00ffff'><sup>2</sup><sub>t</sub></span> </h2>";
                                 break;
         case "use_cases":       footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Next, the square of the current gradient (g2t) is scaled by the complementary factor (1 -  β2), which determines how much weight to give to the new information. Beta-2 (β2) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.999 in this simulation.";
                                 footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
@@ -267,20 +268,59 @@ function setfooter( input ) // takes input from event listener and then
 
 function setsidebar( input )
 {
+    // might need to be used to update the first and second moment changes
     switch( input ) {
         case "default": sidebar_canv.innerHTML = "<div style='height:3vh'/>";
                         sidebar_canv.innerHTML += "<h2> default sidebar content </h2>";
                         break;
     }
 
+
+    // CURRENT PARAMS TENSORS
+
+    // create a new HTML element to hold the main content container
+    const sidebar_curr_param_container = document.createElement('div');
+    sidebar_curr_param_container.id = 'sidebar-curr-param-container';
+
+    // append the table container to the canvas element
+    sidebar_canv.appendChild(sidebar_curr_param_container);
+
+    sidebar_curr_param_container.innerHTML = "<h2>current params container</h2>"
+
+
+    // CURRENT FIRST MOMENT TENSORS
+
+    // create a new HTML element to hold the main content container
+    const sidebar_first_moment_container = document.createElement('div');
+    sidebar_first_moment_container.id = 'sidebar-first-moment-container';
+
+    // append the table container to the canvas element
+    sidebar_canv.appendChild(sidebar_first_moment_container);
+
+    sidebar_first_moment_container.innerHTML = "<h2>current first moments container</h2>"
+
+
+    // CURRENT SECOND MOMENT TENSORS
+
+    // create a new HTML element to hold the main content container
+    const sidebar_second_moment_container = document.createElement('div');
+    sidebar_second_moment_container.id = 'sidebar-second-moment-container';
+
+    // append the table container to the canvas element
+    sidebar_canv.appendChild(sidebar_second_moment_container);
+
+    sidebar_second_moment_container.innerHTML = "<h2>current second moments container</h2>"
+
+
+    // PLOT LOSS
     sidebar_canv.innerHTML += "<h2> start plot content </h2>";
+    
+    // ----- create a new HTML element to hold the table
+    const loss_plot_div = document.createElement('div');
+    loss_plot_div.id = 'sidebar-loss-plot';
 
     // get desired tensor for this epoch
     my_arr = adam_data["loss_steps"]["avg_loss_vals"];
-
-    // ----- create a new HTML element to hold the table
-    const plotDiv = document.createElement('div');
-    plotDiv.id = 'adam-plot-a';
 
     // set up the dimensions and margins of the plot
     const margin = {top: 10, right: 30, bottom: 30, left: 30},
@@ -288,7 +328,7 @@ function setsidebar( input )
     height = 300 - margin.top - margin.bottom;
 
     // append the plot element to the canvas element
-    sidebar_canv.appendChild(plotDiv);
+    sidebar_canv.appendChild(loss_plot_div);
 
     // set up the x and y scales
     const x = d3.scaleLinear()
@@ -304,7 +344,7 @@ function setsidebar( input )
     .y(d => y(d));
 
     // create the SVG element
-    const svg = d3.select(`#${plotDiv.id}`)
+    const svg = d3.select(`#${loss_plot_div.id}`)
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
