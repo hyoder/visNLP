@@ -100,33 +100,41 @@ button {
     position: fixed;
     right: 0px;
     width: 75vw;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .footer_adam_desc{
+    height: 65%;
+    text-align: left;
     display: flex;
-    height: 60%;
+    padding: 10px;
+    box-sizing: border-box;
 
-    color: blue;
-    background-color: lightblue;
+    /* color: blue; */
+    /* background-color: lightblue; */
 }
 
 .footer_adam_eq_title{
     display: inline-flex;
-    height: 40%;
+    height: 35%;
     width: 40%;
 
-    color: red;
-    background-color: lightcoral;
+    /* color: red;
+    background-color: lightcoral; */
+    color: white;
+    background-color: #8b0000;
     
 }
 
 .footer_adam_eq{
     display: inline-flex;
-    height: 40%;
+    height: 35%;
     width: 60%;
 
-    color: green;
-    background-color: lightgreen;
+    /* color: green;
+    background-color: lightgreen; */
+    color: white;
+    background-color: #8b0000;
     
 }
 

@@ -35,7 +35,7 @@ function intro()
     setsidebar( "default" );
 
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height:9vh'/>"
+    canv.innerHTML += "<div style='height:11vh'/>"
     canv.innerHTML += "<h3>page 1 title</h3>";
     canv.innerHTML += "<div style='height:2vh'/>"
     // sample call and display for loss scalar (should be same for any step of an epoch)
@@ -95,12 +95,13 @@ function intro()
 function vectorization()
 {
     setfooter( "vectorization" );
+    setsidebar( "default" );
     canv.innerHTML  = meta();
 
     // set title
-    canv.innerHTML += "<div style='height:9vh'/>"
-    canv.innerHTML += "<h3>page 2 title</h3>";
-    canv.innerHTML += "<div style='height:2vh'/>"
+    canv.innerHTML += "<div style='height:11vh'/>"
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 2/4</h3>";
+    canv.innerHTML += "<div style='height:3vh'/>"
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
@@ -117,12 +118,13 @@ function vectorization()
 function use_cases()
 {
     setfooter( "use_cases" );
+    setsidebar( "default" );
     canv.innerHTML  = meta();
 
     // set title
-    canv.innerHTML += "<div style='height:9vh'/>"
+    canv.innerHTML += "<div style='height:11vh'/>"
     canv.innerHTML += "<h3>page 3 title</h3>";
-    canv.innerHTML += "<div style='height:2vh'/>"
+    canv.innerHTML += "<div style='height:3vh'/>"
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
@@ -138,12 +140,13 @@ function use_cases()
 function onehot()
 {
     setfooter( "onehot" );
+    setsidebar( "default" );
     canv.innerHTML  = meta();
 
     // set title
-    canv.innerHTML += "<div style='height:9vh'/>"
+    canv.innerHTML += "<div style='height:11vh'/>"
     canv.innerHTML += "<h3>page 4 title</h3>";
-    canv.innerHTML += "<div style='height:2vh'/>"
+    canv.innerHTML += "<div style='height:3vh'/>"
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
@@ -159,10 +162,11 @@ function onehot()
 function blackbox()
 {
     setfooter( "blackbox" );
+    setsidebar( "default" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height:9vh'/>"
+    canv.innerHTML += "<div style='height:11vh'/>"
     canv.innerHTML += "<h3>page 5 title</h3>";
-    canv.innerHTML += "<div style='height:2vh'/>"
+    canv.innerHTML += "<div style='height:3vh'/>"
 
     // TEST CODE BELOW
 
@@ -238,15 +242,15 @@ function setfooter( input ) // takes input from event listener and then
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // real topics
-        case "intro":           footer_desc.innerHTML = "<h2> intro desc </h2>";
+        case "intro":           footer_desc.innerHTML = "intro desc";
                                 footer_eq_title.innerHTML = "<h2> intro eq title </h2>";
                                 footer_eq.innerHTML = "<h2> intro eq </h2>";
                                 break;
-        case "vectorization":   footer_desc.innerHTML = "<h2> placeholder desc </h2>";
-                                footer_eq_title.innerHTML = "<h2> placeholder eq title </h2>";
-                                footer_eq.innerHTML = "<h2> placeholder eq </h2>";
+        case "vectorization":   footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Next, the square of the current gradient (g2t) is scaled by the complementary factor (1 -  β2), which determines how much weight to give to the new information. Beta-2 (β2) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.999 in this simulation.";
+                                footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
+                                footer_eq.innerHTML = "<h2> vt ← β2 ● vt−1 + <span style='color: #32cd32'>(1 − β2)</span> <span style='color: #00ffff'>● g2t</span> </h2>";
                                 break;
-        case "use_cases":       footer_desc.innerHTML = "<h2> placeholder desc </h2>";
+        case "use_cases":       footer_desc.innerHTML = "Continue updating the parameters (θt). Next, divide the previously computed bias corrected first moment estimate by the sum computed in pt.(2). Dividing the bias-corrected first moment estimate (m_hatt) by the bias-corrected second raw moment estimate (v_hatt) effectively scales bias-corrected first moment estimate (m_hatt) by a factor that is inversely proportional to the variance of the gradient. This ensures that the update step for the parameters is not biased towards one direction or the other due to the biased first moment estimate.";
                                 footer_eq_title.innerHTML = "<h2> placeholder eq title </h2>";
                                 footer_eq.innerHTML = "<h2> placeholder eq </h2>";
                                 break;
@@ -264,11 +268,12 @@ function setfooter( input ) // takes input from event listener and then
 function setsidebar( input )
 {
     switch( input ) {
-        case "default": sidebar_canv.innerHTML = "<h2> default sidebar content </h2>"; break;
+        case "default": sidebar_canv.innerHTML = "<div style='height:3vh'/>";
+                        sidebar_canv.innerHTML += "<h2> default sidebar content </h2>";
+                        break;
     }
 
-    sidebar_canv.innerHTML += "<h2> start content </h2>";
-
+    sidebar_canv.innerHTML += "<h2> start plot content </h2>";
 
     // get desired tensor for this epoch
     my_arr = adam_data["loss_steps"]["avg_loss_vals"];
@@ -312,7 +317,7 @@ function setsidebar( input )
     .attr("class", "line")
     .attr("d", line);
 
-    sidebar_canv.innerHTML += "<h2> end content </h2>";
+    sidebar_canv.innerHTML += "<h2> end plot content </h2>";
 
 }
 
