@@ -96,11 +96,38 @@ button {
     border-top: 1vh solid #000000;
     bottom: 0px;
     box-sizing: border-box;
-    display: inline-flex;
     height: 20vh;
     position: fixed;
     right: 0px;
     width: 75vw;
+}
+
+.footer_adam_desc{
+    display: flex;
+    height: 60%;
+
+    color: blue;
+    background-color: lightblue;
+}
+
+.footer_adam_eq_title{
+    display: inline-flex;
+    height: 40%;
+    width: 40%;
+
+    color: red;
+    background-color: lightcoral;
+    
+}
+
+.footer_adam_eq{
+    display: inline-flex;
+    height: 40%;
+    width: 60%;
+
+    color: green;
+    background-color: lightgreen;
+    
 }
 
 #fwd_btn {

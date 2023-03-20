@@ -218,16 +218,46 @@ function blackbox()
 
 }
 
+// Create new div elements for the three sections of the footer
+const footer_desc = document.createElement("div");
+footer_desc.classList.add("footer_adam_desc");
+
+const footer_eq_title = document.createElement("div");
+footer_eq_title.classList.add("footer_adam_eq_title");
+
+const footer_eq = document.createElement("div");
+footer_eq.classList.add("footer_adam_eq");
+
+// Append the three sections to the footer element
+footer.appendChild(footer_desc);
+footer.appendChild(footer_eq_title);
+footer.appendChild(footer_eq);
+
 function setfooter( input ) // takes input from event listener and then 
 {
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // real topics
-        case "vectorization":   footer.innerHTML = "<h2> vectorization desc </h2>"; break;
-        case "intro":           footer.innerHTML = "<h2> intro desc </h2>"; break;
-        case "use_cases":       footer.innerHTML = "<h2> use_cases desc </h2>"; break;
-        case "onehot":          footer.innerHTML = "<h2> onehot desc </h2>"; break;
-        case "blackbox":        footer.innerHTML = "<h2> blackbox desc </h2>"; break;
+        case "intro":           footer_desc.innerHTML = "<h2> intro desc </h2>";
+                                footer_eq_title.innerHTML = "<h2> intro eq title </h2>";
+                                footer_eq.innerHTML = "<h2> intro eq </h2>";
+                                break;
+        case "vectorization":   footer_desc.innerHTML = "<h2> placeholder desc </h2>";
+                                footer_eq_title.innerHTML = "<h2> placeholder eq title </h2>";
+                                footer_eq.innerHTML = "<h2> placeholder eq </h2>";
+                                break;
+        case "use_cases":       footer_desc.innerHTML = "<h2> placeholder desc </h2>";
+                                footer_eq_title.innerHTML = "<h2> placeholder eq title </h2>";
+                                footer_eq.innerHTML = "<h2> placeholder eq </h2>";
+                                break;
+        case "onehot":          footer_desc.innerHTML = "<h2> placeholder desc </h2>";
+                                footer_eq_title.innerHTML = "<h2> placeholder eq title </h2>";
+                                footer_eq.innerHTML = "<h2> placeholder eq </h2>";
+                                break;
+        case "blackbox":        footer_desc.innerHTML = "<h2> placeholder desc </h2>";
+                                footer_eq_title.innerHTML = "<h2> placeholder eq title </h2>";
+                                footer_eq.innerHTML = "<h2> placeholder eq </h2>";
+                                break;                                
     }
 }
 
