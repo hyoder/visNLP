@@ -20,9 +20,11 @@ let epoch_count = 7;
 function meta() // sets and returns page metadata for meta div (top left corner of canvas)
 {
     let output  = "<div id=\"meta_adam\">";
-        output += "<h2>basics - \"" + statuses[page_status] + "\"</h2>";
-        output += "<h4>page " + (page_status+1) + " out of " + (page_count) + "</h4>";
-        output += "<h4>epoch number: " + (epoch_status) + " out of " + (epoch_count-1) + "</h4>";
+        // shortented page title meta
+        //output += "<h2>basics - \"" + statuses[page_status] + "\"</h2>";
+        output += "<h4>Step: " + "<h5>" + (page_status+1) + "/" + (page_count) + "</h5>" + "</h4>";
+        //output += "<h4>epoch: " + (epoch_status) + " out of " + (epoch_count-1) + "</h4>";
+        output += "<h4>Iteration: " + "<h5>" + (epoch_status) + "</h5>" + "</h4>";
         output += "</div>"
     return output;
 }
@@ -30,14 +32,14 @@ function meta() // sets and returns page metadata for meta div (top left corner 
 function intro()
 {
     setfooter( "intro" );
-
     setsidebar( "default" );
 
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height:5vh'/>"
-    canv.innerHTML += "<h3>intro to natural language processing</h3>";
+    canv.innerHTML += "<div style='height:9vh'/>"
+    canv.innerHTML += "<h3>page 1 title</h3>";
+    canv.innerHTML += "<div style='height:2vh'/>"
     // sample call and display for loss scalar (should be same for any step of an epoch)
-    canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    //canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
 
     // get desired tensor for this epoch
     my_matrix = adam_data["curr_model_params"]["param_1"];
@@ -48,6 +50,9 @@ function intro()
 
     // append the table container to the canvas element
     canv.appendChild(mainContentContainer);
+
+    // sample call and display for loss scalar (should be same for any step of an epoch)
+    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
 
     // ----- create a new HTML element to hold the table
     const tableDiv = document.createElement('div');
@@ -91,10 +96,21 @@ function vectorization()
 {
     setfooter( "vectorization" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height:5vh'/>"
-    canv.innerHTML += "<h3>what is word vectorization?</h3>";
+
+    // set title
+    canv.innerHTML += "<div style='height:9vh'/>"
+    canv.innerHTML += "<h3>page 2 title</h3>";
+    canv.innerHTML += "<div style='height:2vh'/>"
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
     // sample call and display for loss scalar (should be same for any step of an epoch)
-    canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
 
 }
 
@@ -102,30 +118,51 @@ function use_cases()
 {
     setfooter( "use_cases" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height:5vh'/>"
-    canv.innerHTML += "<h3>how does it get used?</h3>";
+
+    // set title
+    canv.innerHTML += "<div style='height:9vh'/>"
+    canv.innerHTML += "<h3>page 3 title</h3>";
+    canv.innerHTML += "<div style='height:2vh'/>"
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
     // sample call and display for loss scalar (should be same for any step of an epoch)
-    canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
 }
 
 function onehot()
 {
     setfooter( "onehot" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height:5vh'/>"
-    canv.innerHTML += "<h3>what are one-hot encoded vectors?</h3?";
+
+    // set title
+    canv.innerHTML += "<div style='height:9vh'/>"
+    canv.innerHTML += "<h3>page 4 title</h3>";
+    canv.innerHTML += "<div style='height:2vh'/>"
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
     // sample call and display for loss scalar (should be same for any step of an epoch)
-    canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
 }
 
 function blackbox()
 {
     setfooter( "blackbox" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height:5vh'/>"
-    canv.innerHTML += "<h3>what is the black box problem?</h3>";
-    // sample call and display for loss scalar (should be same for any step of an epoch)
-    canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    canv.innerHTML += "<div style='height:9vh'/>"
+    canv.innerHTML += "<h3>page 5 title</h3>";
+    canv.innerHTML += "<div style='height:2vh'/>"
 
     // TEST CODE BELOW
 
@@ -138,6 +175,9 @@ function blackbox()
 
     // append the table container to the canvas element
     canv.appendChild(mainContentContainer);
+
+    // sample call and display for loss scalar (should be same for any step of an epoch)
+    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
 
     // ----- create a new HTML element to hold the table
     const tableDiv = document.createElement('div');
@@ -196,6 +236,54 @@ function setsidebar( input )
     switch( input ) {
         case "default": sidebar_canv.innerHTML = "<h2> default sidebar content </h2>"; break;
     }
+
+    sidebar_canv.innerHTML += "<h2> start content </h2>";
+
+
+    // get desired tensor for this epoch
+    my_arr = adam_data["loss_steps"]["avg_loss_vals"];
+
+    // ----- create a new HTML element to hold the table
+    const plotDiv = document.createElement('div');
+    plotDiv.id = 'adam-plot-a';
+
+    // set up the dimensions and margins of the plot
+    const margin = {top: 10, right: 30, bottom: 30, left: 30},
+    width = 400 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
+
+    // append the plot element to the canvas element
+    sidebar_canv.appendChild(plotDiv);
+
+    // set up the x and y scales
+    const x = d3.scaleLinear()
+    .domain([0, my_arr.length])
+    .range([0, width]);
+    const y = d3.scaleLinear()
+    .domain([d3.min(my_arr), d3.max(my_arr)])
+    .range([height, 0]);
+
+    // set up the line function
+    const line = d3.line()
+    .x((d, i) => x(i))
+    .y(d => y(d));
+
+    // create the SVG element
+    const svg = d3.select(`#${plotDiv.id}`)
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // add the line to the plot
+    svg.append("path")
+    .datum(my_arr)
+    .attr("class", "line")
+    .attr("d", line);
+
+    sidebar_canv.innerHTML += "<h2> end content </h2>";
+
 }
 
 function updater( val )
