@@ -16,7 +16,6 @@ let adam_data;
 let page_count = 5;
 let epoch_count = 7;
 
-
 function meta() // sets and returns page metadata for meta div (top left corner of canvas)
 {
     let output  = "<div id=\"meta_adam\">";
@@ -37,12 +36,7 @@ function intro()
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style='height:11vh'/>"
     canv.innerHTML += "<h3>Page 1 Title (intro)</h3>";
-    canv.innerHTML += "<div style='height:2vh'/>"
-    // sample call and display for loss scalar (should be same for any step of an epoch)
-    //canv.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
-
-    // get desired tensor for this epoch
-    my_matrix = adam_data["curr_model_params"]["param_1"];
+    canv.innerHTML += "<div style='height:3vh'/>"
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
@@ -52,44 +46,110 @@ function intro()
     canv.appendChild(mainContentContainer);
 
     // sample call and display for loss scalar (should be same for any step of an epoch)
-    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    // mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
 
-    // ----- create a new HTML element to hold the table
-    const tableDiv = document.createElement('div');
-    tableDiv.id = 'adam-tensor-a';
+    function createTable(data, tableId, tableClass) {
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        mainContentContainer.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+      
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+      
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
 
-    // append the table element to the canvas element
-    mainContentContainer.appendChild(tableDiv);
+    // create tables with loaded tensor data
+    const my_tensor_data = adam_data["gradient_states"]["first_moments_bc"]["param_1_m_hat"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class');
 
-    // bind the data to a table using D3
-    const table = d3.select('#adam-tensor-a');
-    const thead = table.append('thead');
-    const tbody = table.append('tbody');
 
-    // add table headers
-    thead.append('tr')
-        .selectAll('th')
-        .enter()
-        .append('th')
+    // Create a new image element
+    var img = new Image();
 
-    const rows = table.selectAll('tr')
-        .data(my_matrix)
-        .enter()
-        .append('tr');
+    // Set the source URL of the image
+    img.src = 'https://static.thenounproject.com/png/5380101-200.png';
 
-    const cells = rows.selectAll('td')
-        .data(d => d)
-        .enter()
-        .append('td')
-        .text(d => {
-            const formatted = d.toFixed(4);
-            return (d >= 0 ? '\u00A0' : '') + formatted;
-        });
+    // Wait for the image to load
+    img.onload = function() {
+        // Create a new canvas element inside the mainContentContainer element
+        var canvas = document.createElement('canvas');
+        
+        // Set the desired width and height of the canvas
+        var canvasWidth = 100;
+        var canvasHeight = 100;
+        
+        // Set the width and height of the canvas element
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        
+        // Append the canvas to the mainContentContainer
+        mainContentContainer.appendChild(canvas);
+    
+        // Get the canvas context for the new canvas
+        var ctx = canvas.getContext('2d');
+    
+        // Draw the image on the new canvas, scaled down to fit the canvas
+        ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
 
-    // add CSS classes to the table elements
-    table.classed('my-table-class', true);
-    cells.classed('my-cell-class', true);
-    thead.selectAll('th').classed('my-header-class', true);
+
+        const my_tensor_data2 = adam_data["param_update_steps"]["ans_eps_sum"]["param_1"];
+        createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class');
+
+        // Create a new image element
+        var img2 = new Image();
+
+        // Set the source URL of the image
+        img2.src = 'https://cdn-icons-png.flaticon.com/512/189/189253.png';
+
+        // Wait for the image to load
+        img2.onload = function() {
+            // Create a new canvas element inside the mainContentContainer element
+            var canvas2 = document.createElement('canvas');
+            
+            // Set the desired width and height of the canvas
+            var canvasWidth2 = 100;
+            var canvasHeight2 = 100;
+            
+            // Set the width and height of the canvas element
+            canvas2.width = canvasWidth2;
+            canvas2.height = canvasHeight2;
+            
+            // Append the canvas to the mainContentContainer
+            mainContentContainer.appendChild(canvas2);
+        
+            // Get the canvas context for the new canvas
+            var ctx2 = canvas2.getContext('2d');
+        
+            // Draw the image on the new canvas, scaled down to fit the canvas
+            ctx2.drawImage(img2, 0, 0, canvasWidth2, canvasHeight2);
+
+
+            const my_tensor_data3 = adam_data["param_update_steps"]["m_hat_ans_quotient"]["param_1"];
+            createTable(my_tensor_data3, 'my-tensor-id-3', 'generic-table-class');
+
+        };
+
+        
+    };
+
 }
 
 function vectorization()
@@ -110,8 +170,45 @@ function vectorization()
     // append the table container to the canvas element
     canv.appendChild(mainContentContainer);
 
-    // sample call and display for loss scalar (should be same for any step of an epoch)
-    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    function createTable(data, tableId, tableClass) {
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        mainContentContainer.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+      
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+      
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // create tables with loaded tensor data
+    const my_tensor_data = adam_data["second_moment_calculations"]["grads_sq"]["param_1"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class');
+
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class');
+
+    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    // transpose the param3
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class');
 
 }
 
@@ -133,8 +230,46 @@ function use_cases()
     // append the table container to the canvas element
     canv.appendChild(mainContentContainer);
 
-    // sample call and display for loss scalar (should be same for any step of an epoch)
-    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    function createTable(data, tableId, tableClass) {
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        mainContentContainer.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+      
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+      
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // create tables with loaded tensor data
+    const my_tensor_data = adam_data["second_moment_calculations"]["grads_sq"]["param_1"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class');
+
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class');
+
+    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    // transpose the param3
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class');
+
 }
 
 function onehot()
@@ -155,8 +290,45 @@ function onehot()
     // append the table container to the canvas element
     canv.appendChild(mainContentContainer);
 
-    // sample call and display for loss scalar (should be same for any step of an epoch)
-    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    function createTable(data, tableId, tableClass) {
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        mainContentContainer.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+      
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+      
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // create tables with loaded tensor data
+    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class');
+
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class');
+
+    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    // transpose the param3
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class');
 }
 
 function blackbox()
@@ -180,45 +352,45 @@ function blackbox()
     // append the table container to the canvas element
     canv.appendChild(mainContentContainer);
 
-    // sample call and display for loss scalar (should be same for any step of an epoch)
-    mainContentContainer.innerHTML += "<p> sample loaded content: " + adam_data["loss_steps"]["avg_epoch_loss"] + " </p>";
+    function createTable(data, tableId, tableClass) {
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        mainContentContainer.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+      
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+      
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
 
-    // ----- create a new HTML element to hold the table
-    const tableDiv = document.createElement('div');
-    tableDiv.id = 'adam-tensor-a';
+    // create tables with loaded tensor data
+    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class');
 
-    // append the table element to the canvas element
-    mainContentContainer.appendChild(tableDiv);
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class');
 
-    // bind the data to a table using D3
-    const table = d3.select('#adam-tensor-a');
-    const thead = table.append('thead');
-    const tbody = table.append('tbody');
-
-    // add table headers
-    thead.append('tr')
-        .selectAll('th')
-        .enter()
-        .append('th')
-
-    const rows = table.selectAll('tr')
-        .data(my_matrix)
-        .enter()
-        .append('tr');
-
-    const cells = rows.selectAll('td')
-        .data(d => d)
-        .enter()
-        .append('td')
-        .text(d => {
-            const formatted = d.toFixed(4);
-            return (d >= 0 ? '\u00A0' : '') + formatted;
-        });
-
-    // add CSS classes to the table elements
-    table.classed('my-table-class', true);
-    cells.classed('my-cell-class', true);
-    thead.selectAll('th').classed('my-header-class', true);
+    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    // transpose the param3
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class');
 
 }
 
@@ -243,7 +415,7 @@ function setfooter( input ) // takes input from event listener and then
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // real topics
-        case "intro":           footer_desc.innerHTML = "intro desc";
+        case "intro":           footer_desc.innerHTML = "intro desc -   ( m_hat / (sqrt(v_hat) + eps) ) -> ans";
                                 footer_eq_title.innerHTML = "<h2> intro eq title </h2>";
                                 footer_eq.innerHTML = "<h2> intro eq </h2>";
                                 break;
@@ -274,7 +446,6 @@ function setsidebar( input )
                         sidebar_canv.innerHTML += "<h2> default sidebar content </h2>";
                         break;
     }
-
 
     // CURRENT PARAMS TENSORS
 

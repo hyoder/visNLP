@@ -118,7 +118,8 @@ button {
     display: inline-flex;
     height: 35%;
     width: 40%;
-
+    font-size: 1vw;
+    
     /* color: red;
     background-color: lightcoral; */
     color: white;
@@ -131,6 +132,7 @@ button {
     display: inline-flex;
     height: 35%;
     width: 60%;
+    font-size: 1vw;
 
     /* color: green;
     background-color: lightgreen; */
@@ -549,4 +551,40 @@ button {
 #sidebar-loss-plot {
     padding: 20px;
     border: 2px dashed pink;
+}
+
+
+
+.generic-table-class {
+    display: inline-block;
+    width: auto;
+    font-family: consolas;
+    border: 1px solid black;
+} 
+
+/* define styles for table cells */
+.generic-table-class td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#my-tensor-id {
+    background-color: greenyellow;
+}
+
+#my-tensor-id-2 {
+    background-color: cyan;
+}
+
+#my-tensor-id-3 {
+    background-color: pink;
+}
+
+.generic-sidebar-table-class{
+    color: blue;
+    border: 1px solid black;
+}
+
+.generic-sidebar-table-class td{
+    border: 1px solid black;
 }
