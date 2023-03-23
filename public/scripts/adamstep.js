@@ -290,10 +290,14 @@ function onehot()
     // append the table container to the canvas element
     canv.appendChild(mainContentContainer);
 
-    function createTable(data, tableId, tableClass) {
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
         const tableDiv = document.createElement('div');
         tableDiv.id = tableId;
-        mainContentContainer.appendChild(tableDiv);
+        containerDiv.appendChild(tableDiv);
       
         const table = d3.select(`#${tableId}`);
         const tbody = table.append('tbody');
@@ -318,17 +322,23 @@ function onehot()
         cells.classed('my-cell-class', true);
     }
 
-    // create tables with loaded tensor data
     const my_tensor_data = adam_data["curr_model_params"]["param_1"];
-    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class');
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class', 'my-table-container-1');
+
+    // create a new HTML element to hold the main content container
+    const testContainer = document.createElement('div');
+    testContainer.id = 'testContainer';
+    testContainer.innerHTML = "<h2>bruh</h2>"
+    // append the table container to the canvas element
+    mainContentContainer.appendChild(testContainer);
 
     const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
-    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class');
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-2');
 
     const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
     // transpose the param3
     const temp_tensor = my_tensor_data3.map((value) => [value]);
-    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class');
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-3');
 }
 
 function blackbox()
@@ -440,12 +450,15 @@ function setfooter( input ) // takes input from event listener and then
 
 function setsidebar( input )
 {
+    sidebar_canv.innerHTML = '';
+
     // might need to be used to update the first and second moment changes
-    switch( input ) {
-        case "default": sidebar_canv.innerHTML = "<div style='height:3vh'/>";
-                        sidebar_canv.innerHTML += "<h2> default sidebar content </h2>";
-                        break;
-    }
+    // just set a in fn variable to choose weather to query the old or new tensors
+    // switch( input ) {
+    //     case "default": sidebar_canv.innerHTML = "<div style='height:3vh'/>";
+    //                     sidebar_canv.innerHTML += "<h2> default sidebar content </h2>";
+    //                     break;
+    // }
 
     // CURRENT PARAMS TENSORS
 
@@ -456,7 +469,54 @@ function setsidebar( input )
     // append the table container to the canvas element
     sidebar_canv.appendChild(sidebar_curr_param_container);
 
-    sidebar_curr_param_container.innerHTML = "<h2>current params container</h2>"
+    // CURRENT PARAMS TEXT
+    const sidebar_curr_param_text_container = document.createElement('div');
+    sidebar_curr_param_text_container.id = 'sidebar_curr_param_text_container';
+    sidebar_curr_param_text_container.innerHTML = "<h2>current params</h2>"
+    sidebar_curr_param_container.appendChild(sidebar_curr_param_text_container);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        sidebar_curr_param_container.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+      
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+      
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    createTable(my_tensor_data, 'my-sidebar-tensor-id', 'generic-sidebar-table-class', 'my-sidebar-container-1');
+
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data2, 'my-sidebar-tensor-id-2', 'generic-sidebar-table-class', 'my-sidebar-container-2');
+
+    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    // transpose the param3
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-sidebar-tensor-id-3', 'generic-sidebar-table-class', 'my-sidebar-container-3');
 
 
     // CURRENT FIRST MOMENT TENSORS
@@ -468,7 +528,56 @@ function setsidebar( input )
     // append the table container to the canvas element
     sidebar_canv.appendChild(sidebar_first_moment_container);
 
-    sidebar_first_moment_container.innerHTML = "<h2>current first moments container</h2>"
+    // FIRST MOMENT TEXT
+    const sidebar_first_moment_text_container = document.createElement('div');
+    sidebar_first_moment_text_container.id = 'sidebar_first_moment_text_container';
+    sidebar_first_moment_text_container.innerHTML = "<h2>current bc first moment vectors</h2>"
+    sidebar_first_moment_container.appendChild(sidebar_first_moment_text_container);
+
+    function createTable2(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        sidebar_first_moment_container.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+      
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+      
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    const my_tensor_data_b = adam_data["gradient_states"]["first_moments_bc"]["param_1_m_hat"];
+    createTable2(my_tensor_data_b, 'my-sidebar-tensor-id-b', 'generic-sidebar-table-class', 'my-sidebar-container-1-b');
+
+    const my_tensor_data2_b = adam_data["gradient_states"]["first_moments_bc"]["param_2_m_hat"];
+    createTable2(my_tensor_data2_b, 'my-sidebar-tensor-id-2-b', 'generic-sidebar-table-class', 'my-sidebar-container-2-b');
+
+    const my_tensor_data3_b = adam_data["gradient_states"]["first_moments_bc"]["param_3_m_hat"];
+    // transpose the param3
+    const temp_tensor_b = my_tensor_data3_b.map((value) => [value]);
+    createTable2(temp_tensor_b, 'my-sidebar-tensor-id-3-b', 'generic-sidebar-table-class', 'my-sidebar-container-3-b');
+
+
 
 
     // CURRENT SECOND MOMENT TENSORS
@@ -480,11 +589,58 @@ function setsidebar( input )
     // append the table container to the canvas element
     sidebar_canv.appendChild(sidebar_second_moment_container);
 
-    sidebar_second_moment_container.innerHTML = "<h2>current second moments container</h2>"
+    // END PLOT CONTENT TEXT
+    const sidebar_second_moment_text_container = document.createElement('div');
+    sidebar_second_moment_text_container.id = 'sidebar_second_moment_text_container';
+    sidebar_second_moment_text_container.innerHTML = "<h2>current bc second moment vectors</h2>"
+    sidebar_second_moment_container.appendChild(sidebar_second_moment_text_container);
+
+    function createTable3(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        sidebar_second_moment_container.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+      
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+      
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    const my_tensor_data_c = adam_data["gradient_states"]["second_moments_bc"]["param_1_v_hat"];
+    createTable3(my_tensor_data_c, 'my-sidebar-tensor-id-c', 'generic-sidebar-table-class', 'my-sidebar-container-1-c');
+
+    const my_tensor_data2_c = adam_data["gradient_states"]["second_moments_bc"]["param_2_v_hat"];
+    createTable3(my_tensor_data2_c, 'my-sidebar-tensor-id-2-c', 'generic-sidebar-table-class', 'my-sidebar-container-2-c');
+
+    const my_tensor_data3_c = adam_data["gradient_states"]["second_moments_bc"]["param_3_v_hat"];
+    // transpose the param3
+    const temp_tensor_c = my_tensor_data3_c.map((value) => [value]);
+    createTable3(temp_tensor_c, 'my-sidebar-tensor-id-3-c', 'generic-sidebar-table-class', 'my-sidebar-container-3-c');
 
 
     // PLOT LOSS
-    sidebar_canv.innerHTML += "<h2> start plot content </h2>";
+    //sidebar_canv.innerHTML += "<h2> start plot content </h2>";
     
     // ----- create a new HTML element to hold the table
     const loss_plot_div = document.createElement('div');
@@ -528,7 +684,11 @@ function setsidebar( input )
     .attr("class", "line")
     .attr("d", line);
 
-    sidebar_canv.innerHTML += "<h2> end plot content </h2>";
+    // END PLOT CONTENT TEXT
+    const testContainer_a = document.createElement('div');
+    testContainer_a.id = 'testContainer_a';
+    testContainer_a.innerHTML = "<h2>end plot content</h2>"
+    sidebar_canv.appendChild(testContainer_a);
 
 }
 
@@ -584,7 +744,7 @@ function updater( val )
     console.log("page: " + page);
 
     // set display delay time in ms
-    let delay = 300;
+    let delay = 400;
     // on pages we expect updates increase delay time
     //if (page_status == 0 || page_status == page_count - 1){ delay = 500 }    
     

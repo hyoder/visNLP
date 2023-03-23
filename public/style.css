@@ -315,7 +315,7 @@ button {
     border-right: 1vh solid #000000;
     bottom: 0px;
     box-sizing: border-box;
-    display: block;
+    display: inline-block;
     left: 0px;
     height: 92vh;
     position: fixed;
@@ -534,22 +534,22 @@ button {
 }
 
 #sidebar-curr-param-container {
-    padding: 20px;
+    padding: .6vw;
     border: 2px dashed yellow;
 }
 
 #sidebar-first-moment-container {
-    padding: 20px;
+    padding: .6vw;
     border: 2px dashed blue;
 }
 
 #sidebar-second-moment-container {
-    padding: 20px;
+    padding: .6vw;
     border: 2px dashed red;
 }
 
 #sidebar-loss-plot {
-    padding: 20px;
+    padding: .6vw;
     border: 2px dashed pink;
 }
 
@@ -580,11 +580,80 @@ button {
     background-color: pink;
 }
 
-.generic-sidebar-table-class{
-    color: blue;
-    border: 1px solid black;
+#my-table-container-1 {
+    display: inline-block;
+}
+#testContainer {
+    display: inline-block;
 }
 
-.generic-sidebar-table-class td{
-    border: 1px solid black;
+
+/* SIDEBAR TENSOR STYLING */
+
+#my-sidebar-container-1 {
+    display: inline-block;
 }
+#my-sidebar-container-2 {
+    display: inline-block;
+    padding-left: .2vw;
+}
+#my-sidebar-container-3 {
+    display: inline-block;
+    padding-left: .2vw;
+}
+
+#my-sidebar-container-1-b {
+    display: inline-block;
+}
+#my-sidebar-container-2-b {
+    display: inline-block;
+    padding-left: .2vw;
+}
+#my-sidebar-container-3-b {
+    display: inline-block;
+    padding-left: .2vw;
+}
+
+#my-sidebar-container-1-c {
+    display: inline-block;
+}
+#my-sidebar-container-2-c {
+    display: inline-block;
+    padding-left: .2vw;
+}
+#my-sidebar-container-3-c {
+    display: inline-block;
+    padding-left: .2vw;
+}
+
+
+.generic-sidebar-table-class {
+    display: inline-block;
+    width: auto;
+    font-family: consolas;
+    font-size: .65vw;
+    border: 1px solid black;
+    background-color: whitesmoke;
+} 
+/* define styles for table cells */
+.generic-sidebar-table-class td {
+    border: 1px solid black;
+    padding: .15vw;
+}
+
+#sidebar_curr_param_text_container {
+    font-size: .8vw;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#sidebar_first_moment_text_container {
+    font-size: .8vw;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#sidebar_second_moment_text_container{
+    font-size: .8vw;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
