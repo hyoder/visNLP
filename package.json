@@ -10,7 +10,7 @@
         "mime": "3.0.0",
         "mongodb": "5.1.0",
         "path": "0.12.7",
-        "plotly": "1.0.6",
+        "plotly": "^1.0.6",
         "serve-favicon": "2.5.0"
     },
     "engines": {

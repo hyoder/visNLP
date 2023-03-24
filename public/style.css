@@ -231,7 +231,8 @@ button {
 
 #meta_adam h5 {
     display: inline-block;
-    color: rgb(41, 182, 41);
+    /* color: rgb(41, 182, 41); */
+    color: rgb(0, 140, 255);
     font-size: 2vw;
     margin-top: 1.5vh;
     margin-left: 2px;
@@ -510,7 +511,7 @@ button {
 
 #adam-main-content-container {
     padding: 20px;
-    border: 2px dashed green;
+    border: 2px dashed blue;
 }
 
 /* define styles for table */
@@ -535,22 +536,30 @@ button {
 
 #sidebar-curr-param-container {
     padding: .6vw;
-    border: 2px dashed yellow;
+    padding-bottom: 0;
+    /* border: 2px dashed yellow; */
 }
 
 #sidebar-first-moment-container {
     padding: .6vw;
-    border: 2px dashed blue;
+    padding-bottom: 0;
+    /* border: 2px dashed blue; */
 }
 
 #sidebar-second-moment-container {
     padding: .6vw;
-    border: 2px dashed red;
+    padding-bottom: 0;
+    /* border: 2px dashed red; */
 }
 
 #sidebar-loss-plot {
-    padding: .6vw;
-    border: 2px dashed pink;
+    /* padding: .6vw; */
+    margin: .6vw;
+    /* border: 2px dashed pink; */
+    height: 30vh;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid black;
 }
 
 

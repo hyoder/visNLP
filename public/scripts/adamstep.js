@@ -7,6 +7,7 @@ const      canv = document.getElementById( "canv_adam" ),
       reset_btn = document.getElementById( "adam_reset_btn" ),
         sidebar = document.getElementById( "sidebar_adam"),
        statuses = ["intro", "vectorization", "use_cases", "onehot", "blackbox"];
+
 // init current page and epoch
 let page_status = 0;
 let epoch_status = 0;
@@ -646,49 +647,49 @@ function setsidebar( input )
     const loss_plot_div = document.createElement('div');
     loss_plot_div.id = 'sidebar-loss-plot';
 
-    // get desired tensor for this epoch
-    my_arr = adam_data["loss_steps"]["avg_loss_vals"];
-
-    // set up the dimensions and margins of the plot
-    const margin = {top: 10, right: 30, bottom: 30, left: 30},
-    width = 400 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
-
     // append the plot element to the canvas element
     sidebar_canv.appendChild(loss_plot_div);
 
-    // set up the x and y scales
-    const x = d3.scaleLinear()
-    .domain([0, my_arr.length])
-    .range([0, width]);
-    const y = d3.scaleLinear()
-    .domain([d3.min(my_arr), d3.max(my_arr)])
-    .range([height, 0]);
+    // get desired tensor for this epoch
+    loss_arr_y = adam_data["loss_steps"]["avg_loss_vals"];
+    loss_arr_x = Array.from({ length: loss_arr_y.length }, (_, i) => i);
+    console.log(loss_arr_y)
+    console.log(loss_arr_x)
 
-    // set up the line function
-    const line = d3.line()
-    .x((d, i) => x(i))
-    .y(d => y(d));
-
-    // create the SVG element
-    const svg = d3.select(`#${loss_plot_div.id}`)
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    // add the line to the plot
-    svg.append("path")
-    .datum(my_arr)
-    .attr("class", "line")
-    .attr("d", line);
-
-    // END PLOT CONTENT TEXT
-    const testContainer_a = document.createElement('div');
-    testContainer_a.id = 'testContainer_a';
-    testContainer_a.innerHTML = "<h2>end plot content</h2>"
-    sidebar_canv.appendChild(testContainer_a);
+    // Make an AJAX request to retrieve the plot data
+    $.ajax({
+        type: 'GET',
+        url: '/plot-data',
+        data: {
+        plotType: 'scatter',
+        //xData: [1, 2, 3, 4, 5],
+        //yData: [2, 4, 1, 3, 5]
+        xData: loss_arr_x,
+        yData: loss_arr_y
+        },
+        success: function(data) {
+        // Create a new plotly graph with the received data
+        var plotData = [data];
+        var plotLayout = {
+            margin: {
+                t: 50, // top margin
+                l: 40, // left margin
+                r: 40, // right margin
+                b: 60 // bottom margin
+            },
+            title: 'Average Loss at Iterations',
+            xaxis: {title: 'Iteration'}
+            // yaxis: {title: 'Y Axis Title'}
+        };
+        var plotConfig = {
+            responsive: true
+        };
+        Plotly.newPlot('sidebar-loss-plot', plotData, plotLayout, plotConfig);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+        console.error('Error making AJAX request:', errorThrown);
+        }
+    });
 
 }
 

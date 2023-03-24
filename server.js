@@ -5,6 +5,7 @@ const express = require( 'express' ),
          path = require( 'path' ),
       mongodb = require( 'mongodb' ),
            d3 = require( 'd3' ),
+       Plotly = require('plotly')('VisNLP2', 'yK5zTReZvX73Fg8f1faO'),
        dotenv = require( 'dotenv' ).config(),
           uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_HOST}`,
        client = new mongodb.MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -21,6 +22,18 @@ app.use( ( req, res, next ) =>
   if( adam_data !== null ) { next(); }
   else  { res.status( 503 ).send(); }
 } );
+
+// API route that generates plot data and returns it as a JSON response
+app.get('/plot-data', (req, res) => {
+  // Retrieve any relevant query parameters
+  const plotType = req.query.plotType;
+  const xData = req.query.xData;
+  const yData = req.query.yData;
+  // Generate the plot data using Plotly
+  const plotData = {x: xData,y: yData,type: plotType};
+  // Send the plot data back to the client as a JSON response
+  res.json(plotData);
+});
 
 app.get('/',          ( req, res ) => { res.sendFile( path.join( __dirname + '/public/index.html'          ) ); } );
 app.get('/intro',     ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/basics.html'   ) ); } );
