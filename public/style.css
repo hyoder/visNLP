@@ -341,9 +341,30 @@ button {
     border-radius: 5px;
     padding: 5px;
     width: 100%;
+    align-items: flex-end;
 }
 #switch_adam_button:hover {
     background-color:white;
+}
+.next-topic-button {
+    color: rgb(0, 140, 255);
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    width: 49%;
+}
+.prev-topic-button {
+    color: rgb(0, 140, 255);
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    width: 49%;
+}
+.next-topic-button:hover {
+    background-color: white;
+}
+.prev-topic-button:hover {
+    background-color: white;
 }
 
 .navelement {
