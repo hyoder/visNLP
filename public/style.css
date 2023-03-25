@@ -672,9 +672,11 @@ button {
 #my-tensor-id-3 {
     background-color: pink;
 }
+#my-tensor-id-4 {
+    background-color: yellow;
+}
 
 /* single row adam main canv styling */
-/* tensor op tensor op tensor */
 #my-table-container-1 {
     position: absolute;
     background-color: #6a478f;
@@ -696,6 +698,70 @@ button {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+#my-table-container-4 {
+    position: absolute;
+    background-color: red;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-5 {
+    position: absolute;
+    background-color: red;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-6 {
+    position: absolute;
+    background-color: red;
+    left: 70%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-7 {
+    position: absolute;
+    background-color: red;
+    left: 30%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-8 {
+    position: absolute;
+    background-color: red;
+    left: 70%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-9 {
+    position: absolute;
+    background-color: red;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-10 {
+    position: absolute;
+    background-color: red;
+    left: 42%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-11 {
+    position: absolute;
+    background-color: red;
+    left: 58%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-12 {
+    position: absolute;
+    background-color: red;
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #operationContainer-1 {
     position: absolute;
     border: 1px dashed blue;
@@ -710,6 +776,35 @@ button {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+#operationContainer-3 {
+    position: absolute;
+    border: 1px dashed blue;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#operationContainer-4 {
+    position: absolute;
+    border: 1px dashed blue;
+    left: 34%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#operationContainer-5 {
+    position: absolute;
+    border: 1px dashed blue;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#operationContainer-6 {
+    position: absolute;
+    border: 1px dashed blue;
+    left: 66%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #tableTitleContainer-1 {
     position: absolute;
     font-family:'Segoe UI';
@@ -727,6 +822,78 @@ button {
     transform: translate(-50%, -50%);
 }
 #tableTitleContainer-3 {
+    font-family:'Segoe UI';
+    position: absolute;
+    background-color: orange;
+    left: 80%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-4 {
+    position: absolute;
+    font-family:'Segoe UI';
+    background-color: yellow;
+    left: 35%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-5 {
+    position: absolute;
+    font-family:'Segoe UI';
+    background-color: green;
+    left: 55%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-6 {
+    font-family:'Segoe UI';
+    position: absolute;
+    background-color: orange;
+    left: 70%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-7 {
+    font-family:'Segoe UI';
+    position: absolute;
+    background-color: orange;
+    left: 30%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-8 {
+    font-family:'Segoe UI';
+    position: absolute;
+    background-color: orange;
+    left: 70%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-9 {
+    position: absolute;
+    font-family:'Segoe UI';
+    background-color: green;
+    left: 20%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-10 {
+    font-family:'Segoe UI';
+    position: absolute;
+    background-color: orange;
+    left: 42%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-11 {
+    font-family:'Segoe UI';
+    position: absolute;
+    background-color: orange;
+    left: 58%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-12 {
     font-family:'Segoe UI';
     position: absolute;
     background-color: orange;
