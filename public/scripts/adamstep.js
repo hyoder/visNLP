@@ -280,9 +280,8 @@ function onehot()
     canv.innerHTML  = meta();
 
     // set title
-    canv.innerHTML += "<div style='height:11vh'/>"
+    canv.innerHTML += "<div style='height:14vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 3/4</h3>";
-    canv.innerHTML += "<div style='height:3vh'/>"
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
@@ -302,12 +301,10 @@ function onehot()
       
         const table = d3.select(`#${tableId}`);
         const tbody = table.append('tbody');
-      
         const rows = tbody.selectAll('tr')
             .data(data)
             .enter()
             .append('tr');
-      
         const cells = rows.selectAll('td')
             .data(d => d)
             .enter()
@@ -323,38 +320,101 @@ function onehot()
         cells.classed('my-cell-class', true);
     }
 
+    // TABLE 1
     const my_tensor_data = adam_data["curr_model_params"]["param_1"];
     createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class', 'my-table-container-1');
 
-    // create a new HTML element to hold the main content container
-    const testContainer = document.createElement('div');
-    testContainer.id = 'testContainer';
-    testContainer.innerHTML = "<h2>bruh</h2>"
-    // append the table container to the canvas element
-    mainContentContainer.appendChild(testContainer);
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Dot Prod')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
 
+    // TABLE 2
     const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
     createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-2');
 
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-2';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-2").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text("N/A")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TABLE 3
     const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
     // transpose the param3
     const temp_tensor = my_tensor_data3.map((value) => [value]);
     createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-3');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-1';
+    tableTitleContainer1.innerHTML = "<h2>Param 1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-2';
+    tableTitleContainer2.innerHTML = "<h2>Param 2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-3';
+    tableTitleContainer3.innerHTML = "<h2>Param 3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
 }
 
 function blackbox()
 {
-    setfooter( "blackbox" );
+    setfooter( "blackbox" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style='height:11vh'/>"
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 4/4</h3>";
-    canv.innerHTML += "<div style='height:3vh'/>"
-
-    // TEST CODE BELOW
-
-    // get desired tensor for this epoch
-    my_matrix = adam_data["curr_model_params"]["param_1"];
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
@@ -363,19 +423,21 @@ function blackbox()
     // append the table container to the canvas element
     canv.appendChild(mainContentContainer);
 
-    function createTable(data, tableId, tableClass) {
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
         const tableDiv = document.createElement('div');
         tableDiv.id = tableId;
-        mainContentContainer.appendChild(tableDiv);
+        containerDiv.appendChild(tableDiv);
       
         const table = d3.select(`#${tableId}`);
         const tbody = table.append('tbody');
-      
         const rows = tbody.selectAll('tr')
             .data(data)
             .enter()
             .append('tr');
-      
         const cells = rows.selectAll('td')
             .data(d => d)
             .enter()
@@ -391,18 +453,90 @@ function blackbox()
         cells.classed('my-cell-class', true);
     }
 
-    // create tables with loaded tensor data
+    // TABLE 1
     const my_tensor_data = adam_data["curr_model_params"]["param_1"];
-    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class');
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class', 'my-table-container-1');
 
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Dot Prod')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TABLE 2
     const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
-    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class');
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-2');
 
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-2';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-2").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text("N/A")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TABLE 3
     const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
     // transpose the param3
     const temp_tensor = my_tensor_data3.map((value) => [value]);
-    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class');
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-3');
 
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-1';
+    tableTitleContainer1.innerHTML = "<h2>Param 1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-2';
+    tableTitleContainer2.innerHTML = "<h2>Param 2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-3';
+    tableTitleContainer3.innerHTML = "<h2>Param 3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
 }
 
 
@@ -451,6 +585,7 @@ function setfooter( input ) // takes input from event listener and then
 
 function setsidebar( input )
 {
+    // clear the sidebar contents every time it is set
     sidebar_canv.innerHTML = '';
 
     // might need to be used to update the first and second moment changes
@@ -460,6 +595,7 @@ function setsidebar( input )
     //                     sidebar_canv.innerHTML += "<h2> default sidebar content </h2>";
     //                     break;
     // }
+
 
     // CURRENT PARAMS TENSORS
 
@@ -579,8 +715,6 @@ function setsidebar( input )
     createTable2(temp_tensor_b, 'my-sidebar-tensor-id-3-b', 'generic-sidebar-table-class', 'my-sidebar-container-3-b');
 
 
-
-
     // CURRENT SECOND MOMENT TENSORS
 
     // create a new HTML element to hold the main content container
@@ -641,7 +775,6 @@ function setsidebar( input )
 
 
     // PLOT LOSS
-    //sidebar_canv.innerHTML += "<h2> start plot content </h2>";
     
     // ----- create a new HTML element to hold the table
     const loss_plot_div = document.createElement('div');

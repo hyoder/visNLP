@@ -60,12 +60,13 @@ button {
     z-index: 1;;
 }
 #canv_adam {
-    height: 72vh;
+    height: 67vh;
     position: fixed;
     text-align: center;
     top: 8vh;
     width: 75vw;
-    z-index: 1;;
+    z-index: 1;
+    font-family:'Segoe UI';
 }
 
 #footer {
@@ -96,7 +97,7 @@ button {
     border-top: 1vh solid #000000;
     bottom: 0px;
     box-sizing: border-box;
-    height: 20vh;
+    height: 25vh;
     position: fixed;
     right: 0px;
     width: 75vw;
@@ -104,24 +105,22 @@ button {
 }
 
 .footer_adam_desc{
-    height: 65%;
+    height: 70%;
     text-align: left;
     display: flex;
-    padding: 10px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
     box-sizing: border-box;
-
-    /* color: blue; */
-    /* background-color: lightblue; */
+    font-size: .9vw;
 }
 
 .footer_adam_eq_title{
     display: inline-flex;
-    height: 35%;
+    height: 30%;
     width: 40%;
     font-size: 1vw;
-    
-    /* color: red;
-    background-color: lightcoral; */
     color: white;
     /* background-color: #8b0000; */
     background-color: rgb(61, 61, 61);
@@ -130,12 +129,9 @@ button {
 
 .footer_adam_eq{
     display: inline-flex;
-    height: 35%;
+    height: 30%;
     width: 60%;
     font-size: 1vw;
-
-    /* color: green;
-    background-color: lightgreen; */
     color: white;
     /* background-color: #8b0000; */
     background-color: rgb(61, 61, 61);
@@ -279,8 +275,8 @@ button {
 
 #restofpage_adam {
     background-color: whitesmoke;
-    bottom: 20vh;
-    height: 72vh; 
+    bottom: 25vh;
+    height: 67vh; 
     position: fixed;
     right: 0px;
     width: 75vw;
@@ -533,6 +529,8 @@ button {
 #adam-main-content-container {
     padding: 20px;
     border: 2px dashed blue;
+    height: 44vh;
+    position: relative;
 }
 
 /* define styles for table */
@@ -583,41 +581,6 @@ button {
     border: 3px solid black;
 }
 
-
-
-.generic-table-class {
-    display: inline-block;
-    width: auto;
-    font-family: consolas;
-    border: 1px solid black;
-} 
-
-/* define styles for table cells */
-.generic-table-class td {
-    border: 1px solid black;
-    padding: 5px;
-}
-
-#my-tensor-id {
-    background-color: greenyellow;
-}
-
-#my-tensor-id-2 {
-    background-color: cyan;
-}
-
-#my-tensor-id-3 {
-    background-color: pink;
-}
-
-#my-table-container-1 {
-    display: inline-block;
-}
-#testContainer {
-    display: inline-block;
-}
-
-
 /* SIDEBAR TENSOR STYLING */
 
 #my-sidebar-container-1 {
@@ -656,7 +619,6 @@ button {
     padding-left: .2vw;
 }
 
-
 .generic-sidebar-table-class {
     display: inline-block;
     width: auto;
@@ -674,16 +636,101 @@ button {
 #sidebar_curr_param_text_container {
     font-size: .8vw;
     color: white;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Segoe UI';
 }
 #sidebar_first_moment_text_container {
     font-size: .8vw;
     color: white;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Segoe UI';
 }
 #sidebar_second_moment_text_container{
     font-size: .8vw;
     color: white;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Segoe UI';
 }
 
+/* MAIN ADAMSTEP CANV TENSOR STYLING */
+.generic-table-class {
+    display: inline-block;
+    width: auto;
+    font-family: consolas;
+    border: 1px solid black;
+} 
+/* define styles for table cells */
+.generic-table-class td {
+    border: 1px solid black;
+    padding: .2vw;
+    font-size: 1vw;
+}
+
+#my-tensor-id {
+    background-color: greenyellow;
+}
+#my-tensor-id-2 {
+    background-color: cyan;
+}
+#my-tensor-id-3 {
+    background-color: pink;
+}
+
+/* single row adam main canv styling */
+/* tensor op tensor op tensor */
+#my-table-container-1 {
+    position: absolute;
+    background-color: #6a478f;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-2 {
+    position: absolute;
+    background-color: yellow;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-3 {
+    position: absolute;
+    background-color: red;
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#operationContainer-1 {
+    position: absolute;
+    border: 1px dashed blue;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#operationContainer-2 {
+    position: absolute;
+    border: 1px dashed blue;
+    left: 65%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-1 {
+    position: absolute;
+    font-family:'Segoe UI';
+    background-color: yellow;
+    left: 20%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-2 {
+    position: absolute;
+    font-family:'Segoe UI';
+    background-color: green;
+    left: 50%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
+#tableTitleContainer-3 {
+    font-family:'Segoe UI';
+    position: absolute;
+    background-color: orange;
+    left: 80%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+}
