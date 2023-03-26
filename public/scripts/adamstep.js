@@ -6,7 +6,7 @@ const      canv = document.getElementById( "canv_adam" ),
          ff_btn = document.getElementById( "adam_ff_btn")
       reset_btn = document.getElementById( "adam_reset_btn" ),
         sidebar = document.getElementById( "sidebar_adam"),
-       statuses = ["intro", "cbow_contexts", "cbow_linear_dot_prod", "cbow_linear_bias_sum", "nll_loss_softmax", "nll_loss_log", "nll_loss_epoch_avg", "gradients"];
+       statuses = ["intro", "cbow_contexts", "cbow_linear_dot_prod", "cbow_linear_bias_sum", "nll_loss_softmax", "nll_loss_log", "nll_loss_epoch_avg", "gradients", "first_moment_a", "first_moment_b", "first_moment_c", "second_moment_a", "second_moment_b", "second_moment_c", "second_moment_d", "bc_first_moment", "bc_second_moment", "update_params_a", "update_params_b", "update_params_c", "update_params_d", "update_params_e"];
 
 // init current page and epoch
 let page_status = 0;
@@ -14,7 +14,7 @@ let epoch_status = 0;
 // init data var
 let adam_data;
 // define page and epoch counts
-let page_count = 8;
+let page_count = 22;
 let epoch_count = 20;
 
 
@@ -956,7 +956,7 @@ function gradients()
 
     // set title
     canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Get gradients with respect to stochastic objective:</h3>";
+    canv.innerHTML += "<h3>Get Gradients With Respect To Stochastic Objective:</h3>";
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
@@ -1029,6 +1029,202 @@ function gradients()
 }
 
 
+function first_moment_a()
+{
+    setfooter( "first_moment_a" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 1/3</h3>";
+
+
+}
+
+
+function first_moment_b()
+{
+    setfooter( "first_moment_b" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 2/3</h3>";
+
+    
+}
+
+
+function first_moment_c()
+{
+    setfooter( "first_moment_c" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 3/3</h3>";
+
+    
+}
+
+
+function second_moment_a()
+{
+    setfooter( "second_moment_a" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 1/4</h3>";
+
+    
+}
+
+
+function second_moment_b()
+{
+    setfooter( "second_moment_b" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 2/4</h3>";
+
+    
+}
+
+
+function second_moment_c()
+{
+    setfooter( "second_moment_c" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 3/4</h3>";
+
+    
+}
+
+
+function second_moment_d()
+{
+    setfooter( "second_moment_d" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 4/4</h3>";
+
+    
+}
+
+
+function bc_first_moment()
+{
+    setfooter( "bc_first_moment" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Compute Bias-Corrected First Moment Estimate</h3>";
+
+    
+}
+
+
+function bc_second_moment()
+{
+    setfooter( "bc_second_moment" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Compute Bias-Corrected Second Raw Moment Estimate</h3>";
+
+    
+}
+
+
+function update_params_a()
+{
+    setfooter( "update_params_a" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 1/5</h3>";
+
+    
+}
+
+
+function update_params_b()
+{
+    setfooter( "update_params_b" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 2/5</h3>";
+
+    
+}
+
+
+function update_params_c()
+{
+    setfooter( "update_params_c" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 3/5</h3>";
+
+    
+}
+
+
+function update_params_d()
+{
+    setfooter( "update_params_d" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 4/5</h3>";
+
+    
+}
+
+
+function update_params_e()
+{
+    setfooter( "update_params_e" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 5/5</h3>";
+
+    
+}
+
+
 // Create new div elements for the three sections of the footer
 const footer_desc = document.createElement("div");
 footer_desc.classList.add("footer_adam_desc");
@@ -1080,7 +1276,63 @@ function setfooter( input ) // takes input from event listener and then
         case "gradients":               footer_desc.innerHTML = "Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation. The chain rule of differentiation is used during backpropagation to calculate the gradients of the loss function for each parameter, starting from the output layer and working backward towards the input layer. The loss function in this simulation is the negative log probability of the target word given the context words. <span style='font-weight: bold'>The resulting gradient vector (g<sub>t</sub>) consists of partial derivatives of the loss function for each parameter.</span> The gradient vector indicates the direction of the steepest descent of the loss function for the model parameters and guides the optimization algorithm towards a better set of parameters that minimizes the training data loss.";
                                         footer_eq_title.innerHTML = "<h2> Get Gradients: </h2>";
                                         footer_eq.innerHTML = "<h2> <span style='color: rgb(0, 140, 255)'>g<sub>t</sub></span> <span style='color: #32cd32'>← ∇θ ƒ<sub>t</sub> (θ<sub>t-1</sub>)</span> </h2>";
-                                        break;                             
+                                        break;    
+        case "first_moment_a":          footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;     
+        case "first_moment_b":          footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;  
+        case "first_moment_c":          footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;  
+        case "second_moment_a":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;  
+        case "second_moment_b":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;  
+        case "second_moment_c":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;  
+        case "second_moment_d":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;  
+        case "bc_first_moment":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;          
+        case "bc_second_moment":        footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;     
+        case "update_params_a":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;     
+        case "update_params_b":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;     
+        case "update_params_c":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;     
+        case "update_params_d":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;        
+        case "update_params_e":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
+                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
+                                        footer_eq.innerHTML = "<h2> eq </h2>";
+                                        break;                     
     }
 }
 
@@ -1412,6 +1664,48 @@ function updater( val )
                 break;
             case "gradients": 
                 gradients(); 
+                break;
+            case "first_moment_a": 
+                first_moment_a(); 
+                break;
+            case "first_moment_b": 
+                first_moment_b(); 
+                break;
+            case "first_moment_c": 
+                first_moment_c(); 
+                break;
+            case "second_moment_a": 
+                second_moment_a(); 
+                break;
+            case "second_moment_b": 
+                second_moment_b(); 
+                break;
+            case "second_moment_c": 
+                second_moment_c(); 
+                break;
+            case "second_moment_d": 
+                second_moment_d(); 
+                break;
+            case "bc_first_moment": 
+                bc_first_moment(); 
+                break;
+            case "bc_second_moment": 
+                bc_second_moment(); 
+                break;
+            case "update_params_a": 
+                update_params_a(); 
+                break;
+            case "update_params_b": 
+                update_params_b(); 
+                break;
+            case "update_params_c": 
+                update_params_c(); 
+                break;
+            case "update_params_d": 
+                update_params_d(); 
+                break;
+            case "update_params_e": 
+                update_params_e(); 
                 break;
         }
     }, delay);
