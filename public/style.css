@@ -217,7 +217,7 @@ button {
     border: 1px solid black;
     /* box-sizing: border-box; */
     height: 8vh;
-    width: 15vw;
+    width: 18vw;
     left: 25vw;
     position: fixed;
     display: inline-block;
@@ -707,6 +707,19 @@ button {
     font-size: 1vw;
 }
 
+.generic-table-class-grid {
+    display: inline-block;
+    width: auto;
+    font-family: consolas;
+    border: 1px solid black;
+} 
+/* define styles for table cells */
+.generic-table-class-grid td {
+    border: 1px solid black;
+    padding: .1vw;
+    font-size: .75vw;
+}
+
 #my-tensor-id {
     background-color: greenyellow;
 }
@@ -718,6 +731,21 @@ button {
 }
 #my-tensor-id-4 {
     background-color: yellow;
+}
+#my-tensor-id-5 {
+    background-color: rgb(155, 216, 155);
+}
+#my-tensor-id-6 {
+    background-color: rgb(152, 201, 120);
+}
+#my-tensor-id-7 {
+    background-color: rgb(118, 187, 109);
+}
+#my-tensor-id-8 {
+    background-color: rgb(129, 209, 104);
+}
+#my-tensor-id-9 {
+    background-color: rgb(143, 207, 113);
 }
 
 /* single row adam main canv styling */
@@ -806,6 +834,70 @@ button {
     transform: translate(-50%, -50%);
 }
 
+#my-table-container-g1 {
+    background-color: rgb(255, 38, 0);
+    position: absolute;
+    left: 28%;
+    top: 18%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-g2 {
+    background-color: rgb(255, 196, 0);
+    position: absolute;
+    left: 48%;
+    top: 18%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-g3 {
+    background-color: rgb(123, 255, 0);
+    position: absolute;
+    left: 64%;
+    top: 18%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-g4 {
+    background-color: rgb(0, 255, 13);
+    position: absolute;
+    left: 28%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-g5 {
+    background-color: rgb(0, 255, 221);
+    position: absolute;
+    left: 48%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-g6 {
+    background-color: rgb(0, 102, 255);
+    position: absolute;
+    left: 64%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-g7 {
+    background-color: rgb(140, 0, 255);
+    position: absolute;
+    left: 28%;
+    top: 82%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-g8 {
+    background-color: rgb(255, 0, 242);
+    position: absolute;
+    left: 48%;
+    top: 82%;
+    transform: translate(-50%, -50%);
+}
+#my-table-container-g9 {
+    background-color: rgb(255, 0, 76);
+    position: absolute;
+    left: 64%;
+    top: 82%;
+    transform: translate(-50%, -50%);
+}
+
 #operationContainer-1 {
     position: absolute;
     border: 1px dashed blue;
@@ -848,6 +940,28 @@ button {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+#operationContainer-g1 {
+    position: absolute;
+    border: 1px dashed blue;
+    left: 15%;
+    top: 33%;
+    transform: translate(-50%, -50%);
+}
+#operationContainer-g2 {
+    position: absolute;
+    border: 1px dashed blue;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#operationContainer-g3 {
+    position: absolute;
+    border: 1px dashed blue;
+    left: 15%;
+    top: 66%;
+    transform: translate(-50%, -50%);
+}
+
 
 #tableTitleContainer-1 {
     position: absolute;
@@ -944,4 +1058,125 @@ button {
     left: 80%;
     top: 27%;
     transform: translate(-50%, -50%);
+}
+#tableTitleContainer-g1 {
+    background-color: rgb(0, 255, 136);
+    font-size: .7vw;
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 36%;
+    top: 5%;
+    transform: translate(-50%, 0%);
+}
+#tableTitleContainer-g2 {
+    background-color: rgb(0, 255, 136);
+    font-size: .7vw;
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 56%;
+    top: 5%;
+    transform: translate(-50%, 0%);
+}
+#tableTitleContainer-g3 {
+    background-color: rgb(0, 255, 136);
+    font-size: .7vw;
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 68%;
+    top: 5%;
+    transform: translate(-50%, 0%);
+}
+#tableTitleContainer-g4 {
+    background-color: rgb(0, 255, 136);
+    font-size: .7vw;
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 36%;
+    top: 37%;
+    transform: translate(-50%, 0%);
+}
+#tableTitleContainer-g5 {
+    background-color: rgb(0, 255, 136);
+    font-size: .7vw;
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 56%;
+    top: 37%;
+    transform: translate(-50%, 0%);
+}
+#tableTitleContainer-g6 {
+    background-color: rgb(0, 255, 136);
+    font-size: .7vw;
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 68%;
+    top: 37%;
+    transform: translate(-50%, 0%);
+}
+#tableTitleContainer-g7 {
+    background-color: rgb(0, 255, 136);
+    font-size: .7vw;
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 36%;
+    top: 69%;
+    transform: translate(-50%, 0%);
+}
+#tableTitleContainer-g8 {
+    background-color: rgb(0, 255, 136);
+    font-size: .7vw;
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 56%;
+    top: 69%;
+    transform: translate(-50%, 0%);
+}
+#tableTitleContainer-g9 {
+    background-color: rgb(0, 255, 136);
+    font-size: .7vw;
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 68%;
+    top: 69%;
+    transform: translate(-50%, 0%);
+}
+#tableTitleContainer-d1 {
+    background-color: rgb(0, 255, 136);
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 70%;
+    top: 18%;
+    transform: translate(0%, -50%);
+}
+#tableTitleContainer-d2 {
+    background-color: rgb(0, 255, 136);
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+#tableTitleContainer-d3 {
+    background-color: rgb(0, 255, 136);
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 70%;
+    top: 82%;
+    transform: translate(0%, -50%);
+}
+#tableTitleContainer-d4 {
+    background-color: rgb(0, 255, 136);
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 23%;
+    top: 49.5%;
+    transform: translate(0%, -50%);
+}
+#tableTitleContainer-d5 {
+    background-color: rgb(0, 255, 136);
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 31%;
+    top: 49.5%;
+    transform: translate(0%, -50%);
 }

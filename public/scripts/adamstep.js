@@ -1193,7 +1193,187 @@ function update_params_c()
     canv.innerHTML += "<div style='height:14vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 3/5</h3>";
 
-    
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = adam_data["curr_model_params"]["param_2"];
+    const temp = [[1.23]];
+    createTable(temp, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["curr_model_params"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Dot Prod')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Full Tensor Title</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Full Tensor Title</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12);
+
+    // TITLE HEADER DESC 4
+    const tableTitleContainer13 = document.createElement('div');
+    tableTitleContainer13.id = 'tableTitleContainer-d4';
+    tableTitleContainer13.innerHTML = "<h2>1 - </h2>"
+    mainContentContainer.appendChild(tableTitleContainer13);
+
+    // TITLE HEADER DESC 5
+    const tableTitleContainer14 = document.createElement('div');
+    tableTitleContainer14.id = 'tableTitleContainer-d5';
+    tableTitleContainer14.innerHTML = "<h2>(Beta2)</h2>"
+    mainContentContainer.appendChild(tableTitleContainer14);
 }
 
 
@@ -1207,7 +1387,145 @@ function update_params_d()
     canv.innerHTML += "<div style='height:14vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 4/5</h3>";
 
-    
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["curr_model_params"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+
+    // OPERATION 1
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g2';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g2").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text("Sqrt")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Full Tensor Title</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Full Tensor Title</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
 
@@ -1221,7 +1539,207 @@ function update_params_e()
     canv.innerHTML += "<div style='height:14vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 5/5</h3>";
 
-    
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 5
+    const my_tensor_data5 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data5, 'my-tensor-id-5', 'generic-table-class-grid', 'my-table-container-g5');
+
+    // TABLE 6
+    const my_tensor_data6 = adam_data["curr_model_params"]["param_3"];
+    const temp_tensor2 = my_tensor_data6.map((value) => [value]);
+    createTable(temp_tensor2, 'my-tensor-id-6', 'generic-table-class-grid', 'my-table-container-g6');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["curr_model_params"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Dot Prod')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 4
+    const tableTitleContainer4 = document.createElement('div');
+    tableTitleContainer4.id = 'tableTitleContainer-g4';
+    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer4); 
+
+    // TITLE HEADER 5
+    const tableTitleContainer5 = document.createElement('div');
+    tableTitleContainer5.id = 'tableTitleContainer-g5';
+    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer5); 
+
+    // TITLE HEADER 6
+    const tableTitleContainer6 = document.createElement('div');
+    tableTitleContainer6.id = 'tableTitleContainer-g6';
+    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer6); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Full Tensor Title</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 2
+    const tableTitleContainer11 = document.createElement('div');
+    tableTitleContainer11.id = 'tableTitleContainer-d2';
+    tableTitleContainer11.innerHTML = "<h2>Full Tensor Title</h2>"
+    mainContentContainer.appendChild(tableTitleContainer11); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Full Tensor Title</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
 
