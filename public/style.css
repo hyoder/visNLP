@@ -68,6 +68,10 @@ button {
     z-index: 1;
     font-family:'Segoe UI';
 }
+#canv_adam h3{
+    color: rgb(0, 140, 255);
+}
+
 
 #footer {
     background-color: lightgray;
@@ -107,7 +111,7 @@ button {
 .footer_adam_desc{
     height: 70%;
     text-align: left;
-    display: flex;
+    display: inline-block;
     padding-top: 1vh;
     padding-bottom: 1vh;
     padding-left: 1.5vw;
@@ -115,20 +119,26 @@ button {
     box-sizing: border-box;
     font-size: .9vw;
 }
+.footer_adam_desc ol{
+    padding-left: 2.5vw;
+    padding-right: 1.5vw;
+    font-weight: bold
+}
 
 .footer_adam_eq_title{
-    display: inline-flex;
+    display: inline-block;
+    padding-top: 1vh;
     height: 30%;
     width: 40%;
     font-size: 1vw;
     color: white;
     /* background-color: #8b0000; */
     background-color: rgb(61, 61, 61);
-    
 }
 
 .footer_adam_eq{
-    display: inline-flex;
+    display: inline-block;
+    padding-top: 1vh;
     height: 30%;
     width: 60%;
     font-size: 1vw;
@@ -624,7 +634,23 @@ button {
     width: auto;
     font-family: consolas;
     font-size: .65vw;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 0, 76);
+    background-color: whitesmoke;
+} 
+.generic-sidebar-table-class-b {
+    display: inline-block;
+    width: auto;
+    font-family: consolas;
+    font-size: .65vw;
+    border: 1px solid rgb(0, 255, 85);
+    background-color: whitesmoke;
+} 
+.generic-sidebar-table-class-c {
+    display: inline-block;
+    width: auto;
+    font-family: consolas;
+    font-size: .65vw;
+    border: 1px solid rgb(0, 255, 242);
     background-color: whitesmoke;
 } 
 /* define styles for table cells */
@@ -632,21 +658,39 @@ button {
     border: 1px solid black;
     padding: .15vw;
 }
+.generic-sidebar-table-class-b td {
+    border: 1px solid black;
+    padding: .15vw;
+}
+.generic-sidebar-table-class-c td {
+    border: 1px solid black;
+    padding: .15vw;
+}
 
 #sidebar_curr_param_text_container {
-    font-size: .8vw;
+    font-size: 1vw;
     color: white;
     font-family:'Segoe UI';
+    text-align: center;
 }
 #sidebar_first_moment_text_container {
-    font-size: .8vw;
+    font-size: 1vw;
     color: white;
     font-family:'Segoe UI';
+    text-align: center;
 }
 #sidebar_second_moment_text_container{
-    font-size: .8vw;
+    font-size: 1vw;
     color: white;
     font-family:'Segoe UI';
+    text-align: center;
+}
+#sidebar_first_moment_text_container_key{
+    font-size: .7vw;
+    color: white;
+    font-family:'Segoe UI';
+    text-align: center;
+
 }
 
 /* MAIN ADAMSTEP CANV TENSOR STYLING */

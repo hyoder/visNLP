@@ -144,7 +144,20 @@ function cbow_contexts()
             .data(data)
             .enter()
             .append('tr');
-        const cells = rows.selectAll('td')
+
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-2" || tableId == "my-tensor-id-3") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
             .data(d => d)
             .enter()
             .append('td')
@@ -152,7 +165,8 @@ function cbow_contexts()
                 const formatted = d.toFixed(4);
                 return (d >= 0 ? '\u00A0' : '') + formatted;
             });
-      
+        }
+        
         // Add CSS classes to the table elements
         table.classed(tableClass, true);
         table.classed('my-table-class', true);
@@ -180,7 +194,7 @@ function cbow_contexts()
     .attr('fill', 'rgb(0, 140, 255)');
     // create the text
     const text = svg.append('text')
-    .text('Dot Prod')
+    .text('At Pos')
     .attr('x', 50)
     .attr('y', 50)
     .attr('text-anchor', 'middle')
@@ -190,10 +204,8 @@ function cbow_contexts()
     .attr('fill', 'white');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_3"];
-    // transpose the param3
-    const temp_tensor = my_tensor_data2.map((value) => [value]);
-    createTable(temp_tensor, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-10');
+    const my_tensor_data2 = adam_data["cbow_steps"]["context_one_hots"][0];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-10');
 
     // OPERATION 2
     const operationContainer2 = document.createElement('div');
@@ -212,7 +224,7 @@ function cbow_contexts()
     .attr('fill', 'rgb(0, 140, 255)');
     // create the text
     const text2 = svg2.append('text')
-    .text('Dot Prod')
+    .text('At Pos')
     .attr('x', 50)
     .attr('y', 50)
     .attr('text-anchor', 'middle')
@@ -221,7 +233,11 @@ function cbow_contexts()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
-    // OPERATION 2
+    // TABLE 3
+    const my_tensor_data3 = adam_data["cbow_steps"]["context_one_hots"][1];
+    createTable(my_tensor_data3, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-11');
+
+    // OPERATION 3
     const operationContainer3 = document.createElement('div');
     operationContainer3.id = 'operationContainer-6';
     mainContentContainer.appendChild(operationContainer3);
@@ -244,18 +260,14 @@ function cbow_contexts()
     .attr("text-anchor", "middle")
     .attr("alignment-baseline", "middle")
     .attr("font-size", "18px")
-    .text("N/A")
+    .text(" ")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
-    // TABLE 3
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
-    // transpose the param3
-    const temp_tensor2 = my_tensor_data3.map((value) => [value]);
-    createTable(temp_tensor2, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-11');
-
     // TABLE 4
-    const my_tensor_data4 = adam_data["curr_model_params"]["param_1"];
+    const temp1 = adam_data["cbow_steps"]["context_matrix"][0][0];
+    const temp2 = adam_data["cbow_steps"]["context_matrix"][1][0];
+    const my_tensor_data4 = [temp1, temp2]
     createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class', 'my-table-container-12');
 
     // TITLE HEADER 1
@@ -267,19 +279,19 @@ function cbow_contexts()
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-10';
-    tableTitleContainer2.innerHTML = "<h2>Param 2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>Context 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-11';
-    tableTitleContainer3.innerHTML = "<h2>Param 3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>Context 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 3
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-12';
-    tableTitleContainer4.innerHTML = "<h2>Param 4</h2>"
+    tableTitleContainer4.innerHTML = "<h2>Context Matrix</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 }
 
@@ -332,7 +344,7 @@ function cbow_linear_dot_prod()
     }
 
     // TABLE 1
-    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    const my_tensor_data = adam_data["curr_model_params"]["param_2"];
     createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class', 'my-table-container-1');
 
     // OPERATION 1
@@ -362,7 +374,9 @@ function cbow_linear_dot_prod()
     .attr('fill', 'white');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    const temp1 = adam_data["cbow_steps"]["context_matrix"][0][0];
+    const temp2 = adam_data["cbow_steps"]["context_matrix"][1][0];
+    const my_tensor_data2 = [temp1, temp2]
     createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-2');
 
     // OPERATION 2
@@ -388,32 +402,32 @@ function cbow_linear_dot_prod()
     .attr("text-anchor", "middle")
     .attr("alignment-baseline", "middle")
     .attr("font-size", "18px")
-    .text("N/A")
+    .text(" ")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
     // TABLE 3
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data3 = adam_data["cbow_steps"]["dot_prod"];
     // transpose the param3
-    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    const temp_tensor = my_tensor_data3[0].map((col, i) => my_tensor_data3.map(row => row[i]));
     createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-3');
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-1';
-    tableTitleContainer1.innerHTML = "<h2>Param 1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-2';
-    tableTitleContainer2.innerHTML = "<h2>Param 2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>Context Matrix</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-3';
-    tableTitleContainer3.innerHTML = "<h2>Param 3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>Ans</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 }
 
@@ -466,8 +480,10 @@ function cbow_linear_bias_sum()
     }
 
     // TABLE 1
-    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
-    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class', 'my-table-container-1');
+    const my_tensor_data = adam_data["cbow_steps"]["dot_prod"];
+    // transpose the param3
+    const temp_tensor2 = my_tensor_data[0].map((col, i) => my_tensor_data.map(row => row[i]));
+    createTable(temp_tensor2, 'my-tensor-id', 'generic-table-class', 'my-table-container-1');
 
     // OPERATION 1
     const operationContainer1 = document.createElement('div');
@@ -486,7 +502,7 @@ function cbow_linear_bias_sum()
     .attr('fill', 'rgb(0, 140, 255)');
     // create the text
     const text = svg.append('text')
-    .text('Dot Prod')
+    .text('Plus')
     .attr('x', 50)
     .attr('y', 50)
     .attr('text-anchor', 'middle')
@@ -496,8 +512,9 @@ function cbow_linear_bias_sum()
     .attr('fill', 'white');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
-    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-2');
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_3"];
+    const temp_tensor3 = my_tensor_data2.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-2');
 
     // OPERATION 2
     const operationContainer2 = document.createElement('div');
@@ -522,32 +539,32 @@ function cbow_linear_bias_sum()
     .attr("text-anchor", "middle")
     .attr("alignment-baseline", "middle")
     .attr("font-size", "18px")
-    .text("N/A")
+    .text(" ")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
     // TABLE 3
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data3 = adam_data["cbow_steps"]["dot_prod_bias_sum"];
     // transpose the param3
-    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    const temp_tensor = my_tensor_data3[0].map((col, i) => my_tensor_data3.map(row => row[i]));
     createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-3');
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-1';
-    tableTitleContainer1.innerHTML = "<h2>Param 1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>Ans</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-2';
-    tableTitleContainer2.innerHTML = "<h2>Param 2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>Param 3 (Bias)</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-3';
-    tableTitleContainer3.innerHTML = "<h2>Param 3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>Model Output</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 }
 
@@ -600,7 +617,8 @@ function nll_loss_softmax()
     }
 
     // TABLE 1
-    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    const my_tensor_data = adam_data["cbow_steps"]["dot_prod_bias_sum"];
+    // const temp_tensor = my_tensor_data[0].map((col, i) => my_tensor_data.map(row => row[i]));
     createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class', 'my-table-container-7');
 
     // OPERATION 1
@@ -626,24 +644,24 @@ function nll_loss_softmax()
     .attr("text-anchor", "middle")
     .attr("alignment-baseline", "middle")
     .attr("font-size", "18px")
-    .text("N/A")
+    .text("Softmax")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data2 = adam_data["loss_steps"]["softmax"];
     createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-8');
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-7';
-    tableTitleContainer1.innerHTML = "<h2>Param 1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>Model Out (Transposed)</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-8';
-    tableTitleContainer2.innerHTML = "<h2>Param 2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>Softmax Ans</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
 }
@@ -697,7 +715,7 @@ function nll_loss_log()
     }
 
     // TABLE 1
-    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    const my_tensor_data = adam_data["loss_steps"]["softmax"];
     createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class', 'my-table-container-7');
 
     // OPERATION 1
@@ -723,24 +741,24 @@ function nll_loss_log()
     .attr("text-anchor", "middle")
     .attr("alignment-baseline", "middle")
     .attr("font-size", "18px")
-    .text("N/A")
+    .text("Log")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data2 = adam_data["loss_steps"]["log_softmax"];
     createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-8');
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-7';
-    tableTitleContainer1.innerHTML = "<h2>Param 1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>Softmax Ans</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-8';
-    tableTitleContainer2.innerHTML = "<h2>Param 2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>Log Probabilities</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 }
 
@@ -777,7 +795,19 @@ function nll_loss_epoch_avg()
             .data(data)
             .enter()
             .append('tr');
-        const cells = rows.selectAll('td')
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-3") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
             .data(d => d)
             .enter()
             .append('td')
@@ -785,6 +815,7 @@ function nll_loss_epoch_avg()
                 const formatted = d.toFixed(4);
                 return (d >= 0 ? '\u00A0' : '') + formatted;
             });
+        }
         
         // Add CSS classes to the table elements
         table.classed(tableClass, true);
@@ -793,8 +824,9 @@ function nll_loss_epoch_avg()
     }
 
     // TABLE 1
-    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
-    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class', 'my-table-container-9');
+    const my_tensor_data = adam_data["loss_steps"]["log_softmax"];
+    const temp_tensor3 = my_tensor_data[0].map((col, i) => my_tensor_data.map(row => row[i]));
+    createTable(temp_tensor3, 'my-tensor-id', 'generic-table-class', 'my-table-container-9');
 
     // OPERATION 3
     const operationContainer1 = document.createElement('div');
@@ -824,7 +856,7 @@ function nll_loss_epoch_avg()
     .attr('fill', 'white');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data2 = adam_data["loss_steps"]["log_softmax_vertical_avg"];
     // transpose the param3
     const temp_tensor = my_tensor_data2.map((value) => [value]);
     createTable(temp_tensor, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-10');
@@ -846,7 +878,7 @@ function nll_loss_epoch_avg()
     .attr('fill', 'rgb(0, 140, 255)');
     // create the text
     const text2 = svg2.append('text')
-    .text('Dot Prod')
+    .text('At Pos')
     .attr('x', 50)
     .attr('y', 50)
     .attr('text-anchor', 'middle')
@@ -854,6 +886,10 @@ function nll_loss_epoch_avg()
     .attr('dominant-baseline', 'middle')
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["loss_steps"]["center_one_hot"];
+    createTable(my_tensor_data3, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-11');
 
     // OPERATION 3
     const operationContainer3 = document.createElement('div');
@@ -878,42 +914,36 @@ function nll_loss_epoch_avg()
     .attr("text-anchor", "middle")
     .attr("alignment-baseline", "middle")
     .attr("font-size", "18px")
-    .text("N/A")
+    .text("Abs Val")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
-    // TABLE 3
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
-    // transpose the param3
-    const temp_tensor2 = my_tensor_data3.map((value) => [value]);
-    createTable(temp_tensor2, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-11');
-
     // TABLE 4
-    const my_tensor_data4 = adam_data["curr_model_params"]["param_1"];
+    const my_tensor_data4 = [[adam_data["loss_steps"]["avg_epoch_loss"]]];
     createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class', 'my-table-container-12');
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-9';
-    tableTitleContainer1.innerHTML = "<h2>Param 1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>Log Probabilities</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-10';
-    tableTitleContainer2.innerHTML = "<h2>Param 2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>Loss Avgs</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-11';
-    tableTitleContainer3.innerHTML = "<h2>Param 3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>Center Pos</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 3
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-12';
-    tableTitleContainer4.innerHTML = "<h2>Param 4</h2>"
+    tableTitleContainer4.innerHTML = "<h2>Avg Loss Measure</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 }
 
@@ -966,15 +996,15 @@ function gradients()
     }
 
     // TABLE 1
-    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    const my_tensor_data = adam_data["gradient_states"]["grads"]["param_1_grad"];
     createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class', 'my-table-container-4');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data2 = adam_data["gradient_states"]["grads"]["param_2_grad"];
     createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class', 'my-table-container-5');
 
     // TABLE 3
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data3 = adam_data["gradient_states"]["grads"]["param_3_grad"];
     // transpose the param3
     const temp_tensor = my_tensor_data3.map((value) => [value]);
     createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class', 'my-table-container-6');
@@ -982,19 +1012,19 @@ function gradients()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-4';
-    tableTitleContainer1.innerHTML = "<h2>Param 1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>Param 1 Grad</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-5';
-    tableTitleContainer2.innerHTML = "<h2>Param 2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>Param 2 Grad</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-6';
-    tableTitleContainer3.innerHTML = "<h2>Param 3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>Param 3 Grad</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 }
 
@@ -1019,37 +1049,37 @@ function setfooter( input ) // takes input from event listener and then
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // SLIDE DESCRIPTIONS
-        case "intro":                   footer_desc.innerHTML = "intro desc -   ( m_hat / (sqrt(v_hat) + eps) ) -> ans";
-                                        footer_eq_title.innerHTML = "<h2> intro eq title </h2>";
-                                        footer_eq.innerHTML = "<h2> intro eq </h2>";
+        case "intro":                   footer_desc.innerHTML = "Perform a new optimization step with the Adam Optimization Method. An optimization step can be generally broken into the (5) following parts: <ol><li>Perform a forward pass in the model with the inputs</li><li>Compute the loss at the specific iteration on the outputs</li><li>Get the gradients of loss function w.r.t. parameters</li><li>Compute the first and second moment estimates of the gradients</li><li>Perform an update on the model parameters</li></ol>";
+                                        footer_eq_title.innerHTML = "";
+                                        footer_eq.innerHTML = "";
                                         break;
-        case "cbow_contexts":           footer_desc.innerHTML = "Update the biased second raw moment estimate (vt). The biased second raw moment estimate vector is set to zero prior to updating. First, calculate the square of the current gradient (g2t) by squaring the current gradient (gt).";
-                                        footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> vt ← β<sup>2</sup> ● v<sup>t−1</sup> + (1 − β<sup>2</sup>) ● <span style='color: #32cd32'>g</span><span style='color: #00ffff'><sup>2</sup><sub>t</sub></span> </h2>";
+        case "cbow_contexts":           footer_desc.innerHTML = "Perform a forward pass in the model. Performing an optimization step is dependant on the loss implementation and in turn is also dependant on the specific model being implemented. <span style='font-weight: bold'>In this simulation we perform a forward pass in a CBOW model.</span> This begins by taking the embeddings of the contexts and creating a single context vector.";
+                                        footer_eq_title.innerHTML = "<h2> Generate Contexts: </h2>";
+                                        footer_eq.innerHTML = "<h2> contexts-vector = <span style='color: #32cd32'>contexts</span><span style='color: rgb(0, 140, 255)'> ● embeddings</span></h2>";
                                         break;
-        case "cbow_linear_dot_prod":    footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Next, the square of the current gradient (g2t) is scaled by the complementary factor (1 -  β2), which determines how much weight to give to the new information. Beta-2 (β2) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.999 in this simulation.";
-                                        footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> vt ← β2 ● vt−1 + <span style='color: #32cd32'>(1 − β2)</span> <span style='color: #00ffff'>● g2t</span> </h2>";
+        case "cbow_linear_dot_prod":    footer_desc.innerHTML = "Pass the context vector obtained in the previous step through the linear layer. In the first part of the Linear transformation take the <span style='font-weight: bold'>dot product</span> of the <span style='font-weight: bold'>model input</span> (context vector) with the <span style='font-weight: bold'>model weights</span> (param-2)";
+                                        footer_eq_title.innerHTML = "<h2> Linear Pass: </h2>";
+                                        footer_eq.innerHTML = "<h2> output = <span style='color: #32cd32'>weights</span><span style='color: rgb(0, 140, 255)'> ● input</span> + bias </h2>";
                                         break;
-        case "cbow_linear_bias_sum":    footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Next, the previous estimate is scaled by the hyperparameter Beta-2 (β2), which determines how much weight to give to the past estimate.";
-                                        footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> vt ← <span style='color: #32cd32'>β2</span> <span style='color: #00ffff'>● vt−1</span> + (1 − β2) ● g2t </h2>";
+        case "cbow_linear_bias_sum":    footer_desc.innerHTML = "Continue through the linear layer. In the second part of the Linear transformation take the <span style='font-weight: bold'>sum</span> of the <span style='font-weight: bold'>product</span> computed in the previous step with the <span style='font-weight: bold'>model bias</span> (param-3). ";
+                                        footer_eq_title.innerHTML = "<h2> Linear Pass: </h2>";
+                                        footer_eq.innerHTML = "<h2> output = <span style='color: #32cd32'>weights ● input </span><span style='color: rgb(0, 140, 255)'>+ bias</span> </h2>";
                                         break;
-        case "nll_loss_softmax":        footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Finally, sum both intermediate products calculated in pt.(2) and pt.(3). This yields the updated estimate of the biased second raw moment vector which will be later used to adjust the learning rate for each parameter during the optimization process. By taking into account the history of squared gradients, Adam optimization can adaptively adjust the learning rate for each parameter and converge more quickly to the optimal solution.";
-                                        footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> vt ← <span style='color: #32cd32'>β2 ● vt−1</span> <span style='color: #00ffff'>+ (1 − β2) ● g2t</span> </h2>";
+        case "nll_loss_softmax":        footer_desc.innerHTML = "Apply the activation function to the result of the linear-transform performed in the previous step. <span style='font-weight: bold'>In this simulation we will use negative log-likelihood loss (NLL-Loss).</span> The first part of NLL-Loss is to <span style='font-weight: bold'>perform a softmax transform per row</span>. This normalizes each column to have values within the range (0,1) to preserves the ratios of magnitude of values within a column. The result can now be interpreted as probabilities that sum up to 1.";
+                                        footer_eq_title.innerHTML = "<h2> NLL-Loss: </h2>";
+                                        footer_eq.innerHTML = "<h2> loss = log ( <span style='color: rgb(0, 140, 255)'>softmax ( <span style='color: #32cd32'>input</span> )</span> ) </h2>";
                                         break;    
-        case "nll_loss_log":            footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Finally, sum both intermediate products calculated in pt.(2) and pt.(3). This yields the updated estimate of the biased second raw moment vector which will be later used to adjust the learning rate for each parameter during the optimization process. By taking into account the history of squared gradients, Adam optimization can adaptively adjust the learning rate for each parameter and converge more quickly to the optimal solution.";
-                                        footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> vt ← <span style='color: #32cd32'>β2 ● vt−1</span> <span style='color: #00ffff'>+ (1 − β2) ● g2t</span> </h2>";
+        case "nll_loss_log":            footer_desc.innerHTML = "Continue applying the activation function to the result of the previous step. The second part of NLL-Loss is to <span style='font-weight: bold'>compute the log of each probability on a value by value basis.</span> The resulting loss vector measures the negative log-probabilities of the target word for each training example, and can be interpreted as a measure of the dissimilarity between the predicted distribution and the true distribution of the target word. Minimizing the NLL loss corresponds to maximizing the likelihood of the observed data under the model.";
+                                        footer_eq_title.innerHTML = "<h2> NLL-Loss: </h2>";
+                                        footer_eq.innerHTML = "<h2> loss = <span style='color: #32cd32'>log ( <span style='color: rgb(0, 140, 255)'>softmax ( input )</span> )</span> </h2>";
                                         break;      
-        case "nll_loss_epoch_avg":      footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Finally, sum both intermediate products calculated in pt.(2) and pt.(3). This yields the updated estimate of the biased second raw moment vector which will be later used to adjust the learning rate for each parameter during the optimization process. By taking into account the history of squared gradients, Adam optimization can adaptively adjust the learning rate for each parameter and converge more quickly to the optimal solution.";
-                                        footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> vt ← <span style='color: #32cd32'>β2 ● vt−1</span> <span style='color: #00ffff'>+ (1 − β2) ● g2t</span> </h2>";
+        case "nll_loss_epoch_avg":      footer_desc.innerHTML = "Take the vertical average of our loss vector obtained in the previous step. Then obtain the loss value at the position of the current center by taking the dot product of the average vector and the center one-hot vector. <span style='font-weight: bold'>This scalar loss value is used as a general measure of the loss at the current iteration of the training, and can be used to indicator for model training performance.</span> Note that the full model loss vector computed in the previous step will be used in the optimization step.";
+                                        footer_eq_title.innerHTML = "<h2> Iteration Loss: </h2>";
+                                        footer_eq.innerHTML = "<h2> loss-scalar =  <span style='color: #32cd32'>-avg ( <span style='color: rgb(0, 140, 255)'>loss</span> ) ● center</span> </h2>";
                                         break;         
-        case "gradients":               footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (vt). Finally, sum both intermediate products calculated in pt.(2) and pt.(3). This yields the updated estimate of the biased second raw moment vector which will be later used to adjust the learning rate for each parameter during the optimization process. By taking into account the history of squared gradients, Adam optimization can adaptively adjust the learning rate for each parameter and converge more quickly to the optimal solution.";
-                                        footer_eq_title.innerHTML = "<h2> biased second raw moment estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> vt ← <span style='color: #32cd32'>β2 ● vt−1</span> <span style='color: #00ffff'>+ (1 − β2) ● g2t</span> </h2>";
+        case "gradients":               footer_desc.innerHTML = "Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation. The chain rule of differentiation is used during backpropagation to calculate the gradients of the loss function for each parameter, starting from the output layer and working backward towards the input layer. The loss function in this simulation is the negative log probability of the target word given the context words. <span style='font-weight: bold'>The resulting gradient vector (g<sub>t</sub>) consists of partial derivatives of the loss function for each parameter.</span> The gradient vector indicates the direction of the steepest descent of the loss function for the model parameters and guides the optimization algorithm towards a better set of parameters that minimizes the training data loss.";
+                                        footer_eq_title.innerHTML = "<h2> Get Gradients: </h2>";
+                                        footer_eq.innerHTML = "<h2> <span style='color: rgb(0, 140, 255)'>g<sub>t</sub></span> <span style='color: #32cd32'>← ∇θ ƒ<sub>t</sub> (θ<sub>t-1</sub>)</span> </h2>";
                                         break;                             
     }
 }
@@ -1080,7 +1110,7 @@ function setsidebar( input )
     // CURRENT PARAMS TEXT
     const sidebar_curr_param_text_container = document.createElement('div');
     sidebar_curr_param_text_container.id = 'sidebar_curr_param_text_container';
-    sidebar_curr_param_text_container.innerHTML = "<h2>current params</h2>"
+    sidebar_curr_param_text_container.innerHTML = "<p>Current Model Parameters</p>"
     sidebar_curr_param_container.appendChild(sidebar_curr_param_text_container);
 
     function createTable(data, tableId, tableClass, containerId) {
@@ -1119,12 +1149,12 @@ function setsidebar( input )
     createTable(my_tensor_data, 'my-sidebar-tensor-id', 'generic-sidebar-table-class', 'my-sidebar-container-1');
 
     const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
-    createTable(my_tensor_data2, 'my-sidebar-tensor-id-2', 'generic-sidebar-table-class', 'my-sidebar-container-2');
+    createTable(my_tensor_data2, 'my-sidebar-tensor-id-2', 'generic-sidebar-table-class-b', 'my-sidebar-container-2');
 
     const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
     // transpose the param3
     const temp_tensor = my_tensor_data3.map((value) => [value]);
-    createTable(temp_tensor, 'my-sidebar-tensor-id-3', 'generic-sidebar-table-class', 'my-sidebar-container-3');
+    createTable(temp_tensor, 'my-sidebar-tensor-id-3', 'generic-sidebar-table-class-c', 'my-sidebar-container-3');
 
 
     // CURRENT FIRST MOMENT TENSORS
@@ -1139,7 +1169,7 @@ function setsidebar( input )
     // FIRST MOMENT TEXT
     const sidebar_first_moment_text_container = document.createElement('div');
     sidebar_first_moment_text_container.id = 'sidebar_first_moment_text_container';
-    sidebar_first_moment_text_container.innerHTML = "<h2>current bc first moment vectors</h2>"
+    sidebar_first_moment_text_container.innerHTML = "<p>Current B.C. First Moments</p>"
     sidebar_first_moment_container.appendChild(sidebar_first_moment_text_container);
 
     function createTable2(data, tableId, tableClass, containerId) {
@@ -1178,13 +1208,12 @@ function setsidebar( input )
     createTable2(my_tensor_data_b, 'my-sidebar-tensor-id-b', 'generic-sidebar-table-class', 'my-sidebar-container-1-b');
 
     const my_tensor_data2_b = adam_data["gradient_states"]["first_moments_bc"]["param_2_m_hat"];
-    createTable2(my_tensor_data2_b, 'my-sidebar-tensor-id-2-b', 'generic-sidebar-table-class', 'my-sidebar-container-2-b');
+    createTable2(my_tensor_data2_b, 'my-sidebar-tensor-id-2-b', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-b');
 
     const my_tensor_data3_b = adam_data["gradient_states"]["first_moments_bc"]["param_3_m_hat"];
     // transpose the param3
     const temp_tensor_b = my_tensor_data3_b.map((value) => [value]);
-    createTable2(temp_tensor_b, 'my-sidebar-tensor-id-3-b', 'generic-sidebar-table-class', 'my-sidebar-container-3-b');
-
+    createTable2(temp_tensor_b, 'my-sidebar-tensor-id-3-b', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-b');
 
     // CURRENT SECOND MOMENT TENSORS
 
@@ -1198,7 +1227,7 @@ function setsidebar( input )
     // END PLOT CONTENT TEXT
     const sidebar_second_moment_text_container = document.createElement('div');
     sidebar_second_moment_text_container.id = 'sidebar_second_moment_text_container';
-    sidebar_second_moment_text_container.innerHTML = "<h2>current bc second moment vectors</h2>"
+    sidebar_second_moment_text_container.innerHTML = "<p>Current Bias-Corrected Second Moments</p>"
     sidebar_second_moment_container.appendChild(sidebar_second_moment_text_container);
 
     function createTable3(data, tableId, tableClass, containerId) {
@@ -1237,12 +1266,17 @@ function setsidebar( input )
     createTable3(my_tensor_data_c, 'my-sidebar-tensor-id-c', 'generic-sidebar-table-class', 'my-sidebar-container-1-c');
 
     const my_tensor_data2_c = adam_data["gradient_states"]["second_moments_bc"]["param_2_v_hat"];
-    createTable3(my_tensor_data2_c, 'my-sidebar-tensor-id-2-c', 'generic-sidebar-table-class', 'my-sidebar-container-2-c');
+    createTable3(my_tensor_data2_c, 'my-sidebar-tensor-id-2-c', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-c');
 
     const my_tensor_data3_c = adam_data["gradient_states"]["second_moments_bc"]["param_3_v_hat"];
     // transpose the param3
     const temp_tensor_c = my_tensor_data3_c.map((value) => [value]);
-    createTable3(temp_tensor_c, 'my-sidebar-tensor-id-3-c', 'generic-sidebar-table-class', 'my-sidebar-container-3-c');
+    createTable3(temp_tensor_c, 'my-sidebar-tensor-id-3-c', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-c');
+
+    const sidebar_second_moment_text_container_b = document.createElement('div');
+    sidebar_second_moment_text_container_b.id = 'sidebar_first_moment_text_container_key';
+    sidebar_second_moment_text_container_b.innerHTML = "<p>P1<span style='color: rgb(255, 0, 76)'> Embeddings</span> | P2<span style='color: rgb(0, 255, 85)'> Weights</span> | P3<span style='color: rgb(0, 255, 242)'> Bias</span></p>"
+    sidebar_second_moment_container.appendChild(sidebar_second_moment_text_container_b);
 
 
     // PLOT LOSS
