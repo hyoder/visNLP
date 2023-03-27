@@ -1039,160 +1039,6 @@ function first_moment_a()
     canv.innerHTML += "<div style='height:14vh'/>"
     canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 1/3</h3>";
 
-
-}
-
-
-function first_moment_b()
-{
-    setfooter( "first_moment_b" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 2/3</h3>";
-
-    
-}
-
-
-function first_moment_c()
-{
-    setfooter( "first_moment_c" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 3/3</h3>";
-
-    
-}
-
-
-function second_moment_a()
-{
-    setfooter( "second_moment_a" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 1/4</h3>";
-
-    
-}
-
-
-function second_moment_b()
-{
-    setfooter( "second_moment_b" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 2/4</h3>";
-
-    
-}
-
-
-function second_moment_c()
-{
-    setfooter( "second_moment_c" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 3/4</h3>";
-
-    
-}
-
-
-function second_moment_d()
-{
-    setfooter( "second_moment_d" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 4/4</h3>";
-
-    
-}
-
-
-function bc_first_moment()
-{
-    setfooter( "bc_first_moment" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Compute Bias-Corrected First Moment Estimate</h3>";
-
-    
-}
-
-
-function bc_second_moment()
-{
-    setfooter( "bc_second_moment" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Compute Bias-Corrected Second Raw Moment Estimate</h3>";
-
-    
-}
-
-
-function update_params_a()
-{
-    setfooter( "update_params_a" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 1/5</h3>";
-
-    
-}
-
-
-function update_params_b()
-{
-    setfooter( "update_params_b" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 2/5</h3>";
-
-    
-}
-
-
-function update_params_c()
-{
-    setfooter( "update_params_c" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-
-    // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 3/5</h3>";
-
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
     mainContentContainer.id = 'adam-main-content-container';
@@ -1215,7 +1061,19 @@ function update_params_c()
             .data(data)
             .enter()
             .append('tr');
-        const cells = rows.selectAll('td')
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-4") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
             .data(d => d)
             .enter()
             .append('td')
@@ -1223,6 +1081,9 @@ function update_params_c()
                 const formatted = d.toFixed(4);
                 return (d >= 0 ? '\u00A0' : '') + formatted;
             });
+        }
+
+        
       
         // Add CSS classes to the table elements
         table.classed(tableClass, true);
@@ -1231,33 +1092,32 @@ function update_params_c()
     }
 
     // TABLE 1
-    const my_tensor_data = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data = adam_data["gradient_states"]["grads"]["param_1_grad"];
     createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data2 = adam_data["gradient_states"]["grads"]["param_2_grad"];
     createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
 
     // TABLE 3
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data3 = adam_data["gradient_states"]["grads"]["param_3_grad"];
     const temp_tensor = my_tensor_data3.map((value) => [value]);
     createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
 
     // TABLE 4
-    const my_tensor_data4 = adam_data["curr_model_params"]["param_2"];
-    const temp = [[1.23]];
-    createTable(temp, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+    const my_tensor_data4 = [[adam_data["adam_optim_hyperparams"]["beta_1"]]];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
 
     // TABLE 7
-    const my_tensor_data7 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data7 = adam_data["first_moment_calculations"]["grad_beta_1_products"]["param_1"];
     createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
 
     // TABLE 8
-    const my_tensor_data8 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data8 = adam_data["first_moment_calculations"]["grad_beta_1_products"]["param_2"];
     createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
 
     // TABLE 9
-    const my_tensor_data9 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data9 = adam_data["first_moment_calculations"]["grad_beta_1_products"]["param_3"];
     const temp_tensor3 = my_tensor_data9.map((value) => [value]);
     createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
 
@@ -1354,38 +1214,38 @@ function update_params_c()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Full Tensor Title</h2>"
+    tableTitleContainer10.innerHTML = "<h2>Current Gradients</h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Full Tensor Title</h2>"
+    tableTitleContainer12.innerHTML = "<h2>[(1-beta1)*grad] Ans</h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
     const tableTitleContainer13 = document.createElement('div');
     tableTitleContainer13.id = 'tableTitleContainer-d4';
-    tableTitleContainer13.innerHTML = "<h2>1 - </h2>"
+    tableTitleContainer13.innerHTML = "<h2>(1 - </h2>"
     mainContentContainer.appendChild(tableTitleContainer13);
 
     // TITLE HEADER DESC 5
     const tableTitleContainer14 = document.createElement('div');
     tableTitleContainer14.id = 'tableTitleContainer-d5';
-    tableTitleContainer14.innerHTML = "<h2>(Beta2)</h2>"
+    tableTitleContainer14.innerHTML = "<h2>)\u00A0\u00A0\u00A0\u00A0\u00A0Beta1</h2>"
     mainContentContainer.appendChild(tableTitleContainer14);
 }
 
 
-function update_params_d()
+function first_moment_b()
 {
-    setfooter( "update_params_d" ); 
+    setfooter( "first_moment_b" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
 
     // set title
     canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 4/5</h3>";
+    canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 2/3</h3>";
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
@@ -1409,7 +1269,19 @@ function update_params_d()
             .data(data)
             .enter()
             .append('tr');
-        const cells = rows.selectAll('td')
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-4") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
             .data(d => d)
             .enter()
             .append('td')
@@ -1417,6 +1289,9 @@ function update_params_d()
                 const formatted = d.toFixed(4);
                 return (d >= 0 ? '\u00A0' : '') + formatted;
             });
+        }
+
+        
       
         // Add CSS classes to the table elements
         table.classed(tableClass, true);
@@ -1425,38 +1300,67 @@ function update_params_d()
     }
 
     // TABLE 1
-    const my_tensor_data = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data = adam_data["gradient_states"]["prev_first_moments_raw"]["prev_param_1_m"];
     createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data2 = adam_data["gradient_states"]["prev_first_moments_raw"]["prev_param_2_m"];
     createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
 
     // TABLE 3
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data3 = adam_data["gradient_states"]["prev_first_moments_raw"]["prev_param_3_m"];
     const temp_tensor = my_tensor_data3.map((value) => [value]);
     createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
 
+    // TABLE 4
+    const my_tensor_data4 = [[adam_data["adam_optim_hyperparams"]["beta_1"]]];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
     // TABLE 7
-    const my_tensor_data7 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data7 = adam_data["first_moment_calculations"]["prev_m_beta_1_products"]["param_1"];
     createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
 
     // TABLE 8
-    const my_tensor_data8 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data8 = adam_data["first_moment_calculations"]["prev_m_beta_1_products"]["param_2"];
     createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
 
     // TABLE 9
-    const my_tensor_data9 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data9 = adam_data["first_moment_calculations"]["prev_m_beta_1_products"]["param_3"];
     const temp_tensor3 = my_tensor_data9.map((value) => [value]);
     createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
 
-
     // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Dot Prod')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
     const operationContainer2 = document.createElement('div');
-    operationContainer2.id = 'operationContainer-g2';
+    operationContainer2.id = 'operationContainer-g3';
     mainContentContainer.appendChild(operationContainer2);
     // create svg element
-    const svg2 = d3.select("#operationContainer-g2").append("svg")
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
     .attr("width", 100)
     .attr("height", 100);
     // create arrow path
@@ -1475,7 +1379,7 @@ function update_params_d()
     .attr("text-anchor", "middle")
     .attr("alignment-baseline", "middle")
     .attr("font-size", "18px")
-    .text("Sqrt")
+    .text(" ")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
@@ -1518,26 +1422,38 @@ function update_params_d()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Full Tensor Title</h2>"
+    tableTitleContainer10.innerHTML = "<h2>prev exp_avg (m)</h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Full Tensor Title</h2>"
-    mainContentContainer.appendChild(tableTitleContainer12); 
+    tableTitleContainer12.innerHTML = "<h2>[prev_m * beta1] Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12);
+
+    // TITLE HEADER DESC 4
+    const tableTitleContainer13 = document.createElement('div');
+    tableTitleContainer13.id = 'tableTitleContainer-d4';
+    tableTitleContainer13.innerHTML = "<h2></h2>"
+    mainContentContainer.appendChild(tableTitleContainer13);
+
+    // TITLE HEADER DESC 5
+    const tableTitleContainer14 = document.createElement('div');
+    tableTitleContainer14.id = 'tableTitleContainer-d5';
+    tableTitleContainer14.innerHTML = "<h2>\u00A0\u00A0\u00A0\u00A0\u00A0Beta1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer14);
 }
 
 
-function update_params_e()
+function first_moment_c()
 {
-    setfooter( "update_params_e" ); 
+    setfooter( "first_moment_c" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
 
     // set title
     canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 5/5</h3>";
+    canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 3/3</h3>";
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');
@@ -1577,41 +1493,41 @@ function update_params_e()
     }
 
     // TABLE 1
-    const my_tensor_data = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data = adam_data["first_moment_calculations"]["prev_m_beta_1_products"]["param_1"];
     createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
 
     // TABLE 2
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data2 = adam_data["first_moment_calculations"]["prev_m_beta_1_products"]["param_2"];
     createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
 
     // TABLE 3
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data3 = adam_data["first_moment_calculations"]["prev_m_beta_1_products"]["param_3"];
     const temp_tensor = my_tensor_data3.map((value) => [value]);
     createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
 
     // TABLE 4
-    const my_tensor_data4 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data4 = adam_data["first_moment_calculations"]["grad_beta_1_products"]["param_1"];
     createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
 
     // TABLE 5
-    const my_tensor_data5 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data5 = adam_data["first_moment_calculations"]["grad_beta_1_products"]["param_2"];
     createTable(my_tensor_data5, 'my-tensor-id-5', 'generic-table-class-grid', 'my-table-container-g5');
 
     // TABLE 6
-    const my_tensor_data6 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data6 = adam_data["first_moment_calculations"]["grad_beta_1_products"]["param_3"];
     const temp_tensor2 = my_tensor_data6.map((value) => [value]);
     createTable(temp_tensor2, 'my-tensor-id-6', 'generic-table-class-grid', 'my-table-container-g6');
 
     // TABLE 7
-    const my_tensor_data7 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data7 = adam_data["gradient_states"]["first_moments_raw"]["param_1_m"];
     createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
 
     // TABLE 8
-    const my_tensor_data8 = adam_data["curr_model_params"]["param_2"];
+    const my_tensor_data8 = adam_data["gradient_states"]["first_moments_raw"]["param_2_m"];
     createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
 
     // TABLE 9
-    const my_tensor_data9 = adam_data["curr_model_params"]["param_3"];
+    const my_tensor_data9 = adam_data["gradient_states"]["first_moments_raw"]["param_3_m"];
     const temp_tensor3 = my_tensor_data9.map((value) => [value]);
     createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
 
@@ -1632,7 +1548,7 @@ function update_params_e()
     .attr('fill', 'rgb(0, 140, 255)');
     // create the text
     const text = svg.append('text')
-    .text('Dot Prod')
+    .text('Plus')
     .attr('x', 50)
     .attr('y', 50)
     .attr('text-anchor', 'middle')
@@ -1726,19 +1642,2202 @@ function update_params_e()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Full Tensor Title</h2>"
+    tableTitleContainer10.innerHTML = "<h2>[prev_m * beta1] Ans</h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 2
     const tableTitleContainer11 = document.createElement('div');
     tableTitleContainer11.id = 'tableTitleContainer-d2';
-    tableTitleContainer11.innerHTML = "<h2>Full Tensor Title</h2>"
+    tableTitleContainer11.innerHTML = "<h2>[(1-beta1)*grad] Ans</h2>"
     mainContentContainer.appendChild(tableTitleContainer11); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Full Tensor Title</h2>"
+    tableTitleContainer12.innerHTML = "<h2>Updated First Moment (m<sub>t</sub>)</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12); 
+}
+
+
+function second_moment_a()
+{
+    setfooter( "second_moment_a" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 1/4</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["gradient_states"]["grads"]["param_1_grad"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["gradient_states"]["grads"]["param_2_grad"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["gradient_states"]["grads"]["param_3_grad"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["second_moment_calculations"]["grads_sq"]["param_1"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["second_moment_calculations"]["grads_sq"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["second_moment_calculations"]["grads_sq"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+
+    // OPERATION 1
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g2';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g2").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text("Sqaure")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Current Gradients</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Gradients Squared</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12); 
+}
+
+
+function second_moment_b()
+{
+    setfooter( "second_moment_b" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 2/4</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-4") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+        }
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["second_moment_calculations"]["grads_sq"]["param_1"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["second_moment_calculations"]["grads_sq"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["second_moment_calculations"]["grads_sq"]["param_3"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = [[adam_data["adam_optim_hyperparams"]["beta_2"]]];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["second_moment_calculations"]["grad_sq_beta_2_products"]["param_1"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["second_moment_calculations"]["grad_sq_beta_2_products"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["second_moment_calculations"]["grad_sq_beta_2_products"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Dot Prod')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Gradients Squared</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>[(1-Beta2)*grad_sq] Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12);
+
+    // TITLE HEADER DESC 4
+    const tableTitleContainer13 = document.createElement('div');
+    tableTitleContainer13.id = 'tableTitleContainer-d4';
+    tableTitleContainer13.innerHTML = "<h2>(1 - </h2>"
+    mainContentContainer.appendChild(tableTitleContainer13);
+
+    // TITLE HEADER DESC 5
+    const tableTitleContainer14 = document.createElement('div');
+    tableTitleContainer14.id = 'tableTitleContainer-d5';
+    tableTitleContainer14.innerHTML = "<h2>) \u00A0\u00A0\u00A0\u00A0\u00A0Beta2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer14);
+}
+
+
+function second_moment_c()
+{
+    setfooter( "second_moment_c" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 3/4</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-4") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+        }
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["gradient_states"]["prev_second_moments_raw"]["prev_param_1_v"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["gradient_states"]["prev_second_moments_raw"]["prev_param_2_v"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["gradient_states"]["prev_second_moments_raw"]["prev_param_3_v"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = [[adam_data["adam_optim_hyperparams"]["beta_2"]]];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["second_moment_calculations"]["prev_v_beta_2_products"]["param_1"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["second_moment_calculations"]["prev_v_beta_2_products"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["second_moment_calculations"]["prev_v_beta_2_products"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Dot Prod')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>prev_v</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>[prev_v * Beta2] Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12);
+
+    // TITLE HEADER DESC 4
+    const tableTitleContainer13 = document.createElement('div');
+    tableTitleContainer13.id = 'tableTitleContainer-d4';
+    tableTitleContainer13.innerHTML = "<h2></h2>"
+    mainContentContainer.appendChild(tableTitleContainer13);
+
+    // TITLE HEADER DESC 5
+    const tableTitleContainer14 = document.createElement('div');
+    tableTitleContainer14.id = 'tableTitleContainer-d5';
+    tableTitleContainer14.innerHTML = "<h2>(\u00A0\u00A0\u00A0\u00A0\u00A0Beta2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer14);
+}
+
+
+function second_moment_d()
+{
+    setfooter( "second_moment_d" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 4/4</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["second_moment_calculations"]["prev_v_beta_2_products"]["param_1"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["second_moment_calculations"]["prev_v_beta_2_products"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["second_moment_calculations"]["prev_v_beta_2_products"]["param_3"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = adam_data["second_moment_calculations"]["grad_sq_beta_2_products"]["param_1"];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 5
+    const my_tensor_data5 = adam_data["second_moment_calculations"]["grad_sq_beta_2_products"]["param_2"];
+    createTable(my_tensor_data5, 'my-tensor-id-5', 'generic-table-class-grid', 'my-table-container-g5');
+
+    // TABLE 6
+    const my_tensor_data6 = adam_data["second_moment_calculations"]["grad_sq_beta_2_products"]["param_3"];
+    const temp_tensor2 = my_tensor_data6.map((value) => [value]);
+    createTable(temp_tensor2, 'my-tensor-id-6', 'generic-table-class-grid', 'my-table-container-g6');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["gradient_states"]["second_moments_raw"]["param_1_v"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["gradient_states"]["second_moments_raw"]["param_2_v"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["gradient_states"]["second_moments_raw"]["param_3_v"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Plus')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 4
+    const tableTitleContainer4 = document.createElement('div');
+    tableTitleContainer4.id = 'tableTitleContainer-g4';
+    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer4); 
+
+    // TITLE HEADER 5
+    const tableTitleContainer5 = document.createElement('div');
+    tableTitleContainer5.id = 'tableTitleContainer-g5';
+    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer5); 
+
+    // TITLE HEADER 6
+    const tableTitleContainer6 = document.createElement('div');
+    tableTitleContainer6.id = 'tableTitleContainer-g6';
+    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer6); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>[prev_v * Beta2] Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 2
+    const tableTitleContainer11 = document.createElement('div');
+    tableTitleContainer11.id = 'tableTitleContainer-d2';
+    tableTitleContainer11.innerHTML = "<h2>[(1-Beta2)*grad_sq] Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer11); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Updated Second Moment (v<sub>t</sub>)</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12); 
+}
+
+
+function bc_first_moment()
+{
+    setfooter( "bc_first_moment" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Compute Bias-Corrected First Moment Estimate</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-4") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+        }
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["gradient_states"]["first_moments_raw"]["param_1_m"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["gradient_states"]["first_moments_raw"]["param_2_m"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["gradient_states"]["first_moments_raw"]["param_3_m"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = [[adam_data["adam_optim_hyperparams"]["beta_1"]]];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["gradient_states"]["first_moments_bc"]["param_1_m_hat"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["gradient_states"]["first_moments_bc"]["param_2_m_hat"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["gradient_states"]["first_moments_bc"]["param_3_m_hat"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Divide')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Current First Moment (m)</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Bias Corrected First Moment (<span>m&#770;</span>) </h2>"
+    mainContentContainer.appendChild(tableTitleContainer12);
+
+    // TITLE HEADER DESC 4
+    const tableTitleContainer13 = document.createElement('div');
+    tableTitleContainer13.id = 'tableTitleContainer-d4';
+    tableTitleContainer13.innerHTML = "<h2>(1 - </h2>"
+    mainContentContainer.appendChild(tableTitleContainer13);
+
+    // TITLE HEADER DESC 5
+    const tableTitleContainer14 = document.createElement('div');
+    tableTitleContainer14.id = 'tableTitleContainer-d5';
+    tableTitleContainer14.innerHTML = "<h2>)\u00A0\u00A0\u00A0\u00A0\u00A0Beta1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer14);
+}
+
+
+function bc_second_moment()
+{
+    setfooter( "bc_second_moment" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Compute Bias-Corrected Second Raw Moment Estimate</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-4") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+        }
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["gradient_states"]["second_moments_raw"]["param_1_v"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["gradient_states"]["second_moments_raw"]["param_2_v"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["gradient_states"]["second_moments_raw"]["param_3_v"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = [[adam_data["adam_optim_hyperparams"]["beta_2"]]];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["gradient_states"]["second_moments_bc"]["param_1_v_hat"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["gradient_states"]["second_moments_bc"]["param_2_v_hat"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["gradient_states"]["second_moments_bc"]["param_3_v_hat"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Divide')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Current Second Moment (v)</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Bias Corrected Second Moment (<span>v&#770;</span>) </h2>"
+    mainContentContainer.appendChild(tableTitleContainer12);
+
+    // TITLE HEADER DESC 4
+    const tableTitleContainer13 = document.createElement('div');
+    tableTitleContainer13.id = 'tableTitleContainer-d4';
+    tableTitleContainer13.innerHTML = "<h2>(1 - </h2>"
+    mainContentContainer.appendChild(tableTitleContainer13);
+
+    // TITLE HEADER DESC 5
+    const tableTitleContainer14 = document.createElement('div');
+    tableTitleContainer14.id = 'tableTitleContainer-d5';
+    tableTitleContainer14.innerHTML = "<h2>)\u00A0\u00A0\u00A0\u00A0\u00A0Beta2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer14);
+}
+
+
+function update_params_a()
+{
+    setfooter( "update_params_a" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 1/5</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["gradient_states"]["second_moments_bc"]["param_1_v_hat"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["gradient_states"]["second_moments_bc"]["param_2_v_hat"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["gradient_states"]["second_moments_bc"]["param_3_v_hat"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["param_update_steps"]["sqrt_v_hat"]["param_1"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["param_update_steps"]["sqrt_v_hat"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["param_update_steps"]["sqrt_v_hat"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+
+    // OPERATION 1
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g2';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g2").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text("Sqrt")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Bias Corrected Second Moment (<span>v&#770;</span>)</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Bias Corrected Second Moment Square-Root</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12); 
+}
+
+
+function update_params_b()
+{
+    setfooter( "update_params_b" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 2/5</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-4") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+        }
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["param_update_steps"]["sqrt_v_hat"]["param_1"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["param_update_steps"]["sqrt_v_hat"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["param_update_steps"]["sqrt_v_hat"]["param_3"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = [[adam_data["adam_optim_hyperparams"]["eps"]]];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["param_update_steps"]["ans_eps_sum"]["param_1"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["param_update_steps"]["ans_eps_sum"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["param_update_steps"]["ans_eps_sum"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Plus')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>[ sqrt(<span>v&#770;</span>) ] Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>[ sqrt(<span>v&#770;</span>) + eps ] Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12);
+
+    // TITLE HEADER DESC 4
+    const tableTitleContainer13 = document.createElement('div');
+    tableTitleContainer13.id = 'tableTitleContainer-d4';
+    tableTitleContainer13.innerHTML = "<h2> </h2>"
+    mainContentContainer.appendChild(tableTitleContainer13);
+
+    // TITLE HEADER DESC 5
+    const tableTitleContainer14 = document.createElement('div');
+    tableTitleContainer14.id = 'tableTitleContainer-d5';
+    tableTitleContainer14.innerHTML = "<h2>\u00A0\u00A0\u00A0\u00A0\u00A0eps (𝝐)</h2>"
+    mainContentContainer.appendChild(tableTitleContainer14);
+}
+
+
+function update_params_c()
+{
+    setfooter( "update_params_c" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 3/5</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["gradient_states"]["first_moments_bc"]["param_1_m_hat"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["gradient_states"]["first_moments_bc"]["param_2_m_hat"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["gradient_states"]["first_moments_bc"]["param_3_m_hat"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = adam_data["param_update_steps"]["ans_eps_sum"]["param_1"];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 5
+    const my_tensor_data5 = adam_data["param_update_steps"]["ans_eps_sum"]["param_2"];
+    createTable(my_tensor_data5, 'my-tensor-id-5', 'generic-table-class-grid', 'my-table-container-g5');
+
+    // TABLE 6
+    const my_tensor_data6 = adam_data["param_update_steps"]["ans_eps_sum"]["param_3"];
+    const temp_tensor2 = my_tensor_data6.map((value) => [value]);
+    createTable(temp_tensor2, 'my-tensor-id-6', 'generic-table-class-grid', 'my-table-container-g6');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["param_update_steps"]["m_hat_ans_quotient"]["param_1"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["param_update_steps"]["m_hat_ans_quotient"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["param_update_steps"]["m_hat_ans_quotient"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Divide')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 4
+    const tableTitleContainer4 = document.createElement('div');
+    tableTitleContainer4.id = 'tableTitleContainer-g4';
+    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer4); 
+
+    // TITLE HEADER 5
+    const tableTitleContainer5 = document.createElement('div');
+    tableTitleContainer5.id = 'tableTitleContainer-g5';
+    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer5); 
+
+    // TITLE HEADER 6
+    const tableTitleContainer6 = document.createElement('div');
+    tableTitleContainer6.id = 'tableTitleContainer-g6';
+    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer6); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Current First Moments (<span>m&#770;</span>)</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 2
+    const tableTitleContainer11 = document.createElement('div');
+    tableTitleContainer11.id = 'tableTitleContainer-d2';
+    tableTitleContainer11.innerHTML = "<h2>[ sqrt(<span>v&#770;</span>) + eps ] Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer11); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    //tableTitleContainer12.innerHTML = "<h2>[ <span>m&#770;</span> / sqrt(<span>v&#770;</span>) + eps ] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2>Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12); 
+}
+
+
+function update_params_d()
+{
+    setfooter( "update_params_d" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 4/5</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        let cells = d3.select(null);
+        let formatted = '';
+
+        if (tableId == "my-tensor-id-4") {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                return ('\u00A0\u00A0' + d + '\u00A0\u00A0');
+            });
+        } else {
+            cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+        }
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["param_update_steps"]["m_hat_ans_quotient"]["param_1"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["param_update_steps"]["m_hat_ans_quotient"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["param_update_steps"]["m_hat_ans_quotient"]["param_3"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = [[adam_data["adam_optim_hyperparams"]["learning_rate"]]];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["param_update_steps"]["alpha_ans_product"]["param_1"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["param_update_steps"]["alpha_ans_product"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["param_update_steps"]["alpha_ans_product"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Dot Prod')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Ans</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Update Step</h2>"
+    mainContentContainer.appendChild(tableTitleContainer12);
+
+    // TITLE HEADER DESC 4
+    const tableTitleContainer13 = document.createElement('div');
+    tableTitleContainer13.id = 'tableTitleContainer-d4';
+    tableTitleContainer13.innerHTML = "<h2> </h2>"
+    mainContentContainer.appendChild(tableTitleContainer13);
+
+    // TITLE HEADER DESC 5
+    const tableTitleContainer14 = document.createElement('div');
+    tableTitleContainer14.id = 'tableTitleContainer-d5';
+    tableTitleContainer14.innerHTML = "<h2> \u00A0\u00A0\u00A0\u00A0\u00A0Learning Rate (𝞪)</h2>"
+    mainContentContainer.appendChild(tableTitleContainer14);
+}
+
+
+function update_params_e()
+{
+    setfooter( "update_params_e" ); 
+    setsidebar( "default" );
+    canv.innerHTML  = meta();
+
+    // set title
+    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<h3>Update Parameters With Adam: pt. 5/5</h3>";
+
+    // create a new HTML element to hold the main content container
+    const mainContentContainer = document.createElement('div');
+    mainContentContainer.id = 'adam-main-content-container';
+
+    // append the table container to the canvas element
+    canv.appendChild(mainContentContainer);
+
+    function createTable(data, tableId, tableClass, containerId) {
+        const containerDiv = document.createElement('div');
+        containerDiv.id = containerId;
+        mainContentContainer.appendChild(containerDiv);
+      
+        const tableDiv = document.createElement('div');
+        tableDiv.id = tableId;
+        containerDiv.appendChild(tableDiv);
+      
+        const table = d3.select(`#${tableId}`);
+        const tbody = table.append('tbody');
+        const rows = tbody.selectAll('tr')
+            .data(data)
+            .enter()
+            .append('tr');
+        const cells = rows.selectAll('td')
+            .data(d => d)
+            .enter()
+            .append('td')
+            .text(d => {
+                const formatted = d.toFixed(4);
+                return (d >= 0 ? '\u00A0' : '') + formatted;
+            });
+      
+        // Add CSS classes to the table elements
+        table.classed(tableClass, true);
+        table.classed('my-table-class', true);
+        cells.classed('my-cell-class', true);
+    }
+
+    // TABLE 1
+    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    createTable(my_tensor_data, 'my-tensor-id', 'generic-table-class-grid', 'my-table-container-g1');
+
+    // TABLE 2
+    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    createTable(my_tensor_data2, 'my-tensor-id-2', 'generic-table-class-grid', 'my-table-container-g2');
+
+    // TABLE 3
+    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    const temp_tensor = my_tensor_data3.map((value) => [value]);
+    createTable(temp_tensor, 'my-tensor-id-3', 'generic-table-class-grid', 'my-table-container-g3');
+
+    // TABLE 4
+    const my_tensor_data4 = adam_data["param_update_steps"]["alpha_ans_product"]["param_1"];
+    createTable(my_tensor_data4, 'my-tensor-id-4', 'generic-table-class-grid', 'my-table-container-g4');
+
+    // TABLE 5
+    const my_tensor_data5 = adam_data["param_update_steps"]["alpha_ans_product"]["param_2"];
+    createTable(my_tensor_data5, 'my-tensor-id-5', 'generic-table-class-grid', 'my-table-container-g5');
+
+    // TABLE 6
+    const my_tensor_data6 = adam_data["param_update_steps"]["alpha_ans_product"]["param_3"];
+    const temp_tensor2 = my_tensor_data6.map((value) => [value]);
+    createTable(temp_tensor2, 'my-tensor-id-6', 'generic-table-class-grid', 'my-table-container-g6');
+
+    // TABLE 7
+    const my_tensor_data7 = adam_data["param_update_steps"]["updated_params"]["param_1"];
+    createTable(my_tensor_data7, 'my-tensor-id-7', 'generic-table-class-grid', 'my-table-container-g7');
+
+    // TABLE 8
+    const my_tensor_data8 = adam_data["param_update_steps"]["updated_params"]["param_2"];
+    createTable(my_tensor_data8, 'my-tensor-id-8', 'generic-table-class-grid', 'my-table-container-g8');
+
+    // TABLE 9
+    const my_tensor_data9 = adam_data["param_update_steps"]["updated_params"]["param_3"];
+    const temp_tensor3 = my_tensor_data9.map((value) => [value]);
+    createTable(temp_tensor3, 'my-tensor-id-9', 'generic-table-class-grid', 'my-table-container-g9');
+
+    // OPERATION 1
+    const operationContainer1 = document.createElement('div');
+    operationContainer1.id = 'operationContainer-g1';
+    mainContentContainer.appendChild(operationContainer1);
+    // create the svg element
+    const svg = d3.select('#operationContainer-g1')
+    .append('svg')
+    .attr('width', 100)
+    .attr('height', 100);
+    // create the circle
+    const circle = svg.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 50)
+    .attr('fill', 'rgb(0, 140, 255)');
+    // create the text
+    const text = svg.append('text')
+    .text('Subtract')
+    .attr('x', 50)
+    .attr('y', 50)
+    .attr('text-anchor', 'middle')
+    .attr("font-size", "18px")
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // OPERATION 2
+    const operationContainer2 = document.createElement('div');
+    operationContainer2.id = 'operationContainer-g3';
+    mainContentContainer.appendChild(operationContainer2);
+    // create svg element
+    const svg2 = d3.select("#operationContainer-g3").append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+    // create arrow path
+    // const arrowPath = "M0,30 L70,30 L70,15 L100,50 L70,85 L70,70 L0,70 Z";
+    const arrowPath = "M23,0 L23,70 L12,70 L50,100 L88,70 L77,70 L77,0 Z"
+    // create arrow shape
+    svg2.append("path")
+    .attr("d", arrowPath)
+    .attr("stroke", 'rgb(0, 140, 255)')
+    .attr("stroke-width", "1")
+    .attr("fill", 'rgb(0, 140, 255)');
+    // create text element
+    svg2.append("text")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .attr("font-size", "18px")
+    .text(" ")
+    .attr('font-family', 'Segoe UI')
+    .attr('fill', 'white');
+
+    // TITLE HEADER 1
+    const tableTitleContainer1 = document.createElement('div');
+    tableTitleContainer1.id = 'tableTitleContainer-g1';
+    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer1);
+
+    // TITLE HEADER 2
+    const tableTitleContainer2 = document.createElement('div');
+    tableTitleContainer2.id = 'tableTitleContainer-g2';
+    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer2);
+
+    // TITLE HEADER 3
+    const tableTitleContainer3 = document.createElement('div');
+    tableTitleContainer3.id = 'tableTitleContainer-g3';
+    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER 4
+    const tableTitleContainer4 = document.createElement('div');
+    tableTitleContainer4.id = 'tableTitleContainer-g4';
+    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer4); 
+
+    // TITLE HEADER 5
+    const tableTitleContainer5 = document.createElement('div');
+    tableTitleContainer5.id = 'tableTitleContainer-g5';
+    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer5); 
+
+    // TITLE HEADER 6
+    const tableTitleContainer6 = document.createElement('div');
+    tableTitleContainer6.id = 'tableTitleContainer-g6';
+    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer6); 
+
+    // TITLE HEADER 7
+    const tableTitleContainer7 = document.createElement('div');
+    tableTitleContainer7.id = 'tableTitleContainer-g7';
+    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    mainContentContainer.appendChild(tableTitleContainer7); 
+
+    // TITLE HEADER 8
+    const tableTitleContainer8 = document.createElement('div');
+    tableTitleContainer8.id = 'tableTitleContainer-g8';
+    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    mainContentContainer.appendChild(tableTitleContainer8); 
+
+    // TITLE HEADER 9
+    const tableTitleContainer9 = document.createElement('div');
+    tableTitleContainer9.id = 'tableTitleContainer-g9';
+    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    mainContentContainer.appendChild(tableTitleContainer9); 
+
+    // TITLE HEADER DESC 1
+    const tableTitleContainer10 = document.createElement('div');
+    tableTitleContainer10.id = 'tableTitleContainer-d1';
+    tableTitleContainer10.innerHTML = "<h2>Current Model Parameters</h2>"
+    mainContentContainer.appendChild(tableTitleContainer10); 
+
+    // TITLE HEADER DESC 2
+    const tableTitleContainer11 = document.createElement('div');
+    tableTitleContainer11.id = 'tableTitleContainer-d2';
+    tableTitleContainer11.innerHTML = "<h2>Update Step</h2>"
+    mainContentContainer.appendChild(tableTitleContainer11); 
+
+    // TITLE HEADER DESC 3
+    const tableTitleContainer12 = document.createElement('div');
+    tableTitleContainer12.id = 'tableTitleContainer-d3';
+    tableTitleContainer12.innerHTML = "<h2>Updated Model Parameters</h2>"
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
@@ -1795,61 +3894,61 @@ function setfooter( input ) // takes input from event listener and then
                                         footer_eq_title.innerHTML = "<h2> Get Gradients: </h2>";
                                         footer_eq.innerHTML = "<h2> <span style='color: rgb(0, 140, 255)'>g<sub>t</sub></span> <span style='color: #32cd32'>← ∇θ ƒ<sub>t</sub> (θ<sub>t-1</sub>)</span> </h2>";
                                         break;    
-        case "first_moment_a":          footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "first_moment_a":          footer_desc.innerHTML = "Update the biased first moment estimate (m<sub>t</sub>). The biased first moment estimate vector is set to zero prior to updating. First, <span style='font-weight: bold'>the current gradient (g<sub>t</sub>) is scaled by the complementary factor (1 - β<sub>1</sub>), which determines how much weight to give to the new information.</span> Beta1 (β<sub>1</sub>) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.9 in this simulation.";
+                                        footer_eq_title.innerHTML = "<h2> Biased First Moment Estimate: </h2>";
+                                        footer_eq.innerHTML = "<h2> m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + <span style='color: #32cd32'>(1 - β<sub>1</sub>)</span> <span style='color: rgb(0, 140, 255)'>● g<sub>t</sub></span> </h2>";
                                         break;     
-        case "first_moment_b":          footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "first_moment_b":          footer_desc.innerHTML = "Continue update on the biased first moment estimate (m<sub>t</sub>). Next, <span style='font-weight: bold'>the previous estimate (m<sub>t-1</sub>) is scaled by the hyperparameter Beta1(β<sub>1</sub>)</span>, which determines how much weight to give to the past estimate.";
+                                        footer_eq_title.innerHTML = "<h2> Biased First Moment Estimate: </h2>";
+                                        footer_eq.innerHTML = "<h2> m<sub>t</sub> ← <span style='color: #32cd32'>β<sub>1</sub></span> <span style='color: rgb(0, 140, 255)'>● m<sub>t-1</sub></span> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </h2>";
                                         break;  
-        case "first_moment_c":          footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "first_moment_c":          footer_desc.innerHTML = "Continue update on the biased first moment estimate (m<sub>t</sub>). Finally, <span style='font-weight: bold'>sum both intermediate products calculated in pt.(1) and pt.(2)</span>. This <span style='font-weight: bold'>yields the updated estimate of the biased first moment vector</span> which will be later used to adjust the learning rate for each parameter during the optimization process. By taking into account the history of gradients, Adam optimization can adaptively adjust the learning rate for each parameter and converge more quickly to the optimal solution.";
+                                        footer_eq_title.innerHTML = "<h2> Biased First Moment Estimate: </h2>";
+                                        footer_eq.innerHTML = "<h2> m<sub>t</sub> ← <span style='color: #32cd32'>β<sub>1</sub> ● m<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>+ (1 - β<sub>1</sub>) ● g<sub>t</sub></span> </h2>";
                                         break;  
-        case "second_moment_a":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "second_moment_a":         footer_desc.innerHTML = "Update the biased second raw moment estimate (v<sub>t</sub>). The biased second raw moment estimate vector is set to zero prior to updating. First, <span style='font-weight: bold'>calculate the square of the current gradient (g<sup>2</sup><sub>t</sub>) by squaring the current gradient (g<sub>t</sub>).</span>";
+                                        footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
+                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● <span style='color: #32cd32'>g<sup><span style='color: rgb(0, 140, 255)'>2</span></sup><sub>t</sub></span> </h2>";
                                         break;  
-        case "second_moment_b":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "second_moment_b":         footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (v<sub>t</sub>). Next, <span style='font-weight: bold'>the square of the current gradient (g<sup>2</sup><sub>t</sub>) is scaled by the complementary factor (1 -  β<sub>2</sub>)</span>, which determines how much weight to give to the new information. Beta2 (β<sub>2</sub>) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.999 in this simulation.";
+                                        footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
+                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + <span style='color: #32cd32'>(1 - β<sub>2</sub>)</span> <span style='color: rgb(0, 140, 255)'>● g<sup>2</sup><sub>t</sub></span> </h2>";
                                         break;  
-        case "second_moment_c":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "second_moment_c":         footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (v<sub>t</sub>). Next, <span style='font-weight: bold'>the previous estimate is scaled by the hyperparameter Beta2 (β<sub>2</sub>)</span>, which determines how much weight to give to the past estimate.";
+                                        footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
+                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← <span style='color: #32cd32'>β<sub>2</sub></span> <span style='color: rgb(0, 140, 255)'>● v<sub>t-1</sub></span> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </h2>";
                                         break;  
-        case "second_moment_d":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "second_moment_d":         footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (v<sub>t</sub>). Finally, <span style='font-weight: bold'>sum both intermediate products calculated in pt.(2) and pt.(3)</span>. This <span style='font-weight: bold'>yields the updated estimate of the biased second raw moment vector</span> which will be later used to adjust the learning rate for each parameter during the optimization process. By taking into account the history of squared gradients, Adam optimization can adaptively adjust the learning rate for each parameter and converge more quickly to the optimal solution.";
+                                        footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
+                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← <span style='color: #32cd32'>β<sub>2</sub> ● v<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>+ (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub></span> </h2>";
                                         break;  
-        case "bc_first_moment":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "bc_first_moment":         footer_desc.innerHTML = "Compute the bias-corrected first moment estimate (<span>m&#770;</span><sub>t</sub>). <span style='font-weight: bold'>Take the previously updated biased first moment estimate (m<sub>t</sub>), and divide it by the bias correction factor (1 - Beta1 ** t).</span> Where Beta1 (β<sub>1</sub>) is the hyperparameter that controls the influence of the past estimates on the current estimate, and time-step (t) is current iteration count. This corrects the bias introduced when initializing (m<sub>t</sub>) to a zero vector, where the first moment estimate is biased towards 0 and the performance of convergence can be hindered.";
+                                        footer_eq_title.innerHTML = "<h2> Bias-Corrected First Moment Estimate: </h2>";
+                                        footer_eq.innerHTML = "<h2> <span>m&#770;</span><sub>t</sub> ← <span style='color: #32cd32'>m<sub>t</sub></spam> <span style='color: rgb(0, 140, 255)'>/ (1 - β<sup>t</sup><sub>1</sub>)</span> </h2>";
                                         break;          
-        case "bc_second_moment":        footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "bc_second_moment":        footer_desc.innerHTML = "Compute the bias-corrected first moment estimate (<span>v&#770;</span><sub>t</sub>). <span style='font-weight: bold'>Take the previously updated biased first moment estimate (v<sub>t</sub>), and divide it by the bias correction factor (1 - Beta2 ** t).</span> Where Beta2 (β<sub>2</sub>) is the hyperparameter that controls the influence of the past estimates on the current estimate, and time-step (t) is current iteration count. This corrects the bias introduced when initializing (v<sub>t</sub>) to a zero vector, where the first moment estimate is biased towards 0 and the performance of convergence can be hindered.";
+                                        footer_eq_title.innerHTML = "<h2> Bias-Corrected Second Raw Moment Estimate: </h2>";
+                                        footer_eq.innerHTML = "<h2> <span>v&#770;</span><sub>t</sub> ← <span style='color: #32cd32'>v<sub>t</sub></spam> <span style='color: rgb(0, 140, 255)'>/ (1 - β<sup>t</sup><sub>2</sub>)</span> </h2>";
                                         break;     
-        case "update_params_a":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "update_params_a":         footer_desc.innerHTML = "Update the parameters (θ<sub>t</sub>). First, <span style='font-weight: bold'>take the square root of the previously computed bias-corrected second raw moment estimate (<span>v&#770;</span><sub>t</sub>).</span> The denominator is effectively a measure of the variance of the gradient. If the variance is large, a smaller updates occurs. Conversely, If the variance is small, a larger updates occurs. This helps to prevent oscillations in the optimization process and results in more stable updates to the parameters.";
+                                        footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( <span style='color: rgb(0, 140, 255)'>sqrt ( <span style='color: #32cd32'><span>v&#770;</span><sub>t</sub></span> )</span> + 𝝐  ) </h2>";
                                         break;     
-        case "update_params_b":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "update_params_b":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Next, <span style='font-weight: bold'>add epsilon (𝝐) to the square root of the bias-corrected second raw moment estimate computed in pt.(1).</span> This is a small constant added to the denominator to avoid division by zero. In this simulation (𝝐) is set to 10<sup>-8</sup> , which is a standard default value commonly used for epsilon. ";
+                                        footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( <span style='color: #32cd32'>sqrt ( <span>v&#770;</span><sub>t</sub> )</span> <span style='color: rgb(0, 140, 255)'>+ 𝝐</span>  ) </h2>";
                                         break;     
-        case "update_params_c":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "update_params_c":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Next, <span style='font-weight: bold'>divide the previously computed bias corrected first moment estimate by the sum computed in pt.(2).</span> Dividing the bias-corrected first moment estimate (<span>m&#770;</span><sub>t</sub>) by the bias-corrected second raw moment estimate (<span>v&#770;</span><sub>t</sub>) effectively scales bias-corrected first moment estimate (<span>m&#770;</span><sub>t</sub>) by a factor that is inversely proportional to the variance of the gradient. This ensures that the update step for the parameters is not biased towards one direction or the other due to the biased first moment estimate.";
+                                        footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span style='color: #32cd32'><span>m&#770;</span><sub>t</sub></span> <span style='color: rgb(0, 140, 255)'>/ ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;     
-        case "update_params_d":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "update_params_d":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Next, <span style='font-weight: bold'>multiply the quotient computed in pt.(3) by the models learning rate denoted by alpha (𝞪).</span> The learning rate is a hyperparameter that determines the step size for updating the parameter. This controls the size of the step taken in the direction of the estimated gradient when updating the model parameters. Effective learning rates are determined by the specific model, in this simulation we use a learning rate (𝞪) value of 0.05 .";
+                                        footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - <span style='color: #32cd32'>𝞪</span> <span style='color: rgb(0, 140, 255)'>● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;        
-        case "update_params_e":         footer_desc.innerHTML = "INSERT DESC Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation AND ADD MORE WORDS TODO.";
-                                        footer_eq_title.innerHTML = "<h2> eqtitle </h2>";
-                                        footer_eq.innerHTML = "<h2> eq </h2>";
+        case "update_params_e":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Finally we <span style='font-weight: bold'>subtract our update (the right side of the equation) from the previous parameters (θ<sub>t-1</sub>)</span> . This <span style='font-weight: bold'>yields the updated parameters (θ<sub>t</sub>) , completing the update step using Adam optimization.</span> ";
+                                        footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← <span style='color: #32cd32'>θ<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>- 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;                     
     }
 }
