@@ -423,6 +423,19 @@ td {
     position: fixed;
     width: 18.75vw;
 }
+
+#switch_newsvec_app_button {
+    /* background-color:#49b293 ; */
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    align-items: flex-end;
+}
+#switch_newsvec_app_button:hover {
+    background-color:white;
+}
+
 #switch_adam_button {
     /* background-color:#49b293 ; */
     background-color: lightgray;

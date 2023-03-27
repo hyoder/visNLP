@@ -24,14 +24,14 @@
                 width: 75vw;
                 overflow: scroll;
             }
-            #news2vecapplication{
+            /* #news2vecapplication{
                 position: fixed;
                 margin-left: 2vw;
                 margin-top: 2vh;
                 width: 300px;
                 border-radius: 5px;
 
-            }
+            } */
             #sidebar_back {
                 background-color: grey;
                 border-right: 1vh solid #000000;
@@ -39,9 +39,10 @@
                 left: 0vw;
                 height: 92vh;
                 position: fixed;
-                /* width: 25vw; */
-                /* TEMP WIDTH - JOHN */
-                width: 24.5vw;
+                width: 25vw;
+                /* TEMP styling - JOHN */
+                box-sizing: border-box;
+                padding: 10px;
             }
             ul li {
                 list-style: inside;
@@ -68,8 +69,17 @@
             <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
         </div>
         <div id="sidebar_back">
-            <button id="news2vecapplication" onclick="window.location='/news'" >
+            <button id="switch_newsvec_app_button" onclick="window.location='/news'" >
                 <h1>Back To News2Vec Application</h1>
+            </button>
+            <div style="height:75vh;"></div>
+            <button class="prev-topic-button" onclick="window.location='/p2v'">
+                <h2>Prev:</h2>
+                <h1>Song2Vec</h1>
+            </button>
+            <button class="next-topic-button" onclick="window.location='/song'">
+                <h2>Next:</h2>
+                <h1>Back to Home</h1>
             </button>
         </div>
         <!-- <div id="restofpageNews"> -->
