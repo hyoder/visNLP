@@ -4,7 +4,7 @@ const express = require( 'express' ),
       favicon = require( 'serve-favicon' ),
          path = require( 'path' ),
       mongodb = require( 'mongodb' ),
-           d3 = require( 'd3' ),
+           d3 = import( 'd3' ),
        Plotly = require('plotly')('VisNLP2', 'yK5zTReZvX73Fg8f1faO'),
        dotenv = require( 'dotenv' ).config(),
           uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_HOST}`,
@@ -15,6 +15,8 @@ app.use( bodyp.json() );
 app.use( favicon( path.join( __dirname, 'public', 'favicon.ico' ) ) );
 app.use( express.static( path.join( __dirname + '/public' ) ) );
 client.connect();
+cbow_data = client.db('w2v').collection('cbow');
+skip_data = client.db('w2v').collection('skip');
 adam_data = client.db('adam').collection('outputs');
 
 app.use( ( req, res, next ) =>
@@ -45,7 +47,9 @@ app.get('/news',      ( req, res ) => { res.sendFile( path.join( __dirname + '/p
 app.get('/adam',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/adam.html'     ) ); } );
 app.get('/newsback',  ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/newsback.html' ) ); } );
 app.get('/adamstep',  ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/adamstep.html'     ) ); } );
-app.get('/adamdata',  ( req, res ) => { console.log( "retriving adam dataset number " + req.query.step ); adam_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
+app.get('/cbowdata',  ( req, res ) => { cbow_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
+//app.get('/skipdata',  ( req, res ) => { skip_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
+app.get('/adamdata',  ( req, res ) => { adam_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
 
 app.listen( process.env.PORT || 3000, function()
 {

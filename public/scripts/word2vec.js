@@ -3,19 +3,30 @@ const      canv = document.getElementById( "canv" ),
          footer = document.getElementById( "footer"),
        back_btn = document.getElementById( "back_btn" ),
         fwd_btn = document.getElementById( "fwd_btn" ),
-       statuses = ["init", "onehot", "textprep"];
-let page_status = 0;
+       statuses = ["init", "text prep", 
+                   "epoch 0: generate_batch", "epoch 0: multiply matrices", "epoch 0: add bias", "epoch 0: log softmax",
+                   "epoch 1: generate_batch", "epoch 1: multiply matrices", "epoch 1: add bias", "epoch 1: log softmax",
+                   "epoch 2: generate_batch", "epoch 2: multiply matrices", "epoch 2: add bias", "epoch 2: log softmax",
+                   "epoch 3: generate_batch", "epoch 3: multiply matrices", "epoch 3: add bias", "epoch 3: log softmax",
+                   "epoch 4: generate_batch", "epoch 4: multiply matrices", "epoch 4: add bias", "epoch 4: log softmax",
+                   "epoch 5: generate_batch", "epoch 5: multiply matrices", "epoch 5: add bias", "epoch 5: log softmax",
+                   "epoch 6: generate_batch", "epoch 6: multiply matrices", "epoch 6: add bias", "epoch 6: log softmax",
+                   "epoch 7: generate_batch", "epoch 7: multiply matrices", "epoch 7: add bias", "epoch 7: log softmax",
+                   "epoch 8: generate_batch", "epoch 8: multiply matrices", "epoch 8: add bias", "epoch 8: log softmax",
+                   "epoch 9: generate_batch", "epoch 9: multiply matrices", "epoch 9: add bias", "epoch 9: log softmax" ];
+let page_status = 0, epoch = 0;
 let w2v_data;
 function meta()
 {
     let output  = "<div id=\"meta\">";
-        output += "<h2>word2vec - \"" + statuses[page_status] + "\"</h2>";
+        output += "<h2>w2v - \"" + statuses[page_status] + "\"</h2>";
         output += "<h4>page " + (page_status+1) + " out of ??</h4>";
     if( page_status > 0 )
     {
-        if( canv.dataset.mode === "cbow"     ) { output += "<h3>mode: CBOW</h3>";      }
-        if( canv.dataset.mode === "skipgram" ) { output += "<h3>mode: skip-gram</h3>"; }
+        if( canv.dataset.mode === "cbow"     ) { output += "<h4>mode: CBOW</h4>";      }
+        if( canv.dataset.mode === "skipgram" ) { output += "<h4>mode: skip-gram</h4>"; }
     }
+    else { output += "<h4/>"}
         output += "</div>"
     return output;
 }
@@ -39,7 +50,7 @@ function init()
     skip_btn.addEventListener( "mouseover", () => { setfooter( "skip" ); } );
     cbow_btn.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
     skip_btn.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
-    getData(step);
+    getData(0, "CBOW");
 }
 function onehot()
 {
@@ -78,7 +89,7 @@ function updater( val )
     if( page_status > 0 ) { back_btn.style.display = "inline-block"; fwd_btn.style.display = "inline-block"; }
     else                  { back_btn.style.display = "none"; fwd_btn.style.display = "none"; }
     let page = statuses[ page_status ];
-    console.log("mode: " + canv.dataset.mode );
+    //console.log("mode: " + canv.dataset.mode );
     console.log("page: " + page);
     switch( page )
     {
@@ -88,10 +99,14 @@ function updater( val )
     }
 }
 //call with getData(0) for 0: Object
-function getData( step )
+function getData( epoch, type )
 {
-    fetch( '/adamdata?step='+step, { method: 'GET', headers: { "Content-Type": "application/json" } }, 0 )
-    .then( function (response) { response.json().then( function(data) { setData(data); } ) } );
+    if( type === "CBOW" ) {
+        fetch( '/cbowdata?step='+epoch, { method: 'GET', headers: { "Content-Type": "application/json" } }, 0 )
+        .then( function (response) { response.json().then( function(data) { setData(data); } ) } ); }
+    else {
+        fetch( '/skipdata?step='+epoch, { method: 'GET', headers: { "Content-Type": "application/json" } }, 0 )
+        .then( function (response) { response.json().then( function(data) { setData(data); } ) } ); }
     return false;
 }
 function setData( json ) { w2v_data = json; console.log( w2v_data ); }
