@@ -187,15 +187,126 @@ function gen_batch() {
 function mat_mult() {
     sidebar_params();
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style=\"height:8vh\"></div>";
+    canv.innerHTML += "<div style=\"height:15vh\"></div>";
+    let t1 = document.createElement("table"),
+        t2 = document.createElement("table"),
+        t3 = document.createElement("table"),
+        d1 = w2v_data["batch"]["context_embed"],
+        d2 = w2v_data["params"]["param 2"],
+        d3 = w2v_data["calcs"]["mat_mult"];
+    for( let i = 0 ; i < d1.length ; i++ ) {
+        let r = document.createElement("tr");
+        for( let j = 0 ; j < d1[0].length ; j++ ) {
+            let c = document.createElement("td");
+            c.textContent = d1[i][j];
+            c.style.height = "5vh";     c.style.width  = "5vw";
+            r.appendChild(c); }
+        t1.appendChild(r); }
+    for( let i = 0 ; i < d2[0].length ; i++ ) {
+        let r = document.createElement("tr");
+        for( let j = 0 ; j < d2.length ; j++ ) {
+            let c = document.createElement("td");
+            c.textContent = d2[j][i];
+            c.style.height = "5vh";     c.style.width  = "5vw";
+            r.appendChild(c); }
+        t2.appendChild(r); }
+    for( let i = 0 ; i < d3.length ; i++ ) {
+        let r = document.createElement("tr");
+        for( let j = 0 ; j < d3[0].length ; j++ ) {
+            let c = document.createElement("td");
+            c.textContent = d3[i][j];
+            c.style.height = "5vh";     c.style.width  = "5vw";
+            r.appendChild(c); }
+        t3.appendChild(r); }
+    t1.style.left     = "38vw";     t2.style.left     = "62vw";     t3.style.left     = "50vw";
+    t1.style.position = "fixed";    t2.style.position = "fixed";    t3.style.position = "fixed";
+    t1.style.top      = "27.5vh";   t2.style.top      = "25vh";     t3.style.top      = "55vh";
+    canv.appendChild(t1);           canv.appendChild(t2);           canv.appendChild(t3);
+    let t1label = document.createElement("h1"),     t2label = document.createElement("h1"),     t3label = document.createElement("h1");
+        t1label.innerHTML = "context embeddings";   t2label.innerHTML = "linear weights";       t3label.innerHTML = "output";
+        t1label.style.left     = "38vw";            t2label.style.left     = "62vw";            t3label.style.left     = "50vw";
+        t1label.style.position = "fixed";           t2label.style.position = "fixed";           t3label.style.position = "fixed";
+        t1label.style.top      = "24vh";            t2label.style.top      = "21.5vh";          t3label.style.top      = "51.5vh";
+        canv.appendChild(t1label);                  canv.appendChild(t2label);                  canv.appendChild(t3label);
+    let dot = document.createElement("div");    dot.style.backgroundColor = "#000"; dot.style.height = "2vh";   dot.style.left = "57vw";
+    dot.style.position = "fixed";               dot.style.borderRadius    = "50%";  dot.style.width  = "2vh";   dot.style.top  = "31.75vh";
+    canv.appendChild( dot );
+    let equals = document.createElement("div");     equals.innerHTML  = "=";     equals.style.fontSize = "2vw";  
+    equals.style.position = "fixed";                equals.style.left = "45vw"; equals.style.top       = "58.55vh";
+    canv.appendChild( equals );
 }
 function add_bias() {
     sidebar_params();
     canv.innerHTML  = meta();
+    let t1 = document.createElement("table"),
+        t2 = document.createElement("table"),
+        t3 = document.createElement("table"),
+        d1 = w2v_data["calcs"]["mat_mult"],
+        d2 = w2v_data["params"]["param 3"],
+        d3 = w2v_data["calcs"]["plus_bias"],
+       t2r = document.createElement("tr");
+    for( let i = 0 ; i < d1.length ; i++ )
+    {
+        let t1r = document.createElement("tr"),
+            t3r = document.createElement("tr");
+        for( let j = 0 ; j < d1[0].length ; j++ )
+        {
+            let t1c = document.createElement("td"),         t3c = document.createElement("td");
+            t1c.textContent = d1[i][j];     t1c.style.width = "5vw";    t1c.style.height = "5vh";   t1r.appendChild(t1c);
+            t3c.textContent = d3[i][j];     t3c.style.width = "5vw";    t3c.style.height = "5vh";   t3r.appendChild(t3c);
+            if( i === 0 ) {
+                let t2c = document.createElement("td");
+                t2c.textContent = d2[j];    t2c.style.width = "5vw";    t2c.style.height = "5vh";   t2r.appendChild(t2c); }
+        }
+        t1.appendChild(t1r);
+        t3.appendChild(t3r);
+    }
+    t2.appendChild(t2r);
+    t1.style.left     = "32.5vw";       t2.style.left     = "67.5vw";       t3.style.left     = "50vw";
+    t1.style.position = "fixed";        t2.style.position = "fixed";        t3.style.position = "fixed";
+    t1.style.top      = "25vh";         t2.style.top      = "25vh";         t3.style.top      = "50vh";
+    canv.appendChild(t1);               canv.appendChild(t2);               canv.appendChild(t3);
+    let t1label = document.createElement("h1"), t2label = document.createElement("h1"), t3label = document.createElement("h1");
+        t1label.innerHTML = "prev output";      t2label.innerHTML = "linear bias";      t3label.innerHTML = "output";
+        t1label.style.left = "32.5vw";          t2label.style.left = "67.5vw";          t3label.style.left = "50vw";
+        t1label.style.position = "fixed";       t2label.style.position = "fixed";       t3label.style.position = "fixed";
+        t1label.style.top = "21.5vh";           t2label.style.top = "21.5vh";           t3label.style.top = "46.5vh";
+        canv.appendChild(t1label);              canv.appendChild(t2label);              canv.appendChild(t3label);
+    let plus = document.createElement("div");   plus.innerHTML  = "+";      plus.style.fontSize = "2vw";  
+    plus.style.position = "fixed";              plus.style.left = "62.5vw";   plus.style.top       = "28.25vh";
+    canv.appendChild( plus );
+    let equals = document.createElement("div");     equals.innerHTML  = "=";     equals.style.fontSize = "2vw";  
+    equals.style.position = "fixed";                equals.style.left = "45vw"; equals.style.top       = "53.25vh";
+    canv.appendChild( equals );
 }
 function log_softmax() {
     sidebar_params();
     canv.innerHTML  = meta();
+    let         t1 = document.createElement("table"),   t2 = document.createElement("table"),   t3 = document.createElement("table"),
+                d1 = w2v_data["calcs"]["plus_bias"],    d2 = w2v_data["calcs"]["softmax"],      d3 = w2v_data["calcs"]["log_softmax"],
+                t1label = document.createElement("h1"), t2label = document.createElement("h1"), t3label = document.createElement("h1");
+                t1label.innerHTML = "prev output";      t2label.innerHTML = "softmax(output)";  t3label.innerHTML = "log(softmax)";
+    for( let i = 0 ; i < d1.length ; i++ )
+    {
+        let     r1 = document.createElement("tr"),      r2 = document.createElement("tr"),      r3 = document.createElement("tr");
+        for( let j = 0 ; j < d1[0].length ; j++ )
+        {
+            let c1 = document.createElement("td"),      c2 = document.createElement("td"),      c3 = document.createElement("td");
+                c1.textContent  = d1[i][j];             c2.textContent  = d2[i][j];             c3.textContent  = d3[i][j];
+                c1.style.height = "5vh";                c2.style.height = "5vh";                c3.style.height = "5vh";
+                c1.style.width  = "5vw";                c2.style.width  = "5vw";                c3.style.width  = "5vw";
+                r1.appendChild(c1);                     r2.appendChild(c2);                     r3.appendChild(c3);
+        }
+                t1.appendChild(r1);                     t2.appendChild(r2);                     t3.appendChild(r3);
+    }
+                t1.style.position      = "fixed";       t2.style.position      = "fixed";       t3.style.position      = "fixed";
+                t1.style.left          = "50vw";        t2.style.left          = "50vw";        t3.style.left          = "50vw";
+                t1.style.top           = "27.5vh";      t2.style.top           = "47.5vh";      t3.style.top           = "67.5vh";
+                t1label.style.position = "fixed";       t2label.style.position = "fixed";       t3label.style.position = "fixed";
+                t1label.style.left     = "50vw";        t2label.style.left     = "50vw";        t3label.style.left     = "50vw";
+                t1label.style.top      = "24vh";        t2label.style.top      = "44vh";        t3label.style.top      = "64vh";
+                canv.appendChild(t1);                   canv.appendChild(t2);                   canv.appendChild(t3);
+                canv.appendChild(t1label);              canv.appendChild(t2label);              canv.appendChild(t3label);
 }
 function end_epoch() {
     sidebar_params();
