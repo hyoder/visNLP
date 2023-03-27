@@ -13,54 +13,54 @@
             }
             heading1{
                 font-size: 2.5vw;
-                margin: auto;
                 text-align: center;
                 vertical-align: middle;
             }
             news {
-                font-size: 1.75vw;
+                font-size: 1.70vw;
                 margin: auto;
                 text-align: center;
                 
             }
             #restofpageNews {
                 background-color: white;
-                bottom: 15vh;
-                height: 58vh;
+                bottom: 0vh;
+                height: 72vh;
                 position: fixed;
-                right: 0px;
-                width: 81.25vw;
+                left: 25vw;
+                width: 75vw;
             }
             #sidebar_news2vec{
                 background-color: grey;
                 border-right: 1vh solid #000000;
-                bottom: 0px;
+                bottom: 46px;
                 box-sizing: border-box;
                 left: 0px;
-                height: 92vh;
+                height: 85.5vh;
                 position: fixed;
-                width: 18.75vw;
+                width: 25vw;
             }
             #carousel{
                 background-color: lightgrey;
-                border-top: 1vh solid #000000;
                 border-bottom: 1vh solid #000000;
                 bottom: 35vw;
-                left: 18.75vw;
+                left: 25vw;
+                vertical-align: middle;
                 box-sizing: border-box;
-                height: 10vh;
+                height: 11vh;
                 position: fixed;
-                width: 82vw;
+                width: 75vw;
             }
             #title{
                 background-color: white;
+                border-bottom: 1vh solid #000000;
                 border-top: .5vh solid #000000;
                 bottom: 40vw;
-                left: 18.75vw;
+                left: 25vw;
                 box-sizing: border-box;
                 height: 10vh;
                 position: fixed;
-                width: 82vw;
+                width: 75vw;
                 vertical-align: middle;
             }
             #vectors_news2vec{
@@ -72,25 +72,28 @@
                 left: 0px;
                 height: 46vh;
                 position: fixed;
-                width: 18.75vw;
+                width: 25vw;
             }
             #true_btn {
                   position: fixed;
-                  margin-left: 50px;
-                  margin-top: 30px;
-                  width: 80px;
+                  margin-left: 70px;
+                  margin-top: 175px;
+                  width: 100px;
+                  border-radius: 5px;
             }
             #false_btn {
                 position: fixed;
-                margin-left: 130px;
-                margin-top: 30px;
-                width: 80px;
+                margin-left: 180px;
+                margin-top: 175px;
+                width: 100px;
+                border-radius: 5px;
             }
             #news2vecbackground {
                 position: fixed;
-                margin-left: 30px;
-                margin-top: 125px;
-                width: 200px;
+                margin-left: 20px;
+                margin-top: 20px;
+                width: 300px;
+                border-radius: 5px;
             }
         </style>
         <title>para2vec applications - visNLP</title>
@@ -108,32 +111,35 @@
             <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
         </div>
         <div id="sidebar_news2vec">
-            <br>
-            <br>
-            <h2>Is this news article real or fake?</h2>        
-            <button id="true_btn"><h1>True</h1></button>
+            <button id="true_btn"><h1>Real</h1></button>
             <button id="false_btn"><h1>False</h1></button>
-            <button id="news2vecbackground" onclick="window.location='/newsback'" >
-                <h1>News2Vec Background</h1>
+            <button id="news2vecbackground" onclick="window.location='/news'" >
+                <h1>News2Vec overview</h1>
             </button>
+            <br>
+            <br>
+            <br>
+            <br><br><br><br>
+            <h2>Is this news article real or fake?</h2>     
         </div>
         <div id = "vectors_news2vec">
 
         </div>
         <div id="restofpageNews">
             <div style="height:3vh;"></div>
-            <h2>3D Plot Classification!</h2>
+             <h2>3D Plot Classification</h2>
+
             <h2></h2>
             <div style="height:10vh;"></div>
             <img src="assets/plot.jpg" alt="An Example Plot" class = "plot"/>
         </div>
         <div id="carousel">
             <br>
-            <news><center><b>https://www.nytimes.com/2023/03/01/us/politics/student-loan-debt-supreme-court-executive-power.html</b></center></news>
+             <news><center><b>https://www.nytimes.com/2023/03/01/us/politics/student-loan-debt-supreme-court-executive-power.html</b></center></news>
         </div>
         <div id="title">
             <br>
-            <heading1><center><b>News2Vec Classification!</b></center></heading1>
+            <h2><b>Fake News Para2vec Classification</b></h2>
         </div>
         <script src="../scripts.js"></script>
     </body>

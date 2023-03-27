@@ -3,31 +3,47 @@
 
 <head>
     <title>adam optimizer - visNLP</title>
-    <link rel="stylesheet" href="../style.css"/>
+    <link rel="stylesheet" href="../style.css" />
 </head>
 
 <body>
     <div id="navbar">
-        <button class="navelement" onclick="window.location='/'"     ><h1>home</h1></button>
-        <button class="navelement" onclick="window.location='/intro'"><h1>overview</h1></button>
-        <button class="navelement" onclick="window.location='/w2v'"  ><h1>word2vec</h1></button>
-        <button class="navelement" onclick="window.location='/s2v'"  ><h1>sen2vec</h1></button>
-        <button class="navelement" onclick="window.location='/p2v'"  ><h1>para2vec</h1></button>
-        <button class="navelement" onclick="window.location='/adam'" ><h1>adam optimizer</h1></button>
-        <button class="navelement" onclick="window.location='/song'" ><h1>song2vec</h1></button>
-        <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
+        <button class="navelement" onclick="window.location='/'">
+            <h1>home</h1>
+        </button>
+        <button class="navelement" onclick="window.location='/intro'">
+            <h1>overview</h1>
+        </button>
+        <button class="navelement" onclick="window.location='/w2v'">
+            <h1>word2vec</h1>
+        </button>
+        <button class="navelement" onclick="window.location='/s2v'">
+            <h1>sen2vec</h1>
+        </button>
+        <button class="navelement" onclick="window.location='/p2v'">
+            <h1>para2vec</h1>
+        </button>
+        <button class="navelement" onclick="window.location='/adam'">
+            <h1>adam optimizer</h1>
+        </button>
+        <button class="navelement" onclick="window.location='/song'">
+            <h1>song2vec</h1>
+        </button>
+        <button class="navelement" onclick="window.location='/news'">
+            <h1>news2vec</h1>
+        </button>
     </div>
 
     <div id="sidebar_adam">
-        <button id="switch_adam_button" onclick="window.location='/adamstep'" >
+        <button id="switch_adam_button" onclick="window.location='/adamstep'">
             <h1>Adam Step-by-Step Simulation</h1>
         </button>
         <div style="height:75vh;"></div>
-        <button class="prev-topic-button" onclick="window.location='/p2v'" >
+        <button class="prev-topic-button" onclick="window.location='/p2v'">
             <h2>Prev:</h2>
             <h1>Para2Vec</h1>
         </button>
-        <button class="next-topic-button" onclick="window.location='/song'" >
+        <button class="next-topic-button" onclick="window.location='/song'">
             <h2>Next:</h2>
             <h1>Song2Vec</h1>
         </button>
@@ -35,50 +51,84 @@
 
     <div id="restofpage_overview">
         <!-- title -->
-        <div style="height:3vh;"></div>
-        <h1>Adam Overview + Diagrams + intro</h1>
-        <div style="height:3vh;"></div>
-        <!-- content -->
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <div style="height:3vh;"></div>
+        <h1> The Adam Optimizer </h1>
+
+        <!-- content sec | TOPIC RUNDOWN -->
+        <h2> Introduction to the Adam Optimizer </h2>
+
+        <p> In NLP and machine learning in general, the goal is to train a model that can accurately predict outcomes
+            based on input data. The process of training a machine learning model involves iteratively adjusting the
+            model's parameters until it can produce accurate predictions on new data. An optimizer is a key component of
+            this process, responsible for adjusting the model's parameters to minimize the error or loss between its
+            predictions and the true labels. </p>
+
+        <p> Optimizers are critical for achieving good performance in machine learning models. They help the model
+            converge more quickly and improve its accuracy on the training data, allowing it to generalize better to new
+            data. There are many types of optimizers, each with their own strengths and weaknesses, and choosing the
+            right one can make a significant difference in the performance of the model. </p>
+
+        <p> The Adam optimizer is a popular choice for many machine learning tasks because it combines the benefits of
+            two other optimization algorithms, AdaGrad and RMSProp, to achieve faster convergence and better
+            performance. It's a variant of stochastic gradient descent that uses adaptive learning rates and momentum to
+            speed up convergence and improve performance. In this simulation, we will explore how the Adam optimizer
+            works, step by step, using a real-data example on a word2vec CBOW model (refer to the word2vec section to
+            learn more about word2vec and the CBOW architecture). We'll show you the real data flow of tensors through
+            the optimizer, and explain where and how different parameters affect the Adam optimization process. </p>
+
+        <!-- content sec | HOW IT WORKS -->
+
+        <h2> How the Adam Optimizer Works </h2>
+
+        <p> At a high level, the Adam optimizer combines the benefits of two other optimization algorithms: AdaGrad and
+            RMSProp. It maintains a running estimate of the first and second moments of the gradient, which allows it to
+            adaptively adjust the learning rate for each parameter. This adaptive learning rate can help avoid the
+            common issue of using a fixed learning rate that is too large or too small. </p>
+
+        <p> Further, the Adam optimizer also utilizes the momentum concept to carry forward the previous gradient values
+            and use them in current iterations, helping it converge faster. The optimizer has several hyperparameters,
+            such as the learning rate, momentum, and the decay rates, which can be tuned to optimize the model's
+            performance. In our simulation, we'll be able to visualize where these parameters come into play during the
+            optimization process. </p>
+
+        <p> The Process of Performing an optimization step is shown with the following steps: </p>
+
         <ul>
-            <li>Topic Rundown</li>
-            <li>PreReqs + BackGround</li>
-            <li>How it Works (High Level)</li>
-            <li>Simulation Preface and Directions (Step-by-Step)</li>
+            <li>Perform a forward pass in the model with the inputs</li>
+            <li>Compute the loss at the specific iteration on the outputs</li>
+            <li>Get the gradients of loss function with respect to the parameters</li>
+            <li>Update the biased first moment estimate</li>
+            <li>Update the biased second raw moment estimate</li>
+            <li>Compute the bias-corrected first moment estimate</li>
+            <li>Compute the bias-corrected second raw moment estimate</li>
+            <li>Perform an update on the model parameters</li>
         </ul>
-        <div style="height:3vh;"></div>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        
-        <div style="margin-left: 25%;">
-            <img src="https://www.researchgate.net/publication/339075038/figure/fig2/AS:855577622241282@1580997009299/Adam-optimizer-algorithm.ppm" alt="adam algo">
+
+        <p> Specifically, the full Adam optimization algorithm is shown below: </p>
+
+        <div id="adam-overview-img">
+            <img src="https://www.researchgate.net/publication/339075038/figure/fig2/AS:855577622241282@1580997009299/Adam-optimizer-algorithm.ppm"
+                alt="adam algo">
         </div>
 
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        <p> This is a sample paragraph, this is sample text inside of that sample paragraph to make the text longer, and this is also some random sample text to make the text even longer, and here is a bit more text so that there is more text. </p>
-        
+        <p> At each iteration of the optimization process, we perform a forward pass in the model with the inputs and
+            compute the loss at the specific iteration on the outputs. The Adam optimizer then gets the gradients of the
+            loss function with respect to the parameters, and updates the biased first and second moment estimates.
+            These estimates are then used to compute the bias-corrected first and second moment estimates, which are
+            used to perform an update on the model parameters. By performing these steps iteratively over many epochs,
+            the Adam optimizer helps the model converge more quickly and achieve better performance on the training
+            data. The different components of this algorithm are covered in more detail in the step-by-step simulation.
+        </p>
+
+        <div style="height:5vh;"></div>
+
+        <!-- content sec | HOW TO USE SIM -->
+
+        <!-- <h2> Step-by-step Simulation How-To </h2>
+
+        <p> Some Content for this. </p> -->
+
     </div>
-    <script src="../scripts/adam.js"></script>
+    <!-- <script src="../scripts/adam.js"></script> -->
 </body>
 
 </html>
