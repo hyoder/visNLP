@@ -80,8 +80,6 @@
             <p><u>Para2Vec Used to Detect Fake News</u></p>
             <br>
             <p>&emsp;In recent years, the spread of fake news has become a growing issue, particularly on social media platforms. In response to this problem, para2vec technology has emerged as a promising tool for predicting fake news. <br>&emsp;Para2vec is a natural language processing (NLP) technique that uses neural networks to analyze the context and meaning of words. This technology is particularly well-suited for identifying patterns in large datasets, making it ideal for detecting fake news.
-
-                To predict fake news using para2vec technology, the system first needs to be trained on a dataset of known fake and real news articles. During this training process, the system learns to identify patterns in the language used in these articles, such as frequently used words, sentence structure, and tone. Once the system has been trained, it can then be used to analyze new articles and determine whether they are likely to be fake or real.
                 
                 One of the key advantages of using para2vec technology for predicting fake news is its ability to analyze the contextual meaning of words.<br>&emsp; Unlike simpler NLP techniques that only analyze individual words in isolation, para2vec considers the meaning of words in relation to the words around them. This makes it much more effective at identifying subtle linguistic cues that may indicate the presence of fake news.
                 
@@ -91,7 +89,15 @@
             </p>
             <br>
             <p><u>How Our Model Works</u></p>
-
+            <p>&emsp; To predict fake news using para2vec technology, the system first needs to be trained on a dataset of known fake and real news articles. During this training process, the system learns to identify patterns in the language used in these articles, such as frequently used words, sentence structure, and tone. Once the system has been trained, it can then be used to analyze new articles and determine whether they are likely to be fake or real.</p>
+            <br>
+            <p>&emsp; For our project the two ground truth datasets used for training the model were called Politifact and Gossipcop, information from the articles such as 
+                the url, title, and tweets regarding the topic was all collected as well. 
+            </p>
+            <br>
+            <p>&emsp;In order to make these predictions the Para2vec algorithm analyzes the semantic meaning of the words in the article, as well as their relationships to each other
+                and vectorizes the outputs of these findings. 
+            </p>
             <div style="height:10vh;"></div>
         </div>
         <script src="../scripts.js"></script>
