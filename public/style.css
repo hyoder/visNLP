@@ -339,6 +339,40 @@ td {
     width: 75vw;
 }
 
+#restofpage_home {
+    background-color: whitesmoke;
+    top: 8vh;
+    height: 92vh;
+    position: fixed;
+    right: 0px;
+    width: 100vw;
+}
+#restofpage_home h1 {
+    color: #8b0000;
+    font-size: 3vw;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+}
+#restofpage_home h2 {
+    color: black;
+    font-size: 1.5vw;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    text-align: left;
+}
+#restofpage_home h3 {
+    color: black;
+    font-size: 1.5vw;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    text-align: center;
+}
+#restofpage_home p {
+    color: black;
+    font-size: 1vw;
+    padding-bottom: 1vh;
+}
+
 #restofpage_overview {
     font-family:'Segoe UI';
     background-color: whitesmoke;
