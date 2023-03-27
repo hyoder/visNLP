@@ -19,7 +19,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2vw;
+    font-size: 1vw;
     margin: auto;
     text-align: center;
 }
@@ -27,10 +27,55 @@ h3 {
 pre {
     font-size: 150%;
 }
+button { height: 7vh; width: 25vw; }
+table {
+    border-collapse: collapse;
+    box-sizing: border-box;
+    display: inline-block; 
+    text-align: center;
+}
+td {
+    background-color: #bbbbbb;
+    border: solid 2px #000000;
+}
 
-button {
-    height: 7vh;
-    width: 25vw;
+#param1
+{
+    position: fixed;
+    left: 0.75vw;
+    top: 15vh;
+}
+#param2 {
+    position: fixed;
+    left: 0.75vw;
+    top: 40vh;
+}
+#param3 {
+    position: fixed;
+    left: 0.75vw;
+    top: 58vh;
+}
+#param1 td { height: 3vh; width: 7.5vw; }
+#param2 td { height: 3vh; width: 4.5vw; }
+#param3 td { height: 3vh; width: 4.5vw; }
+
+#p1label {
+    font-size: 2.25vh;
+    left: 0.75vw;
+    position: fixed;
+    top: 10vh;
+}
+#p2label {
+    font-size: 2.25vh;
+    left: 0.75vw;
+    position: fixed;
+    top: 35vh;
+}
+#p3label {
+    font-size: 2.25vh;
+    left: 0.75vw;
+    position: fixed;
+    top: 53vh;
 }
 
 #back_btn {
@@ -46,9 +91,10 @@ button {
 #canv {
     height: 77vh;
     position: fixed;
+    right: 0px;
     text-align: center;
     top: 8vh;
-    width: 81.25vw;
+    width: 75vw;
     z-index: 1;;
 }
 #canv_NSB {
@@ -82,7 +128,7 @@ button {
     height: 15vh;
     position: fixed;
     right: 0px;
-    width: 81.25vw;
+    width: 75vw;
 }
 #footer_NSB {
     background-color: lightgray;
@@ -204,11 +250,11 @@ button {
     border-right: 0.25vh dashed #000000;
     box-sizing: border-box;
     height: 10vh;
-    left: 18.75vw;
+    left: 25vw;
     position: fixed;
     display: inline-grid;
     top: 8vh;
-    width: 18.8vw;
+    width: 31.3vw;
 }
 
 #meta_adam {
@@ -271,7 +317,7 @@ button {
     height: 77vh;
     position: fixed;
     right: 0px;
-    width: 81.25vw;
+    width: 75vw;
 }
 
 #restofpage_NSB {
@@ -314,7 +360,7 @@ button {
     left: 0px;
     height: 92vh;
     position: fixed;
-    width: 18.75vw;
+    width: 25vw;
 }
 
 #sidebar_adam {
