@@ -846,147 +846,147 @@ td {
 /* single row adam main canv styling */
 #my-table-container-1 {
     position: absolute;
-    background-color: #6a478f;
+    background-color: rgb(0, 140, 255);
     left: 20%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-2 {
     position: absolute;
-    background-color: yellow;
+    background-color: rgb(0, 140, 255);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-3 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 80%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-4 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 35%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-5 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 55%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-6 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 70%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-7 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 30%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-8 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 70%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-9 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 20%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-10 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 42%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-11 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 58%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-12 {
     position: absolute;
-    background-color: red;
+    background-color: rgb(0, 140, 255);
     left: 80%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
 #my-table-container-g1 {
-    background-color: rgb(255, 38, 0);
+    background-color: rgb(0, 140, 255);
     position: absolute;
     left: 28%;
     top: 18%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g2 {
-    background-color: rgb(255, 196, 0);
+    background-color: rgb(0, 140, 255);
     position: absolute;
     left: 48%;
     top: 18%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g3 {
-    background-color: rgb(123, 255, 0);
+    background-color: rgb(0, 140, 255);
     position: absolute;
     left: 64%;
     top: 18%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g4 {
-    background-color: rgb(0, 255, 13);
+    background-color: rgb(0, 140, 255);
     position: absolute;
     left: 28%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g5 {
-    background-color: rgb(0, 255, 221);
+    background-color: rgb(0, 140, 255);
     position: absolute;
     left: 48%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g6 {
-    background-color: rgb(0, 102, 255);
+    background-color: rgb(0, 140, 255);
     position: absolute;
     left: 64%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g7 {
-    background-color: rgb(140, 0, 255);
+    background-color: rgb(0, 140, 255);
     position: absolute;
     left: 28%;
     top: 82%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g8 {
-    background-color: rgb(255, 0, 242);
+    background-color: rgb(0, 140, 255);
     position: absolute;
     left: 48%;
     top: 82%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g9 {
-    background-color: rgb(255, 0, 76);
+    background-color: rgb(0, 140, 255);
     position: absolute;
     left: 64%;
     top: 82%;
@@ -995,63 +995,63 @@ td {
 
 #operationContainer-1 {
     position: absolute;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
     left: 35%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #operationContainer-2 {
     position: absolute;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
     left: 65%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #operationContainer-3 {
     position: absolute;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #operationContainer-4 {
     position: absolute;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
     left: 34%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #operationContainer-5 {
     position: absolute;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #operationContainer-6 {
     position: absolute;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
     left: 66%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #operationContainer-g1 {
     position: absolute;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
     left: 15%;
     top: 33%;
     transform: translate(-50%, -50%);
 }
 #operationContainer-g2 {
     position: absolute;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 #operationContainer-g3 {
     position: absolute;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
     left: 15%;
     top: 66%;
     transform: translate(-50%, -50%);
@@ -1061,7 +1061,6 @@ td {
 #tableTitleContainer-1 {
     position: absolute;
     font-family:'Segoe UI';
-    background-color: yellow;
     left: 20%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1069,7 +1068,6 @@ td {
 #tableTitleContainer-2 {
     position: absolute;
     font-family:'Segoe UI';
-    background-color: green;
     left: 50%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1077,7 +1075,6 @@ td {
 #tableTitleContainer-3 {
     font-family:'Segoe UI';
     position: absolute;
-    background-color: orange;
     left: 80%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1085,7 +1082,6 @@ td {
 #tableTitleContainer-4 {
     position: absolute;
     font-family:'Segoe UI';
-    background-color: yellow;
     left: 35%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1093,7 +1089,6 @@ td {
 #tableTitleContainer-5 {
     position: absolute;
     font-family:'Segoe UI';
-    background-color: green;
     left: 55%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1101,7 +1096,6 @@ td {
 #tableTitleContainer-6 {
     font-family:'Segoe UI';
     position: absolute;
-    background-color: orange;
     left: 70%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1109,7 +1103,6 @@ td {
 #tableTitleContainer-7 {
     font-family:'Segoe UI';
     position: absolute;
-    background-color: orange;
     left: 30%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1117,7 +1110,6 @@ td {
 #tableTitleContainer-8 {
     font-family:'Segoe UI';
     position: absolute;
-    background-color: orange;
     left: 70%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1125,7 +1117,6 @@ td {
 #tableTitleContainer-9 {
     position: absolute;
     font-family:'Segoe UI';
-    background-color: green;
     left: 20%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1133,7 +1124,6 @@ td {
 #tableTitleContainer-10 {
     font-family:'Segoe UI';
     position: absolute;
-    background-color: orange;
     left: 42%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1141,7 +1131,6 @@ td {
 #tableTitleContainer-11 {
     font-family:'Segoe UI';
     position: absolute;
-    background-color: orange;
     left: 58%;
     top: 27%;
     transform: translate(-50%, -50%);
@@ -1149,13 +1138,12 @@ td {
 #tableTitleContainer-12 {
     font-family:'Segoe UI';
     position: absolute;
-    background-color: orange;
     left: 80%;
     top: 27%;
     transform: translate(-50%, -50%);
 }
 #tableTitleContainer-g1 {
-    background-color: rgb(0, 255, 136);
+    color: rgb(255, 0, 76);
     font-size: .7vw;
     font-family:'Segoe UI';
     position: absolute;
@@ -1164,7 +1152,7 @@ td {
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g2 {
-    background-color: rgb(0, 255, 136);
+    color: rgb(0, 255, 85);
     font-size: .7vw;
     font-family:'Segoe UI';
     position: absolute;
@@ -1173,7 +1161,7 @@ td {
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g3 {
-    background-color: rgb(0, 255, 136);
+    color: rgb(0, 255, 242);
     font-size: .7vw;
     font-family:'Segoe UI';
     position: absolute;
@@ -1182,7 +1170,7 @@ td {
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g4 {
-    background-color: rgb(0, 255, 136);
+    color: rgb(255, 0, 76);
     font-size: .7vw;
     font-family:'Segoe UI';
     position: absolute;
@@ -1191,7 +1179,7 @@ td {
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g5 {
-    background-color: rgb(0, 255, 136);
+    color: rgb(0, 255, 85);
     font-size: .7vw;
     font-family:'Segoe UI';
     position: absolute;
@@ -1200,7 +1188,7 @@ td {
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g6 {
-    background-color: rgb(0, 255, 136);
+    color: rgb(0, 255, 242);
     font-size: .7vw;
     font-family:'Segoe UI';
     position: absolute;
@@ -1209,7 +1197,7 @@ td {
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g7 {
-    background-color: rgb(0, 255, 136);
+    color: rgb(255, 0, 76);
     font-size: .7vw;
     font-family:'Segoe UI';
     position: absolute;
@@ -1218,7 +1206,7 @@ td {
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g8 {
-    background-color: rgb(0, 255, 136);
+    color: rgb(0, 255, 85);
     font-size: .7vw;
     font-family:'Segoe UI';
     position: absolute;
@@ -1227,7 +1215,7 @@ td {
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g9 {
-    background-color: rgb(0, 255, 136);
+    color: rgb(0, 255, 242);
     font-size: .7vw;
     font-family:'Segoe UI';
     position: absolute;
@@ -1236,7 +1224,7 @@ td {
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-d1 {
-    background-color: rgb(0, 255, 136);
+    /* background-color: rgb(0, 255, 136); */
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
@@ -1244,7 +1232,7 @@ td {
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d2 {
-    background-color: rgb(0, 255, 136);
+    /* background-color: rgb(0, 255, 136); */
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
@@ -1252,7 +1240,7 @@ td {
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d3 {
-    background-color: rgb(0, 255, 136);
+    /* background-color: rgb(0, 255, 136); */
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
@@ -1260,7 +1248,7 @@ td {
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d4 {
-    background-color: rgb(0, 255, 136);
+    /* background-color: rgb(0, 255, 136); */
     font-family:'Segoe UI';
     position: absolute;
     left: 23%;
@@ -1268,7 +1256,7 @@ td {
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d5 {
-    background-color: rgb(0, 255, 136);
+    /* background-color: rgb(0, 255, 136); */
     font-family:'Segoe UI';
     position: absolute;
     left: 31%;
