@@ -27,9 +27,8 @@
                 bottom: 0vh;
                 height: 72vh;
                 position: fixed;
-                left: 18.75vw;
-                width: 82vw;
-                overflow: scroll;
+                left: 25vw;
+                width: 75vw;
             }
             #sidebar_news2vec{
                 background-color: grey;
@@ -39,29 +38,29 @@
                 left: 0px;
                 height: 85.5vh;
                 position: fixed;
-                width: 18.75vw;
+                width: 25vw;
             }
             #carousel{
                 background-color: lightgrey;
                 border-bottom: 1vh solid #000000;
                 bottom: 35vw;
-                left: 18.75vw;
+                left: 25vw;
                 vertical-align: middle;
                 box-sizing: border-box;
                 height: 11vh;
                 position: fixed;
-                width: 82vw;
+                width: 75vw;
             }
             #title{
                 background-color: white;
                 border-bottom: 1vh solid #000000;
                 border-top: .5vh solid #000000;
                 bottom: 40vw;
-                left: 18.75vw;
+                left: 25vw;
                 box-sizing: border-box;
                 height: 10vh;
                 position: fixed;
-                width: 82vw;
+                width: 75vw;
                 vertical-align: middle;
             }
             #vectors_news2vec{
@@ -73,30 +72,27 @@
                 left: 0px;
                 height: 46vh;
                 position: fixed;
-                width: 18.75vw;
+                width: 25vw;
             }
             #true_btn {
                   position: fixed;
-                  background-color: lightgrey;
-                  margin-left: 50px;
-                  margin-top: 20px;
-                  width: 80px;
+                  margin-left: 70px;
+                  margin-top: 175px;
+                  width: 100px;
                   border-radius: 5px;
             }
             #false_btn {
                 position: fixed;
-                background-color: lightgrey;
-                margin-left: 135px;
-                margin-top: 20px;
-                width: 80px;
+                margin-left: 180px;
+                margin-top: 175px;
+                width: 100px;
                 border-radius: 5px;
             }
             #news2vecbackground {
-                background-color: lightgrey;
                 position: fixed;
-                margin-left: 30px;
-                margin-top: 130px;
-                width: 200px;
+                margin-left: 20px;
+                margin-top: 20px;
+                width: 300px;
                 border-radius: 5px;
             }
         </style>
@@ -115,9 +111,6 @@
             <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
         </div>
         <div id="sidebar_news2vec">
-            <br>
-            <br>
-            <h2>Is this news article real or fake?</h2>        
             <button id="true_btn"><h1>Real</h1></button>
             <button id="false_btn"><h1>False</h1></button>
             <button id="news2vecbackground" onclick="window.location='/newsback'" >
@@ -126,8 +119,8 @@
             <br>
             <br>
             <br>
-            <br><br>
-            <h2>How it Works?</h2>
+            <br><br><br><br>
+            <h2>Is this news article real or fake?</h2>     
         </div>
         <div id = "vectors_news2vec">
 
@@ -135,7 +128,6 @@
         <div id="restofpageNews">
             <div style="height:3vh;"></div>
             <h2>3D Plot Classification</h2>
-            <p>This is a test for the rest of the website</p>
             <h2></h2>
             <div style="height:10vh;"></div>
             <img src="assets/plot.jpg" alt="An Example Plot" class = "plot"/>
@@ -146,7 +138,7 @@
         </div>
         <div id="title">
             <br>
-            <h2><b>Fake News Para2Vec Classification</b></h2>
+            <h2><b>Fake News Para2vec Classification</b></h2>
         </div>
         <script src="../scripts.js"></script>
     </body>
