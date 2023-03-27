@@ -39,7 +39,7 @@ function intro()
 
     // set title
     canv.innerHTML += "<div style='height:14vh'/>"
-    canv.innerHTML += "<h3>Perform Optimization Step</h3>";
+    canv.innerHTML += "<h3>Perform New Optimization Step</h3>";
 
     // create a new HTML element to hold the main content container
     const mainContentContainer = document.createElement('div');

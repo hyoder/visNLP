@@ -116,6 +116,7 @@ td {
 }
 #canv_adam h3{
     color: rgb(0, 140, 255);
+    font-size: 2vw;
 }
 
 
@@ -633,7 +634,7 @@ td {
 
 #adam-main-content-container {
     padding: 20px;
-    border: 2px dashed blue;
+    /* border: 2px dashed blue; */
     height: 44vh;
     position: relative;
 }
