@@ -151,7 +151,7 @@ td {
     height: 25vh;
     position: fixed;
     right: 0px;
-    width: 75vw;
+    width: 74.8vw;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -174,6 +174,7 @@ td {
 
 .footer_adam_eq_title{
     display: inline-block;
+    box-sizing: border-box;
     padding-top: 1vh;
     height: 30%;
     width: 50%;
@@ -184,6 +185,7 @@ td {
 }
 
 .footer_adam_eq{
+    box-sizing: border-box;
     display: inline-block;
     padding-top: 1vh;
     height: 30%;
@@ -265,14 +267,13 @@ td {
     /* box-sizing: border-box; */
     height: 8vh;
     width: 18vw;
-    left: 25vw;
+    left: 25.2vw;
     position: fixed;
     display: inline-block;
     /* display: flex;
     align-items: center; */
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 #meta_adam h4 {
     display: inline-block;
     color: black;
@@ -281,7 +282,6 @@ td {
     margin-left: 3px;
     margin-right: 1px;
 }
-
 #meta_adam h5 {
     display: inline-block;
     /* color: rgb(41, 182, 41); */
@@ -335,30 +335,33 @@ td {
     bottom: 25vh;
     height: 67vh; 
     position: fixed;
-    right: 0px;
-    width: 75vw;
+    left: 25.2vw;
+    width: 74vw;
 }
 
 #restofpage_home {
+    font-family:'Segoe UI';
     background-color: whitesmoke;
+    overflow: scroll;
     top: 8vh;
+    left: 25.2vw;
     height: 92vh;
     position: fixed;
-    right: 0px;
-    width: 100vw;
+    width: 74vw;
 }
 #restofpage_home h1 {
     color: #8b0000;
-    font-size: 3vw;
+    font-size: 2.3vw;
     padding-top: 3vh;
     padding-bottom: 2vh;
 }
 #restofpage_home h2 {
     color: black;
-    font-size: 1.5vw;
-    padding-top: 1.5vh;
+    font-size: .95vw;
+    font-weight: lighter;
+    /* padding-top: 1.5vh; */
     padding-bottom: 1.5vh;
-    text-align: left;
+    text-align: center;
 }
 #restofpage_home h3 {
     color: black;
@@ -372,6 +375,12 @@ td {
     font-size: 1vw;
     padding-bottom: 1vh;
 }
+#homepage_top_text {
+    width: 80%;
+    margin: auto;
+    /* background-color: grey;
+    border-radius: 10px; */
+}
 
 #restofpage_overview {
     font-family:'Segoe UI';
@@ -379,8 +388,8 @@ td {
     bottom: 0vh;
     height: 92vh; 
     position: fixed;
-    right: 0px;
-    width: 75vw;
+    left: 25.2vw;
+    width: 74vw;
     overflow: scroll;
     box-sizing: border-box;
     padding-left: 2vw;
@@ -443,7 +452,7 @@ td {
     left: 0px;
     height: 92vh;
     position: fixed;
-    width: 25vw;
+    width: 25.2vw;
     padding: 10px;
 }
 
