@@ -3846,6 +3846,9 @@ function update_params_e()
 const footer_desc = document.createElement("div");
 footer_desc.classList.add("footer_adam_desc");
 
+const footer_eq_container = document.createElement("div");
+footer_eq_container.classList.add("footer_adam_eq_container");
+
 const footer_eq_title = document.createElement("div");
 footer_eq_title.classList.add("footer_adam_eq_title");
 
@@ -3854,15 +3857,19 @@ footer_eq.classList.add("footer_adam_eq");
 
 // Append the three sections to the footer element
 footer.appendChild(footer_desc);
-footer.appendChild(footer_eq_title);
-footer.appendChild(footer_eq);
+footer_eq_container.appendChild(footer_eq_title);
+footer_eq_container.appendChild(footer_eq);
+footer.appendChild(footer_eq_container);
+
+// footer.appendChild(footer_eq_title);
+// footer.appendChild(footer_eq);
 
 function setfooter( input ) // takes input from event listener and then 
 {
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // SLIDE DESCRIPTIONS
-        case "intro":                   footer_desc.innerHTML = "Perform a new optimization step with the Adam Optimization Method. An optimization step can be generally broken into the (5) following parts: <ol><li>Perform a forward pass in the model with the inputs</li><li>Compute the loss at the specific iteration on the outputs</li><li>Get the gradients of loss function w.r.t. parameters</li><li>Compute the first and second moment estimates of the gradients</li><li>Perform an update on the model parameters</li></ol>";
+        case "intro":                   footer_desc.innerHTML = "Perform a new optimization step with the Adam Optimization Method. An optimization step can be generally broken into the (5) following parts: <ol><li>Perform a forward pass in the model with inputs</li><li>Compute the loss at the specific iteration on outputs</li><li>Get the gradients of loss function with respect to the parameters</li><li>Compute the first and second moment estimates of the gradients</li><li>Perform an update on the model parameters</li></ol>";
                                         footer_eq_title.innerHTML = "";
                                         footer_eq.innerHTML = "";
                                         break;
@@ -3890,7 +3897,7 @@ function setfooter( input ) // takes input from event listener and then
                                         footer_eq_title.innerHTML = "<h2> Iteration Loss: </h2>";
                                         footer_eq.innerHTML = "<h2> loss-scalar =  <span style='color: #32cd32'>-avg ( <span style='color: rgb(0, 140, 255)'>loss</span> ) ● center</span> </h2>";
                                         break;         
-        case "gradients":               footer_desc.innerHTML = "Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation. The chain rule of differentiation is used during backpropagation to calculate the gradients of the loss function for each parameter, starting from the output layer and working backward towards the input layer. The loss function in this simulation is the negative log probability of the target word given the context words. <span style='font-weight: bold'>The resulting gradient vector (g<sub>t</sub>) consists of partial derivatives of the loss function for each parameter.</span> The gradient vector indicates the direction of the steepest descent of the loss function for the model parameters and guides the optimization algorithm towards a better set of parameters that minimizes the training data loss.";
+        case "gradients":               footer_desc.innerHTML = "Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation. The chain rule of differentiation is used during backpropagation to calculate the gradients of the loss function for each parameter, starting from the output layer and working backward towards the input layer. The loss function in this simulation is the negative log probability of the target word given the context words. <span style='font-weight: bold'>The resulting gradient vector (g<sub>t</sub>) consists of partial derivatives of the loss function for each parameter.</span> The gradient vector indicates the direction of the steepest descent of the loss function for the model parameters and guides towards a set of parameters that minimizes the loss.";
                                         footer_eq_title.innerHTML = "<h2> Get Gradients: </h2>";
                                         footer_eq.innerHTML = "<h2> <span style='color: rgb(0, 140, 255)'>g<sub>t</sub></span> <span style='color: #32cd32'>← ∇θ ƒ<sub>t</sub> (θ<sub>t-1</sub>)</span> </h2>";
                                         break;    
@@ -4247,6 +4254,10 @@ function updater( val )
     else { reset_btn.style.display = "inline-block"; }
     if (epoch_status < epoch_count - 1) { ff_btn.style.display = "inline-block"; }
     else { ff_btn.style.display = "none"; }
+
+    // hide eq bar on initial step
+    if (page_status == 0) { footer_eq_container.style.display = "none"; }
+    else {footer_eq_container.style.display = "inline-flex"; }
 
     let page = statuses[ page_status ];
     console.log("page: " + page);

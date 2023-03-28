@@ -157,6 +157,7 @@ td {
 
 .footer_adam_desc{
     height: 70%;
+    width: 100%;
     text-align: left;
     display: inline-block;
     padding-top: 1vh;
@@ -164,37 +165,35 @@ td {
     padding-left: 1.5vw;
     padding-right: 1.5vw;
     box-sizing: border-box;
-    font-size: .9vw;
+    font-size: 1.1vw;
 }
 .footer_adam_desc ol{
     padding-left: 2.5vw;
     padding-right: 1.5vw;
-    font-weight: bold
+    padding-top: .5vh;
+    font-weight: bold;
+    font-size: 1.2vw;
+}
+
+.footer_adam_eq_container{
+    height: 30%;
+    width: 100%;
+    display:inline-flex;
+    background-color: rgb(61, 61, 61);
 }
 
 .footer_adam_eq_title{
-    display: inline-block;
-    box-sizing: border-box;
-    padding-top: 1vh;
-    height: 30%;
     width: 50%;
     font-size: 1vw;
+    display: inline-flex;
     color: white;
-    /* background-color: #8b0000; */
-    background-color: rgb(61, 61, 61);
 }
 
 .footer_adam_eq{
-    box-sizing: border-box;
-    display: inline-block;
-    padding-top: 1vh;
-    height: 30%;
     width: 50%;
     font-size: 1vw;
+    display:inline-flex;
     color: white;
-    /* background-color: #8b0000; */
-    background-color: rgb(61, 61, 61);
-    
 }
 
 #fwd_btn {
