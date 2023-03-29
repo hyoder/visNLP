@@ -20,13 +20,27 @@ let epoch_count = 20;
 
 function meta() // sets and returns page metadata for meta div (top left corner of canvas)
 {
-    let output  = "<div id=\"meta_adam\">";
-        // shortented page title meta
-        //output += "<h2>basics - \"" + statuses[page_status] + "\"</h2>";
-        output += "<h4>Step: " + "<h5>" + (page_status+1) + "/" + (page_count) + "</h5>" + "</h4>";
-        //output += "<h4>epoch: " + (epoch_status) + " out of " + (epoch_count-1) + "</h4>";
+    let output  = "<div id=\"meta_adam\" class=\"meta_adam_class\" >";
         output += "<h4>Iteration: " + "<h5>" + (epoch_status) + "</h5>" + "</h4>";
         output += "</div>"
+    return output;
+}
+
+function meta_lower() // sets and returns page metadata for meta div (top left corner of canvas)
+{
+    let output  = "<div id=\"meta_adam_lower\" class=\"meta_adam_class\" >";
+        output += "<h4>Step: " + "<h5>" + (page_status+1) + "/" + (page_count) + "</h5>" + "</h4>";
+        output += "</div>"
+    return output;
+}
+
+function meta_progress_bar() // sets and returns page metadata for meta div (top left corner of canvas)
+{
+    let bar_width = (page_status + 1) / page_count * 100;
+    let output  = "<div id=\"meta_adam_progress_outline\" >";
+        output += "<div style='width:" + bar_width + "%' id=\"meta_adam_progress_bar\" >";
+        output += "</div>";
+        output += "</div>";
     return output;
 }
 
@@ -36,9 +50,11 @@ function intro()
     setfooter( "intro" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Perform New Optimization Step</h3>";
 
     // create a new HTML element to hold the main content container
@@ -117,9 +133,11 @@ function cbow_contexts()
     setfooter( "cbow_contexts" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Perform Forward Pass: Contexts</h3>";
 
     // create a new HTML element to hold the main content container
@@ -301,9 +319,11 @@ function cbow_linear_dot_prod()
     setfooter( "cbow_linear_dot_prod" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Perform Forward Pass: Linear Transform pt.1/2</h3>";
 
     // create a new HTML element to hold the main content container
@@ -437,9 +457,11 @@ function cbow_linear_bias_sum()
     setfooter( "cbow_linear_bias_sum" );
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Perform Forward Pass: Linear Transform pt.2/2</h3>";
 
     // create a new HTML element to hold the main content container
@@ -574,9 +596,11 @@ function nll_loss_softmax()
     setfooter( "nll_loss_softmax" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute the Loss: Take Softmax</h3>";
 
     // create a new HTML element to hold the main content container
@@ -672,9 +696,11 @@ function nll_loss_log()
     setfooter( "nll_loss_log" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute the Loss: Take Log</h3>";
 
     // create a new HTML element to hold the main content container
@@ -768,9 +794,11 @@ function nll_loss_epoch_avg()
     setfooter( "nll_loss_epoch_avg" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute the Loss: Iteration Loss Measure</h3>";
 
     // create a new HTML element to hold the main content container
@@ -953,9 +981,11 @@ function gradients()
     setfooter( "gradients" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Get Gradients With Respect To Stochastic Objective:</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1034,9 +1064,11 @@ function first_moment_a()
     setfooter( "first_moment_a" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 1/3</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1242,9 +1274,11 @@ function first_moment_b()
     setfooter( "first_moment_b" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 2/3</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1450,9 +1484,11 @@ function first_moment_c()
     setfooter( "first_moment_c" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 3/3</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1664,9 +1700,11 @@ function second_moment_a()
     setfooter( "second_moment_a" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 1/4</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1816,9 +1854,11 @@ function second_moment_b()
     setfooter( "second_moment_b" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 2/4</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2022,9 +2062,11 @@ function second_moment_c()
     setfooter( "second_moment_c" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 3/4</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2228,9 +2270,11 @@ function second_moment_d()
     setfooter( "second_moment_d" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 4/4</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2442,9 +2486,11 @@ function bc_first_moment()
     setfooter( "bc_first_moment" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute Bias-Corrected First Moment Estimate</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2648,9 +2694,11 @@ function bc_second_moment()
     setfooter( "bc_second_moment" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute Bias-Corrected Second Raw Moment Estimate</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2854,9 +2902,11 @@ function update_params_a()
     setfooter( "update_params_a" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 1/5</h3>";
 
     // create a new HTML element to hold the main content container
@@ -3006,9 +3056,11 @@ function update_params_b()
     setfooter( "update_params_b" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 2/5</h3>";
 
     // create a new HTML element to hold the main content container
@@ -3212,9 +3264,11 @@ function update_params_c()
     setfooter( "update_params_c" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 3/5</h3>";
 
     // create a new HTML element to hold the main content container
@@ -3427,9 +3481,11 @@ function update_params_d()
     setfooter( "update_params_d" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 4/5</h3>";
 
     // create a new HTML element to hold the main content container
@@ -3633,9 +3689,11 @@ function update_params_e()
     setfooter( "update_params_e" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 5/5</h3>";
 
     // create a new HTML element to hold the main content container
