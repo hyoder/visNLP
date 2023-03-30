@@ -867,6 +867,10 @@ td {
     padding-top: .3vh;
     font-size: 1.5vh;
 }
+#sidebar-adam-eq-container h1 {
+    text-align: center;
+    font-size: 1.5vh;
+}
 
 /* MAIN ADAMSTEP CANV TENSOR STYLING */
 .generic-table-class {

@@ -4222,6 +4222,8 @@ function setsidebar( input )
 
 
     // DYNAMIC FULL ADAM EQUASION
+
+    let eq_state = page_status + 1;
     
     //// create a new HTML element to hold the main content container
     const sidebar_adam_eq_container = document.createElement('div');
@@ -4230,23 +4232,56 @@ function setsidebar( input )
     // append the table container to the canvas element
     sidebar_canv.appendChild(sidebar_adam_eq_container);
 
+    sidebar_adam_eq_container.innerHTML = "<h1> Adam Optimization Algorithm </h1> "
+
     // construct the algorithm line by line
-    sidebar_adam_eq_container.innerHTML =  "<p> Require: 𝞪: Stepsize </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> Require: β<sub>1</sub>, β<sub>2</sub> ∈ [0,1): Desc </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> Require: ƒ(θ) </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> Require: θ<sub>0</sub> </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 </p>"
-    //sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; v<sub>0</sub> ← 0 </p>"
-    //sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; t ← 0 </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; while θ<sub>t</sub> not converged do </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>v&#770;</span><sub>t</sub> ← v<sub>t</sub> / (1 - β<sup>t</sup><sub>2</sub>) </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  ) </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; end while </p>"
-    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; return 0<sub>t</sub> </p>"
+    // format:
+    // if (eq_state == specify) { 
+    //    custom state  } else { 
+    //    default state }
+    if ( eq_state == 1 && epoch_status == 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: 𝞪 &nbsp; (Stepsize) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> 𝞪 &nbsp; (Stepsize) </p>" }
+    if ( eq_state == 1 && epoch_status == 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: β<sub>1</sub>, β<sub>2</sub> ∈ [0,1) &nbsp; (Decay Rates) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> β<sub>1</sub>, β<sub>2</sub> ∈ [0,1) &nbsp; (Decay Rates) </p>" }
+    if ( eq_state == 1 && epoch_status == 0 || eq_state >= 2 && eq_state <= 7 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: ƒ(θ) &nbsp; (Objective Function) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> ƒ(θ) &nbsp; (Objective Function) </p>" }
+    if ( eq_state == 1 && epoch_status == 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: θ<sub>0</sub> &nbsp; (Initial Parameters) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> θ<sub>0</sub> &nbsp; (Initial Parameters) </p>" }
+    if ( eq_state == 1 && epoch_status == 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 &nbsp; (Initialize Vectors) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 &nbsp; (Initialize Vectors) </p>" }
+    if ( eq_state >= 8 && eq_state <= 22 || eq_state <= 7 && epoch_status > 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> while θ<sub>t</sub> not converged do </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> while </span> θ<sub>t</sub> not converged <span style='font-weight: bold'> do </span> </p>" }
+    if ( eq_state == 8 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </p>" }
+    if ( eq_state >= 9 && eq_state <= 11 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </p>" }
+    if ( eq_state >= 12 && eq_state <= 15 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </p>" }    
+    if ( eq_state == 16 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </p>" }   
+    if ( eq_state == 17 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> <span>v&#770;</span><sub>t</sub> ← v<sub>t</sub> / (1 - β<sup>t</sup><sub>2</sub>) </span> </p>" } else { 
+            sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>v&#770;</span><sub>t</sub> ← v<sub>t</sub> / (1 - β<sup>t</sup><sub>2</sub>) </p>" }   
+    if ( eq_state >= 18 && eq_state <= 22 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  ) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  ) </p>" }   
+    if ( eq_state == 22 && epoch_status >= epoch_count - 1 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> end while </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> end while </span> </p>" }   
+    if ( eq_state == 22 && epoch_status >= epoch_count - 1 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> return 0<sub>t</sub> &nbsp; (Resulting Parameters) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> return </span> 0<sub>t</sub> &nbsp; (Resulting Parameters) </p>" }   
+
 
     // PLOT LOSS
     
