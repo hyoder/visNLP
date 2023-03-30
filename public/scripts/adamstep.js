@@ -124,7 +124,17 @@ function intro()
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-6';
     tableTitleContainer3.innerHTML = "<h2>Param 3</h2>"
-    mainContentContainer.appendChild(tableTitleContainer3); 
+    mainContentContainer.appendChild(tableTitleContainer3);
+    
+    // TITLE HEADER DESC 6
+    const tableTitleContainer15 = document.createElement('div');
+    tableTitleContainer15.id = 'tableTitleContainer-d6';
+    if ( epoch_status == 0 ) {
+        tableTitleContainer15.innerHTML = "<h2> Random Generated Initial Model Parameters </h2>"
+    } else {
+        tableTitleContainer15.innerHTML = "<h2> Parameters Obtained From Previous Update Step Are Passed Back To Objective Function </h2>"
+    }
+    mainContentContainer.appendChild(tableTitleContainer15);
 }
 
 
@@ -1207,6 +1217,11 @@ function first_moment_a()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
@@ -1417,6 +1432,11 @@ function first_moment_b()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
@@ -1621,6 +1641,11 @@ function first_moment_c()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
@@ -1798,6 +1823,11 @@ function second_moment_a()
     .text("Sqaure")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
+
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
@@ -1994,6 +2024,11 @@ function second_moment_b()
     .text(" ")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
+
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
@@ -2203,6 +2238,11 @@ function second_moment_c()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
@@ -2260,7 +2300,7 @@ function second_moment_c()
     // TITLE HEADER DESC 5
     const tableTitleContainer14 = document.createElement('div');
     tableTitleContainer14.id = 'tableTitleContainer-d5';
-    tableTitleContainer14.innerHTML = "<h2>(\u00A0\u00A0\u00A0\u00A0\u00A0Beta2</h2>"
+    tableTitleContainer14.innerHTML = "<h2> \u00A0\u00A0\u00A0\u00A0\u00A0Beta2</h2>"
     mainContentContainer.appendChild(tableTitleContainer14);
 }
 
@@ -2406,6 +2446,11 @@ function second_moment_d()
     .text(" ")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
+
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
@@ -2627,6 +2672,11 @@ function bc_first_moment()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
@@ -2835,6 +2885,11 @@ function bc_second_moment()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
@@ -3000,6 +3055,11 @@ function update_params_a()
     .text("Sqrt")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
+
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
@@ -3196,6 +3256,11 @@ function update_params_b()
     .text(" ")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
+
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
@@ -3400,6 +3465,11 @@ function update_params_c()
     .text(" ")
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
+
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
 
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
@@ -3622,6 +3692,11 @@ function update_params_d()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
@@ -3826,6 +3901,11 @@ function update_params_e()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
@@ -3941,7 +4021,7 @@ function setfooter( input ) // takes input from event listener and then
                                         footer_eq_title.innerHTML = "<h2> Linear Pass: </h2>";
                                         footer_eq.innerHTML = "<h2> output = <span style='color: #32cd32'>weights ● input </span><span style='color: rgb(0, 140, 255)'>+ bias</span> </h2>";
                                         break;
-        case "nll_loss_softmax":        footer_desc.innerHTML = "Apply the activation function to the result of the linear-transform performed in the previous step. <span style='font-weight: bold'>In this simulation we will use negative log-likelihood loss (NLL-Loss).</span> The first part of NLL-Loss is to <span style='font-weight: bold'>perform a softmax transform per row</span>. This normalizes each column to have values within the range (0,1) to preserves the ratios of magnitude of values within a column. The result can now be interpreted as probabilities that sum up to 1.";
+        case "nll_loss_softmax":        footer_desc.innerHTML = "Apply the activation function to the result of the linear-transform performed in the previous step. <span style='font-weight: bold'>In this simulation we will use negative log-likelihood loss (NLL-Loss).</span> The first part of NLL-Loss is to <span style='font-weight: bold'>perform a softmax transform per row</span>. This normalizes each row to have values within the range (0,1) to preserves the ratios of magnitude of values within a column. The result can now be interpreted as probabilities that sum up to 1.";
                                         footer_eq_title.innerHTML = "<h2> NLL-Loss: </h2>";
                                         footer_eq.innerHTML = "<h2> loss = log ( <span style='color: rgb(0, 140, 255)'>softmax ( <span style='color: #32cd32'>input</span> )</span> ) </h2>";
                                         break;    
@@ -3949,7 +4029,7 @@ function setfooter( input ) // takes input from event listener and then
                                         footer_eq_title.innerHTML = "<h2> NLL-Loss: </h2>";
                                         footer_eq.innerHTML = "<h2> loss = <span style='color: #32cd32'>log ( <span style='color: rgb(0, 140, 255)'>softmax ( input )</span> )</span> </h2>";
                                         break;      
-        case "nll_loss_epoch_avg":      footer_desc.innerHTML = "Take the vertical average of our loss vector obtained in the previous step. Then obtain the loss value at the position of the current center by taking the dot product of the average vector and the center one-hot vector. <span style='font-weight: bold'>This scalar loss value is used as a general measure of the loss at the current iteration of the training, and can be used to indicator for model training performance.</span> Note that the full model loss vector computed in the previous step will be used in the optimization step.";
+        case "nll_loss_epoch_avg":      footer_desc.innerHTML = "Take the horizontal average of our loss vector obtained in the previous step. Then obtain the loss value at the position of the current center by taking the dot product of the average vector and the center one-hot vector. <span style='font-weight: bold'>This scalar loss value is used as a general measure of the loss at the current iteration of the training, and can be used to indicator for model training performance.</span> Note that the full model loss vector computed in the previous step will be used in the optimization step.";
                                         footer_eq_title.innerHTML = "<h2> Iteration Loss: </h2>";
                                         footer_eq.innerHTML = "<h2> loss-scalar =  <span style='color: #32cd32'>-avg ( <span style='color: rgb(0, 140, 255)'>loss</span> ) ● center</span> </h2>";
                                         break;         
@@ -4009,7 +4089,7 @@ function setfooter( input ) // takes input from event listener and then
                                         footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
                                         footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - <span style='color: #32cd32'>𝞪</span> <span style='color: rgb(0, 140, 255)'>● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;        
-        case "update_params_e":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Finally we <span style='font-weight: bold'>subtract our update (the right side of the equation) from the previous parameters (θ<sub>t-1</sub>)</span> . This <span style='font-weight: bold'>yields the updated parameters (θ<sub>t</sub>) , completing the update step using Adam optimization.</span> ";
+        case "update_params_e":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Finally we <span style='font-weight: bold'>subtract our update (the right side of the equation) from the previous parameters (θ<sub>t-1</sub>)</span> . This <span style='font-weight: bold'>yields the updated parameters (θ<sub>t</sub>) , completing the update step using Adam optimization. These new parameters are now passed back into our objective function</span>, in this case CBOW Word2Vec.  ";
                                         footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
                                         footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← <span style='color: #32cd32'>θ<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>- 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;                     
@@ -4334,7 +4414,6 @@ function setsidebar( input )
             title: 'Average Loss at Iterations',
             titlefont: {
                 color: 'Black',
-                weight: 'bold',
                 family: 'Segoe UI'
             },
             xaxis: {title: 'Iteration'}
