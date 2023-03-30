@@ -4081,6 +4081,8 @@ function setsidebar( input )
         cells.classed('my-cell-class', true);
     }
 
+    // set the sidebar curr model params data
+    // if on the last step set to the updated params otherwise use current params
     let my_tensor_data = adam_data["curr_model_params"]["param_1"];
     if ( page_status >= page_count - 1 ) { my_tensor_data = adam_data["param_update_steps"]["updated_params"]["param_1"]; }
     createTable(my_tensor_data, 'my-sidebar-tensor-id', 'generic-sidebar-table-class', 'my-sidebar-container-1');
@@ -4330,6 +4332,11 @@ function setsidebar( input )
                 b: 60 // bottom margin
             },
             title: 'Average Loss at Iterations',
+            titlefont: {
+                color: 'Black',
+                weight: 'bold',
+                family: 'Segoe UI'
+            },
             xaxis: {title: 'Iteration'}
             // yaxis: {title: 'Y Axis Title'}
         };
