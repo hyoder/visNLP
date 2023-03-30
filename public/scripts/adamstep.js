@@ -3915,12 +3915,10 @@ footer_eq.classList.add("footer_adam_eq");
 
 // Append the three sections to the footer element
 footer.appendChild(footer_desc);
+footer.appendChild(footer_eq_container);
 footer_eq_container.appendChild(footer_eq_title);
 footer_eq_container.appendChild(footer_eq);
-footer.appendChild(footer_eq_container);
 
-// footer.appendChild(footer_eq_title);
-// footer.appendChild(footer_eq);
 
 function setfooter( input ) // takes input from event listener and then 
 {
@@ -4020,8 +4018,11 @@ function setfooter( input ) // takes input from event listener and then
 
 function setsidebar( input )
 {
-    // clear the sidebar contents every time it is set
+    // CLEAR SIDEBAR CONTENTS every time it is set
     sidebar_canv.innerHTML = '';
+
+
+    // INPUT HANDLER FOR CUSTOM STATES
 
     // might need to be used to update the first and second moment changes
     // just set a in fn variable to choose weather to query the old or new tensors
@@ -4091,127 +4092,161 @@ function setsidebar( input )
     createTable(temp_tensor, 'my-sidebar-tensor-id-3', 'generic-sidebar-table-class-c', 'my-sidebar-container-3');
 
 
-    // CURRENT FIRST MOMENT TENSORS
+    // // CURRENT FIRST MOMENT TENSORS
+
+    // // create a new HTML element to hold the main content container
+    // const sidebar_first_moment_container = document.createElement('div');
+    // sidebar_first_moment_container.id = 'sidebar-first-moment-container';
+
+    // // append the table container to the canvas element
+    // sidebar_canv.appendChild(sidebar_first_moment_container);
+
+    // // FIRST MOMENT TEXT
+    // const sidebar_first_moment_text_container = document.createElement('div');
+    // sidebar_first_moment_text_container.id = 'sidebar_first_moment_text_container';
+    // sidebar_first_moment_text_container.innerHTML = "<p>Current B.C. First Moments</p>"
+    // sidebar_first_moment_container.appendChild(sidebar_first_moment_text_container);
+
+    // function createTable2(data, tableId, tableClass, containerId) {
+    //     const containerDiv = document.createElement('div');
+    //     containerDiv.id = containerId;
+    //     sidebar_first_moment_container.appendChild(containerDiv);
+      
+    //     const tableDiv = document.createElement('div');
+    //     tableDiv.id = tableId;
+    //     containerDiv.appendChild(tableDiv);
+      
+    //     const table = d3.select(`#${tableId}`);
+    //     const tbody = table.append('tbody');
+      
+    //     const rows = tbody.selectAll('tr')
+    //         .data(data)
+    //         .enter()
+    //         .append('tr');
+      
+    //     const cells = rows.selectAll('td')
+    //         .data(d => d)
+    //         .enter()
+    //         .append('td')
+    //         .text(d => {
+    //             const formatted = d.toFixed(4);
+    //             return (d >= 0 ? '\u00A0' : '') + formatted;
+    //         });
+      
+    //     // Add CSS classes to the table elements
+    //     table.classed(tableClass, true);
+    //     table.classed('my-table-class', true);
+    //     cells.classed('my-cell-class', true);
+    // }
+
+    // const my_tensor_data_b = adam_data["gradient_states"]["first_moments_bc"]["param_1_m_hat"];
+    // createTable2(my_tensor_data_b, 'my-sidebar-tensor-id-b', 'generic-sidebar-table-class', 'my-sidebar-container-1-b');
+
+    // const my_tensor_data2_b = adam_data["gradient_states"]["first_moments_bc"]["param_2_m_hat"];
+    // createTable2(my_tensor_data2_b, 'my-sidebar-tensor-id-2-b', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-b');
+
+    // const my_tensor_data3_b = adam_data["gradient_states"]["first_moments_bc"]["param_3_m_hat"];
+    // // transpose the param3
+    // const temp_tensor_b = my_tensor_data3_b.map((value) => [value]);
+    // createTable2(temp_tensor_b, 'my-sidebar-tensor-id-3-b', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-b');
+
+
+    // // CURRENT SECOND MOMENT TENSORS
+
+    // // create a new HTML element to hold the main content container
+    // const sidebar_second_moment_container = document.createElement('div');
+    // sidebar_second_moment_container.id = 'sidebar-second-moment-container';
+
+    // // append the table container to the canvas element
+    // sidebar_canv.appendChild(sidebar_second_moment_container);
+
+    // // END PLOT CONTENT TEXT
+    // const sidebar_second_moment_text_container = document.createElement('div');
+    // sidebar_second_moment_text_container.id = 'sidebar_second_moment_text_container';
+    // sidebar_second_moment_text_container.innerHTML = "<p>Current Bias-Corrected Second Moments</p>"
+    // sidebar_second_moment_container.appendChild(sidebar_second_moment_text_container);
+
+    // function createTable3(data, tableId, tableClass, containerId) {
+    //     const containerDiv = document.createElement('div');
+    //     containerDiv.id = containerId;
+    //     sidebar_second_moment_container.appendChild(containerDiv);
+      
+    //     const tableDiv = document.createElement('div');
+    //     tableDiv.id = tableId;
+    //     containerDiv.appendChild(tableDiv);
+      
+    //     const table = d3.select(`#${tableId}`);
+    //     const tbody = table.append('tbody');
+      
+    //     const rows = tbody.selectAll('tr')
+    //         .data(data)
+    //         .enter()
+    //         .append('tr');
+      
+    //     const cells = rows.selectAll('td')
+    //         .data(d => d)
+    //         .enter()
+    //         .append('td')
+    //         .text(d => {
+    //             const formatted = d.toFixed(4);
+    //             return (d >= 0 ? '\u00A0' : '') + formatted;
+    //         });
+      
+    //     // Add CSS classes to the table elements
+    //     table.classed(tableClass, true);
+    //     table.classed('my-table-class', true);
+    //     cells.classed('my-cell-class', true);
+    // }
+
+    // const my_tensor_data_c = adam_data["gradient_states"]["second_moments_bc"]["param_1_v_hat"];
+    // createTable3(my_tensor_data_c, 'my-sidebar-tensor-id-c', 'generic-sidebar-table-class', 'my-sidebar-container-1-c');
+
+    // const my_tensor_data2_c = adam_data["gradient_states"]["second_moments_bc"]["param_2_v_hat"];
+    // createTable3(my_tensor_data2_c, 'my-sidebar-tensor-id-2-c', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-c');
+
+    // const my_tensor_data3_c = adam_data["gradient_states"]["second_moments_bc"]["param_3_v_hat"];
+    // // transpose the param3
+    // const temp_tensor_c = my_tensor_data3_c.map((value) => [value]);
+    // createTable3(temp_tensor_c, 'my-sidebar-tensor-id-3-c', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-c');
+
+
+    // PARAM COLOR KEY
 
     // create a new HTML element to hold the main content container
-    const sidebar_first_moment_container = document.createElement('div');
-    sidebar_first_moment_container.id = 'sidebar-first-moment-container';
+    const sidebar_color_key_container = document.createElement('div');
+    sidebar_color_key_container.id = 'sidebar-color-key-container';
+    sidebar_color_key_container.innerHTML = "<p>P1<span style='color: rgb(255, 0, 76)'> Embeddings</span> | P2<span style='color: rgb(0, 255, 85)'> Weights</span> | P3<span style='color: rgb(0, 255, 242)'> Bias</span></p>"
 
     // append the table container to the canvas element
-    sidebar_canv.appendChild(sidebar_first_moment_container);
+    sidebar_canv.appendChild(sidebar_color_key_container);
 
-    // FIRST MOMENT TEXT
-    const sidebar_first_moment_text_container = document.createElement('div');
-    sidebar_first_moment_text_container.id = 'sidebar_first_moment_text_container';
-    sidebar_first_moment_text_container.innerHTML = "<p>Current B.C. First Moments</p>"
-    sidebar_first_moment_container.appendChild(sidebar_first_moment_text_container);
 
-    function createTable2(data, tableId, tableClass, containerId) {
-        const containerDiv = document.createElement('div');
-        containerDiv.id = containerId;
-        sidebar_first_moment_container.appendChild(containerDiv);
-      
-        const tableDiv = document.createElement('div');
-        tableDiv.id = tableId;
-        containerDiv.appendChild(tableDiv);
-      
-        const table = d3.select(`#${tableId}`);
-        const tbody = table.append('tbody');
-      
-        const rows = tbody.selectAll('tr')
-            .data(data)
-            .enter()
-            .append('tr');
-      
-        const cells = rows.selectAll('td')
-            .data(d => d)
-            .enter()
-            .append('td')
-            .text(d => {
-                const formatted = d.toFixed(4);
-                return (d >= 0 ? '\u00A0' : '') + formatted;
-            });
-      
-        // Add CSS classes to the table elements
-        table.classed(tableClass, true);
-        table.classed('my-table-class', true);
-        cells.classed('my-cell-class', true);
-    }
-
-    const my_tensor_data_b = adam_data["gradient_states"]["first_moments_bc"]["param_1_m_hat"];
-    createTable2(my_tensor_data_b, 'my-sidebar-tensor-id-b', 'generic-sidebar-table-class', 'my-sidebar-container-1-b');
-
-    const my_tensor_data2_b = adam_data["gradient_states"]["first_moments_bc"]["param_2_m_hat"];
-    createTable2(my_tensor_data2_b, 'my-sidebar-tensor-id-2-b', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-b');
-
-    const my_tensor_data3_b = adam_data["gradient_states"]["first_moments_bc"]["param_3_m_hat"];
-    // transpose the param3
-    const temp_tensor_b = my_tensor_data3_b.map((value) => [value]);
-    createTable2(temp_tensor_b, 'my-sidebar-tensor-id-3-b', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-b');
-
-    // CURRENT SECOND MOMENT TENSORS
-
-    // create a new HTML element to hold the main content container
-    const sidebar_second_moment_container = document.createElement('div');
-    sidebar_second_moment_container.id = 'sidebar-second-moment-container';
+    // DYNAMIC FULL ADAM EQUASION
+    
+    //// create a new HTML element to hold the main content container
+    const sidebar_adam_eq_container = document.createElement('div');
+    sidebar_adam_eq_container.id = 'sidebar-adam-eq-container';
 
     // append the table container to the canvas element
-    sidebar_canv.appendChild(sidebar_second_moment_container);
+    sidebar_canv.appendChild(sidebar_adam_eq_container);
 
-    // END PLOT CONTENT TEXT
-    const sidebar_second_moment_text_container = document.createElement('div');
-    sidebar_second_moment_text_container.id = 'sidebar_second_moment_text_container';
-    sidebar_second_moment_text_container.innerHTML = "<p>Current Bias-Corrected Second Moments</p>"
-    sidebar_second_moment_container.appendChild(sidebar_second_moment_text_container);
-
-    function createTable3(data, tableId, tableClass, containerId) {
-        const containerDiv = document.createElement('div');
-        containerDiv.id = containerId;
-        sidebar_second_moment_container.appendChild(containerDiv);
-      
-        const tableDiv = document.createElement('div');
-        tableDiv.id = tableId;
-        containerDiv.appendChild(tableDiv);
-      
-        const table = d3.select(`#${tableId}`);
-        const tbody = table.append('tbody');
-      
-        const rows = tbody.selectAll('tr')
-            .data(data)
-            .enter()
-            .append('tr');
-      
-        const cells = rows.selectAll('td')
-            .data(d => d)
-            .enter()
-            .append('td')
-            .text(d => {
-                const formatted = d.toFixed(4);
-                return (d >= 0 ? '\u00A0' : '') + formatted;
-            });
-      
-        // Add CSS classes to the table elements
-        table.classed(tableClass, true);
-        table.classed('my-table-class', true);
-        cells.classed('my-cell-class', true);
-    }
-
-    const my_tensor_data_c = adam_data["gradient_states"]["second_moments_bc"]["param_1_v_hat"];
-    createTable3(my_tensor_data_c, 'my-sidebar-tensor-id-c', 'generic-sidebar-table-class', 'my-sidebar-container-1-c');
-
-    const my_tensor_data2_c = adam_data["gradient_states"]["second_moments_bc"]["param_2_v_hat"];
-    createTable3(my_tensor_data2_c, 'my-sidebar-tensor-id-2-c', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-c');
-
-    const my_tensor_data3_c = adam_data["gradient_states"]["second_moments_bc"]["param_3_v_hat"];
-    // transpose the param3
-    const temp_tensor_c = my_tensor_data3_c.map((value) => [value]);
-    createTable3(temp_tensor_c, 'my-sidebar-tensor-id-3-c', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-c');
-
-    const sidebar_second_moment_text_container_b = document.createElement('div');
-    sidebar_second_moment_text_container_b.id = 'sidebar_first_moment_text_container_key';
-    sidebar_second_moment_text_container_b.innerHTML = "<p>P1<span style='color: rgb(255, 0, 76)'> Embeddings</span> | P2<span style='color: rgb(0, 255, 85)'> Weights</span> | P3<span style='color: rgb(0, 255, 242)'> Bias</span></p>"
-    sidebar_second_moment_container.appendChild(sidebar_second_moment_text_container_b);
-
+    // construct the algorithm line by line
+    sidebar_adam_eq_container.innerHTML =  "<p> Require: 𝞪: Stepsize </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> Require: β<sub>1</sub>, β<sub>2</sub> ∈ [0,1): Desc </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> Require: ƒ(θ) </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> Require: θ<sub>0</sub> </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 </p>"
+    //sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; v<sub>0</sub> ← 0 </p>"
+    //sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; t ← 0 </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; while θ<sub>t</sub> not converged do </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>v&#770;</span><sub>t</sub> ← v<sub>t</sub> / (1 - β<sup>t</sup><sub>2</sub>) </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  ) </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; end while </p>"
+    sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; return 0<sub>t</sub> </p>"
 
     // PLOT LOSS
     

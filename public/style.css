@@ -746,7 +746,7 @@ td {
 
 #sidebar-loss-plot {
     /* padding: .6vw; */
-    margin: .6vw;
+    margin: .3vw;
     /* border: 2px dashed pink; */
     height: 30vh;
     border-radius: 10px;
@@ -848,12 +848,24 @@ td {
     font-family:'Segoe UI';
     text-align: center;
 }
-#sidebar_first_moment_text_container_key{
+#sidebar-color-key-container{
     font-size: .7vw;
     color: white;
     font-family:'Segoe UI';
     text-align: center;
 
+}
+#sidebar-adam-eq-container {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: .3vw;
+    margin-bottom: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: .3vh;
+    padding-top: .3vh;
+    font-size: 1.5vh;
 }
 
 /* MAIN ADAMSTEP CANV TENSOR STYLING */
