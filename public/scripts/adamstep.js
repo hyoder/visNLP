@@ -4016,6 +4016,7 @@ function setfooter( input ) // takes input from event listener and then
     }
 }
 
+
 function setsidebar( input )
 {
     // CLEAR SIDEBAR CONTENTS every time it is set
@@ -4080,13 +4081,16 @@ function setsidebar( input )
         cells.classed('my-cell-class', true);
     }
 
-    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    let my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    if ( page_status >= page_count - 1 ) { my_tensor_data = adam_data["param_update_steps"]["updated_params"]["param_1"]; }
     createTable(my_tensor_data, 'my-sidebar-tensor-id', 'generic-sidebar-table-class', 'my-sidebar-container-1');
 
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    let my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    if ( page_status >= page_count - 1 ) { my_tensor_data2 = adam_data["param_update_steps"]["updated_params"]["param_2"]; }
     createTable(my_tensor_data2, 'my-sidebar-tensor-id-2', 'generic-sidebar-table-class-b', 'my-sidebar-container-2');
 
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    let my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    if ( page_status >= page_count - 1 ) { my_tensor_data3 = adam_data["param_update_steps"]["updated_params"]["param_3"]; }
     // transpose the param3
     const temp_tensor = my_tensor_data3.map((value) => [value]);
     createTable(temp_tensor, 'my-sidebar-tensor-id-3', 'generic-sidebar-table-class-c', 'my-sidebar-container-3');
@@ -4294,6 +4298,12 @@ function setsidebar( input )
 
     // get desired tensor for this epoch
     loss_arr_y = adam_data["loss_steps"]["avg_loss_vals"];
+
+    // only display newest loss value at step where it is calculated
+    if ( epoch_status > 0 && page_status < 7 - 1 ){
+        loss_arr_y.pop()
+    }
+    
     loss_arr_x = Array.from({ length: loss_arr_y.length }, (_, i) => i);
     console.log(loss_arr_y)
     console.log(loss_arr_x)
