@@ -402,8 +402,18 @@ td {
 #homepage_top_text {
     width: 80%;
     margin: auto;
-    /* background-color: grey;
-    border-radius: 10px; */
+}
+.homepage-image-container {
+    text-align: center;
+}
+.homepage-image-container img {
+    width: 80%;
+    border: 2px dashed grey;
+    border-radius: 10px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 #restofpage_overview {
@@ -638,7 +648,7 @@ td {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
+    height: 50vh;
     /* temporary below - min 2 per row , max 4 per row */
     min-width: 520px;
     max-width: 1080px;
@@ -657,7 +667,7 @@ td {
     align-items: center;
     text-decoration: none;
     color: #fff;
-    background-color: #2e302d;
+    background-color: #8b0000;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
