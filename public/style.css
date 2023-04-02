@@ -406,6 +406,9 @@ td {
 .homepage-image-container {
     text-align: center;
 }
+.homepage-image-container2 {
+    text-align: center;
+}
 .homepage-image-container img {
     width: 80%;
     border: 2px dashed grey;
@@ -414,6 +417,10 @@ td {
     margin-bottom: 2vh;
     padding-left: 1vw;
     padding-right: 1vw;
+}
+.homepage-image-container2 img {
+    text-align: center;
+    width: 20%;
 }
 
 #restofpage_overview {
