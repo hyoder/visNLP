@@ -526,14 +526,16 @@ td {
     background-color:white;
 }
 .next-topic-button {
-    color: rgb(0, 140, 255);
+    /* color: rgb(0, 140, 255); */
+    color: #8b0000;
     background-color: lightgray;
     border-radius: 5px;
     padding: 5px;
     width: 49%;
 }
 .prev-topic-button {
-    color: rgb(0, 140, 255);
+    /* color: rgb(0, 140, 255); */
+    color: #8b0000;
     background-color: lightgray;
     border-radius: 5px;
     padding: 5px;
