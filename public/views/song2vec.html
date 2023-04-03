@@ -110,11 +110,21 @@
             <br>
             <br>
             <br>
-            <button style="display: inline-block; width: 120px; margin-left: 50px; " onclick="window.location='/songback'">Background</button>
             <br>
             <br>
-            <button style="display: inline-block; width: 60px; margin-left: 50px;" onclick="window.location='/adamstep'">Back</button>
-            <button style="display: inline-block; width: 60px; margin-right: 40px;" onclick="window.location='/newsBack'">Next</button>
+            <button id="switch_newsvec_app_button" onclick="window.location='/songback'" >
+                <h1>Word2Vec Application Background</h1>
+            </button>
+            <br>
+            <br>
+            <button class="prev-topic-button" onclick="window.location='/adam'">
+                <h1>Prev:</h1>
+                <h1>Adam</h1>
+             </button>
+            <button class="next-topic-button" onclick="window.location='/newsBack'">
+                <h1>Next:</h1>
+                <h1>Fake News</h1>
+            </button>
             <br>
             <img src="public/assets/songtsne.png" alt="logo" style="width: 180px; ">
         </div>
