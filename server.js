@@ -50,7 +50,7 @@ app.get('/adamstep',  ( req, res ) => { res.sendFile( path.join( __dirname + '/p
 app.get('/cbowdata',  ( req, res ) => { cbow_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
 //app.get('/skipdata',  ( req, res ) => { skip_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
 app.get('/adamdata',  ( req, res ) => { adam_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
-app.get('/songBack',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/songback.html') ); } );
+app.get('/songback',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/songback.html') ); } );
 app.listen( process.env.PORT || 3000, function()
 {
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
