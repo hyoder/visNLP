@@ -35,7 +35,6 @@ table {
     text-align: center;
 }
 td {
-    background-color: #bbbbbb;
     border: solid 2px #000000;
 }
 
@@ -94,7 +93,7 @@ td {
     right: 0px;
     text-align: center;
     top: 8vh;
-    width: 75vw;
+    width: 74.75vw;
     z-index: 1;;
 }
 #canv_NSB {
@@ -125,11 +124,12 @@ td {
     border-top: 1vh solid #000000;
     bottom: 0px;
     box-sizing: border-box;
-    display: inline-flex;
+    display: inline-block;
     height: 15vh;
+    padding-top: 1vh;
     position: fixed;
     right: 0px;
-    width: 75vw;
+    width: 74.75vw;
 }
 #footer_NSB {
     background-color: lightgray;
@@ -481,7 +481,8 @@ td {
     left: 0px;
     height: 92vh;
     position: fixed;
-    width: 25vw;
+    width: 25.25vw;
+    z-index: 1;
 }
 
 #sidebar_adam {
