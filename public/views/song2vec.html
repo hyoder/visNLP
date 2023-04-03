@@ -1,26 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <style>
+            .center {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+            }
+            heading1{
+                font-size: 2.5vw;
+                margin: auto;
+                text-align: center;
+                vertical-align: middle;
+            }
+            news {
+                font-size: 1.75vw;
+                margin: auto;
+                text-align: center;
+                
+            }
+            #restofpageSong {
+                background-color: whitesmoke;
+                bottom: 15vh;
+                height: 58vh;
+                position: fixed;
+                right: 0px;
+                width: 81.25vw;
+            }
+            #sidebar_song2vec{
+                background-color: grey;
+                border-right: 1vh solid #000000;
+                bottom: 0px;
+                box-sizing: border-box;
+                left: 0px;
+                height: 92vh;
+                position: fixed;
+                width: 18.75vw;
+            }
+            #sidebar_song2vec h2 {
+                color: white;
+                text-align: center;
+            }
+            #sidebar_song2vec select {
+                margin: 30px;
+                width: 80%;
+            }
+            #sidebar_song2vec img {
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                width: 80px;
+            }
+            #song2vecbackground {
+                position: fixed;
+                margin-left: 30px;
+                margin-top: 125px;
+                width: 200px;
+            }
+            #main {
+                margin-left: 20vw;
+                margin-top: 10vh;
+                width: 60vw;
+            }
+            #main table {
+                width: 100%;
+                text-align: center;
+                border-collapse: collapse;
+                margin: 0 auto; /* add this line to center the table */
+            }
+            #main table th, #main table td {
+                border: 1px solid black;
+                padding: 10px;
+            }
+        </style>
         <title>word2vec applications - visNLP</title>
         <link rel="stylesheet" href="../style.css"/>
     </head>
     <body>
         <div id="navbar">
-            <button class="navelement" onclick="window.location='/'"     ><h1>Home</h1></button>
-            <button class="navelement" onclick="window.location='/intro'"><h1>NLP Basics</h1></button>
-            <button class="navelement" onclick="window.location='/w2v'"  ><h1>Word2Vec</h1></button>
-            <button class="navelement" onclick="window.location='/s2v'"  ><h1>Sen2Vec</h1></button>
-            <button class="navelement" onclick="window.location='/p2v'"  ><h1>Para2Vec</h1></button>
-            <button class="navelement" onclick="window.location='/adam'" ><h1>Adam Optimizer</h1></button>
-            <button class="navelement" onclick="window.location='/song'" ><h1>Songs App</h1></button>
-            <button class="navelement" onclick="window.location='/news'" ><h1>Fake News App</h1></button>
+            <button class="navelement" onclick="window.location='/'"     ><h1>home</h1></button>
+            <button class="navelement" onclick="window.location='/intro'"><h1>overview</h1></button>
+            <button class="navelement" onclick="window.location='/w2v'"  ><h1>word2vec</h1></button>
+            <button class="navelement" onclick="window.location='/s2v'"  ><h1>sen2vec</h1></button>
+            <button class="navelement" onclick="window.location='/p2v'"  ><h1>para2vec</h1></button>
+            <button class="navelement" onclick="window.location='/adam'" ><h1>adam optimizer</h1></button>
+            <button class="navelement" onclick="window.location='/song'" ><h1>song2vec</h1></button>
+            <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
         </div>
-        <div id="restofpage_NSB">
-            <div style="height:3vh;"></div>
-            <h2>song2vec!</h2>
-            <div style="height:10vh;"></div>
-            <h2>... someday</h2>
+        <div id="sidebar_song2vec">
+            <br>
+            <br>
+            <h2>Song Name?</h2>
+            <select id="songName">
+                <option value="option1">I Wanna Be Your Dog - The Stooges</option>
+                <option value="option2">Dance The Go-Go - The Breakers</option>
+                <option value="option3">Heaven Can Wait - Metaform</option>
+                <option value="option4">Que Sera - Wax Tailor</option>
+                <option value="option5">Honey - Moby</option>
+                <option value="option6">One in a million - Data</option>
+                <option value="option7">In The End - Linkin Park</option>
+                <option value="option8">Self Esteem - The Offspring</option>
+                <option value="option9">Electric Feel - MGMT</option>
+                <option value="option10">I Don't Want To Miss A Thing - Aerosmith</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button style="display: inline-block; width: 120px; margin-left: 50px; " onclick="window.location='/songBack'">Background</button>
+            <br>
+            <br>
+            <button style="display: inline-block; width: 60px; margin-left: 50px;" onclick="window.location='/adamstep'">Back</button>
+            <button style="display: inline-block; width: 60px; margin-right: 40px;" onclick="window.location='/newsBack'">Next</button>
+            <br>
+            <img src="tsne.png" alt="logo" style="width: 180px; ">
         </div>
-        <script src="../scripts.js"></script>
-    </body>
-</html>
+        <div id="main">
+            <table>
+              <tr>
+                <th>Song Title: I Wanna Be Your Dog - The Stooges</th>
+                <th>Cosine Similarity: </th>
+              </tr>
+              <tr>
+                <td>Cool - Gwen Stefani</td>
+                <td>0.9999</td>
+              </tr>
+              <tr>
+                <td>Dreaming Of Houses - Nina Persson</td>
+                <td>0.9999</td>
+              </tr>
+              <tr>
+                <td>Kids In The Dark - All Time Low</td>
+                <td>0.9998</td>
+              </tr>
+              <tr>
+                <td>Nostrand - Ratatat</td>
+                <td>0.9998</td>
+              </tr>
+              <tr>
+                <td>Lessons Learned - Matt and Kim</td>
+                <td>0.9998</td>
+              </tr>
+              <tr>
+                <td>It Was Always You - Maroon 5</td>
+                <td>0.9993</td>
+              </tr>
+              <tr>
+                <td>Go Out And Love Someone - Pogo</td>
+                <td>0.9989</td>
+              </tr>
+              <tr>
+                <td>Horseshoes And Handgrenades - Green Day</td>
+                <td>0.9988</td>
+              </tr>
+              <tr>
+                <td>Can't Let Go - Air Traffic Controller</td>
+                <td>0.9986</td>
+              </tr>
+              <tr>
+                <td>Tallulah - Sonata Arctica</td>
+                <td>0.9984</td>
+              </tr>
+            </table>
+          </div>
+          <div id="footer">
+            <h1>possible further explanation</h1>
+
+          </div>
+               
