@@ -3,6 +3,7 @@ const      canv = document.getElementById( "canv" ),
          footer = document.getElementById( "footer"),
        back_btn = document.getElementById( "back_btn" ),
         fwd_btn = document.getElementById( "fwd_btn" ),
+        adm_btn = document.getElementById( "adm_btn" ),
        statuses = ["init", "text preparation", "one-hot encoding", "generate batch", "multiply matrices", "add bias", "log softmax", "end of epoch"],
        p1_table = document.getElementById( "param1" ),
        p2_table = document.getElementById( "param2" ),
@@ -173,7 +174,7 @@ function gen_batch()
             ohot.style.verticalAlign =                    "middle";
             canv.appendChild(ohot);
             ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor =        "#bbb"; setfooter("genbatch", "ohot_cntr", cntr ); sidebar_params( 1, cntr, -1 ); } );
-            ohot.addEventListener( "mouseout" , () => { ohot.style.backgroundColor = "transparent"; setfooter(); sidebar_params(); } );
+            ohot.addEventListener( "mouseout" , () => { ohot.style.backgroundColor = "transparent"; setfooter();                               sidebar_params(); } );
         }
         else if( i == ctx1 || i == ctx2 )
         {
@@ -192,9 +193,9 @@ function gen_batch()
             ohot.style.position      =                     "fixed";
             ohot.style.top           =       (24.25+(12.5*i)) + "vh";
             ohot.style.verticalAlign =                    "middle";
-            if( i == ctx1 ) { ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor = "#bbb"; setfooter("genbatch", "ohot_ctx1", ctx1 ); sidebar_params( 1, ctx1, -1 ); } ); }
-            if( i == ctx2 ) { ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor = "#bbb"; setfooter("genbatch", "ohot_ctx2", ctx2 ); sidebar_params( 1, ctx2, -1 ); } ); }
-            ohot.addEventListener( "mouseout" , () => { ohot.style.backgroundColor = "transparent"; setfooter(); sidebar_params(); } );
+            if( i == ctx1 ) { ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor =        "#bbb"; setfooter("genbatch", "ohot_ctx1", ctx1 ); sidebar_params( 1, ctx1, -1 ); } ); }
+            if( i == ctx2 ) { ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor =        "#bbb"; setfooter("genbatch", "ohot_ctx2", ctx2 ); sidebar_params( 1, ctx2, -1 ); } ); }
+                              ohot.addEventListener( "mouseout" , () => { ohot.style.backgroundColor = "transparent"; setfooter();                               sidebar_params(); } );
             canv.appendChild(ohot);
         }
         else if( i >=    0 )              { a.textContent = "\"" + dict[i] + "\": "; a.style.opacity = "50%"; }
@@ -233,7 +234,7 @@ function gen_batch()
                 }
                 if( i == ctx1 ) { c.addEventListener("mouseover", () => { setfooter("genbatch", "context", i); } ); }
                 if( i == ctx2 ) { c.addEventListener("mouseover", () => { setfooter("genbatch", "context", i); } ); }
-                c.addEventListener("mouseout" , () => { setfooter(); } );
+                                  c.addEventListener("mouseout" , () => { setfooter(); } );
             }
             else if( i == -1 )
             {
@@ -264,7 +265,7 @@ function gen_batch()
             c.style.height = "8vh";
             c.style.width = "4vw";
             if( i!= -1 ) { c.addEventListener( "mouseover", () => { sidebar_params( 1, i, -1 ); } ); }
-            c.addEventListener( "mouseout" , () => { sidebar_params(); } );
+                           c.addEventListener( "mouseout" , () => { sidebar_params(); } );
             z.appendChild(c);
         }
         b.appendChild(z);
@@ -310,7 +311,7 @@ function mat_mult() {
             r.appendChild(c); 
         }
         r.addEventListener( "mouseover", () => { r.style.backgroundColor =        "#bbb"; setfooter( "matmult", "t1", i ); sidebar_params( 1, w2v_data["batch"]["contexts"][i], -1 ); } );
-        r.addEventListener( "mouseout" , () => { r.style.backgroundColor = "transparent"; setfooter(); sidebar_params(); } );
+        r.addEventListener( "mouseout" , () => { r.style.backgroundColor = "transparent"; setfooter();                     sidebar_params(); } );
         t1.appendChild(r); 
     }
     for( let i = 0 ; i < d2[0].length ; i++ ) 
@@ -409,6 +410,16 @@ function add_bias() {
             t3r = document.createElement("tr");
         for( let j = 0 ; j < d1[0].length ; j++ )
         {
+            if( i === 0 )
+            {
+                let t2c = document.createElement("td");
+                    t2c.textContent  = d2[j];
+                    t2c.style.width  = "5vw";
+                    t2c.style.height = "5vh";
+                    t2c.addEventListener( "mouseover", () => { t2c.style.backgroundColor =        "#bbb"; setfooter( "addbias", "t2", i, j ); sidebar_params( 3, j ); } );
+                    t2c.addEventListener( "mouseout" , () => { t2c.style.backgroundColor = "transparent"; setfooter();                        sidebar_params(); } );
+                    t2r.appendChild(t2c);
+            }
             let t1c = document.createElement("td"),
                 t3c = document.createElement("td");
                 t1c.textContent  = d1[i][j];
@@ -417,16 +428,14 @@ function add_bias() {
                 t3c.style.width  =    "5vw";
                 t1c.style.height =    "5vh";
                 t3c.style.height =    "5vh";
+                t1c.addEventListener( "mouseover", () => { t1c.style.backgroundColor =        "#bbb"; setfooter( "addbias", "t1", i, j ); } );
+                t1c.addEventListener( "mouseout" , () => { t1c.style.backgroundColor = "transparent"; setfooter(); } );
                 t1r.appendChild(t1c);
+                t3c.addEventListener( "mouseover", () => { t1c.style.backgroundColor =        "#bbb"; t2r.cells[j].style.backgroundColor =        "#bbb"; sidebar_params( 3, j );
+                                                           t3c.style.backgroundColor =        "#bbb"; setfooter( "addbias", "t3", i, j ); } );
+                t3c.addEventListener( "mouseout" , () => { t1c.style.backgroundColor = "transparent"; t2r.cells[j].style.backgroundColor = "transparent"; sidebar_params();
+                                                           t3c.style.backgroundColor = "transparent"; setfooter(); } );
                 t3r.appendChild(t3c);
-            if( i === 0 )
-            {
-                let t2c = document.createElement("td");
-                    t2c.textContent  = d2[j];
-                    t2c.style.width  = "5vw";
-                    t2c.style.height = "5vh";
-                    t2r.appendChild(t2c);
-            }
         }
         t1.appendChild(t1r);
         t3.appendChild(t3r);
@@ -512,6 +521,20 @@ function log_softmax() {
                 c1.style.width  = "5vw";
                 c2.style.width  = "5vw";
                 c3.style.width  = "5vw";
+                c1.addEventListener( "mouseover", () => { c1.style.backgroundColor =        "#bbb"; c2.style.backgroundColor =        "#bbb";
+                                                          c3.style.backgroundColor =        "#bbb"; setfooter( "softmax", "t1", i, j ); 
+                                                        } );
+                c1.addEventListener( "mouseout" , () => { c1.style.backgroundColor = "transparent"; c2.style.backgroundColor = "transparent";
+                                                          c3.style.backgroundColor = "transparent"; setfooter(); } );
+                c2.addEventListener( "mouseover", () => { c1.style.backgroundColor =        "#bbb"; c2.style.backgroundColor =        "#bbb";
+                                                          c3.style.backgroundColor =        "#bbb"; setfooter( "softmax", "t2", i, j ); } );
+                c2.addEventListener( "mouseout" , () => { c1.style.backgroundColor = "transparent"; c2.style.backgroundColor = "transparent";
+                                                          c3.style.backgroundColor = "transparent"; setfooter();  } );
+                c3.addEventListener( "mouseover", () => { c1.style.backgroundColor =        "#bbb"; c2.style.backgroundColor =        "#bbb";
+                                                          c3.style.backgroundColor =        "#bbb"; setfooter( "softmax", "t3", i, j ); 
+                                                        } );
+                c3.addEventListener( "mouseout" , () => { c1.style.backgroundColor = "transparent"; c2.style.backgroundColor = "transparent";
+                                                          c3.style.backgroundColor = "transparent"; setfooter();  } );
                 r1.appendChild(c1);
                 r2.appendChild(c2);
                 r3.appendChild(c3);
@@ -550,6 +573,50 @@ function end_epoch()
     setfooter();
     sidebar_params();
     canv.innerHTML  = meta();
+    let t1 = document.createElement("table"),
+        d1 = w2v_data["calcs"]["log_softmax"],
+        t1label = document.createElement("h1");
+        t1label.innerHTML = "epoch outputs";
+    for( let i = 0 ; i < d1.length ; i++ )
+    {
+        let r1 = document.createElement("tr");
+        for( let j = 0 ; j < d1[0].length ; j++ )
+        {
+            let c1 = document.createElement("td");
+            c1.textContent = d1[i][j];
+            c1.style.height = "5vh";
+            c1.style.width  = "5vw";
+            c1.addEventListener( "mouseover", () => { c1.style.backgroundColor =        "#bbb"; setfooter( "endepoch", "t1", i, j ); } );
+            c1.addEventListener( "mouseout" , () => { c1.style.backgroundColor = "transparent"; setfooter(); } );
+            r1.appendChild(c1);
+        }
+        t1.appendChild(r1);
+    }
+    t1     .style.position =  "fixed";
+    t1     .style.left     =   "30vw";
+    t1     .style.top      = "25.5vh";
+    t1label.style.position =  "fixed";
+    t1label.style.left     =   "30vw";
+    t1label.style.top      =   "22vh";
+    canv.appendChild(t1);
+    canv.appendChild(t1label);
+    let arrow = document.createElement("div");
+        arrow.innerHTML = "––>"
+        arrow.style.fontSize = "4vw";
+        arrow.style.position = "fixed";
+        arrow.style.left = "58vw";
+        arrow.style.top = "26.65vh";
+    canv.appendChild(arrow);
+    let model = document.createElement("img");
+        model.src = "https://lilianweng.github.io/posts/2017-10-15-word-embedding/word2vec-skip-gram.png";
+        model.style.display  = "inline-flex";
+        model.style.height   =        "35vh";
+        model.style.left     =        "45vw";
+        model.style.position =       "fixed";
+        model.style.top      =        "40vh";
+        model.addEventListener( "mouseover", () => { setfooter( "endepoch", "model" ); } );
+        model.addEventListener( "mouseout" , () => { setfooter(); } );
+    canv.appendChild(model);
 }
 function sidebar_params(param, x, y)
 {
@@ -605,16 +672,16 @@ function clear_params()
     p3_label.innerHTML = "";
 }
 function setfooter( input, content, i, j ) {
-    if( !input ) { footer.innerHTML = ""; }
+    if( !input ) { footer.innerHTML = "<h2>hover over items on the page for more information!</h2>"; }
     else if( !content && !i && !j )
     {
         switch( input )
         {
-            case    "cbow": footer.innerHTML = "<h2>continuous bag of words (CBOW) is one of the two primary settings for word2vec</h2><br><h2>CBOW takes an input of two context words from the corpus and searches for which word should fall between them</h2>"; break;
-            case    "skip": footer.innerHTML = "<h2>skip-gram is one of the two primary settings for word2vec</h2><br><h2>skip-gram takes an input of one word from the corpus and seeks out the two words on either side of it</h2>";                              break;
-            case "param 1": footer.innerHTML = "<h2>param 1 - word embeddings</h2><br><h2>initialized from random values and updated in each epoch, param 1 is the matrix of word embeddings for our corpus</h2>";                                                  break;
-            case "param 2": footer.innerHTML = "<h2>param 2 - linear weights</h2><br><h2>initialized from random values and updated in each epoch, param 2 is the matrix of linear weights for our neural network</h2>";                                            break;
-            case "param 3": footer.innerHTML = "<h2>param 3 - linear bias</h2><br><h2>initialized from random values and updated in each epoch, param 3 is the matrix of bias values for our neural network</h2>";                                                  break;
+            case    "cbow": footer.innerHTML = "<h2>continuous bag of words (CBOW) is one of the two primary settings for word2vec</h2><h2>CBOW takes an input of two context words from the corpus and searches for which word should fall between them</h2>"; break;
+            case    "skip": footer.innerHTML = "<h2>skip-gram is one of the two primary settings for word2vec</h2><h2>skip-gram takes an input of one word from the corpus and seeks out the two words on either side of it</h2>";                              break;
+            case "param 1": footer.innerHTML = "<h2>param 1 - word embeddings</h2><h2>initialized from random values and updated in each epoch, param 1 is the matrix of word embeddings for our corpus</h2>";                                                  break;
+            case "param 2": footer.innerHTML = "<h2>param 2 - linear weights</h2><h2>initialized from random values and updated in each epoch, param 2 is the matrix of linear weights for our neural network</h2>";                                            break;
+            case "param 3": footer.innerHTML = "<h2>param 3 - linear bias</h2><h2>initialized from random values and updated in each epoch, param 3 is the matrix of bias values for our neural network</h2>";                                                  break;
         } 
     }
     else 
@@ -644,11 +711,11 @@ function setfooter( input, content, i, j ) {
                 else { footer.innerHTML = "<h2>" + type + "for word #" + i + " in the corpus dictionary, \"" + w2v_data["constants"]["vocabulary"][i-1] + "\"</h2>"; }
                 switch( content )
                 {
-                    case    "center": footer.innerHTML += "<br><h2>this is the center word that word2vec will be seeking to find in this epoch</h2>";         break;
-                    case   "context": footer.innerHTML += "<br><h2>this is one of the context words that word2vec will using as an input in this epoch</h2>"; break;
-                    case "ohot_cntr": footer.innerHTML += "<br><h2>this is the center word that word2vec will be seeking to find in this epoch</h2>";         break;
-                    case "ohot_ctx1": footer.innerHTML += "<br><h2>this is one of the context words that word2vec will using as an input in this epoch</h2>"; break;
-                    case "ohot_ctx2": footer.innerHTML += "<br><h2>this is one of the context words that word2vec will using as an input in this epoch</h2>"; break;
+                    case    "center": footer.innerHTML += "<h2>this is the center word that word2vec will be seeking to find in this epoch</h2>";         break;
+                    case   "context": footer.innerHTML += "<h2>this is one of the context words that word2vec will using as an input in this epoch</h2>"; break;
+                    case "ohot_cntr": footer.innerHTML += "<h2>this is the center word that word2vec will be seeking to find in this epoch</h2>";         break;
+                    case "ohot_ctx1": footer.innerHTML += "<h2>this is one of the context words that word2vec will using as an input in this epoch</h2>"; break;
+                    case "ohot_ctx2": footer.innerHTML += "<h2>this is one of the context words that word2vec will using as an input in this epoch</h2>"; break;
                 }
                 break;
             }
@@ -661,7 +728,50 @@ function setfooter( input, content, i, j ) {
                 {
                     case "t1": footer.innerHTML = "<h2>these are the embeddings for our " + num + " context word, \"" + w2v_data["constants"]["vocabulary"][w2v_data["batch"]["contexts"][i]-1] + "\"</h2>"; break;
                     case "t2": footer.innerHTML = "<h2>multiply the embeddings by the matrix of linear weights from parameter #2</h2>"; break;
-                    case "t3": footer.innerHTML = "<h2>matrix multiplication:</h2><br><h2>" + w2v_data["calcs"]["mat_mult_footer"][i][j] + "</h2>"; break;
+                    case "t3": footer.innerHTML = "<h2>matrix multiplication:</h2><h2>" + w2v_data["calcs"]["mat_mult_footer"][i][j] + "</h2>"; break;
+                }
+                break;
+            }
+            case "addbias":
+            {
+                switch( content )
+                {
+                    case "t1": footer.innerHTML = "<h2>matrix multiplication results from previous page:</h2><h2>" + w2v_data["calcs"]["mat_mult_footer"][i][j] + "</h2>"; break;
+                    case "t2": footer.innerHTML = "<h2>linear bias value from parameter 3</h2>"; break;
+                    case "t3": footer.innerHTML = "<h2>add linear bias</h2><h2>" + w2v_data["calcs"]["plus_bias_footer"][i][j] + "</h2>"; break;
+                }
+                break;
+            }
+            case "softmax":
+            {
+                switch( content )
+                {
+                    case "t1": footer.innerHTML = "<h2>matrix multiplication plus bias results from previous page:</h2><h2>" + w2v_data["calcs"]["plus_bias_footer"][i][j] + "</h2>"; break;
+                    case "t2": 
+                    {
+                        let string = "<h2>result of softmax equation (scales set of values so they sum to 1) applied to each row:</h2><h2>";
+                        let z = w2v_data["calcs"]["softmax"][i].length;
+                        for( let k = 0 ; k < z ; k++ )
+                        {
+                            if( k >  0 ) { string += " + "; }
+                            if( j == k ) { string += "<i>" + w2v_data["calcs"]["softmax"][i][k] + "</i>" }
+                            else         { string += w2v_data["calcs"]["softmax"][i][k];  }
+                        }
+                        string += " = 1</h2>";
+                        footer.innerHTML = string;
+                        break;
+                    }
+                    case "t3": footer.innerHTML = "<h2>natural log of softmax results:</h2><h2>" + w2v_data["calcs"]["log_softmax_footer"][i][j] + "</h2>"; break;
+                }
+                break;
+            }
+            case "endepoch":
+            {
+                switch( content )
+                {
+                    case    "t1": footer.innerHTML = "<h2>log_softmax results from prev page:</h2><h2>" + w2v_data["calcs"]["softmax"][i][j] + "</h2>"; break;
+                    case  "adam": footer.innerHTML = "<h2>utilizes adam optimizer to improve output quality</h2><h2>visit the adam optimizer page for more information</h2>"; break;
+                    case "model": footer.innerHTML = "<h2>this is just an example model image i am going to add one for each epoch and add source links to the db</h2>"; break;
                 }
                 break;
             }
@@ -673,7 +783,7 @@ function updater( val )
     if ( val ==  1 && page_status < 53 ) { page_status++; }
     if ( val == -1 && page_status >  0 ) { page_status--; }
     if( page_status > 0 ) { back_btn.style.display = "inline-block"; fwd_btn.style.display = "inline-block"; }
-    else                  { back_btn.style.display = "none"; fwd_btn.style.display = "none"; }
+    else                  { back_btn.style.display = "none";         fwd_btn.style.display = "none"; }
     let page = statuses[ page_status ];
     if( page_status > 2 && page_status < 53 )
     {
@@ -682,9 +792,11 @@ function updater( val )
         rel_page = page_status - epoch_status*5;
         page = statuses[rel_page];
     }
+         if( val ==  1 && page === "end of epoch"     ) {                          adm_btn.style.display = "inline-block"; }
+         if( val == -1 && page === "log softmax"      ) {                          adm_btn.style.display =         "none"; }
          if( val ==  1 && page === "text preparation" ) { setTimeout( function() {  textprep(); }, 200 ); }
-    else if( val ==  1 && page === "generate batch"   ) { setTimeout( function() { gen_batch(); }, 200 ); }
-    else if( val == -1 && page === "end of epoch"     ) { setTimeout( function() { end_epoch(); }, 200 ); }
+    else if( val ==  1 && page === "generate batch"   ) { setTimeout( function() { minihelper1(); }, 200 ); }
+    else if( val == -1 && page === "end of epoch"     ) { setTimeout( function() { minihelper2(); }, 200 ); }
     else {
         switch( page ) {
             case "init":                  init(); break;
@@ -699,6 +811,8 @@ function updater( val )
     }
     console.log( "page_num: " + page_status + ", page: " + page );
 }
+function minihelper1() { adm_btn.style.display =         "none"; gen_batch(); }
+function minihelper2() { adm_btn.style.display = "inline-block"; end_epoch(); }
 //call with getData(0) for 0: Object
 function getData( epoch, type )
 {
@@ -715,14 +829,16 @@ window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
 };
- fwd_btn.addEventListener( "click"    , ()  => { updater( 1); } );
-back_btn.addEventListener( "click"    , ()  => { updater(-1); } );
-p1_table.addEventListener( "mouseover", ()  => { setfooter("param 1"); } );
-p2_table.addEventListener( "mouseover", ()  => { setfooter("param 2"); } );
-p3_table.addEventListener( "mouseover", ()  => { setfooter("param 3"); } );
-p1_table.addEventListener( "mouseout" , ()  => { setfooter(); } );
-p2_table.addEventListener( "mouseout" , ()  => { setfooter(); } );
-p3_table.addEventListener( "mouseout" , ()  => { setfooter(); } );
+back_btn.addEventListener( "click"    , ()  => {   updater(                 -1 ); } );
+ fwd_btn.addEventListener( "click"    , ()  => {   updater(                  1 ); } );
+ adm_btn.addEventListener( "mouseover", ()  => { setfooter( "endepoch", "adam" ); } );
+ adm_btn.addEventListener( "mouseout" , ()  => { setfooter(                    ); })
+p1_table.addEventListener( "mouseover", ()  => { setfooter(          "param 1" ); } );
+p1_table.addEventListener( "mouseout" , ()  => { setfooter(                    ); } );
+p2_table.addEventListener( "mouseover", ()  => { setfooter(          "param 2" ); } );
+p2_table.addEventListener( "mouseout" , ()  => { setfooter(                    ); } );
+p3_table.addEventListener( "mouseover", ()  => { setfooter(          "param 3" ); } );
+p3_table.addEventListener( "mouseout" , ()  => { setfooter(                    ); } );
 document.addEventListener( "keydown"  , (e) => {
-    if( e.key == 'ArrowRight' ) { updater( 1); }
-    if( e.key == 'ArrowLeft'  ) { updater(-1); } }        );
+                   if( e.key == 'ArrowRight' ) {   updater(                  1 ); }
+                   if( e.key == 'ArrowLeft'  ) {   updater(                 -1 ); } } );

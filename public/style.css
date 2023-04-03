@@ -124,11 +124,12 @@ td {
     border-top: 1vh solid #000000;
     bottom: 0px;
     box-sizing: border-box;
-    display: inline-block;
+    display: grid;
     height: 15vh;
-    padding-top: 1vh;
+    /* padding-top: 1vh; */
     position: fixed;
     right: 0px;
+    vertical-align: middle !important;
     width: 74.75vw;
 }
 #footer_NSB {
@@ -194,6 +195,14 @@ td {
     font-size: 1vw;
     display:inline-flex;
     color: white;
+}
+
+#adm_btn { 
+    display: none;
+    left: 67vw;
+    position: fixed;
+    top: 27vh;
+    z-index: 2;
 }
 
 #fwd_btn {
