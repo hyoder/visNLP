@@ -4114,6 +4114,15 @@ function setsidebar( input )
     // }
 
 
+    // CURRENT PARAMS TEXT
+
+    
+    const sidebar_curr_param_text_container = document.createElement('div');
+    sidebar_curr_param_text_container.id = 'sidebar_curr_param_text_container';
+    sidebar_curr_param_text_container.innerHTML = "<p>Current Model Parameters</p>"
+    sidebar_canv.appendChild(sidebar_curr_param_text_container);
+
+
     // CURRENT PARAMS TENSORS
 
     // create a new HTML element to hold the main content container
@@ -4122,12 +4131,6 @@ function setsidebar( input )
 
     // append the table container to the canvas element
     sidebar_canv.appendChild(sidebar_curr_param_container);
-
-    // CURRENT PARAMS TEXT
-    const sidebar_curr_param_text_container = document.createElement('div');
-    sidebar_curr_param_text_container.id = 'sidebar_curr_param_text_container';
-    sidebar_curr_param_text_container.innerHTML = "<p>Current Model Parameters</p>"
-    sidebar_curr_param_container.appendChild(sidebar_curr_param_text_container);
 
     function createTable(data, tableId, tableClass, containerId) {
         const containerDiv = document.createElement('div');
