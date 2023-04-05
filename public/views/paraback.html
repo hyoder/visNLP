@@ -14,38 +14,38 @@
         </button>
         <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
         <button class="navelement"        onclick="window.location='/senback'"   ><h1>Sen2Vec</h1></button>
-        <button class="navelement"        onclick="window.location='/paraback'"  ><h1>Para2Vec</h1></button>
-        <button class="navelement-curr"   onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
+        <button class="navelement-curr"   onclick="window.location='/paraback'"  ><h1>Para2Vec</h1></button>
+        <button class="navelement"        onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
         <button class="navelement"        onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
         <button class="navelement"        onclick="window.location='/news'"      ><h1>Fake News App</h1></button>
     </div>
 
     <div id="sidebar_adam">
-        <button id="switch_adam_button" onclick="window.location='/adamstep'">
-            <h1>Adam Step-by-Step Simulation</h1>
+        <button id="switch_adam_button" onclick="window.location='/p2v'">
+            <h1>Para2Vec Step-by-Step Simulation</h1>
         </button>
         
         <div style="height:1vh;"></div>
 
         <div class="sidebar-web-diagram">
-            <img src="/assets/web_diagram_v3_adam.png" alt="adam web diagram">
+            <img src="/assets/web_diagram_v3_para2vec.png" alt="adam web diagram">
         </div>
 
         <div style="height:1vh;"></div>
 
-        <button class="prev-topic-button" onclick="window.location='/paraback'">
+        <button class="prev-topic-button" onclick="window.location='/senback'">
             <h2>Prev:</h2>
-            <h1>Para2Vec</h1>
+            <h1>Sen2Vec</h1>
         </button>
-        <button class="next-topic-button" onclick="window.location='/songback'">
+        <button class="next-topic-button" onclick="window.location='/adam'">
             <h2>Next:</h2>
-            <h1>Songs App</h1>
+            <h1>Adam Optim.</h1>
         </button>
     </div>
 
     <div id="restofpage_overview">
         <!-- title -->
-        <h1> The Adam Optimizer </h1>
+        <h1> Paragraph2Vec </h1>
 
         <!-- content sec | TOPIC RUNDOWN -->
         <h2> Introduction to the Adam Optimizer </h2>
@@ -115,14 +115,7 @@
 
         <div style="height:5vh;"></div>
 
-        <!-- content sec | HOW TO USE SIM -->
-
-        <!-- <h2> Step-by-step Simulation How-To </h2>
-
-        <p> Some Content for this. </p> -->
-
     </div>
-    <script src="./scripts.js"></script>
 </body>
 
 </html>

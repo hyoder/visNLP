@@ -20,13 +20,27 @@ let epoch_count = 20;
 
 function meta() // sets and returns page metadata for meta div (top left corner of canvas)
 {
-    let output  = "<div id=\"meta_adam\">";
-        // shortented page title meta
-        //output += "<h2>basics - \"" + statuses[page_status] + "\"</h2>";
-        output += "<h4>Step: " + "<h5>" + (page_status+1) + "/" + (page_count) + "</h5>" + "</h4>";
-        //output += "<h4>epoch: " + (epoch_status) + " out of " + (epoch_count-1) + "</h4>";
+    let output  = "<div id=\"meta_adam\" class=\"meta_adam_class\" >";
         output += "<h4>Iteration: " + "<h5>" + (epoch_status) + "</h5>" + "</h4>";
         output += "</div>"
+    return output;
+}
+
+function meta_lower() // sets and returns page metadata for meta div (top left corner of canvas)
+{
+    let output  = "<div id=\"meta_adam_lower\" class=\"meta_adam_class\" >";
+        output += "<h4>Step: " + "<h5>" + (page_status+1) + "/" + (page_count) + "</h5>" + "</h4>";
+        output += "</div>"
+    return output;
+}
+
+function meta_progress_bar() // sets and returns page metadata for meta div (top left corner of canvas)
+{
+    let bar_width = (page_status + 1) / page_count * 100;
+    let output  = "<div id=\"meta_adam_progress_outline\" >";
+        output += "<div style='width:" + bar_width + "%' id=\"meta_adam_progress_bar\" >";
+        output += "</div>";
+        output += "</div>";
     return output;
 }
 
@@ -36,9 +50,11 @@ function intro()
     setfooter( "intro" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Perform New Optimization Step</h3>";
 
     // create a new HTML element to hold the main content container
@@ -108,7 +124,17 @@ function intro()
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-6';
     tableTitleContainer3.innerHTML = "<h2>Param 3</h2>"
-    mainContentContainer.appendChild(tableTitleContainer3); 
+    mainContentContainer.appendChild(tableTitleContainer3);
+    
+    // TITLE HEADER DESC 6
+    const tableTitleContainer15 = document.createElement('div');
+    tableTitleContainer15.id = 'tableTitleContainer-d6';
+    if ( epoch_status == 0 ) {
+        tableTitleContainer15.innerHTML = "<h2> Random Generated Initial Model Parameters </h2>"
+    } else {
+        tableTitleContainer15.innerHTML = "<h2> Parameters Obtained From Previous Update Step Are Passed Back To Objective Function </h2>"
+    }
+    mainContentContainer.appendChild(tableTitleContainer15);
 }
 
 
@@ -117,9 +143,11 @@ function cbow_contexts()
     setfooter( "cbow_contexts" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Perform Forward Pass: Contexts</h3>";
 
     // create a new HTML element to hold the main content container
@@ -301,9 +329,11 @@ function cbow_linear_dot_prod()
     setfooter( "cbow_linear_dot_prod" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Perform Forward Pass: Linear Transform pt.1/2</h3>";
 
     // create a new HTML element to hold the main content container
@@ -437,9 +467,11 @@ function cbow_linear_bias_sum()
     setfooter( "cbow_linear_bias_sum" );
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Perform Forward Pass: Linear Transform pt.2/2</h3>";
 
     // create a new HTML element to hold the main content container
@@ -574,9 +606,11 @@ function nll_loss_softmax()
     setfooter( "nll_loss_softmax" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute the Loss: Take Softmax</h3>";
 
     // create a new HTML element to hold the main content container
@@ -672,9 +706,11 @@ function nll_loss_log()
     setfooter( "nll_loss_log" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute the Loss: Take Log</h3>";
 
     // create a new HTML element to hold the main content container
@@ -768,9 +804,11 @@ function nll_loss_epoch_avg()
     setfooter( "nll_loss_epoch_avg" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute the Loss: Iteration Loss Measure</h3>";
 
     // create a new HTML element to hold the main content container
@@ -953,9 +991,11 @@ function gradients()
     setfooter( "gradients" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Get Gradients With Respect To Stochastic Objective:</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1012,20 +1052,27 @@ function gradients()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-4';
-    tableTitleContainer1.innerHTML = "<h2>Param 1 Grad</h2>"
+    tableTitleContainer1.innerHTML = "<h2>Gradient</h2><h2>w.r.t. Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-5';
-    tableTitleContainer2.innerHTML = "<h2>Param 2 Grad</h2>"
+    tableTitleContainer2.innerHTML = "<h2>Gradient</h2><h2>w.r.t. Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-6';
-    tableTitleContainer3.innerHTML = "<h2>Param 3 Grad</h2>"
+    tableTitleContainer3.innerHTML = "<h2>Gradient</h2><h2>w.r.t. Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER DESC 6
+    const tableTitleContainer15 = document.createElement('div');
+    tableTitleContainer15.id = 'tableTitleContainer-d6';
+    tableTitleContainer15.innerHTML = "<h2> 3 Gradients Are Obtained w.r.t. (with respect to) The 3 Model Parameters to be Optimized </h2>"
+    
+    mainContentContainer.appendChild(tableTitleContainer15);
 }
 
 
@@ -1034,9 +1081,11 @@ function first_moment_a()
     setfooter( "first_moment_a" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 1/3</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1175,52 +1224,57 @@ function first_moment_a()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Current Gradients</h2>"
+    tableTitleContainer10.innerHTML = "<h2>Current Gradients (g<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[(1-beta1)*grad] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans ((1 - β<sub>1</sub>) ● g<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -1242,9 +1296,11 @@ function first_moment_b()
     setfooter( "first_moment_b" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 2/3</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1383,52 +1439,57 @@ function first_moment_b()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>prev exp_avg (m)</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Previous First Moment (m<sub>t-1</sub>)</h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[prev_m * beta1] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans (β<sub>1</sub> ● m<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -1450,9 +1511,11 @@ function first_moment_c()
     setfooter( "first_moment_c" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased First Moment Vector: pt. 3/3</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1585,70 +1648,75 @@ function first_moment_c()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 4
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-g4';
-    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer4.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 
     // TITLE HEADER 5
     const tableTitleContainer5 = document.createElement('div');
     tableTitleContainer5.id = 'tableTitleContainer-g5';
-    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer5.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer5); 
 
     // TITLE HEADER 6
     const tableTitleContainer6 = document.createElement('div');
     tableTitleContainer6.id = 'tableTitleContainer-g6';
-    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer6.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer6); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>[prev_m * beta1] Ans</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Ans (β<sub>1</sub> ● m<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 2
     const tableTitleContainer11 = document.createElement('div');
     tableTitleContainer11.id = 'tableTitleContainer-d2';
-    tableTitleContainer11.innerHTML = "<h2>[(1-beta1)*grad] Ans</h2>"
+    tableTitleContainer11.innerHTML = "<h2> Ans ((1 - β<sub>1</sub>) ● g<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer11); 
 
     // TITLE HEADER DESC 3
@@ -1658,15 +1726,18 @@ function first_moment_c()
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
+testtttt = "<h2> m<sub>t</sub> ← <span style='color: #32cd32'>β<sub>1</sub> ● m<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>+ (1 - β<sub>1</sub>) ● g<sub>t</sub></span> </h2>"
 
 function second_moment_a()
 {
     setfooter( "second_moment_a" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 1/4</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1761,52 +1832,57 @@ function second_moment_a()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Current Gradients</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Current Gradients (g<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Gradients Squared</h2>"
+    tableTitleContainer12.innerHTML = "<h2>Gradients Squared (g<sup>2</sup><sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
@@ -1816,9 +1892,11 @@ function second_moment_b()
     setfooter( "second_moment_b" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 2/4</h3>";
 
     // create a new HTML element to hold the main content container
@@ -1955,52 +2033,57 @@ function second_moment_b()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Gradients Squared</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Gradients Squared (g<sup>2</sup><sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[(1-Beta2)*grad_sq] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans ((1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub>)</h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -2022,9 +2105,11 @@ function second_moment_c()
     setfooter( "second_moment_c" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 3/4</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2161,52 +2246,57 @@ function second_moment_c()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>prev_v</h2>"
+    tableTitleContainer10.innerHTML = "<h2>Previous Second Raw Moment (v<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[prev_v * Beta2] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans (β<sub>2</sub> ● v<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -2218,7 +2308,7 @@ function second_moment_c()
     // TITLE HEADER DESC 5
     const tableTitleContainer14 = document.createElement('div');
     tableTitleContainer14.id = 'tableTitleContainer-d5';
-    tableTitleContainer14.innerHTML = "<h2>(\u00A0\u00A0\u00A0\u00A0\u00A0Beta2</h2>"
+    tableTitleContainer14.innerHTML = "<h2> \u00A0\u00A0\u00A0\u00A0\u00A0Beta2</h2>"
     mainContentContainer.appendChild(tableTitleContainer14);
 }
 
@@ -2228,9 +2318,11 @@ function second_moment_d()
     setfooter( "second_moment_d" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Biased Second Raw Moment Vector: pt. 4/4</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2363,70 +2455,75 @@ function second_moment_d()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 4
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-g4';
-    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer4.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 
     // TITLE HEADER 5
     const tableTitleContainer5 = document.createElement('div');
     tableTitleContainer5.id = 'tableTitleContainer-g5';
-    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer5.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer5); 
 
     // TITLE HEADER 6
     const tableTitleContainer6 = document.createElement('div');
     tableTitleContainer6.id = 'tableTitleContainer-g6';
-    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer6.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer6); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>[prev_v * Beta2] Ans</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Ans (β<sub>2</sub> ● v<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 2
     const tableTitleContainer11 = document.createElement('div');
     tableTitleContainer11.id = 'tableTitleContainer-d2';
-    tableTitleContainer11.innerHTML = "<h2>[(1-Beta2)*grad_sq] Ans</h2>"
+    tableTitleContainer11.innerHTML = "<h2> Ans ((1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer11); 
 
     // TITLE HEADER DESC 3
@@ -2442,9 +2539,11 @@ function bc_first_moment()
     setfooter( "bc_first_moment" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute Bias-Corrected First Moment Estimate</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2581,40 +2680,45 @@ function bc_first_moment()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -2648,9 +2752,11 @@ function bc_second_moment()
     setfooter( "bc_second_moment" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Compute Bias-Corrected Second Raw Moment Estimate</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2787,40 +2893,45 @@ function bc_second_moment()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -2854,9 +2965,11 @@ function update_params_a()
     setfooter( "update_params_a" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 1/5</h3>";
 
     // create a new HTML element to hold the main content container
@@ -2951,40 +3064,45 @@ function update_params_a()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -2996,7 +3114,7 @@ function update_params_a()
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Bias Corrected Second Moment Square-Root</h2>"
+    tableTitleContainer12.innerHTML = "<h2>Bias Corrected Second Moment Square-Root (sqrt(<span>v&#770;</span><sub>t</sub>)) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
@@ -3006,9 +3124,11 @@ function update_params_b()
     setfooter( "update_params_b" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 2/5</h3>";
 
     // create a new HTML element to hold the main content container
@@ -3145,52 +3265,57 @@ function update_params_b()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>[ sqrt(<span>v&#770;</span>) ] Ans</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Ans (sqrt(<span>v&#770;</span><sub>t</sub>)) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[ sqrt(<span>v&#770;</span>) + eps ] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans (sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐)</h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -3212,9 +3337,11 @@ function update_params_c()
     setfooter( "update_params_c" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 3/5</h3>";
 
     // create a new HTML element to hold the main content container
@@ -3347,58 +3474,63 @@ function update_params_c()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 4
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-g4';
-    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer4.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 
     // TITLE HEADER 5
     const tableTitleContainer5 = document.createElement('div');
     tableTitleContainer5.id = 'tableTitleContainer-g5';
-    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer5.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer5); 
 
     // TITLE HEADER 6
     const tableTitleContainer6 = document.createElement('div');
     tableTitleContainer6.id = 'tableTitleContainer-g6';
-    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer6.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer6); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -3410,14 +3542,14 @@ function update_params_c()
     // TITLE HEADER DESC 2
     const tableTitleContainer11 = document.createElement('div');
     tableTitleContainer11.id = 'tableTitleContainer-d2';
-    tableTitleContainer11.innerHTML = "<h2>[ sqrt(<span>v&#770;</span>) + eps ] Ans</h2>"
+    tableTitleContainer11.innerHTML = "<h2> Ans (sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐) </h2>"
     mainContentContainer.appendChild(tableTitleContainer11); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
     //tableTitleContainer12.innerHTML = "<h2>[ <span>m&#770;</span> / sqrt(<span>v&#770;</span>) + eps ] Ans</h2>"
-    tableTitleContainer12.innerHTML = "<h2>Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans (<span>m&#770;</span><sub>t</sub>/(sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐)))</h2>"
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
@@ -3427,9 +3559,11 @@ function update_params_d()
     setfooter( "update_params_d" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 4/5</h3>";
 
     // create a new HTML element to hold the main content container
@@ -3566,52 +3700,57 @@ function update_params_d()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Ans</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Ans (<span>m&#770;</span><sub>t</sub>/(sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐))) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Update Step</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Update Step (-𝞪●<span>m&#770;</span><sub>t</sub>/(sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐)) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -3633,9 +3772,11 @@ function update_params_e()
     setfooter( "update_params_e" ); 
     setsidebar( "default" );
     canv.innerHTML  = meta();
+    canv.innerHTML += meta_lower()
+    canv.innerHTML += meta_progress_bar()
 
     // set title
-    canv.innerHTML += "<div style='height:14vh'/>"
+    canv.innerHTML += "<div style='height:10vh'/>"
     canv.innerHTML += "<h3>Update Parameters With Adam: pt. 5/5</h3>";
 
     // create a new HTML element to hold the main content container
@@ -3768,83 +3909,92 @@ function update_params_e()
     .attr('font-family', 'Segoe UI')
     .attr('fill', 'white');
 
+    // OPERATION 4 (DASHED LINE)
+    const operationContainer4 = document.createElement('div');
+    operationContainer4.id = 'operationContainer-g4';
+    mainContentContainer.appendChild(operationContainer4);
+
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 4
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-g4';
-    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer4.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 
     // TITLE HEADER 5
     const tableTitleContainer5 = document.createElement('div');
     tableTitleContainer5.id = 'tableTitleContainer-g5';
-    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer5.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer5); 
 
     // TITLE HEADER 6
     const tableTitleContainer6 = document.createElement('div');
     tableTitleContainer6.id = 'tableTitleContainer-g6';
-    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer6.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer6); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Current Model Parameters</h2>"
+    tableTitleContainer10.innerHTML = "<h2>Current Model Parameters (θ<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 2
     const tableTitleContainer11 = document.createElement('div');
     tableTitleContainer11.id = 'tableTitleContainer-d2';
-    tableTitleContainer11.innerHTML = "<h2>Update Step</h2>"
+    tableTitleContainer11.innerHTML = "<h2> Update Step (-𝞪●<span>m&#770;</span><sub>t</sub>/(sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐)) </h2>"
     mainContentContainer.appendChild(tableTitleContainer11); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Updated Model Parameters</h2>"
+    tableTitleContainer12.innerHTML = "<h2>Updated Model Parameters (θ<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12); 
+
 }
 
 
 // Create new div elements for the three sections of the footer
 const footer_desc = document.createElement("div");
 footer_desc.classList.add("footer_adam_desc");
+
+const footer_eq_container = document.createElement("div");
+footer_eq_container.classList.add("footer_adam_eq_container");
 
 const footer_eq_title = document.createElement("div");
 footer_eq_title.classList.add("footer_adam_eq_title");
@@ -3854,15 +4004,17 @@ footer_eq.classList.add("footer_adam_eq");
 
 // Append the three sections to the footer element
 footer.appendChild(footer_desc);
-footer.appendChild(footer_eq_title);
-footer.appendChild(footer_eq);
+footer.appendChild(footer_eq_container);
+footer_eq_container.appendChild(footer_eq_title);
+footer_eq_container.appendChild(footer_eq);
+
 
 function setfooter( input ) // takes input from event listener and then 
 {
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // SLIDE DESCRIPTIONS
-        case "intro":                   footer_desc.innerHTML = "Perform a new optimization step with the Adam Optimization Method. An optimization step can be generally broken into the (5) following parts: <ol><li>Perform a forward pass in the model with the inputs</li><li>Compute the loss at the specific iteration on the outputs</li><li>Get the gradients of loss function w.r.t. parameters</li><li>Compute the first and second moment estimates of the gradients</li><li>Perform an update on the model parameters</li></ol>";
+        case "intro":                   footer_desc.innerHTML = "Perform a new optimization step with the Adam Optimization Method. An optimization step can be generally broken into the (5) following parts: <ol><li>Perform a forward pass in the model with inputs</li><li>Compute the loss at the specific iteration on outputs</li><li>Get the gradients of loss function with respect to the parameters</li><li>Compute the first and second moment estimates of the gradients</li><li>Perform an update on the model parameters</li></ol>";
                                         footer_eq_title.innerHTML = "";
                                         footer_eq.innerHTML = "";
                                         break;
@@ -3878,7 +4030,7 @@ function setfooter( input ) // takes input from event listener and then
                                         footer_eq_title.innerHTML = "<h2> Linear Pass: </h2>";
                                         footer_eq.innerHTML = "<h2> output = <span style='color: #32cd32'>weights ● input </span><span style='color: rgb(0, 140, 255)'>+ bias</span> </h2>";
                                         break;
-        case "nll_loss_softmax":        footer_desc.innerHTML = "Apply the activation function to the result of the linear-transform performed in the previous step. <span style='font-weight: bold'>In this simulation we will use negative log-likelihood loss (NLL-Loss).</span> The first part of NLL-Loss is to <span style='font-weight: bold'>perform a softmax transform per row</span>. This normalizes each column to have values within the range (0,1) to preserves the ratios of magnitude of values within a column. The result can now be interpreted as probabilities that sum up to 1.";
+        case "nll_loss_softmax":        footer_desc.innerHTML = "Apply the activation function to the result of the linear-transform performed in the previous step. <span style='font-weight: bold'>In this simulation we will use negative log-likelihood loss (NLL-Loss).</span> The first part of NLL-Loss is to <span style='font-weight: bold'>perform a softmax transform per row</span>. This normalizes each row to have values within the range (0,1) to preserves the ratios of magnitude of values within a column. The result can now be interpreted as probabilities that sum up to 1.";
                                         footer_eq_title.innerHTML = "<h2> NLL-Loss: </h2>";
                                         footer_eq.innerHTML = "<h2> loss = log ( <span style='color: rgb(0, 140, 255)'>softmax ( <span style='color: #32cd32'>input</span> )</span> ) </h2>";
                                         break;    
@@ -3886,11 +4038,11 @@ function setfooter( input ) // takes input from event listener and then
                                         footer_eq_title.innerHTML = "<h2> NLL-Loss: </h2>";
                                         footer_eq.innerHTML = "<h2> loss = <span style='color: #32cd32'>log ( <span style='color: rgb(0, 140, 255)'>softmax ( input )</span> )</span> </h2>";
                                         break;      
-        case "nll_loss_epoch_avg":      footer_desc.innerHTML = "Take the vertical average of our loss vector obtained in the previous step. Then obtain the loss value at the position of the current center by taking the dot product of the average vector and the center one-hot vector. <span style='font-weight: bold'>This scalar loss value is used as a general measure of the loss at the current iteration of the training, and can be used to indicator for model training performance.</span> Note that the full model loss vector computed in the previous step will be used in the optimization step.";
+        case "nll_loss_epoch_avg":      footer_desc.innerHTML = "Take the horizontal average of our loss vector obtained in the previous step. Then obtain the loss value at the position of the current center by taking the dot product of the average vector and the center one-hot vector. <span style='font-weight: bold'>This scalar loss value is used as a general measure of the loss at the current iteration of the training, and can be used to indicator for model training performance.</span> Note that the full model loss vector computed in the previous step will be used in the optimization step.";
                                         footer_eq_title.innerHTML = "<h2> Iteration Loss: </h2>";
                                         footer_eq.innerHTML = "<h2> loss-scalar =  <span style='color: #32cd32'>-avg ( <span style='color: rgb(0, 140, 255)'>loss</span> ) ● center</span> </h2>";
                                         break;         
-        case "gradients":               footer_desc.innerHTML = "Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation. The chain rule of differentiation is used during backpropagation to calculate the gradients of the loss function for each parameter, starting from the output layer and working backward towards the input layer. The loss function in this simulation is the negative log probability of the target word given the context words. <span style='font-weight: bold'>The resulting gradient vector (g<sub>t</sub>) consists of partial derivatives of the loss function for each parameter.</span> The gradient vector indicates the direction of the steepest descent of the loss function for the model parameters and guides the optimization algorithm towards a better set of parameters that minimizes the training data loss.";
+        case "gradients":               footer_desc.innerHTML = "Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation. The chain rule of differentiation is used during backpropagation to calculate the gradients of the loss function for each parameter, starting from the output layer and working backward towards the input layer. The loss function in this simulation is the negative log probability of the target word given the context words. <span style='font-weight: bold'>The resulting gradient vector (g<sub>t</sub>) consists of partial derivatives of the loss function for each parameter.</span> The gradient vector indicates the direction of the steepest descent of the loss function for the model parameters and guides towards a set of parameters that minimizes the loss.";
                                         footer_eq_title.innerHTML = "<h2> Get Gradients: </h2>";
                                         footer_eq.innerHTML = "<h2> <span style='color: rgb(0, 140, 255)'>g<sub>t</sub></span> <span style='color: #32cd32'>← ∇θ ƒ<sub>t</sub> (θ<sub>t-1</sub>)</span> </h2>";
                                         break;    
@@ -3946,17 +4098,21 @@ function setfooter( input ) // takes input from event listener and then
                                         footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
                                         footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - <span style='color: #32cd32'>𝞪</span> <span style='color: rgb(0, 140, 255)'>● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;        
-        case "update_params_e":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Finally we <span style='font-weight: bold'>subtract our update (the right side of the equation) from the previous parameters (θ<sub>t-1</sub>)</span> . This <span style='font-weight: bold'>yields the updated parameters (θ<sub>t</sub>) , completing the update step using Adam optimization.</span> ";
+        case "update_params_e":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Finally we <span style='font-weight: bold'>subtract our update (the right side of the equation) from the previous parameters (θ<sub>t-1</sub>)</span> . This <span style='font-weight: bold'>yields the updated parameters (θ<sub>t</sub>) , completing the update step using Adam optimization. These new parameters are now passed back into our objective function</span>, in this case CBOW Word2Vec.  ";
                                         footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
                                         footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← <span style='color: #32cd32'>θ<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>- 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;                     
     }
 }
 
+
 function setsidebar( input )
 {
-    // clear the sidebar contents every time it is set
+    // CLEAR SIDEBAR CONTENTS every time it is set
     sidebar_canv.innerHTML = '';
+
+
+    // INPUT HANDLER FOR CUSTOM STATES
 
     // might need to be used to update the first and second moment changes
     // just set a in fn variable to choose weather to query the old or new tensors
@@ -3967,6 +4123,15 @@ function setsidebar( input )
     // }
 
 
+    // CURRENT PARAMS TEXT
+
+
+    const sidebar_curr_param_text_container = document.createElement('div');
+    sidebar_curr_param_text_container.id = 'sidebar_curr_param_text_container';
+    sidebar_curr_param_text_container.innerHTML = "<p>Current Model Parameters</p>"
+    sidebar_canv.appendChild(sidebar_curr_param_text_container);
+
+
     // CURRENT PARAMS TENSORS
 
     // create a new HTML element to hold the main content container
@@ -3975,12 +4140,6 @@ function setsidebar( input )
 
     // append the table container to the canvas element
     sidebar_canv.appendChild(sidebar_curr_param_container);
-
-    // CURRENT PARAMS TEXT
-    const sidebar_curr_param_text_container = document.createElement('div');
-    sidebar_curr_param_text_container.id = 'sidebar_curr_param_text_container';
-    sidebar_curr_param_text_container.innerHTML = "<p>Current Model Parameters</p>"
-    sidebar_curr_param_container.appendChild(sidebar_curr_param_text_container);
 
     function createTable(data, tableId, tableClass, containerId) {
         const containerDiv = document.createElement('div');
@@ -4014,138 +4173,212 @@ function setsidebar( input )
         cells.classed('my-cell-class', true);
     }
 
-    const my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    // set the sidebar curr model params data
+    // if on the last step set to the updated params otherwise use current params
+    let my_tensor_data = adam_data["curr_model_params"]["param_1"];
+    if ( page_status >= page_count - 1 ) { my_tensor_data = adam_data["param_update_steps"]["updated_params"]["param_1"]; }
     createTable(my_tensor_data, 'my-sidebar-tensor-id', 'generic-sidebar-table-class', 'my-sidebar-container-1');
 
-    const my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    let my_tensor_data2 = adam_data["curr_model_params"]["param_2"];
+    if ( page_status >= page_count - 1 ) { my_tensor_data2 = adam_data["param_update_steps"]["updated_params"]["param_2"]; }
     createTable(my_tensor_data2, 'my-sidebar-tensor-id-2', 'generic-sidebar-table-class-b', 'my-sidebar-container-2');
 
-    const my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    let my_tensor_data3 = adam_data["curr_model_params"]["param_3"];
+    if ( page_status >= page_count - 1 ) { my_tensor_data3 = adam_data["param_update_steps"]["updated_params"]["param_3"]; }
     // transpose the param3
     const temp_tensor = my_tensor_data3.map((value) => [value]);
     createTable(temp_tensor, 'my-sidebar-tensor-id-3', 'generic-sidebar-table-class-c', 'my-sidebar-container-3');
 
 
-    // CURRENT FIRST MOMENT TENSORS
+    // // CURRENT FIRST MOMENT TENSORS
+
+    // // create a new HTML element to hold the main content container
+    // const sidebar_first_moment_container = document.createElement('div');
+    // sidebar_first_moment_container.id = 'sidebar-first-moment-container';
+
+    // // append the table container to the canvas element
+    // sidebar_canv.appendChild(sidebar_first_moment_container);
+
+    // // FIRST MOMENT TEXT
+    // const sidebar_first_moment_text_container = document.createElement('div');
+    // sidebar_first_moment_text_container.id = 'sidebar_first_moment_text_container';
+    // sidebar_first_moment_text_container.innerHTML = "<p>Current B.C. First Moments</p>"
+    // sidebar_first_moment_container.appendChild(sidebar_first_moment_text_container);
+
+    // function createTable2(data, tableId, tableClass, containerId) {
+    //     const containerDiv = document.createElement('div');
+    //     containerDiv.id = containerId;
+    //     sidebar_first_moment_container.appendChild(containerDiv);
+      
+    //     const tableDiv = document.createElement('div');
+    //     tableDiv.id = tableId;
+    //     containerDiv.appendChild(tableDiv);
+      
+    //     const table = d3.select(`#${tableId}`);
+    //     const tbody = table.append('tbody');
+      
+    //     const rows = tbody.selectAll('tr')
+    //         .data(data)
+    //         .enter()
+    //         .append('tr');
+      
+    //     const cells = rows.selectAll('td')
+    //         .data(d => d)
+    //         .enter()
+    //         .append('td')
+    //         .text(d => {
+    //             const formatted = d.toFixed(4);
+    //             return (d >= 0 ? '\u00A0' : '') + formatted;
+    //         });
+      
+    //     // Add CSS classes to the table elements
+    //     table.classed(tableClass, true);
+    //     table.classed('my-table-class', true);
+    //     cells.classed('my-cell-class', true);
+    // }
+
+    // const my_tensor_data_b = adam_data["gradient_states"]["first_moments_bc"]["param_1_m_hat"];
+    // createTable2(my_tensor_data_b, 'my-sidebar-tensor-id-b', 'generic-sidebar-table-class', 'my-sidebar-container-1-b');
+
+    // const my_tensor_data2_b = adam_data["gradient_states"]["first_moments_bc"]["param_2_m_hat"];
+    // createTable2(my_tensor_data2_b, 'my-sidebar-tensor-id-2-b', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-b');
+
+    // const my_tensor_data3_b = adam_data["gradient_states"]["first_moments_bc"]["param_3_m_hat"];
+    // // transpose the param3
+    // const temp_tensor_b = my_tensor_data3_b.map((value) => [value]);
+    // createTable2(temp_tensor_b, 'my-sidebar-tensor-id-3-b', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-b');
+
+
+    // // CURRENT SECOND MOMENT TENSORS
+
+    // // create a new HTML element to hold the main content container
+    // const sidebar_second_moment_container = document.createElement('div');
+    // sidebar_second_moment_container.id = 'sidebar-second-moment-container';
+
+    // // append the table container to the canvas element
+    // sidebar_canv.appendChild(sidebar_second_moment_container);
+
+    // // END PLOT CONTENT TEXT
+    // const sidebar_second_moment_text_container = document.createElement('div');
+    // sidebar_second_moment_text_container.id = 'sidebar_second_moment_text_container';
+    // sidebar_second_moment_text_container.innerHTML = "<p>Current Bias-Corrected Second Moments</p>"
+    // sidebar_second_moment_container.appendChild(sidebar_second_moment_text_container);
+
+    // function createTable3(data, tableId, tableClass, containerId) {
+    //     const containerDiv = document.createElement('div');
+    //     containerDiv.id = containerId;
+    //     sidebar_second_moment_container.appendChild(containerDiv);
+      
+    //     const tableDiv = document.createElement('div');
+    //     tableDiv.id = tableId;
+    //     containerDiv.appendChild(tableDiv);
+      
+    //     const table = d3.select(`#${tableId}`);
+    //     const tbody = table.append('tbody');
+      
+    //     const rows = tbody.selectAll('tr')
+    //         .data(data)
+    //         .enter()
+    //         .append('tr');
+      
+    //     const cells = rows.selectAll('td')
+    //         .data(d => d)
+    //         .enter()
+    //         .append('td')
+    //         .text(d => {
+    //             const formatted = d.toFixed(4);
+    //             return (d >= 0 ? '\u00A0' : '') + formatted;
+    //         });
+      
+    //     // Add CSS classes to the table elements
+    //     table.classed(tableClass, true);
+    //     table.classed('my-table-class', true);
+    //     cells.classed('my-cell-class', true);
+    // }
+
+    // const my_tensor_data_c = adam_data["gradient_states"]["second_moments_bc"]["param_1_v_hat"];
+    // createTable3(my_tensor_data_c, 'my-sidebar-tensor-id-c', 'generic-sidebar-table-class', 'my-sidebar-container-1-c');
+
+    // const my_tensor_data2_c = adam_data["gradient_states"]["second_moments_bc"]["param_2_v_hat"];
+    // createTable3(my_tensor_data2_c, 'my-sidebar-tensor-id-2-c', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-c');
+
+    // const my_tensor_data3_c = adam_data["gradient_states"]["second_moments_bc"]["param_3_v_hat"];
+    // // transpose the param3
+    // const temp_tensor_c = my_tensor_data3_c.map((value) => [value]);
+    // createTable3(temp_tensor_c, 'my-sidebar-tensor-id-3-c', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-c');
+
+
+    // PARAM COLOR KEY
 
     // create a new HTML element to hold the main content container
-    const sidebar_first_moment_container = document.createElement('div');
-    sidebar_first_moment_container.id = 'sidebar-first-moment-container';
+    const sidebar_color_key_container = document.createElement('div');
+    sidebar_color_key_container.id = 'sidebar-color-key-container';
+    sidebar_color_key_container.innerHTML = "<p>Param 1<span style='color: rgb(255, 0, 76)'> Embeddings</span> | Param 2<span style='color: rgb(0, 255, 85)'> Weights</span> | Param 3<span style='color: rgb(0, 255, 242)'> Bias</span></p>"
 
     // append the table container to the canvas element
-    sidebar_canv.appendChild(sidebar_first_moment_container);
+    sidebar_canv.appendChild(sidebar_color_key_container);
 
-    // FIRST MOMENT TEXT
-    const sidebar_first_moment_text_container = document.createElement('div');
-    sidebar_first_moment_text_container.id = 'sidebar_first_moment_text_container';
-    sidebar_first_moment_text_container.innerHTML = "<p>Current B.C. First Moments</p>"
-    sidebar_first_moment_container.appendChild(sidebar_first_moment_text_container);
 
-    function createTable2(data, tableId, tableClass, containerId) {
-        const containerDiv = document.createElement('div');
-        containerDiv.id = containerId;
-        sidebar_first_moment_container.appendChild(containerDiv);
-      
-        const tableDiv = document.createElement('div');
-        tableDiv.id = tableId;
-        containerDiv.appendChild(tableDiv);
-      
-        const table = d3.select(`#${tableId}`);
-        const tbody = table.append('tbody');
-      
-        const rows = tbody.selectAll('tr')
-            .data(data)
-            .enter()
-            .append('tr');
-      
-        const cells = rows.selectAll('td')
-            .data(d => d)
-            .enter()
-            .append('td')
-            .text(d => {
-                const formatted = d.toFixed(4);
-                return (d >= 0 ? '\u00A0' : '') + formatted;
-            });
-      
-        // Add CSS classes to the table elements
-        table.classed(tableClass, true);
-        table.classed('my-table-class', true);
-        cells.classed('my-cell-class', true);
-    }
+    // DYNAMIC FULL ADAM EQUASION
 
-    const my_tensor_data_b = adam_data["gradient_states"]["first_moments_bc"]["param_1_m_hat"];
-    createTable2(my_tensor_data_b, 'my-sidebar-tensor-id-b', 'generic-sidebar-table-class', 'my-sidebar-container-1-b');
-
-    const my_tensor_data2_b = adam_data["gradient_states"]["first_moments_bc"]["param_2_m_hat"];
-    createTable2(my_tensor_data2_b, 'my-sidebar-tensor-id-2-b', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-b');
-
-    const my_tensor_data3_b = adam_data["gradient_states"]["first_moments_bc"]["param_3_m_hat"];
-    // transpose the param3
-    const temp_tensor_b = my_tensor_data3_b.map((value) => [value]);
-    createTable2(temp_tensor_b, 'my-sidebar-tensor-id-3-b', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-b');
-
-    // CURRENT SECOND MOMENT TENSORS
-
-    // create a new HTML element to hold the main content container
-    const sidebar_second_moment_container = document.createElement('div');
-    sidebar_second_moment_container.id = 'sidebar-second-moment-container';
+    let eq_state = page_status + 1;
+    
+    //// create a new HTML element to hold the main content container
+    const sidebar_adam_eq_container = document.createElement('div');
+    sidebar_adam_eq_container.id = 'sidebar-adam-eq-container';
 
     // append the table container to the canvas element
-    sidebar_canv.appendChild(sidebar_second_moment_container);
+    sidebar_canv.appendChild(sidebar_adam_eq_container);
 
-    // END PLOT CONTENT TEXT
-    const sidebar_second_moment_text_container = document.createElement('div');
-    sidebar_second_moment_text_container.id = 'sidebar_second_moment_text_container';
-    sidebar_second_moment_text_container.innerHTML = "<p>Current Bias-Corrected Second Moments</p>"
-    sidebar_second_moment_container.appendChild(sidebar_second_moment_text_container);
+    sidebar_adam_eq_container.innerHTML = "<h1> Adam Optimization Algorithm </h1> "
 
-    function createTable3(data, tableId, tableClass, containerId) {
-        const containerDiv = document.createElement('div');
-        containerDiv.id = containerId;
-        sidebar_second_moment_container.appendChild(containerDiv);
-      
-        const tableDiv = document.createElement('div');
-        tableDiv.id = tableId;
-        containerDiv.appendChild(tableDiv);
-      
-        const table = d3.select(`#${tableId}`);
-        const tbody = table.append('tbody');
-      
-        const rows = tbody.selectAll('tr')
-            .data(data)
-            .enter()
-            .append('tr');
-      
-        const cells = rows.selectAll('td')
-            .data(d => d)
-            .enter()
-            .append('td')
-            .text(d => {
-                const formatted = d.toFixed(4);
-                return (d >= 0 ? '\u00A0' : '') + formatted;
-            });
-      
-        // Add CSS classes to the table elements
-        table.classed(tableClass, true);
-        table.classed('my-table-class', true);
-        cells.classed('my-cell-class', true);
-    }
-
-    const my_tensor_data_c = adam_data["gradient_states"]["second_moments_bc"]["param_1_v_hat"];
-    createTable3(my_tensor_data_c, 'my-sidebar-tensor-id-c', 'generic-sidebar-table-class', 'my-sidebar-container-1-c');
-
-    const my_tensor_data2_c = adam_data["gradient_states"]["second_moments_bc"]["param_2_v_hat"];
-    createTable3(my_tensor_data2_c, 'my-sidebar-tensor-id-2-c', 'generic-sidebar-table-class-b', 'my-sidebar-container-2-c');
-
-    const my_tensor_data3_c = adam_data["gradient_states"]["second_moments_bc"]["param_3_v_hat"];
-    // transpose the param3
-    const temp_tensor_c = my_tensor_data3_c.map((value) => [value]);
-    createTable3(temp_tensor_c, 'my-sidebar-tensor-id-3-c', 'generic-sidebar-table-class-c', 'my-sidebar-container-3-c');
-
-    const sidebar_second_moment_text_container_b = document.createElement('div');
-    sidebar_second_moment_text_container_b.id = 'sidebar_first_moment_text_container_key';
-    sidebar_second_moment_text_container_b.innerHTML = "<p>P1<span style='color: rgb(255, 0, 76)'> Embeddings</span> | P2<span style='color: rgb(0, 255, 85)'> Weights</span> | P3<span style='color: rgb(0, 255, 242)'> Bias</span></p>"
-    sidebar_second_moment_container.appendChild(sidebar_second_moment_text_container_b);
+    // construct the algorithm line by line
+    // format:
+    // if (eq_state == specify) { 
+    //    custom state  } else { 
+    //    default state }
+    if ( eq_state == 1 && epoch_status == 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: 𝞪 &nbsp; (Stepsize) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> 𝞪 &nbsp; (Stepsize) </p>" }
+    if ( eq_state == 1 && epoch_status == 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: β<sub>1</sub>, β<sub>2</sub> ∈ [0,1) &nbsp; (Decay Rates) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> β<sub>1</sub>, β<sub>2</sub> ∈ [0,1) &nbsp; (Decay Rates) </p>" }
+    if ( eq_state == 1 && epoch_status == 0 || eq_state >= 2 && eq_state <= 7 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: ƒ(θ) &nbsp; (Objective Function) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> ƒ(θ) &nbsp; (Objective Function) </p>" }
+    if ( eq_state == 1 && epoch_status == 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: θ<sub>0</sub> &nbsp; (Initial Parameters) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> θ<sub>0</sub> &nbsp; (Initial Parameters) </p>" }
+    if ( eq_state == 1 && epoch_status == 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 &nbsp; (Initialize Vectors) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 &nbsp; (Initialize Vectors) </p>" }
+    if ( eq_state >= 8 && eq_state <= 22 || eq_state <= 7 && epoch_status > 0 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> while θ<sub>t</sub> not converged do </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> while </span> θ<sub>t</sub> not converged <span style='font-weight: bold'> do </span> </p>" }
+    if ( eq_state == 8 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </p>" }
+    if ( eq_state >= 9 && eq_state <= 11 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </p>" }
+    if ( eq_state >= 12 && eq_state <= 15 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </p>" }    
+    if ( eq_state == 16 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </p>" }   
+    if ( eq_state == 17 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> <span>v&#770;</span><sub>t</sub> ← v<sub>t</sub> / (1 - β<sup>t</sup><sub>2</sub>) </span> </p>" } else { 
+            sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>v&#770;</span><sub>t</sub> ← v<sub>t</sub> / (1 - β<sup>t</sup><sub>2</sub>) </p>" }   
+    if ( eq_state >= 18 && eq_state <= 22 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  ) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  ) </p>" }   
+    if ( eq_state == 22 && epoch_status >= epoch_count - 1 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> end while </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> end while </span> </p>" }   
+    if ( eq_state == 22 && epoch_status >= epoch_count - 1 )  { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> return 0<sub>t</sub> &nbsp; (Resulting Parameters) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> return </span> 0<sub>t</sub> &nbsp; (Resulting Parameters) </p>" }   
 
 
     // PLOT LOSS
@@ -4159,6 +4392,12 @@ function setsidebar( input )
 
     // get desired tensor for this epoch
     loss_arr_y = adam_data["loss_steps"]["avg_loss_vals"];
+
+    // only display newest loss value at step where it is calculated
+    if ( epoch_status > 0 && page_status < 7 - 1 ){
+        loss_arr_y.pop()
+    }
+    
     loss_arr_x = Array.from({ length: loss_arr_y.length }, (_, i) => i);
     console.log(loss_arr_y)
     console.log(loss_arr_x)
@@ -4185,6 +4424,10 @@ function setsidebar( input )
                 b: 60 // bottom margin
             },
             title: 'Average Loss at Iterations',
+            titlefont: {
+                color: 'Black',
+                family: 'Segoe UI'
+            },
             xaxis: {title: 'Iteration'}
             // yaxis: {title: 'Y Axis Title'}
         };
@@ -4247,6 +4490,10 @@ function updater( val )
     else { reset_btn.style.display = "inline-block"; }
     if (epoch_status < epoch_count - 1) { ff_btn.style.display = "inline-block"; }
     else { ff_btn.style.display = "none"; }
+
+    // hide eq bar on initial step
+    if (page_status == 0) { footer_eq_container.style.display = "none"; }
+    else {footer_eq_container.style.display = "inline-flex"; }
 
     let page = statuses[ page_status ];
     console.log("page: " + page);

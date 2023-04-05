@@ -19,8 +19,8 @@
                 bottom: 0vh;
                 height: 92vh;
                 position: fixed;
-                left: 25.6vw;
-                width: 75vw;
+                left: 25.2vw;
+                width: 74vw;
                 overflow: scroll;
             }
             /* #news2vecapplication{
@@ -38,7 +38,7 @@
                 left: 0vw;
                 height: 92vh;
                 position: fixed;
-                width: 25vw;
+                width: 25.2vw;
                 /* TEMP styling - JOHN */
                 box-sizing: border-box;
                 padding: 10px;
@@ -58,23 +58,33 @@
     </head>
     <body>
         <div id="navbar">
-            <button class="navelement" onclick="window.location='/'"     ><h1>home</h1></button>
-            <button class="navelement" onclick="window.location='/intro'"><h1>overview</h1></button>
-            <button class="navelement" onclick="window.location='/w2v'"  ><h1>word2vec</h1></button>
-            <button class="navelement" onclick="window.location='/s2v'"  ><h1>sen2vec</h1></button>
-            <button class="navelement" onclick="window.location='/p2v'"  ><h1>para2vec</h1></button>
-            <button class="navelement" onclick="window.location='/adam'" ><h1>adam optimizer</h1></button>
-            <button class="navelement" onclick="window.location='/song'" ><h1>song2vec</h1></button>
-            <button class="navelement" onclick="window.location='/news'" ><h1>news2vec</h1></button>
+            <button class="navelement" id="homenav" onclick="window.location='/'">
+              <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
+              <h1>VisNLP 2.0 Home</h1>
+            </button>
+            <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/senback'"   ><h1>Sen2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/paraback'"  ><h1>Para2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
+            <button class="navelement"        onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
+            <button class="navelement-curr"   onclick="window.location='/news'"      ><h1>Fake News App</h1></button>
         </div>
         <div id="sidebar_back">
             <button id="switch_newsvec_app_button" onclick="window.location='/newsback'" >
                 <h1>Para2vec News Application</h1>
             </button>
-            <div style="height:75vh;"></div>
-            <button class="prev-topic-button" onclick="window.location='/song'">
+            
+            <div style="height:1vh;"></div>
+
+            <div class="sidebar-web-diagram">
+                <img src="/assets/web_diagram_v3_news.png" alt="adam web diagram">
+            </div>
+
+            <div style="height:1vh;"></div>
+
+            <button class="prev-topic-button" onclick="window.location='/songback'">
                 <h2>Prev:</h2>
-                <h1>Song2Vec</h1>
+                <h1>Songs App</h1>
              </button>
             <button class="next-topic-button" onclick="window.location='/'">
                 <h2>Next:</h2>

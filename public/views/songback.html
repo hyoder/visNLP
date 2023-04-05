@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .center {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+            }
+            news {
+                font-size: 1.75vw;
+                 margin: auto;
+                text-align: center;
+                
+            }
+            #restofpageNews {
+                background-color: whitesmoke;
+                bottom: 0vh;
+                height: 92vh;
+                position: fixed;
+                left: 25.2vw;
+                width: 74vw;
+                overflow: scroll;
+            }
+            /* #news2vecapplication{
+                position: fixed;
+                margin-left: 2vw;
+                margin-top: 2vh;
+                width: 300px;
+                border-radius: 5px;
+
+            } */
+            #sidebar_back {
+                background-color: grey;
+                border-right: 1vh solid #000000;
+                bottom: 0vh;
+                left: 0vw;
+                height: 92vh;
+                position: fixed;
+                width: 25.2vw;
+                /* TEMP styling - JOHN */
+                box-sizing: border-box;
+                padding: 10px;
+            }
+            ul li {
+                list-style: inside;
+                padding-left: 50px;
+                position: relative;
+                left: 1.5vw;
+                }
+            p {
+                left: 1.5vw;
+            }
+        </style>
+        <title>Word2vec applications - visNLP</title>
+        <link rel="stylesheet" href="../style.css"/>
+    </head>
+    <body>
+        <div id="navbar">
+            <button class="navelement" id="homenav" onclick="window.location='/'">
+              <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
+              <h1>VisNLP 2.0 Home</h1>
+            </button>
+            <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/senback'"   ><h1>Sen2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/paraback'"  ><h1>Para2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
+            <button class="navelement-curr"   onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
+            <button class="navelement"        onclick="window.location='/news'"      ><h1>Fake News App</h1></button>
+        </div>
+        <div id="sidebar_back">
+            <button id="switch_newsvec_app_button" onclick="window.location='/song'" >
+                <h1>Song Curation Application</h1>
+            </button>
+
+            <div style="height:1vh;"></div>
+
+            <div class="sidebar-web-diagram">
+                <img src="/assets/web_diagram_v3_song.png" alt="adam web diagram">
+            </div>
+
+            <div style="height:1vh;"></div>
+
+            <button class="prev-topic-button" onclick="window.location='/adam'">
+                <h2>Prev:</h2>
+                <h1>Adam Optim.</h1>
+             </button>
+            <button class="next-topic-button" onclick="window.location='/news'">
+                <h2>Next:</h2>
+                <h1>News App</h1>
+            </button>
+        </div>
+        <!-- <div id="restofpageNews"> -->
+        <!-- TEMP ID -JOHN -->
+        <div id="restofpage_overview">
+            <!-- Title -->
+            <h1>Song2vec Song Curation Application</h1>
+
+            <!-- Content Sec - Intro -->
+            <h2>Word2vec as a Song Curation Application</h2>
+
+            <p>With music moving into the stremaing era, music has become more accessible than ever. With such large 
+                catalogs of music being available, music streaming platforms such as Spotify, Apple Music have to 
+                curate songs that are taylored towards specific a specific user's interests. This word2vec application
+            </p>
+            
+            <p></p>
+            
+            <p></p>
+            
+            <p></p>
+            </p>
+            
+            <!-- Content Sec - How it works -->
+            <h2>Example Plot</h2>
+
+            <img src="/public/assets/songtsne.png" alt="plot" width=100% height="600"/>
+            <p></p>
+            
+            <p></p> 
+
+            <p></p>
+            
+            <div style="height:5vh;"></div>
+        </div>
+        <script src="../scripts.js"></script>
+    </body>
+</html>

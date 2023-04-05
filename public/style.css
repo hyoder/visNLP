@@ -35,7 +35,6 @@ table {
     text-align: center;
 }
 td {
-    background-color: #bbbbbb;
     border: solid 2px #000000;
 }
 
@@ -94,7 +93,7 @@ td {
     right: 0px;
     text-align: center;
     top: 8vh;
-    width: 75vw;
+    width: 74.75vw;
     z-index: 1;;
 }
 #canv_NSB {
@@ -125,11 +124,13 @@ td {
     border-top: 1vh solid #000000;
     bottom: 0px;
     box-sizing: border-box;
-    display: inline-flex;
+    display: grid;
     height: 15vh;
+    /* padding-top: 1vh; */
     position: fixed;
     right: 0px;
-    width: 75vw;
+    vertical-align: middle !important;
+    width: 74.75vw;
 }
 #footer_NSB {
     background-color: lightgray;
@@ -151,12 +152,13 @@ td {
     height: 25vh;
     position: fixed;
     right: 0px;
-    width: 75vw;
+    width: 74.8vw;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .footer_adam_desc{
     height: 70%;
+    width: 100%;
     text-align: left;
     display: inline-block;
     padding-top: 1vh;
@@ -164,35 +166,43 @@ td {
     padding-left: 1.5vw;
     padding-right: 1.5vw;
     box-sizing: border-box;
-    font-size: .9vw;
+    font-size: 1.1vw;
 }
 .footer_adam_desc ol{
     padding-left: 2.5vw;
     padding-right: 1.5vw;
-    font-weight: bold
+    padding-top: .5vh;
+    font-weight: bold;
+    font-size: 1.2vw;
+}
+
+.footer_adam_eq_container{
+    height: 30%;
+    width: 100%;
+    display:inline-flex;
+    background-color: rgb(61, 61, 61);
 }
 
 .footer_adam_eq_title{
-    display: inline-block;
-    padding-top: 1vh;
-    height: 30%;
     width: 50%;
     font-size: 1vw;
+    display: inline-flex;
     color: white;
-    /* background-color: #8b0000; */
-    background-color: rgb(61, 61, 61);
 }
 
 .footer_adam_eq{
-    display: inline-block;
-    padding-top: 1vh;
-    height: 30%;
     width: 50%;
     font-size: 1vw;
+    display:inline-flex;
     color: white;
-    /* background-color: #8b0000; */
-    background-color: rgb(61, 61, 61);
-    
+}
+
+#adm_btn { 
+    display: none;
+    left: 67vw;
+    position: fixed;
+    top: 27vh;
+    z-index: 2;
 }
 
 #fwd_btn {
@@ -259,21 +269,31 @@ td {
 }
 
 #meta_adam {
-    background-color: lightgray;
+    background-color: white;
     border-radius: 0 0 10px 0;
-    border: 1px solid black;
-    /* box-sizing: border-box; */
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
     height: 8vh;
-    width: 18vw;
-    left: 25vw;
+    width: 12.2vw;
+    left: 25.2vw;
     position: fixed;
     display: inline-block;
-    /* display: flex;
-    align-items: center; */
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-#meta_adam h4 {
+#meta_adam_lower {
+    background-color: white;
+    border-radius: 0 10px 0 0;
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+    height: 8vh;
+    width: 12.2vw;
+    left: 25.2vw;
+    top: 66.7vh;
+    position: fixed;
+    display: inline-block;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.meta_adam_class h4 {
     display: inline-block;
     color: black;
     font-size: 1vw;
@@ -281,15 +301,28 @@ td {
     margin-left: 3px;
     margin-right: 1px;
 }
-
-#meta_adam h5 {
+.meta_adam_class h5 {
     display: inline-block;
-    /* color: rgb(41, 182, 41); */
     color: rgb(0, 140, 255);
     font-size: 2vw;
     margin-top: 1.5vh;
     margin-left: 2px;
     margin-right: 2px;
+}
+#meta_adam_progress_outline {
+    background-color: white;
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+    height: 1vh;
+    left: 37.6vw;
+    width: 62.3vw;
+    top: 73.7vh;
+    /* left: 40vw; */
+    position: fixed;
+}
+#meta_adam_progress_bar {
+    background-color: rgb(0, 140, 255);
+    height: 100%;
 }
 
 #meta_NSB {
@@ -335,30 +368,33 @@ td {
     bottom: 25vh;
     height: 67vh; 
     position: fixed;
-    right: 0px;
-    width: 75vw;
+    left: 25.2vw;
+    width: 74vw;
 }
 
 #restofpage_home {
+    font-family:'Segoe UI';
     background-color: whitesmoke;
+    overflow: scroll;
     top: 8vh;
+    left: 25.2vw;
     height: 92vh;
     position: fixed;
-    right: 0px;
-    width: 100vw;
+    width: 74vw;
 }
 #restofpage_home h1 {
     color: #8b0000;
-    font-size: 3vw;
+    font-size: 2.3vw;
     padding-top: 3vh;
     padding-bottom: 2vh;
 }
 #restofpage_home h2 {
     color: black;
-    font-size: 1.5vw;
-    padding-top: 1.5vh;
+    font-size: .95vw;
+    font-weight: lighter;
+    /* padding-top: 1.5vh; */
     padding-bottom: 1.5vh;
-    text-align: left;
+    text-align: center;
 }
 #restofpage_home h3 {
     color: black;
@@ -372,6 +408,29 @@ td {
     font-size: 1vw;
     padding-bottom: 1vh;
 }
+#homepage_top_text {
+    width: 80%;
+    margin: auto;
+}
+.homepage-image-container {
+    text-align: center;
+}
+.homepage-image-container2 {
+    text-align: center;
+}
+.homepage-image-container img {
+    width: 80%;
+    border: 2px dashed grey;
+    border-radius: 10px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+.homepage-image-container2 img {
+    text-align: center;
+    width: 20%;
+}
 
 #restofpage_overview {
     font-family:'Segoe UI';
@@ -379,8 +438,8 @@ td {
     bottom: 0vh;
     height: 92vh; 
     position: fixed;
-    right: 0px;
-    width: 75vw;
+    left: 25.2vw;
+    width: 74vw;
     overflow: scroll;
     box-sizing: border-box;
     padding-left: 2vw;
@@ -431,7 +490,8 @@ td {
     left: 0px;
     height: 92vh;
     position: fixed;
-    width: 25vw;
+    width: 25.25vw;
+    z-index: 1;
 }
 
 #sidebar_adam {
@@ -443,7 +503,7 @@ td {
     left: 0px;
     height: 92vh;
     position: fixed;
-    width: 25vw;
+    width: 25.2vw;
     padding: 10px;
 }
 
@@ -457,6 +517,16 @@ td {
     height: 92vh;
     position: fixed;
     width: 18.75vw;
+}
+
+.sidebar-web-diagram img {
+    width: 100%;
+    border: 2px dashed grey;
+    border-radius: 10px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-left: 0vw;
+    padding-right: 1vw;
 }
 
 #switch_newsvec_app_button {
@@ -483,14 +553,16 @@ td {
     background-color:white;
 }
 .next-topic-button {
-    color: rgb(0, 140, 255);
+    /* color: rgb(0, 140, 255); */
+    color: #8b0000;
     background-color: lightgray;
     border-radius: 5px;
     padding: 5px;
     width: 49%;
 }
 .prev-topic-button {
-    color: rgb(0, 140, 255);
+    /* color: rgb(0, 140, 255); */
+    color: #8b0000;
     background-color: lightgray;
     border-radius: 5px;
     padding: 5px;
@@ -514,6 +586,34 @@ td {
     display: inline-flex;
     height: 100%;
     vertical-align: middle;
+    position: relative; /* add relative positioning to align the icon */
+}
+.navelement-curr {
+    background-color: #b85858;
+    border-bottom: 1vh solid #000000;
+    border-left: 0.5vh solid #000000;
+    border-right: 0.5vh solid #000000;
+    border-top: 1vh solid #000000;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: inline-flex;
+    height: 100%;
+    vertical-align: middle;
+    position: relative; /* add relative positioning to align the icon */
+}
+.nav-button-icon {
+    /* set the size and position of the icon */
+    width: 9vh;
+    height: 3vh;
+    position: absolute;
+    left: 1vw;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#homenav {
+    width: 45.2vw;
+    /* add padding to make room for the icon */
+    padding-left: 5vw;
 }
 
 .navelement:hover {
@@ -605,7 +705,7 @@ td {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
+    height: 50vh;
     /* temporary below - min 2 per row , max 4 per row */
     min-width: 520px;
     max-width: 1080px;
@@ -624,7 +724,7 @@ td {
     align-items: center;
     text-decoration: none;
     color: #fff;
-    background-color: #2e302d;
+    background-color: #8b0000;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
@@ -673,30 +773,12 @@ td {
     position: relative;
 }
 
-/* define styles for table */
-#adam-tensor-a {
-    border-collapse: collapse;
-    font-family: consolas;
-    display: inline-block;
-    width: auto;
-}
-  
-/* define styles for table headers */
-#adam-tensor-a th {
-    border: 1px solid black;
-}
-
-/* define styles for table cells */
-#adam-tensor-a td {
-    border: 1px solid black;
-    background-color: lightgreen;
-    padding: 5px;
-}
-
 #sidebar-curr-param-container {
-    padding: .6vw;
-    padding-bottom: 0;
-    /* border: 2px dashed yellow; */
+    /* background-color: #32cd32; */
+    width: 23.2vw;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #sidebar-first-moment-container {
@@ -713,7 +795,7 @@ td {
 
 #sidebar-loss-plot {
     /* padding: .6vw; */
-    margin: .6vw;
+    margin: .3vw;
     /* border: 2px dashed pink; */
     height: 30vh;
     border-radius: 10px;
@@ -725,14 +807,15 @@ td {
 
 #my-sidebar-container-1 {
     display: inline-block;
+    margin-left: .2vw;
 }
 #my-sidebar-container-2 {
     display: inline-block;
-    padding-left: .2vw;
+    margin-left: .2vw;
 }
 #my-sidebar-container-3 {
     display: inline-block;
-    padding-left: .2vw;
+    margin-left: .2vw;
 }
 
 #my-sidebar-container-1-b {
@@ -763,42 +846,56 @@ td {
     display: inline-block;
     width: auto;
     font-family: consolas;
-    font-size: .65vw;
-    border: 1px solid rgb(255, 0, 76);
-    background-color: whitesmoke;
+    font-size: .74vw;
+    border: .1vw solid rgb(255, 0, 76);
+    background-color: white;
 } 
 .generic-sidebar-table-class-b {
     display: inline-block;
     width: auto;
     font-family: consolas;
-    font-size: .65vw;
-    border: 1px solid rgb(0, 255, 85);
-    background-color: whitesmoke;
+    font-size: .74vw;
+    border: .1vw solid rgb(0, 255, 85);
+    background-color: white;
 } 
 .generic-sidebar-table-class-c {
     display: inline-block;
     width: auto;
     font-family: consolas;
-    font-size: .65vw;
-    border: 1px solid rgb(0, 255, 242);
-    background-color: whitesmoke;
+    font-size: .74vw;
+    border: .1vw solid rgb(0, 255, 242);
+    background-color: white;
 } 
 /* define styles for table cells */
 .generic-sidebar-table-class td {
-    border: 1px solid black;
-    padding: .15vw;
+    border-bottom: .1vw solid black;
+    border-right: .1vw solid black;
+    padding-bottom: .15vw;
+    padding-top: .15vw;
+    padding-right: .15vw;
+    background-color: white;
 }
 .generic-sidebar-table-class-b td {
-    border: 1px solid black;
-    padding: .15vw;
+    border-bottom: .1vw solid black;
+    border-right: .1vw solid black;
+    padding-bottom: .15vw;
+    padding-top: .15vw;
+    padding-right: .15vw;
+    background-color: white;
 }
 .generic-sidebar-table-class-c td {
-    border: 1px solid black;
-    padding: .15vw;
+    border-bottom: .1vw solid black;
+    border-right: .1vw solid black;
+    padding-bottom: .15vw;
+    padding-top: .15vw;
+    padding-right: .15vw;
+    background-color: white;
 }
 
 #sidebar_curr_param_text_container {
-    font-size: 1vw;
+    font-size: 1.75vh;
+    margin-top: .7vh;
+    margin-bottom: .25vh;
     color: white;
     font-family:'Segoe UI';
     text-align: center;
@@ -815,12 +912,31 @@ td {
     font-family:'Segoe UI';
     text-align: center;
 }
-#sidebar_first_moment_text_container_key{
+#sidebar-color-key-container{
     font-size: .7vw;
     color: white;
     font-family:'Segoe UI';
     text-align: center;
 
+}
+#sidebar-adam-eq-container {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: .3vw;
+    margin-bottom: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: .3vh;
+    padding-top: .3vh;
+    font-size: 1.5vh;
+}
+#sidebar-adam-eq-container h1 {
+    text-align: center;
+    font-size: 1.75vh;
+    font-family:'Segoe UI';
+    font-weight: normal;
+    padding-bottom: .3vh;
 }
 
 /* MAIN ADAMSTEP CANV TENSOR STYLING */
@@ -835,6 +951,7 @@ td {
     border: 1px solid black;
     padding: .2vw;
     font-size: 1vw;
+    background-color:white;
 }
 
 .generic-table-class-grid {
@@ -847,36 +964,19 @@ td {
 .generic-table-class-grid td {
     border: 1px solid black;
     padding: .1vw;
-    font-size: .75vw;
+    font-size: .8vw;
+    background-color:white;
 }
 
-#my-tensor-id {
-    background-color: greenyellow;
-}
-#my-tensor-id-2 {
-    background-color: cyan;
-}
-#my-tensor-id-3 {
-    background-color: pink;
-}
-#my-tensor-id-4 {
-    background-color: yellow;
-}
-#my-tensor-id-5 {
-    background-color: rgb(155, 216, 155);
-}
-#my-tensor-id-6 {
-    background-color: rgb(152, 201, 120);
-}
-#my-tensor-id-7 {
-    background-color: rgb(118, 187, 109);
-}
-#my-tensor-id-8 {
-    background-color: rgb(129, 209, 104);
-}
-#my-tensor-id-9 {
-    background-color: rgb(143, 207, 113);
-}
+/* #my-tensor-id td {background-color: greenyellow;}
+#my-tensor-id-2 td {background-color: cyan;}
+#my-tensor-id-3 td {background-color: pink;}
+#my-tensor-id-4 td {background-color: yellow;}
+#my-tensor-id-5 td{background-color: rgb(155, 216, 155);}
+#my-tensor-id-6 td {background-color: rgb(152, 201, 120);}
+#my-tensor-id-7 td {background-color: rgb(118, 187, 109);}
+#my-tensor-id-8 td {background-color: rgb(129, 209, 104);}
+#my-tensor-id-9 td {background-color: rgb(143, 207, 113);} */
 
 /* single row adam main canv styling */
 #my-table-container-1 {
@@ -965,21 +1065,21 @@ td {
 }
 
 #my-table-container-g1 {
-    background-color: rgb(0, 140, 255);
+    background-color: #32cd32;
     position: absolute;
     left: 28%;
     top: 18%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g2 {
-    background-color: rgb(0, 140, 255);
+    background-color: #32cd32;
     position: absolute;
     left: 48%;
     top: 18%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g3 {
-    background-color: rgb(0, 140, 255);
+    background-color: #32cd32;
     position: absolute;
     left: 64%;
     top: 18%;
@@ -1007,21 +1107,21 @@ td {
     transform: translate(-50%, -50%);
 }
 #my-table-container-g7 {
-    background-color: rgb(0, 140, 255);
+    background-color: rgb(215, 218, 221);
     position: absolute;
     left: 28%;
     top: 82%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g8 {
-    background-color: rgb(0, 140, 255);
+    background-color: rgb(215, 218, 221);
     position: absolute;
     left: 48%;
     top: 82%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g9 {
-    background-color: rgb(0, 140, 255);
+    background-color: rgb(215, 218, 221);
     position: absolute;
     left: 64%;
     top: 82%;
@@ -1091,6 +1191,15 @@ td {
     top: 66%;
     transform: translate(-50%, -50%);
 }
+#operationContainer-g4 {
+    position: absolute;
+    left: 19%;
+    top: 66%;
+    height: 0%;
+    width: 50%;
+    border: 1px dashed rgb(0, 140, 255);
+    border: 1px dashed black;
+}
 
 
 #tableTitleContainer-1 {
@@ -1118,21 +1227,21 @@ td {
     position: absolute;
     font-family:'Segoe UI';
     left: 35%;
-    top: 27%;
+    top: 22%;
     transform: translate(-50%, -50%);
 }
 #tableTitleContainer-5 {
     position: absolute;
     font-family:'Segoe UI';
     left: 55%;
-    top: 27%;
+    top: 22%;
     transform: translate(-50%, -50%);
 }
 #tableTitleContainer-6 {
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
-    top: 27%;
+    top: 22%;
     transform: translate(-50%, -50%);
 }
 #tableTitleContainer-7 {
@@ -1178,83 +1287,83 @@ td {
     transform: translate(-50%, -50%);
 }
 #tableTitleContainer-g1 {
-    color: rgb(255, 0, 76);
-    font-size: .7vw;
+    /* color: rgb(255, 0, 76); */
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 36%;
+    left: 37%;
     top: 5%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g2 {
-    color: rgb(0, 255, 85);
-    font-size: .7vw;
+    /* color: rgb(0, 255, 85); */
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 56%;
+    left: 57%;
     top: 5%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g3 {
-    color: rgb(0, 255, 242);
-    font-size: .7vw;
+    /* color: rgb(0, 255, 242); */
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 68%;
+    left: 69%;
     top: 5%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g4 {
-    color: rgb(255, 0, 76);
-    font-size: .7vw;
+    /* color: rgb(255, 0, 76); */
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 36%;
+    left: 37%;
     top: 37%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g5 {
-    color: rgb(0, 255, 85);
-    font-size: .7vw;
+    /* color: rgb(0, 255, 85); */
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 56%;
+    left: 57%;
     top: 37%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g6 {
-    color: rgb(0, 255, 242);
-    font-size: .7vw;
+    /* color: rgb(0, 255, 242); */
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 68%;
+    left: 69%;
     top: 37%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g7 {
-    color: rgb(255, 0, 76);
-    font-size: .7vw;
+    /* color: rgb(255, 0, 76); */
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 36%;
+    left: 37%;
     top: 69%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g8 {
-    color: rgb(0, 255, 85);
-    font-size: .7vw;
+    /* color: rgb(0, 255, 85); */
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 56%;
+    left: 57%;
     top: 69%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g9 {
-    color: rgb(0, 255, 242);
-    font-size: .7vw;
+    /* color: rgb(0, 255, 242); */
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 68%;
+    left: 69%;
     top: 69%;
     transform: translate(-50%, 0%);
 }
@@ -1263,7 +1372,7 @@ td {
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
-    top: 18%;
+    top: 19%;
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d2 {
@@ -1271,7 +1380,7 @@ td {
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
-    top: 50%;
+    top: 51%;
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d3 {
@@ -1279,14 +1388,14 @@ td {
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
-    top: 82%;
+    top: 83%;
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d4 {
     /* background-color: rgb(0, 255, 136); */
     font-family:'Segoe UI';
     position: absolute;
-    left: 23%;
+    left: 21.5%;
     top: 49.5%;
     transform: translate(0%, -50%);
 }
@@ -1297,4 +1406,16 @@ td {
     left: 31%;
     top: 49.5%;
     transform: translate(0%, -50%);
+}
+#tableTitleContainer-d6 {
+    /* background-color: rgb(0, 255, 136); */
+    font-family:'Segoe UI';
+    position: absolute;
+    left: 50%;
+    top: 78%;
+    transform: translate(-50%, -50%);
+    font-weight: lighter;
+}
+#tableTitleContainer-d6 h2{
+    font-weight: lighter;
 }

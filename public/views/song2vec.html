@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -140,3 +141,196 @@
 <p class="p3"><span class="s10"></span><br></p>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .center {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+            }
+            heading1{
+                font-size: 2.5vw;
+                margin: auto;
+                text-align: center;
+                vertical-align: middle;
+            }
+            news {
+                font-size: 1.75vw;
+                margin: auto;
+                text-align: center;
+                
+            }
+            #restofpageSong {
+                background-color: whitesmoke;
+                bottom: 15vh;
+                height: 58vh;
+                position: fixed;
+                right: 0px;
+                width: 81.25vw;
+            }
+            #sidebar_song2vec{
+                background-color: grey;
+                border-right: 1vh solid #000000;
+                bottom: 0px;
+                box-sizing: border-box;
+                left: 0px;
+                height: 92vh;
+                position: fixed;
+                width: 18.75vw;
+            }
+            #sidebar_song2vec{
+                background-color: grey;
+                border-right: 1vh solid #000000;
+                bottom: 0vh;
+                box-sizing: border-box;
+                left: 0px;
+                height: 92vh;
+                position: fixed;
+                width: 25.25vw;
+            }
+            #sidebar_song2vec select {
+                margin: 30px;
+                width: 80%;
+            }
+            #sidebar_song2vec img {
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                width: 80px;
+            }
+            #song2vecbackground {
+                position: fixed;
+                margin-left: 30px;
+                margin-top: 125px;
+                width: 200px;
+            }
+            #main {
+                margin-left: 20vw;
+                margin-top: 10vh;
+                width: 60vw;
+            }
+            #main table {
+                width: 100%;
+                text-align: center;
+                border-collapse: collapse;
+                margin: 0 auto; /* add this line to center the table */
+            }
+            #main table th, #main table td {
+                border: 1px solid black;
+                padding: 10px;
+            }
+        </style>
+        <title>word2vec applications - visNLP</title>
+        <link rel="stylesheet" href="../style.css"/>
+    </head>
+    <body>
+      <div id="navbar">
+        <button class="navelement" id="homenav" onclick="window.location='/'">
+          <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
+          <h1>VisNLP 2.0 Home</h1>
+        </button>
+        <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
+        <button class="navelement"        onclick="window.location='/senback'"   ><h1>Sen2Vec</h1></button>
+        <button class="navelement"        onclick="window.location='/paraback'"  ><h1>Para2Vec</h1></button>
+        <button class="navelement"        onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
+        <button class="navelement-curr"   onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
+        <button class="navelement"        onclick="window.location='/news'"      ><h1>Fake News App</h1></button>
+      </div>
+        <div id="sidebar_song2vec">
+            <br>
+            <br>
+            <h2>Song Name?</h2>
+            <select id="songName">
+                <option value="option1">I Wanna Be Your Dog - The Stooges</option>
+                <option value="option2">Dance The Go-Go - The Breakers</option>
+                <option value="option3">Heaven Can Wait - Metaform</option>
+                <option value="option4">Que Sera - Wax Tailor</option>
+                <option value="option5">Honey - Moby</option>
+                <option value="option6">One in a million - Data</option>
+                <option value="option7">In The End - Linkin Park</option>
+                <option value="option8">Self Esteem - The Offspring</option>
+                <option value="option9">Electric Feel - MGMT</option>
+                <option value="option10">I Don't Want To Miss A Thing - Aerosmith</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button id="switch_newsvec_app_button" onclick="window.location='/songback'" >
+                <h1>Word2Vec Application Background</h1>
+            </button>
+            <br>
+            <br>
+            <button class="prev-topic-button" onclick="window.location='/adam'">
+                <h1>Prev:</h1>
+                <h1>Adam</h1>
+             </button>
+            <button class="next-topic-button" onclick="window.location='/newsBack'">
+                <h1>Next:</h1>
+                <h1>Fake News</h1>
+            </button>
+            <br>
+            <img src="public/assets/songtsne.png" alt="logo" style="width: 180px; ">
+        </div>
+        <div id="main">
+            <table>
+              <tr>
+                <th>Song Title: I Wanna Be Your Dog - The Stooges</th>
+                <th>Cosine Similarity: </th>
+              </tr>
+              <tr>
+                <td>Cool - Gwen Stefani</td>
+                <td>0.9999</td>
+              </tr>
+              <tr>
+                <td>Dreaming Of Houses - Nina Persson</td>
+                <td>0.9999</td>
+              </tr>
+              <tr>
+                <td>Kids In The Dark - All Time Low</td>
+                <td>0.9998</td>
+              </tr>
+              <tr>
+                <td>Nostrand - Ratatat</td>
+                <td>0.9998</td>
+              </tr>
+              <tr>
+                <td>Lessons Learned - Matt and Kim</td>
+                <td>0.9998</td>
+              </tr>
+              <tr>
+                <td>It Was Always You - Maroon 5</td>
+                <td>0.9993</td>
+              </tr>
+              <tr>
+                <td>Go Out And Love Someone - Pogo</td>
+                <td>0.9989</td>
+              </tr>
+              <tr>
+                <td>Horseshoes And Handgrenades - Green Day</td>
+                <td>0.9988</td>
+              </tr>
+              <tr>
+                <td>Can't Let Go - Air Traffic Controller</td>
+                <td>0.9986</td>
+              </tr>
+              <tr>
+                <td>Tallulah - Sonata Arctica</td>
+                <td>0.9984</td>
+              </tr>
+            </table>
+          </div>
+          <div id="footer">
+            <h1>potentially add info</h1>
+
+          </div>
+               
+>>>>>>> 3b1750d84378b6b94935bff180a4cea4432dd0b6

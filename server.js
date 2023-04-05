@@ -41,16 +41,18 @@ app.get('/',          ( req, res ) => { res.sendFile( path.join( __dirname + '/p
 app.get('/intro',     ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/basics.html'   ) ); } );
 app.get('/w2v',       ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/word2vec.html' ) ); } );
 app.get('/s2v',       ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/sen2vec.html'  ) ); } );
+app.get('/senback',   ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/senback.html'  ) ); } );
 app.get('/p2v',       ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/para2vec.html' ) ); } );
+app.get('/paraback',  ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/paraback.html' ) ); } );
 app.get('/song',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/song2vec.html' ) ); } );
-app.get('/newsback',   ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/news2vec.html' ) ); } );
-app.get('/adam',       ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/adam.html'     ) ); } );
+app.get('/newsback',  ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/news2vec.html' ) ); } );
+app.get('/adam',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/adam.html'     ) ); } );
 app.get('/news',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/newsback.html' ) ); } );
 app.get('/adamstep',  ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/adamstep.html'     ) ); } );
 app.get('/cbowdata',  ( req, res ) => { cbow_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
 //app.get('/skipdata',  ( req, res ) => { skip_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
 app.get('/adamdata',  ( req, res ) => { adam_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
-
+app.get('/songback',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/songback.html') ); } );
 app.listen( process.env.PORT || 3000, function()
 {
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
