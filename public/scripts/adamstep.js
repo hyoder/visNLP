@@ -1052,20 +1052,27 @@ function gradients()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-4';
-    tableTitleContainer1.innerHTML = "<h2>Param 1 Grad</h2>"
+    tableTitleContainer1.innerHTML = "<h2>Gradient</h2><h2>w.r.t. Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-5';
-    tableTitleContainer2.innerHTML = "<h2>Param 2 Grad</h2>"
+    tableTitleContainer2.innerHTML = "<h2>Gradient</h2><h2>w.r.t. Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-6';
-    tableTitleContainer3.innerHTML = "<h2>Param 3 Grad</h2>"
+    tableTitleContainer3.innerHTML = "<h2>Gradient</h2><h2>w.r.t. Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
+
+    // TITLE HEADER DESC 6
+    const tableTitleContainer15 = document.createElement('div');
+    tableTitleContainer15.id = 'tableTitleContainer-d6';
+    tableTitleContainer15.innerHTML = "<h2> 3 Gradients Are Obtained w.r.t. (with respect to) The 3 Model Parameters to be Optimized </h2>"
+    
+    mainContentContainer.appendChild(tableTitleContainer15);
 }
 
 
@@ -1225,37 +1232,37 @@ function first_moment_a()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -1440,37 +1447,37 @@ function first_moment_b()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -1649,55 +1656,55 @@ function first_moment_c()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 4
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-g4';
-    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer4.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 
     // TITLE HEADER 5
     const tableTitleContainer5 = document.createElement('div');
     tableTitleContainer5.id = 'tableTitleContainer-g5';
-    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer5.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer5); 
 
     // TITLE HEADER 6
     const tableTitleContainer6 = document.createElement('div');
     tableTitleContainer6.id = 'tableTitleContainer-g6';
-    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer6.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer6); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -1832,37 +1839,37 @@ function second_moment_a()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -2033,37 +2040,37 @@ function second_moment_b()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -2246,37 +2253,37 @@ function second_moment_c()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -2455,55 +2462,55 @@ function second_moment_d()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 4
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-g4';
-    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer4.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 
     // TITLE HEADER 5
     const tableTitleContainer5 = document.createElement('div');
     tableTitleContainer5.id = 'tableTitleContainer-g5';
-    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer5.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer5); 
 
     // TITLE HEADER 6
     const tableTitleContainer6 = document.createElement('div');
     tableTitleContainer6.id = 'tableTitleContainer-g6';
-    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer6.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer6); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -2680,37 +2687,37 @@ function bc_first_moment()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -2893,37 +2900,37 @@ function bc_second_moment()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -3064,37 +3071,37 @@ function update_params_a()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -3106,7 +3113,7 @@ function update_params_a()
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Bias Corrected Second Moment Square-Root</h2>"
+    tableTitleContainer12.innerHTML = "<h2>Bias Corrected Second Moment Square-Root (sqrt(<span>v&#770;</span><sub>t</sub>)) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
@@ -3265,49 +3272,49 @@ function update_params_b()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>[ sqrt(<span>v&#770;</span>) ] Ans</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Ans (sqrt(<span>v&#770;</span><sub>t</sub>)) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[ sqrt(<span>v&#770;</span>) + eps ] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans (sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐)</h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -3474,55 +3481,55 @@ function update_params_c()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 4
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-g4';
-    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer4.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 
     // TITLE HEADER 5
     const tableTitleContainer5 = document.createElement('div');
     tableTitleContainer5.id = 'tableTitleContainer-g5';
-    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer5.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer5); 
 
     // TITLE HEADER 6
     const tableTitleContainer6 = document.createElement('div');
     tableTitleContainer6.id = 'tableTitleContainer-g6';
-    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer6.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer6); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
@@ -3534,14 +3541,14 @@ function update_params_c()
     // TITLE HEADER DESC 2
     const tableTitleContainer11 = document.createElement('div');
     tableTitleContainer11.id = 'tableTitleContainer-d2';
-    tableTitleContainer11.innerHTML = "<h2>[ sqrt(<span>v&#770;</span>) + eps ] Ans</h2>"
+    tableTitleContainer11.innerHTML = "<h2> Ans (sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐) </h2>"
     mainContentContainer.appendChild(tableTitleContainer11); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
     //tableTitleContainer12.innerHTML = "<h2>[ <span>m&#770;</span> / sqrt(<span>v&#770;</span>) + eps ] Ans</h2>"
-    tableTitleContainer12.innerHTML = "<h2>Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans (<span>m&#770;</span><sub>t</sub>/(sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐)))</h2>"
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
@@ -3700,49 +3707,49 @@ function update_params_d()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Ans</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Ans (<span>m&#770;</span><sub>t</sub>/(sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐))) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Update Step</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Update Step (-𝞪●<span>m&#770;</span><sub>t</sub>/(sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐)) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -3909,74 +3916,75 @@ function update_params_e()
     // TITLE HEADER 1
     const tableTitleContainer1 = document.createElement('div');
     tableTitleContainer1.id = 'tableTitleContainer-g1';
-    tableTitleContainer1.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer1.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer1);
 
     // TITLE HEADER 2
     const tableTitleContainer2 = document.createElement('div');
     tableTitleContainer2.id = 'tableTitleContainer-g2';
-    tableTitleContainer2.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer2.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer2);
 
     // TITLE HEADER 3
     const tableTitleContainer3 = document.createElement('div');
     tableTitleContainer3.id = 'tableTitleContainer-g3';
-    tableTitleContainer3.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer3.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer3); 
 
     // TITLE HEADER 4
     const tableTitleContainer4 = document.createElement('div');
     tableTitleContainer4.id = 'tableTitleContainer-g4';
-    tableTitleContainer4.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer4.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer4); 
 
     // TITLE HEADER 5
     const tableTitleContainer5 = document.createElement('div');
     tableTitleContainer5.id = 'tableTitleContainer-g5';
-    tableTitleContainer5.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer5.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer5); 
 
     // TITLE HEADER 6
     const tableTitleContainer6 = document.createElement('div');
     tableTitleContainer6.id = 'tableTitleContainer-g6';
-    tableTitleContainer6.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer6.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer6); 
 
     // TITLE HEADER 7
     const tableTitleContainer7 = document.createElement('div');
     tableTitleContainer7.id = 'tableTitleContainer-g7';
-    tableTitleContainer7.innerHTML = "<h2>P1</h2>"
+    tableTitleContainer7.innerHTML = "<h2>w.r.t.</h2><h2>Param 1</h2>"
     mainContentContainer.appendChild(tableTitleContainer7); 
 
     // TITLE HEADER 8
     const tableTitleContainer8 = document.createElement('div');
     tableTitleContainer8.id = 'tableTitleContainer-g8';
-    tableTitleContainer8.innerHTML = "<h2>P2</h2>"
+    tableTitleContainer8.innerHTML = "<h2>w.r.t.</h2><h2>Param 2</h2>"
     mainContentContainer.appendChild(tableTitleContainer8); 
 
     // TITLE HEADER 9
     const tableTitleContainer9 = document.createElement('div');
     tableTitleContainer9.id = 'tableTitleContainer-g9';
-    tableTitleContainer9.innerHTML = "<h2>P3</h2>"
+    tableTitleContainer9.innerHTML = "<h2>w.r.t.</h2><h2>Param 3</h2>"
     mainContentContainer.appendChild(tableTitleContainer9); 
 
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Current Model Parameters</h2>"
+    tableTitleContainer10.innerHTML = "<h2>Current Model Parameters (θ<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 2
     const tableTitleContainer11 = document.createElement('div');
     tableTitleContainer11.id = 'tableTitleContainer-d2';
-    tableTitleContainer11.innerHTML = "<h2>Update Step</h2>"
+    tableTitleContainer11.innerHTML = "<h2> Update Step (-𝞪●<span>m&#770;</span><sub>t</sub>/(sqrt(<span>v&#770;</span><sub>t</sub>)+𝝐)) </h2>"
     mainContentContainer.appendChild(tableTitleContainer11); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Updated Model Parameters</h2>"
+    tableTitleContainer12.innerHTML = "<h2>Updated Model Parameters (θ<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12); 
+
 }
 
 
@@ -4116,7 +4124,7 @@ function setsidebar( input )
 
     // CURRENT PARAMS TEXT
 
-    
+
     const sidebar_curr_param_text_container = document.createElement('div');
     sidebar_curr_param_text_container.id = 'sidebar_curr_param_text_container';
     sidebar_curr_param_text_container.innerHTML = "<p>Current Model Parameters</p>"
@@ -4304,7 +4312,7 @@ function setsidebar( input )
     // create a new HTML element to hold the main content container
     const sidebar_color_key_container = document.createElement('div');
     sidebar_color_key_container.id = 'sidebar-color-key-container';
-    sidebar_color_key_container.innerHTML = "<p>P1<span style='color: rgb(255, 0, 76)'> Embeddings</span> | P2<span style='color: rgb(0, 255, 85)'> Weights</span> | P3<span style='color: rgb(0, 255, 242)'> Bias</span></p>"
+    sidebar_color_key_container.innerHTML = "<p>Param 1<span style='color: rgb(255, 0, 76)'> Embeddings</span> | Param 2<span style='color: rgb(0, 255, 85)'> Weights</span> | Param 3<span style='color: rgb(0, 255, 242)'> Bias</span></p>"
 
     // append the table container to the canvas element
     sidebar_canv.appendChild(sidebar_color_key_container);

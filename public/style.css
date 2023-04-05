@@ -765,7 +765,7 @@ td {
 
 #sidebar-curr-param-container {
     /* background-color: #32cd32; */
-    width: 23.4vw;
+    width: 23.2vw;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1217,21 +1217,21 @@ td {
     position: absolute;
     font-family:'Segoe UI';
     left: 35%;
-    top: 27%;
+    top: 22%;
     transform: translate(-50%, -50%);
 }
 #tableTitleContainer-5 {
     position: absolute;
     font-family:'Segoe UI';
     left: 55%;
-    top: 27%;
+    top: 22%;
     transform: translate(-50%, -50%);
 }
 #tableTitleContainer-6 {
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
-    top: 27%;
+    top: 22%;
     transform: translate(-50%, -50%);
 }
 #tableTitleContainer-7 {
@@ -1278,82 +1278,82 @@ td {
 }
 #tableTitleContainer-g1 {
     /* color: rgb(255, 0, 76); */
-    font-size: .7vw;
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 36%;
+    left: 37%;
     top: 5%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g2 {
     /* color: rgb(0, 255, 85); */
-    font-size: .7vw;
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 56%;
+    left: 57%;
     top: 5%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g3 {
     /* color: rgb(0, 255, 242); */
-    font-size: .7vw;
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 68%;
+    left: 69%;
     top: 5%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g4 {
     /* color: rgb(255, 0, 76); */
-    font-size: .7vw;
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 36%;
+    left: 37%;
     top: 37%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g5 {
     /* color: rgb(0, 255, 85); */
-    font-size: .7vw;
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 56%;
+    left: 57%;
     top: 37%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g6 {
     /* color: rgb(0, 255, 242); */
-    font-size: .7vw;
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 68%;
+    left: 69%;
     top: 37%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g7 {
     /* color: rgb(255, 0, 76); */
-    font-size: .7vw;
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 36%;
+    left: 37%;
     top: 69%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g8 {
     /* color: rgb(0, 255, 85); */
-    font-size: .7vw;
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 56%;
+    left: 57%;
     top: 69%;
     transform: translate(-50%, 0%);
 }
 #tableTitleContainer-g9 {
     /* color: rgb(0, 255, 242); */
-    font-size: .7vw;
+    font-size: .5vw;
     font-family:'Segoe UI';
     position: absolute;
-    left: 68%;
+    left: 69%;
     top: 69%;
     transform: translate(-50%, 0%);
 }
@@ -1362,7 +1362,7 @@ td {
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
-    top: 18%;
+    top: 19%;
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d2 {
@@ -1370,7 +1370,7 @@ td {
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
-    top: 50%;
+    top: 51%;
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d3 {
@@ -1378,7 +1378,7 @@ td {
     font-family:'Segoe UI';
     position: absolute;
     left: 70%;
-    top: 82%;
+    top: 83%;
     transform: translate(0%, -50%);
 }
 #tableTitleContainer-d4 {
