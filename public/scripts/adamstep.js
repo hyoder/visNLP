@@ -1268,13 +1268,13 @@ function first_moment_a()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Current Gradients</h2>"
+    tableTitleContainer10.innerHTML = "<h2>Current Gradients (g<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[(1-beta1)*grad] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans ((1 - β<sub>1</sub>) ● g<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -1483,13 +1483,13 @@ function first_moment_b()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>prev exp_avg (m)</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Previous First Moment (m<sub>t-1</sub>)</h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[prev_m * beta1] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans (β<sub>1</sub> ● m<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -1710,13 +1710,13 @@ function first_moment_c()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>[prev_m * beta1] Ans</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Ans (β<sub>1</sub> ● m<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 2
     const tableTitleContainer11 = document.createElement('div');
     tableTitleContainer11.id = 'tableTitleContainer-d2';
-    tableTitleContainer11.innerHTML = "<h2>[(1-beta1)*grad] Ans</h2>"
+    tableTitleContainer11.innerHTML = "<h2> Ans ((1 - β<sub>1</sub>) ● g<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer11); 
 
     // TITLE HEADER DESC 3
@@ -1726,6 +1726,7 @@ function first_moment_c()
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
+testtttt = "<h2> m<sub>t</sub> ← <span style='color: #32cd32'>β<sub>1</sub> ● m<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>+ (1 - β<sub>1</sub>) ● g<sub>t</sub></span> </h2>"
 
 function second_moment_a()
 {
@@ -1875,13 +1876,13 @@ function second_moment_a()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Current Gradients</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Current Gradients (g<sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>Gradients Squared</h2>"
+    tableTitleContainer12.innerHTML = "<h2>Gradients Squared (g<sup>2</sup><sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
@@ -2076,13 +2077,13 @@ function second_moment_b()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>Gradients Squared</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Gradients Squared (g<sup>2</sup><sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[(1-Beta2)*grad_sq] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans ((1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub>)</h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -2289,13 +2290,13 @@ function second_moment_c()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>prev_v</h2>"
+    tableTitleContainer10.innerHTML = "<h2>Previous Second Raw Moment (v<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 3
     const tableTitleContainer12 = document.createElement('div');
     tableTitleContainer12.id = 'tableTitleContainer-d3';
-    tableTitleContainer12.innerHTML = "<h2>[prev_v * Beta2] Ans</h2>"
+    tableTitleContainer12.innerHTML = "<h2> Ans (β<sub>2</sub> ● v<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer12);
 
     // TITLE HEADER DESC 4
@@ -2516,13 +2517,13 @@ function second_moment_d()
     // TITLE HEADER DESC 1
     const tableTitleContainer10 = document.createElement('div');
     tableTitleContainer10.id = 'tableTitleContainer-d1';
-    tableTitleContainer10.innerHTML = "<h2>[prev_v * Beta2] Ans</h2>"
+    tableTitleContainer10.innerHTML = "<h2> Ans (β<sub>2</sub> ● v<sub>t-1</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer10); 
 
     // TITLE HEADER DESC 2
     const tableTitleContainer11 = document.createElement('div');
     tableTitleContainer11.id = 'tableTitleContainer-d2';
-    tableTitleContainer11.innerHTML = "<h2>[(1-Beta2)*grad_sq] Ans</h2>"
+    tableTitleContainer11.innerHTML = "<h2> Ans ((1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub>) </h2>"
     mainContentContainer.appendChild(tableTitleContainer11); 
 
     // TITLE HEADER DESC 3
