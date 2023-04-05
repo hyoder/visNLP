@@ -519,6 +519,16 @@ td {
     width: 18.75vw;
 }
 
+.sidebar-web-diagram img {
+    width: 100%;
+    border: 2px dashed grey;
+    border-radius: 10px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-left: 0vw;
+    padding-right: 1vw;
+}
+
 #switch_newsvec_app_button {
     /* background-color:#49b293 ; */
     background-color: lightgray;
