@@ -576,6 +576,34 @@ td {
     display: inline-flex;
     height: 100%;
     vertical-align: middle;
+    position: relative; /* add relative positioning to align the icon */
+}
+.navelement-curr {
+    background-color: #b85858;
+    border-bottom: 1vh solid #000000;
+    border-left: 0.5vh solid #000000;
+    border-right: 0.5vh solid #000000;
+    border-top: 1vh solid #000000;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: inline-flex;
+    height: 100%;
+    vertical-align: middle;
+    position: relative; /* add relative positioning to align the icon */
+}
+.nav-button-icon {
+    /* set the size and position of the icon */
+    width: 9vh;
+    height: 3vh;
+    position: absolute;
+    left: 1vw;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#homenav {
+    width: 45.2vw;
+    /* add padding to make room for the icon */
+    padding-left: 5vw;
 }
 
 .navelement:hover {

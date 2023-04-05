@@ -58,23 +58,25 @@
     </head>
     <body>
         <div id="navbar">
-            <button class="navelement" onclick="window.location='/'"     ><h1>Home</h1></button>
-            <button class="navelement" onclick="window.location='/intro'"><h1>NLP Basics</h1></button>
-            <button class="navelement" onclick="window.location='/w2v'"  ><h1>Word2Vec</h1></button>
-            <button class="navelement" onclick="window.location='/s2v'"  ><h1>Sen2Vec</h1></button>
-            <button class="navelement" onclick="window.location='/p2v'"  ><h1>Para2Vec</h1></button>
-            <button class="navelement" onclick="window.location='/adam'" ><h1>Adam Optimizer</h1></button>
-            <button class="navelement" onclick="window.location='/song'" ><h1>Songs App</h1></button>
-            <button class="navelement" onclick="window.location='/news'" ><h1>Fake News App</h1></button>
+            <button class="navelement" id="homenav" onclick="window.location='/'">
+              <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
+              <h1>VisNLP 2.0 Home</h1>
+            </button>
+            <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/s2v'"       ><h1>Sen2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/p2v'"       ><h1>Para2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
+            <button class="navelement"        onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
+            <button class="navelement-curr"   onclick="window.location='/news'"      ><h1>Fake News App</h1></button>
         </div>
         <div id="sidebar_back">
             <button id="switch_newsvec_app_button" onclick="window.location='/newsback'" >
                 <h1>Para2vec News Application</h1>
             </button>
             <div style="height:75vh;"></div>
-            <button class="prev-topic-button" onclick="window.location='/song'">
+            <button class="prev-topic-button" onclick="window.location='/songback'">
                 <h2>Prev:</h2>
-                <h1>Song2Vec</h1>
+                <h1>Songs App</h1>
              </button>
             <button class="next-topic-button" onclick="window.location='/'">
                 <h2>Next:</h2>

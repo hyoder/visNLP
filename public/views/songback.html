@@ -58,14 +58,16 @@
     </head>
     <body>
         <div id="navbar">
-            <button class="navelement" onclick="window.location='/'"     ><h1>Home</h1></button>
-            <button class="navelement" onclick="window.location='/intro'"><h1>NLP Basics</h1></button>
-            <button class="navelement" onclick="window.location='/w2v'"  ><h1>Word2Vec</h1></button>
-            <button class="navelement" onclick="window.location='/s2v'"  ><h1>Sen2Vec</h1></button>
-            <button class="navelement" onclick="window.location='/p2v'"  ><h1>Para2Vec</h1></button>
-            <button class="navelement" onclick="window.location='/adam'" ><h1>Adam Optimizer</h1></button>
-            <button class="navelement" onclick="window.location='/song'" ><h1>Songs App</h1></button>
-            <button class="navelement" onclick="window.location='/news'" ><h1>Fake News App</h1></button>
+            <button class="navelement" id="homenav" onclick="window.location='/'">
+              <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
+              <h1>VisNLP 2.0 Home</h1>
+            </button>
+            <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/s2v'"       ><h1>Sen2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/p2v'"       ><h1>Para2Vec</h1></button>
+            <button class="navelement"        onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
+            <button class="navelement-curr"   onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
+            <button class="navelement"        onclick="window.location='/news'"      ><h1>Fake News App</h1></button>
         </div>
         <div id="sidebar_back">
             <button id="switch_newsvec_app_button" onclick="window.location='/song'" >
@@ -74,11 +76,11 @@
             <div style="height:75vh;"></div>
             <button class="prev-topic-button" onclick="window.location='/adam'">
                 <h2>Prev:</h2>
-                <h1>Adam</h1>
+                <h1>Adam Optim.</h1>
              </button>
-            <button class="next-topic-button" onclick="window.location='/newsback'">
+            <button class="next-topic-button" onclick="window.location='/news'">
                 <h2>Next:</h2>
-                <h1>Fake News</h1>
+                <h1>News App</h1>
             </button>
         </div>
         <!-- <div id="restofpageNews"> -->
