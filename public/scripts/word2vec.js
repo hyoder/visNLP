@@ -27,28 +27,31 @@ function meta()
     else { output += "<h4>page #" + (page_status+1) + "</h4>"; }
     return output += "</div>"
 }
-function init() {
+function init()
+{
     setfooter();
     canv.dataset.mode = "n/a";
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style=\"height:15vh\"></div>";
-    canv.innerHTML += "<h2>select mode for word2vec:</h2>";
-    let btn_holder  = "<div style=\"position:fixed;right:12.5vw;top:35vh;\">"
-        btn_holder += "<button id = \"cbow_btn\">CBOW</button>"
-        btn_holder += "<button id = \"skip_btn\">skip-gram</button>"
-        btn_holder += "</div>";
-    canv.innerHTML += btn_holder;
-    const cbow_btn = document.getElementById( "cbow_btn" ),
-          skip_btn = document.getElementById( "skip_btn" );
-    cbow_btn.addEventListener( "click", () => { canv.dataset.mode =     "cbow"; getData(0, canv.dataset.mode); updater(1); } );
-    skip_btn.addEventListener( "click", () => { canv.dataset.mode = "skipgram"; getData(0, canv.dataset.mode); updater(1); } );
-    cbow_btn.addEventListener( "mouseover", () => { setfooter("cbow"); } );
-    skip_btn.addEventListener( "mouseover", () => { setfooter("skip"); } );
-    cbow_btn.addEventListener( "mouseout",  () => { setfooter(); } );
-    skip_btn.addEventListener( "mouseout",  () => { setfooter(); } );
+    let cbow_btn = document.getElementById("cbow_btn"),
+        skip_btn = document.getElementById("skip_btn"),
+        prev_btn = document.getElementById("prev_btn"),
+        next_btn = document.getElementById("next_btn");
+        cbow_btn.innerHTML = "<h1>word2vec step-by-step: CBOW</h1>";
+        skip_btn.innerHTML = "<h1>word2vec step-by-step: skip-gram</h1>";
+        prev_btn.innerHTML = "<h2>prev:</h2><h1>home</h1>";
+        next_btn.innerHTML = "<h2>next:</h2><h1>sen2vec</h1>";
+        cbow_btn.addEventListener( "click"    , () => { canv.dataset.mode =     "cbow"; getData(epoch_status, canv.dataset.mode); updater(1); } );
+        skip_btn.addEventListener( "click"    , () => { canv.dataset.mode = "skipgram"; getData(epoch_status, canv.dataset.mode); updater(1); } );
+        prev_btn.addEventListener( "click"    , () => { window.location = '/'       ; } );
+        next_btn.addEventListener( "click"    , () => { window.location = '/senback'; } );
+        cbow_btn.addEventListener( "mouseover", () => { setfooter("cbow"); } );
+        skip_btn.addEventListener( "mouseover", () => { setfooter("skip"); } );
+        cbow_btn.addEventListener( "mouseout",  () => { setfooter(); } );
+        skip_btn.addEventListener( "mouseout",  () => { setfooter(); } );
 }
 function textprep() 
 {
+    sidebar.innerHTML = "";
     setfooter();
     const t = document.createElement("table");
     canv.innerHTML  = meta();
