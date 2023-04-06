@@ -159,6 +159,14 @@ td {
     overflow: hidden;
     position: relative; /* add position relative to the parent div */
 }
+#songVisualContainer2{
+    /* background-color: orange; */
+    width: 68vw;
+    height: 64vh;
+    display: inline-flex;
+    overflow: hidden;
+    position: relative; /* add position relative to the parent div */
+}
 #songVisualContainer2 img {
     position: absolute; /* set image position to absolute */
     top: 50%; /* set image top to 50% */
@@ -176,6 +184,21 @@ td {
     height: 62vh;
     overflow: hidden;
     justify-content: center;
+}
+#songPlotContainer2 {
+    /* background-color: green; */
+    margin-top: 10vh;
+    width: 30vw;
+    height: 68vh;
+    overflow: hidden;
+    justify-content: center;
+    align-content: center;
+}
+#songPlotContainer2 h2{
+    color: #8b0000;
+    margin-top: 3vh;
+    font-family:'Segoe UI';
+    font-size: 3vw;
 }
 #song_table {
     background-color: lightgrey;
@@ -429,18 +452,23 @@ td {
     z-index: 2;
 }
 
-#submit_btn {
-    width: 20vw;
+#song_submit_btn {
+    background-color: #b80101;
+    color: white;
     border-radius: 5px;
-    margin-left: 1.5vw;
-    background-color: white;
+    font-family: 'Segoe UI';
+    font-size: 1.2vw;
+    font-weight: bold;
+    border: .1vw solid black;
+    width: 18vw;
+    margin-left: 2.8vw ;
 }
-
-
-
+#song_submit_btn:hover {
+    background-color: #cc3d3d;
+}
 #state_select {
     width: 19vw;
-    margin-left: 2vw;
+    margin-left: 2.3vw;
     appearance: none;
     border: none;
     background-color: #f8f8f8;

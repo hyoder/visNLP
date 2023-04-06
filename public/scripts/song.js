@@ -2,17 +2,17 @@ const      canv = document.getElementById( "canv_song" ),
    sidebar_canv = document.getElementById( "sidebar_canv_adam"),
          footer = document.getElementById( "footer"),
    state_select = document.getElementById( "state_select" ),
-     submit_btn = document.getElementById( "submit_btn"),
+     submit_btn = document.getElementById( "song_submit_btn"),
       reset_btn = document.getElementById( "song_reset_btn" )
         sidebar = document.getElementById( "sidebar_adam"),
-       statuses = ["songs_intro", "songs1", "songs2", "songs3", "songs4", "songs5", "songs6", "songs7", "songs8", "songs9", "songs10"];
+       statuses = ["songs_intro", "songs1", "songs2", "songs3", "songs4", "songs5", "songs6", "songs7", "songs8", "songs9", "songs10", "buffer_page"];
 // init current page and epoch
 let page_status = 0;
 let epoch_status = 0;
 // init data var
 let adam_data;
 // define page and epoch counts
-let page_count = 11;
+let page_count = 12;
 let epoch_count = 20;
 
 
@@ -49,7 +49,7 @@ function songs_intro()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/tsne.png';
+    img.src = 'assets/song_tsne_plots/tsne.png';
     img.style.width = '37vw'; // set image width to 100% of container width
     img.style.height = '37vw'; // allow image to maintain its aspect ratio
     img.style.position = 'absolute'; // set image position to absolute
@@ -102,7 +102,7 @@ function songs1()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/song_tsne_plots/Bad Day - Daniel Powter.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -210,7 +210,7 @@ function songs2()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Born In The U.S.A. - Bruce Springsteen.png';
+    img.src = 'assets/song_tsne_plots/Born In The U.S.A. - Bruce Springsteen.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -318,7 +318,7 @@ function songs3()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/song_tsne_plots/Bad Day - Daniel Powter.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -426,7 +426,7 @@ function songs4()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/song_tsne_plots/Bad Day - Daniel Powter.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -534,7 +534,7 @@ function songs5()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/song_tsne_plots/Bad Day - Daniel Powter.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -641,7 +641,7 @@ function songs6()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/song_tsne_plots/Bad Day - Daniel Powter.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -749,7 +749,7 @@ function songs7()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/song_tsne_plots/Bad Day - Daniel Powter.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -856,7 +856,7 @@ function songs8()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/song_tsne_plots/Bad Day - Daniel Powter.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -964,7 +964,7 @@ function songs9()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/song_tsne_plots/Bad Day - Daniel Powter.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -1072,7 +1072,7 @@ function songs10()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/song_tsne_plots/Bad Day - Daniel Powter.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -1142,6 +1142,41 @@ function songs10()
 }
 
 
+function buffer_page()
+{
+    // CLEAR CANV
+    canv.innerHTML = '';
+
+    setfooter( "buffer_page" ); 
+    setsidebar( "default" );
+    
+    // SET CONTAINERS
+
+    // visuals container
+    const songVisualContainer = document.createElement('div');
+    songVisualContainer.id = 'songVisualContainer';
+    canv.appendChild(songVisualContainer);
+
+    // LOADING ANIMATION AND TEXT
+    const songPlotContainer = document.createElement('div');
+    songPlotContainer.id = 'songPlotContainer2';
+    songVisualContainer.appendChild(songPlotContainer)
+    // LOADING TEXT
+    songPlotContainer.innerHTML += "<h2 style='margin-bottom:6vh;margin-top:2vh;' > Generating Outs.. </h2>"
+
+    // LOADING GIF
+    const img = document.createElement('img');
+    img.src = 'assets/gifs/ajax-loader.gif';
+    img.style.width = '50%';
+    img.style.height = 'auto';
+
+    // append the image to the songPlotContainer
+    songPlotContainer.appendChild(img);
+
+
+}
+
+
 function setfooter( input ) // takes input from event listener and then 
 {
     switch( input ) {
@@ -1169,6 +1204,8 @@ function setfooter( input ) // takes input from event listener and then
                             break;   
         case "songs10":      footer.innerHTML = "<h2> slide desc 10</h2>"
                             break;
+        case "songs10":      footer.innerHTML = "<h2> buffer page desc </h2>"
+                            break;
     }
 }
 
@@ -1193,11 +1230,19 @@ function setsidebar( input )
     // DROPDOWN USER TEXT
 
 
-    const sidebar_curr_param_text_container = document.createElement('div');
-    sidebar_curr_param_text_container.id = 'sidebar_curr_param_text_container';
-    sidebar_curr_param_text_container.innerHTML = "<p> Select A Song to... </p>"
-    sidebar_canv.appendChild(sidebar_curr_param_text_container);
+    // ABOVE BUTTONS USER TEXT
 
+    const sidebar_curr_param_text_container = document.createElement('div');
+    // FORMATTING FOR THE TEXT IN CSS @ (#sidebar_new_text_container p)
+    sidebar_curr_param_text_container.id = 'sidebar_new_text_container';
+    // CHANGE THIS TEXT
+    sidebar_curr_param_text_container.innerHTML = "<p> Select A Song to... and something and more words to more word content </p>";
+    // IF SIDEBAR TEXT IS VARIABLE FROM SLIDE TO SLIDE (use commented logic instead)..
+    // if ( page_status == 0 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 1/15 text </p>"; }
+    // else if ( page_status == 1 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 2/15 text </p>"; }
+    // else if ( page_status == 2 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 3/15 text </p>"; }
+
+    sidebar_canv.appendChild(sidebar_curr_param_text_container);
 }
 
 function updater( val )
@@ -1219,49 +1264,58 @@ function updater( val )
     let page = statuses[ page_status ];
     console.log("page: " + page);
 
-    // set display delay time in ms
-    let delay = 400;
-    // on pages we expect updates increase delay time
-    //if (page_status == 0 || page_status == page_count - 1){ delay = 500 }    
     
+    // set buffer animation time in ms
+    let buffer_delay = 800;
+
+    if (page != 'songs_intro') {
     setTimeout(function() {
+        // call buffer() with a delay of 400ms
+        setTimeout(buffer_page, 10);
+
+        // execute switch statement with a delay of 800ms
+        setTimeout(function() {
         switch(page) {
             case "songs_intro":
-                songs_intro();
-                break;
+            songs_intro();
+            break;
             case "songs1": 
-                songs1(); 
-                break;
+            songs1(); 
+            break;
             case "songs2": 
-                songs2(); 
-                break;
+            songs2(); 
+            break;
             case "songs3": 
-                songs3(); 
-                break;
+            songs3(); 
+            break;
             case "songs4": 
-                songs4(); 
-                break;
+            songs4(); 
+            break;
             case "songs5": 
-                songs5(); 
-                break;
+            songs5(); 
+            break;
             case "songs6": 
-                songs6(); 
-                break;
+            songs6(); 
+            break;
             case "songs7": 
-                songs7(); 
-                break;
+            songs7(); 
+            break;
             case "songs8": 
-                songs8(); 
-                break;
+            songs8(); 
+            break;
             case "songs9": 
-                songs9(); 
-                break;
+            songs9(); 
+            break;
             case "songs10": 
-                songs10(); 
-                break;
+            songs10(); 
+            break;
         }
-    }, delay);
-    
+        }, 3000);
+    }, buffer_delay);
+    } else {
+        setTimeout(songs_intro(), 400);
+    }
+
 }
 
 //call with getData(0) for 0: Object
