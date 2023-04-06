@@ -105,6 +105,7 @@ td {
     z-index: 1;;
 }
 #canv_adam {
+    background-color: whitesmoke;
     height: 67vh;
     position: fixed;
     text-align: center;
@@ -510,7 +511,8 @@ td {
 }
 .meta_adam_class h5 {
     display: inline-block;
-    color: rgb(0, 140, 255);
+    /* color: rgb(0, 140, 255); */
+    color: #b80101;
     font-size: 2vw;
     margin-top: 1.5vh;
     margin-left: 2px;
@@ -521,14 +523,15 @@ td {
     border-top: 3px solid black;
     border-right: 3px solid black;
     height: 1vh;
-    left: 37.6vw;
-    width: 62.3vw;
+    left: 37.5vw;
+    width: 62.4vw;
     top: 73.7vh;
     /* left: 40vw; */
     position: fixed;
 }
 #meta_adam_progress_bar {
-    background-color: rgb(0, 140, 255);
+    /* background-color: rgb(0, 140, 255); */
+    background-color: #b80101;
     height: 100%;
 }
 
@@ -874,7 +877,8 @@ td {
     position: relative; /* add relative positioning to align the icon */
 }
 .navelement-curr {
-    background-color: #b85858;
+    /* background-color: #b85858; */
+    background-color: #b80101;
     border-bottom: 1vh solid #000000;
     border-left: 0.5vh solid #000000;
     border-right: 0.5vh solid #000000;
