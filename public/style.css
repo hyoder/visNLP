@@ -642,7 +642,7 @@ td {
     color: #8b0000;
     font-size: 2.3vw;
     padding-top: 3vh;
-    padding-bottom: 2vh;
+    padding-bottom: 3vh;
 }
 #restofpage_home h2 {
     color: black;
@@ -705,7 +705,7 @@ td {
     color: #8b0000;
     font-size: 3vw;
     padding-top: 3vh;
-    padding-bottom: 2vh;
+    padding-bottom: 4vh;
 }
 #restofpage_overview h2 {
     color: black;
@@ -775,16 +775,18 @@ td {
     width: 18.75vw;
 }
 
-
+.sidebar-web-diagram {
+    /* background-color: white; */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-radius: 5px;
+    margin: .3vw;
+}
 
 .sidebar-web-diagram img {
-    width: 100%;
-    border: 2px dashed grey;
-    border-radius: 10px;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    padding-left: 0vw;
-    padding-right: 1vw;
+    height: 60vh;
+    width: auto;
 }
 
 #switch_newsvec_app_button {
