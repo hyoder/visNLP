@@ -1,5 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <title>word2vec applications - visNLP</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <div id="navbar">
+      <button class="navelement" id="homenav" onclick="window.location='/'">
+        <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
+        <h1>VisNLP 2.0 Home</h1>
+      </button>
+      <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
+      <button class="navelement"        onclick="window.location='/senback'"   ><h1>Sen2Vec</h1></button>
+      <button class="navelement"        onclick="window.location='/paraback'"  ><h1>Para2Vec</h1></button>
+      <button class="navelement"        onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
+      <button class="navelement-curr"   onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
+      <button class="navelement"        onclick="window.location='/news'"      ><h1>Fake News App</h1></button>
+  </div>
+
+  <div id="sidebar_adam">
+      <button id="switch_adam_button" onclick="window.location='/songback'" >
+          <h1>Return to song Overview</h1>
+      </button>
+
+      <div style="height:10vh;"></div>
+
+      <div id="sidebar_canv_adam"></div>
+
+      <div style="height:5vh;"></div>
+
+      <button id="submit_btn">Submit</button>
+
+      <div style="height:2vh;"></div>
+
+      <select id="state_select">
+        <option value="s0">Song 1</option>
+        <option value="s1">Song 2</option>
+        <option value="s2">Song 3</option>
+        <option value="s3">Song 4</option>
+        <option value="s4">Song 5</option>
+        <option value="s5">Song 6</option>
+        <option value="s6">Song 7</option>
+        <option value="s7">Song 8</option>
+        <option value="s8">Song 9</option>
+        <option value="s9">Song 10</option>
+      </select>
+
+      <button id="song_reset_btn">↻</button>
+
+      
+  </div>
+
+  <div id="footer"></div>
+
+  <div id="restofpage_song">
+      <div style="height:3vh;"></div>
+      <div id="canv_song"></div>
+  </div>
+
+  <script src="../scripts/song.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
     <head>
         <style>
             .center {
@@ -190,5 +266,6 @@
             <h1>potentially add info</h1>
 
           </div>
-               
->>>>>>> 3b1750d84378b6b94935bff180a4cea4432dd0b6
+      <script src="../scripts/song.js"></script>
+    </body>         
+>>>>>>> 3b1750d84378b6b94935bff180a4cea4432dd0b6 -->

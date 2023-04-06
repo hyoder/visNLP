@@ -118,6 +118,48 @@ td {
     font-size: 2vw;
 }
 
+#canv_song{
+    background-color: cyan;
+    box-sizing: border-box;
+    height: 70vh;
+    position: fixed;
+    text-align: center;
+    top: 13vh;
+    width: 70vw;
+    right: 2.5vw;
+    z-index: 1;
+    font-family:'Segoe UI';
+    display: inline-block;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+#songTitleHeaderContainer{
+    background-color: red;
+    height: 10vh;
+    margin-bottom: 2vh;
+    display: flex;
+    justify-content: center;
+}
+#songVisualContainer{
+    background-color: orange;
+    width: 68vw;
+    height: 54vh;
+    display: inline-flex;
+    justify-content: center;
+}
+#songTableContainer {
+    background-color: blue;
+    width: 33vw;
+    height: 53vh;
+}
+#songPlotContainer {
+    background-color: green;
+    width: 33vw;
+    height: 53vh;
+}
+
 
 #footer {
     background-color: lightgray;
@@ -130,7 +172,7 @@ td {
     position: fixed;
     right: 0px;
     vertical-align: middle !important;
-    width: 74.75vw;
+    width: 74.8vw;
 }
 #footer_NSB {
     background-color: lightgray;
@@ -255,6 +297,50 @@ td {
     z-index: 2;
 }
 
+#song_reset_btn {
+    display: none;
+    height: 5vh;
+    position: fixed;
+    left: 5vw;
+    top: 45vh;
+    width: 5vw;
+    z-index: 2;
+}
+
+#submit_btn {
+    width: 20vw;
+    border-radius: 5px;
+    margin-left: 1.5vw;
+    background-color: white;
+}
+
+
+
+#state_select {
+    width: 19vw;
+    margin-left: 2vw;
+    appearance: none;
+    border: none;
+    background-color: #f8f8f8;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+  
+#state_select:hover {
+    background-color: #eee;
+}
+  
+#state_select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #07f;
+}
+
+
 
 #meta {
     border-bottom: 0.25vh dashed #000000;
@@ -370,6 +456,15 @@ td {
     position: fixed;
     left: 25.2vw;
     width: 74vw;
+}
+
+#restofpage_song {
+    background-color: green;
+    bottom: 15vh;
+    height: 77vh; 
+    position: fixed;
+    right: 0vw;
+    width: 74.8vw;
 }
 
 #restofpage_home {
