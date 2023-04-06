@@ -189,11 +189,60 @@ td {
     font-size: .9vw;
     text-align: center;
 }
-
 #song_table th {
     background-color: lightblue;
     font-weight: bold;
 }
+
+
+#canv_news{
+    /* background-color: cyan; */
+    box-sizing: border-box;
+    height: 76vh;
+    position: fixed;
+    text-align: center;
+    top: 9vh;
+    width: 70vw;
+    right: 2.5vw;
+    z-index: 1;
+    font-family:'Segoe UI';
+    display: inline-block;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+#newsHeadlineContainer{
+    font-family: 'Times New Roman';
+    background-color: white;
+    border: 5px double black;
+    height: 17vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin-bottom: 1vh;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5vw;
+}
+#newsVisualContainer{
+    /* background-color: orange; */
+    width: 68vw;
+    height: 54vh;
+    display: flex;
+    justify-content: center;
+}
+#sidebar_new_text_container {
+    /* background-color: #07f; */
+    padding-left: 2.2vw;
+    padding-right: 2.2vw;
+}
+#sidebar_new_text_container p {
+    font-family:'Segoe UI';
+    font-size: 1.5vw;
+    color: white;
+    text-align: center;
+}
+
 
 
 
@@ -539,6 +588,15 @@ td {
     width: 74.8vw;
 }
 
+#restofpage_news {
+    background-color: whitesmoke;
+    bottom: 15vh;
+    height: 77vh; 
+    position: fixed;
+    right: 0vw;
+    width: 74.8vw;
+}
+
 #restofpage_home {
     font-family:'Segoe UI';
     background-color: whitesmoke;
@@ -686,6 +744,8 @@ td {
     width: 18.75vw;
 }
 
+
+
 .sidebar-web-diagram img {
     width: 100%;
     border: 2px dashed grey;
@@ -741,6 +801,64 @@ td {
 .prev-topic-button:hover {
     background-color: white;
 }
+
+#sidebar_news {
+    background-color: grey;
+    border-right: 1vh solid #000000;
+    bottom: 0px;
+    box-sizing: border-box;
+    display: inline-block;
+    left: 0px;
+    height: 92vh;
+    position: fixed;
+    width: 25.2vw;
+    padding: 10px;
+}
+.news_btn{
+    background-color: lightgrey;
+    border-radius: 5px;
+    font-family: 'Segoe UI';
+    font-size: 1.2vw;
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: .1vw solid black;
+}
+.news_btn:hover {
+    background-color: white;
+}
+#news_next_btn {
+    width: 18vw;
+    margin-left: 2.8vw ;
+}
+#news_reset_btn {
+    width: 18vw;
+    margin-left: 2.8vw ;
+    margin-top: 5vh;
+}
+#news_true_btn {
+    width: 10vw;
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    margin-left: 1.3vw;
+    margin-right: .25vw;
+}
+#news_false_btn {
+    width: 10vw;
+    display: inline-block;
+    background-color: red;
+    color: white;
+    margin-left: .25vw;
+}
+#news_true_btn:hover {
+    background-color: #3131ff;
+}
+#news_false_btn:hover {
+    background-color: rgb(255, 75, 75);
+}
+
+
 
 .navelement {
     background-color: #8b0000;

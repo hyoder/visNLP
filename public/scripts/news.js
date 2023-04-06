@@ -1,124 +1,448 @@
-const      canv = document.getElementById( "canv_song" ),
+const      canv = document.getElementById( "canv_news" ),
    sidebar_canv = document.getElementById( "sidebar_canv_adam"),
          footer = document.getElementById( "footer"),
-   state_select = document.getElementById( "state_select" ),
-     submit_btn = document.getElementById( "submit_btn"),
-      reset_btn = document.getElementById( "song_reset_btn" )
-        sidebar = document.getElementById( "sidebar_adam"),
-       statuses = ["songs_intro", "songs0", "songs1", "songs2", "songs3", "songs4", "songs5", "songs6", "songs7", "songs8", "songs9"];
+       true_btn = document.getElementById( "news_true_btn" ),
+      false_btn = document.getElementById( "news_false_btn" ),
+       next_btn = document.getElementById( "news_next_btn" ),
+      reset_btn = document.getElementById( "news_reset_btn" ),
+        sidebar = document.getElementById( "sidebar_news"),
+       statuses = ["headline_1", "true_1", "false_1", "headline_2", "true_2", "false_2", "headline_3", "true_3", "false_3", "headline_4", "true_4", "false_4", "headline_5", "true_5", "false_5",];
 // init current page and epoch
 let page_status = 0;
 let epoch_status = 0;
 // init data var
 let adam_data;
 // define page and epoch counts
-let page_count = 11;
+let page_count = 15;
 let epoch_count = 20;
 
 
 function meta() // sets and returns page metadata for meta div (top left corner of canvas)
 {
     let output  = "<div id=\"meta_adam\" class=\"meta_adam_class\" >";
-        output += "<h4>Curr Song: " + "<h5>" + (page_status) + "</h5>" + "</h4>";
+        output += "<h4>Curr slide index: " + "<h5>" + (page_status) + "</h5>" + "</h4>";
         output += "</div>"
     return output;
 }
 
-function songs_intro()
+function headline_1()
 {
-    setfooter( "songs_intro" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "headline_1" ); 
     setsidebar( "default" );
-    canv.innerHTML = "<h2> intro canv content </h2>"
+
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> Miley Cyrus, Liam Hemsworth Did NOT Get Married On Tybee Island, Despite Report (headline content 1) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    // newsVisualContainer.innerHTML = "<h2> headline (1) question canv content </h2>"
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/plot.jpg';
+    newsVisualContainer.appendChild(img);
 
 }
 
-function songs0()
+
+function true_1()
 {
-    setfooter( "songs0" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "true_1" ); 
     setsidebar( "default" );
-    canv.innerHTML  = meta();
-    canv.innerHTML += "<h2> songs 1 page content </h2>"
+
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (1) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Born In The U.S.A. - Bruce Springsteen.png';
+    newsVisualContainer.appendChild(img);
 
 }
 
-function songs1()
+
+function false_1()
 {
-    setfooter( "songs1" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "false_1" ); 
     setsidebar( "default" );
-    canv.innerHTML  = meta();
-    canv.innerHTML += "<h2> songs 2 page content  </h2>"
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (1) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Chasing Cars - Snow Patrol.png';
+    newsVisualContainer.appendChild(img);
+
+}
+
+
+function headline_2()
+{
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "headline_2" ); 
+    setsidebar( "default" );
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (2) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
+
+}
+
+
+function true_2()
+{
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "true_2" ); 
+    setsidebar( "default" );
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (2) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
+
+}
+
+
+function false_2()
+{
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "false_2" ); 
+    setsidebar( "default" );
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (2) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
     
 }
 
-function songs2()
+
+function headline_3()
 {
-    setfooter( "songs2" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "headline_3" ); 
     setsidebar( "default" );
-    canv.innerHTML  = meta();   
-    canv.innerHTML += "<h2> songs 3 page content  </h2>"      
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (3) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
+
+}
+
+
+function true_3()
+{
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "true_3" ); 
+    setsidebar( "default" );
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (3) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
+
+}
+
+
+function false_3()
+{
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "false_3" ); 
+    setsidebar( "default" );
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (3) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
     
 }
 
-function songs3()
+
+function headline_4()
 {
-    setfooter( "songs3" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "headline_4" ); 
     setsidebar( "default" );
-    canv.innerHTML  = meta();
-    canv.innerHTML += "<h2> songs 4 page content  </h2>"
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (4) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
 
 }
 
-function songs4()
+
+function true_4()
 {
-    setfooter( "songs4" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "true_4" ); 
     setsidebar( "default" );
-    canv.innerHTML  = meta();
-    canv.innerHTML += "<h2> songs 5 page content  </h2>"
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (4) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
 
 }
 
-function songs5()
+
+function false_4()
 {
-    setfooter( "songs5" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "false_4" ); 
     setsidebar( "default" );
-    canv.innerHTML  = meta();  
-    canv.innerHTML += "<h2> songs 6 page content  </h2>" 
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (4) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
+    
 }
 
 
-function songs6()
+function headline_5()
 {
-    setfooter( "songs6" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "headline_5" ); 
     setsidebar( "default" );
-    canv.innerHTML  = meta();
-    canv.innerHTML += "<h2> songs 7 page content  </h2>"
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (5) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
 
 }
 
-function songs7()
+
+function true_5()
 {
-    setfooter( "songs7" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "true_5" ); 
     setsidebar( "default" );
-    canv.innerHTML  = meta();
-    canv.innerHTML += "<h2> songs 8 page content  </h2>"
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (5) </h2>"
+    canv.appendChild(newsHeadlineContainer);
+
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
+
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
+
 }
 
-function songs8()
+
+function false_5()
 {
-    setfooter( "song8" ); 
+    // clear canv contents
+    canv.innerHTML = '';
+
+    // set footer and sidebar
+    setfooter( "false_5" ); 
     setsidebar( "default" );
-    canv.innerHTML  = meta();
-    canv.innerHTML += "<h2> songs 9 page content  </h2>"
+    
+    // title head
+    const newsHeadlineContainer = document.createElement('div');
+    newsHeadlineContainer.id = 'newsHeadlineContainer';
+    newsHeadlineContainer.innerHTML = "<h2> article headline container content (5) </h2>"
+    canv.appendChild(newsHeadlineContainer);
 
-}
+    // visuals container
+    const newsVisualContainer = document.createElement('div');
+    newsVisualContainer.id = 'newsVisualContainer';
+    canv.appendChild(newsVisualContainer);
 
-function songs9()
-{
-    setfooter( "songs9" ); 
-    setsidebar( "default" );
-    canv.innerHTML  = meta();
-    canv.innerHTML += "<h2> songs 10 page content  </h2>"
-
+    // APPEND IMAGE
+    const img = document.createElement('img');
+    img.src = 'assets/Bad Day - Daniel Powter.png';
+    newsVisualContainer.appendChild(img);
+    
 }
 
 
@@ -127,28 +451,36 @@ function setfooter( input ) // takes input from event listener and then
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // SLIDE DESCRIPTIONS
-        case "songs_intro": footer.innerHTML = "<h2> desc intro </h2>"
+        case "headline_1": footer.innerHTML = "<h2> headline question footer (1) </h2>"
                             break;
-        case "songs0":      footer.innerHTML = "<h2> desc 0</h2>"
+        case "true_1":      footer.innerHTML = "<h2> if they chose true content (1) </h2>"
                             break;
-        case "songs1":      footer.innerHTML = "<h2> desc 1</h2>"
+        case "false_1":      footer.innerHTML = "<h2> if they chose false content (1) </h2>"
                             break;
-        case "songs2":      footer.innerHTML = "<h2> desc 2</h2>"
+        case "headline_2":  footer.innerHTML = "<h2> headline question footer (2) </h2>"
                             break;
-        case "songs3":      footer.innerHTML = "<h2> desc 3</h2>"
+        case "true_2":      footer.innerHTML = "<h2> if they chose true content (2) </h2>"
                             break;
-        case "songs4":      footer.innerHTML = "<h2> desc 4</h2>"
+        case "false_2":     footer.innerHTML = "<h2> if they chose false content (2) </h2>"
                             break;
-        case "songs5":      footer.innerHTML = "<h2> desc 5</h2>"
+        case "headline_3":  footer.innerHTML = "<h2> headline question footer (3) </h2>"
                             break;
-        case "songs6":      footer.innerHTML = "<h2> desc 6</h2>"
+        case "true_3":      footer.innerHTML = "<h2> if they chose true content (3) </h2>"
                             break;
-        case "songs7":      footer.innerHTML = "<h2> desc 7</h2>"
+        case "false_3":      footer.innerHTML = "<h2> if they chose false content (3) </h2>"
                             break;
-        case "songs8":      footer.innerHTML = "<h2> desc 8</h2>"
+        case "headline_4":  footer.innerHTML = "<h2> headline question footer (4) </h2>"
                             break;
-        case "songs9":      footer.innerHTML = "<h2> desc 9</h2>"
-                            break;   
+        case "true_4":      footer.innerHTML = "<h2> if they chose true content (4) </h2>"
+                            break;
+        case "false_4":     footer.innerHTML = "<h2> if they chose false content (4) </h2>"
+                            break;
+        case "headline_5":  footer.innerHTML = "<h2> headline question footer (5) </h2>"
+                            break;
+        case "true_5":      footer.innerHTML = "<h2> if they chose true content (5) </h2>"
+                            break;
+        case "false_5":     footer.innerHTML = "<h2> if they chose false content (5) </h2>"
+                            break;
     }
 }
 
@@ -170,31 +502,48 @@ function setsidebar( input )
     // }
 
 
-    // DROPDOWN USER TEXT
-
+    // ABOVE BUTTONS USER TEXT
 
     const sidebar_curr_param_text_container = document.createElement('div');
-    sidebar_curr_param_text_container.id = 'sidebar_curr_param_text_container';
-    sidebar_curr_param_text_container.innerHTML = "<p> Select A Song to... </p>"
+    // FORMATTING FOR THE TEXT IN CSS @ (#sidebar_new_text_container p)
+    sidebar_curr_param_text_container.id = 'sidebar_new_text_container';
+    // CHANGE THIS TEXT
+    sidebar_curr_param_text_container.innerHTML = "<p> Is this news article ?something? more words more words ... </p>";
+    // IF SIDEBAR TEXT IS VARIABLE FROM SLIDE TO SLIDE (use commented logic instead)..
+    // if ( page_status == 0 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 1/15 text </p>"; }
+    // else if ( page_status == 1 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 2/15 text </p>"; }
+    // else if ( page_status == 2 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 3/15 text </p>"; }
+
     sidebar_canv.appendChild(sidebar_curr_param_text_container);
 
 }
 
 function updater( val )
 {
-    // CHANGE PAGE STATES WITH DROPDOWN INPUT
+    // CHANGE PAGE STATES WITH SIDEBAR BUTTON INPUT
+    // selects true
+    if ( page_status % 3 == 0 && val == 't' ) { page_status = page_status + 1 }
+    // selects false
+    else if ( page_status % 3 == 0 && val == 'f' ) { page_status = page_status + 2 }
+    // selects next
+    else if ( page_status % 3 == 1 && val == 'n' ) { page_status = page_status + 2 }
+    // selects next
+    else if ( page_status % 3 == 2 && val == 'n' ) { page_status = page_status + 1 }
+    // selects reset
+    else if ( val == 'r') { page_status = 0 }
+
+
+    // HIDE BUTTONS IF UNAPPLICABLE AT CURRENT STATE
+    // if a question slide do not show next btn   or   if one of the last 2 steps do not show next
+    if ( page_status % 3 == 0 || page_status >= page_count - 2) { next_btn.style.display = "none"; }
+    else { next_btn.style.display = "inline-block"; }
+    // if true/false option slide do not show true/false buttons
+    if ( page_status % 3 != 0 ) { true_btn.style.display = "none"; false_btn.style.display = "none";}
+    else { true_btn.style.display = "inline-block"; false_btn.style.display = "inline-block"; }
+    // the the first page do not show reset btn
+    if ( page_status == 0 ) { reset_btn.style.display = "none"; }
+    else { reset_btn.style.display = "inline-block"; }
     
-    if ( val == 'r' ) { page_status = 0; }
-    if ( val == 's0' ) { page_status = 1; }
-    if ( val == 's1' ) { page_status = 2; }
-    if ( val == 's2' ) { page_status = 3; }
-    if ( val == 's3' ) { page_status = 4; }
-    if ( val == 's4' ) { page_status = 5; }
-    if ( val == 's5' ) { page_status = 6; }
-    if ( val == 's6' ) { page_status = 7; }
-    if ( val == 's7' ) { page_status = 8; }
-    if ( val == 's8' ) { page_status = 9; }
-    if ( val == 's9' ) { page_status = 10; }
 
     let page = statuses[ page_status ];
     console.log("page: " + page);
@@ -203,42 +552,56 @@ function updater( val )
     let delay = 400;
     // on pages we expect updates increase delay time
     //if (page_status == 0 || page_status == page_count - 1){ delay = 500 }    
-    
+
+
     setTimeout(function() {
         switch(page) {
-            case "songs_intro":
-                songs_intro();
+            case "headline_1":
+                headline_1();
                 break;
-            case "songs0": 
-                songs0(); 
+            case "true_1": 
+                true_1(); 
                 break;
-            case "songs1": 
-                songs1(); 
+            case "false_1": 
+                false_1(); 
                 break;
-            case "songs2": 
-                songs2(); 
+            case "headline_2":
+                headline_2();
                 break;
-            case "songs3": 
-                songs3(); 
+            case "true_2": 
+                true_2(); 
                 break;
-            case "songs4": 
-                songs4(); 
+            case "false_2": 
+                false_2(); 
                 break;
-            case "songs5": 
-                songs5(); 
+            case "headline_3":
+                headline_3();
                 break;
-            case "songs6": 
-                songs6(); 
+            case "true_3": 
+                true_3(); 
                 break;
-            case "songs7": 
-                songs7(); 
+            case "false_3": 
+                false_3(); 
                 break;
-            case "songs8": 
-                songs8(); 
+            case "headline_4":
+                headline_4();
                 break;
-            case "songs9": 
-                songs9(); 
+            case "true_4": 
+                true_4(); 
                 break;
+            case "false_4": 
+                false_4(); 
+                break;
+            case "headline_5":
+                headline_5();
+                break;
+            case "true_5": 
+                true_5(); 
+                break;
+            case "false_5": 
+                false_5(); 
+                break;
+            
         }
     }, delay);
     
@@ -257,9 +620,8 @@ window.onload = (e) => {
     console.log('page loaded');
     updater(page_status);
 };
-submit_btn.addEventListener("click", () => {
-    const state = state_select.value;
-    console.log('state: ', state)
-    updater(state);
-  });
+
+true_btn.addEventListener( "click", () => { updater('t'); });
+false_btn.addEventListener( "click", () => { updater('f'); });
+next_btn.addEventListener( "click", () => { updater('n'); });
 reset_btn.addEventListener( "click", () => { updater('r'); });

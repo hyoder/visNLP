@@ -1,5 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <title> para2vec applications - visNLP </title>
+    <link rel="stylesheet" href="../style.css" />
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <div id="navbar">
+      <button class="navelement" id="homenav" onclick="window.location='/'">
+        <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
+        <h1>VisNLP 2.0 Home</h1>
+      </button>
+      <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
+      <button class="navelement"        onclick="window.location='/senback'"   ><h1>Sen2Vec</h1></button>
+      <button class="navelement"        onclick="window.location='/paraback'"  ><h1>Para2Vec</h1></button>
+      <button class="navelement"        onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
+      <button class="navelement"        onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
+      <button class="navelement-curr"   onclick="window.location='/news'"      ><h1>Fake News App</h1></button>
+  </div>
+
+  <div id="sidebar_news">
+      <button id="switch_adam_button" onclick="window.location='/newsback'" >
+          <h1>Return to News Overview</h1>
+      </button>
+
+      <div style="height:10vh;"></div>
+
+      <div id="sidebar_canv_adam"></div>
+
+      <div style="height:5vh;"></div>
+
+      <button id="news_true_btn" class="news_btn"> True </button>
+      <button id="news_false_btn" class="news_btn"> False </button>
+      <button id="news_next_btn" class="news_btn"> Next Headline </button>
+      <button id="news_reset_btn" class="news_btn"> ↻ Reset Simulation </button>
+
+  </div>
+
+  <div id="footer"></div>
+
+  <div id="restofpage_news">
+      <div style="height:3vh;"></div>
+      <div id="canv_news"></div>
+  </div>
+
+  <script src="../scripts/news.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
     <head>
         <style>
             .plot{
@@ -137,8 +204,8 @@
 
             <h2></h2>
             <div style="height:10vh;"></div>
-            <!--<img src="assets/plot.jpg" alt="An Example Plot" class = "plot"/> -->
-        </div>
+            <img src="assets/plot.jpg" alt="An Example Plot" class = "plot"/> -->
+        <!-- </div>
         <div id="carousel">
             <br>
              <news><center><b><u>News Headline:</u> "Miley Cyrus, Liam Hemsworth Did NOT Get Married On Tybee Island, Despite Report"</b></center></news>
@@ -149,4 +216,4 @@
         </div>
         <script src="../scripts.js"></script>
     </body>
-</html>
+</html> -->
