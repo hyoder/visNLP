@@ -48,6 +48,7 @@ app.get('/song',      ( req, res ) => { res.sendFile( path.join( __dirname + '/p
 app.get('/newsback',  ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/news2vec.html' ) ); } );
 app.get('/adam',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/adam.html'     ) ); } );
 app.get('/news',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/newsback.html' ) ); } );
+app.get('/news2',      ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/news2vec2.html' ) ); } );
 app.get('/adamstep',  ( req, res ) => { res.sendFile( path.join( __dirname + '/public/views/adamstep.html'     ) ); } );
 app.get('/cbowdata',  ( req, res ) => { cbow_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );
 //app.get('/skipdata',  ( req, res ) => { skip_data.find( {} ).toArray().then( (docs) => res.json( docs[0][req.query.step] ) ); } );

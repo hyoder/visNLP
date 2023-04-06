@@ -1,19 +1,17 @@
-const      canv = document.getElementById( "canv" ),
-        sidebar = document.getElementById( "sidebar"),
-         footer = document.getElementById( "footer"),
-       back_btn = document.getElementById( "back_btn" ),
-        fwd_btn = document.getElementById( "fwd_btn" ),
-        adm_btn = document.getElementById( "adm_btn" ),
-       statuses = ["init", "text preparation", "one-hot encoding", "generate batch", "multiply matrices", "add bias", "log softmax", "end of epoch"],
-       p1_table = document.getElementById( "param1" ),
-       p2_table = document.getElementById( "param2" ),
-       p3_table = document.getElementById( "param3" ),
-       p1_label = document.getElementById( "p1label" ),
-       p2_label = document.getElementById( "p2label" ),
-       p3_label = document.getElementById( "p3label" ),
-    epoch_count = 10;
-let page_status = 0, rel_page = 0, epoch_status = 0, dict = [];
-let w2v_data;
+const canv     = document.getElementById( "canv"     ),
+      sidebar  = document.getElementById( "sidebar"  ),
+      footer   = document.getElementById( "footer"   ),
+      back_btn = document.getElementById( "back_btn" ),
+      fwd_btn  = document.getElementById( "fwd_btn"  ),
+      adm_btn  = document.getElementById( "adm_btn"  ),
+      statuses = ["background", "text preparation", "one-hot encoding", "generate batch", "multiply matrices", "add bias", "log softmax", "end of epoch"],
+      p1_table = document.getElementById( "param1"   ),
+      p2_table = document.getElementById( "param2"   ),
+      p3_table = document.getElementById( "param3"   ),
+      p1_label = document.getElementById( "p1label"  ),
+      p2_label = document.getElementById( "p2label"  ),
+      p3_label = document.getElementById( "p3label"  );
+let page_status = 0, rel_page = 0, epoch_status = 0, dict = [], epoch_count = 10, w2v_data;
 function meta()
 {
     let output  = "<div id=\"meta\">";
@@ -27,28 +25,38 @@ function meta()
     else { output += "<h4>page #" + (page_status+1) + "</h4>"; }
     return output += "</div>"
 }
-function init() {
+function init()
+{
     setfooter();
     canv.dataset.mode = "n/a";
     canv.innerHTML  = meta();
-    canv.innerHTML += "<div style=\"height:15vh\"></div>";
-    canv.innerHTML += "<h2>select mode for word2vec:</h2>";
-    let btn_holder  = "<div style=\"position:fixed;right:12.5vw;top:35vh;\">"
-        btn_holder += "<button id = \"cbow_btn\">CBOW</button>"
-        btn_holder += "<button id = \"skip_btn\">skip-gram</button>"
-        btn_holder += "</div>";
-    canv.innerHTML += btn_holder;
-    const cbow_btn = document.getElementById( "cbow_btn" ),
-          skip_btn = document.getElementById( "skip_btn" );
-    cbow_btn.addEventListener( "click", () => { canv.dataset.mode =     "cbow"; getData(0, canv.dataset.mode); updater(1); } );
-    skip_btn.addEventListener( "click", () => { canv.dataset.mode = "skipgram"; getData(0, canv.dataset.mode); updater(1); } );
-    cbow_btn.addEventListener( "mouseover", () => { setfooter("cbow"); } );
-    skip_btn.addEventListener( "mouseover", () => { setfooter("skip"); } );
-    cbow_btn.addEventListener( "mouseout",  () => { setfooter(); } );
-    skip_btn.addEventListener( "mouseout",  () => { setfooter(); } );
+    let cbow_btn = document.getElementById("cbow_btn"),
+        skip_btn = document.getElementById("skip_btn"),
+        prev_btn = document.getElementById("prev_btn"),
+        next_btn = document.getElementById("next_btn");
+        cbow_btn.style.display = "block";
+        skip_btn.style.display = "block";
+        prev_btn.style.display = "block";
+        next_btn.style.display = "block";
+        cbow_btn.innerHTML = "<h1>word2vec step-by-step: CBOW</h1>";
+        skip_btn.innerHTML = "<h1>word2vec step-by-step: skip-gram</h1>";
+        prev_btn.innerHTML = "<h2>prev:</h2><h1>home</h1>";
+        next_btn.innerHTML = "<h2>next:</h2><h1>sen2vec</h1>";
+        cbow_btn.addEventListener( "click"    , () => { canv.dataset.mode =     "cbow"; getData(epoch_status, canv.dataset.mode); updater(1); } );
+        skip_btn.addEventListener( "click"    , () => { canv.dataset.mode = "skipgram"; getData(epoch_status, canv.dataset.mode); updater(1); } );
+        prev_btn.addEventListener( "click"    , () => { window.location = '/'       ; } );
+        next_btn.addEventListener( "click"    , () => { window.location = '/senback'; } );
+        cbow_btn.addEventListener( "mouseover", () => { setfooter("cbow"); } );
+        skip_btn.addEventListener( "mouseover", () => { setfooter("skip"); } );
+        cbow_btn.addEventListener( "mouseout",  () => { setfooter(); } );
+        skip_btn.addEventListener( "mouseout",  () => { setfooter(); } );
 }
-function textprep() 
+function textprep()
 {
+    cbow_btn.style.display = "none";
+    skip_btn.style.display = "none";
+    prev_btn.style.display = "none";
+    next_btn.style.display = "none";
     setfooter();
     const t = document.createElement("table");
     canv.innerHTML  = meta();
@@ -571,7 +579,7 @@ function log_softmax() {
 function end_epoch() 
 {
     setfooter();
-    sidebar_params();
+    clear_params();
     canv.innerHTML  = meta();
     let t1 = document.createElement("table"),
         d1 = w2v_data["calcs"]["log_softmax"],
@@ -607,16 +615,81 @@ function end_epoch()
         arrow.style.left = "58vw";
         arrow.style.top = "26.65vh";
     canv.appendChild(arrow);
-    let model = document.createElement("img");
-        model.src = "https://lilianweng.github.io/posts/2017-10-15-word-embedding/word2vec-skip-gram.png";
-        model.style.display  = "inline-flex";
-        model.style.height   =        "35vh";
-        model.style.left     =        "45vw";
-        model.style.position =       "fixed";
-        model.style.top      =        "40vh";
-        model.addEventListener( "mouseover", () => { setfooter( "endepoch", "model" ); } );
-        model.addEventListener( "mouseout" , () => { setfooter(); } );
-    canv.appendChild(model);
+    let         curr_p1                 = document.createElement("table"),                  next_p1                 = document.createElement("table"),
+                curr_p2                 = document.createElement("table"),                  next_p2                 = document.createElement("table"),
+                curr_p3                 = document.createElement("table"),                  next_p3                 = document.createElement("table"),
+                curr_p1_label           = document.createElement("p"),                      next_p1_label           = document.createElement("p"),
+                curr_p2_label           = document.createElement("p"),                      next_p2_label           = document.createElement("p"),
+                curr_p3_label           = document.createElement("p"),                      next_p3_label           = document.createElement("p"),
+                curr_d1                 = w2v_data["params"]["param 1"],                    next_d1                 = w2v_data["next_params"]["param 1"],
+                curr_d2                 = w2v_data["params"]["param 2"],                    next_d2                 = w2v_data["next_params"]["param 2"],
+                curr_d3                 = w2v_data["params"]["param 3"],                    next_d3                 = w2v_data["next_params"]["param 3"],
+                curr_p3_row             = document.createElement("tr"),                     next_p3_row             = document.createElement("tr");
+                curr_p1_label.innerHTML = "param 1 (epoch #" + (1+epoch_status) + ")";      next_p1_label.innerHTML = "param 1 (epoch #" + (2+epoch_status) + ")";
+                curr_p2_label.innerHTML = "param 2 (epoch #" + (1+epoch_status) + ")";      next_p2_label.innerHTML = "param 2 (epoch #" + (2+epoch_status) + ")";
+                curr_p3_label.innerHTML = "param 3 (epoch #" + (1+epoch_status) + ")";      next_p3_label.innerHTML = "param 3 (epoch #" + (2+epoch_status) + ")";
+    for( let i = 0 ; i < curr_d1.length ; i++ )
+    {
+        let     curr_p1_row               = document.createElement("tr"),                   next_p1_row                        = document.createElement("tr");
+        for( let j = 0 ; j < curr_d1[0].length ; j++ )
+        {
+            let curr_p1_cell              = document.createElement("td"),                   next_p1_cell                       = document.createElement("td");
+                curr_p1_cell.textContent  = curr_d1[i][j];                                  next_p1_cell.textContent           = next_d1[i][j];
+                curr_p1_cell.style.height = "3vh";                                          next_p1_cell.style.height          = "3vh";
+                curr_p1_cell.style.width  = "9vw";                                          next_p1_cell.style.width           = "9vw";
+                 if( curr_d1[i][j] > next_d1[i][j] ) {                                      next_p1_cell.style.backgroundColor = "#faa"; console.log("red"); }
+            else if( curr_d1[i][j] < next_d1[i][j] ) {                                      next_p1_cell.style.backgroundColor = "#afa"; console.log("green"); }
+                curr_p1_row.appendChild( curr_p1_cell );                                    next_p1_row.appendChild( next_p1_cell );
+        }
+                curr_p1.appendChild( curr_p1_row );                                         next_p1.appendChild( next_p1_row );
+        let     curr_p3_cell              = document.createElement( "td" ),                 next_p3_cell                       = document.createElement( "td" );
+                curr_p3_cell.textContent  = curr_d3[i];                                     next_p3_cell.textContent           = next_d3[i];
+                curr_p3_cell.style.height =   "3vh";                                        next_p3_cell.style.height          =   "3vh";
+                curr_p3_cell.style.width  = "5.4vw";                                        next_p3_cell.style.width           = "5.4vw";
+             if( curr_d3[i] > next_d3[i] ) {                                                next_p3_cell.style.backgroundColor =  "#faa"; }
+        else if( curr_d3[i] < next_d3[i] ) {                                                next_p3_cell.style.backgroundColor =  "#afa"; }
+                curr_p3_row.appendChild( curr_p3_cell );                                    next_p3_row.appendChild( next_p3_cell );
+    }
+                curr_p3.appendChild( curr_p3_row );                                         next_p3.appendChild( next_p3_row );
+    for( let i = 0 ; i < curr_d2[0].length ; i++ )
+    {
+        let     curr_p2_row               = document.createElement("tr"),                   next_p2_row                        = document.createElement("tr");
+        for( let j = 0 ; j < curr_d2.length ; j++ )
+        {
+            let curr_p2_cell              = document.createElement("td"),                   next_p2_cell                       = document.createElement("td");
+                curr_p2_cell.textContent  = curr_d2[j][i];                                  next_p2_cell.textContent           = next_d2[j][i];
+                curr_p2_cell.style.height =   "3vh";                                        next_p2_cell.style.height          =   "3vh";
+                curr_p2_cell.style.width  = "5.4vw";                                        next_p2_cell.style.width           = "5.4vw";
+                 if( curr_d2[j][i] > next_d2[j][i] ) {                                      next_p2_cell.style.backgroundColor =  "#faa"; }
+            else if( curr_d2[j][i] < next_d2[j][i] ) {                                      next_p2_cell.style.backgroundColor =  "#faa"; }
+                curr_p2_row.appendChild( curr_p2_cell );                                    next_p2_row.appendChild( next_p2_cell );
+        }
+                curr_p2.appendChild( curr_p2_row );                                         next_p2.appendChild( next_p2_row );
+    }
+                curr_p1.      style.left     =   "30vw";                                    next_p1.      style.left     =   "65vw";
+                curr_p2.      style.left     =   "30vw";                                    next_p2.      style.left     =   "65vw";
+                curr_p3.      style.left     =   "30vw";                                    next_p3.      style.left     =   "65vw";
+                curr_p1_label.style.left     =   "30vw";                                    next_p1_label.style.left     =   "65vw";      
+                curr_p2_label.style.left     =   "30vw";                                    next_p2_label.style.left     =   "65vw";
+                curr_p3_label.style.left     =   "30vw";                                    next_p3_label.style.left     =   "65vw";
+                curr_p1.      style.position =  "fixed";                                    next_p1.      style.position =  "fixed";    
+                curr_p2.      style.position =  "fixed";                                    next_p2.      style.position =  "fixed";
+                curr_p3.      style.position =  "fixed";                                    next_p3.      style.position =  "fixed";
+                curr_p1_label.style.position =  "fixed";                                    next_p1_label.style.position =  "fixed";
+                curr_p2_label.style.position =  "fixed";                                    next_p2_label.style.position =  "fixed";
+                curr_p3_label.style.position =  "fixed";                                    next_p3_label.style.position =  "fixed";
+                curr_p1.      style.top      =   "40vh";                                    next_p1.      style.top      =   "40vh";
+                curr_p2.      style.top      =   "61vh";                                    next_p2.      style.top      =   "61vh";        
+                curr_p3.      style.top      =   "75vh";                                    next_p3.      style.top      =   "75vh";
+                curr_p1_label.style.top      = "37.5vh";                                    next_p1_label.style.top      = "37.5vh";
+                curr_p2_label.style.top      = "58.5vh";                                    next_p2_label.style.top      = "58.5vh";
+                curr_p3_label.style.top      = "72.5vh";                                    next_p3_label.style.top      = "72.5vh";
+                canv.appendChild( curr_p1       );                                          canv.appendChild( next_p1       );     
+                canv.appendChild( curr_p2       );                                          canv.appendChild( next_p2       );
+                canv.appendChild( curr_p3       );                                          canv.appendChild( next_p3       );
+                canv.appendChild( curr_p1_label );                                          canv.appendChild( next_p1_label );      
+                canv.appendChild( curr_p2_label );                                          canv.appendChild( next_p2_label );
+                canv.appendChild( curr_p3_label );                                          canv.appendChild( next_p3_label );
 }
 function sidebar_params(param, x, y)
 {
@@ -799,7 +872,7 @@ function updater( val )
     else if( val == -1 && page === "end of epoch"     ) { setTimeout( function() { minihelper2(); }, 200 ); }
     else {
         switch( page ) {
-            case "init":                  init(); break;
+            case "background":            init(); break;
             case "text preparation":  textprep(); break;
             case "one-hot encoding": onehotvec(); break;
             case "generate batch":   gen_batch(); break;
