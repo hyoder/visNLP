@@ -119,12 +119,12 @@ td {
 }
 
 #canv_song{
-    background-color: cyan;
+    /* background-color: cyan; */
     box-sizing: border-box;
-    height: 70vh;
+    height: 74vh;
     position: fixed;
     text-align: center;
-    top: 13vh;
+    top: 9vh;
     width: 70vw;
     right: 2.5vw;
     z-index: 1;
@@ -136,29 +136,67 @@ td {
     padding-bottom: 2vh;
 }
 #songTitleHeaderContainer{
-    background-color: red;
-    height: 10vh;
-    margin-bottom: 2vh;
+    /* background-color: red; */
+    height: 8vh;
+    margin-bottom: 1vh;
     display: flex;
     justify-content: center;
+    font-size: 1.2vw;
 }
 #songVisualContainer{
-    background-color: orange;
+    /* background-color: orange; */
     width: 68vw;
-    height: 54vh;
+    height: 62vh;
     display: inline-flex;
     justify-content: center;
 }
+#songVisualContainer2{
+    /* background-color: orange; */
+    width: 68vw;
+    height: 64vh;
+    display: inline-flex;
+    overflow: hidden;
+    position: relative; /* add position relative to the parent div */
+}
+#songVisualContainer2 img {
+    position: absolute; /* set image position to absolute */
+    top: 50%; /* set image top to 50% */
+    left: 50%; /* set image left to 50% */
+    transform: translate(-50%, -52%); /* move image up and left by 50% of its own width and height */
+}
 #songTableContainer {
-    background-color: blue;
+    /* background-color: blue; */
     width: 33vw;
-    height: 53vh;
+    height: 62vh;
 }
 #songPlotContainer {
-    background-color: green;
+    /* background-color: green; */
     width: 33vw;
-    height: 53vh;
+    height: 62vh;
+    overflow: hidden;
+    justify-content: center;
 }
+#song_table {
+    background-color: lightgrey;
+    width: 30vw;
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+#song_table td, #song_table th {
+    border: 1px solid black;
+    padding: .2vw;
+    height: 2.5vh;
+    font-size: .9vw;
+    text-align: center;
+}
+
+#song_table th {
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+
+
 #cbow_btn {
     background-color: #ddd;
     left: 0.75vw;
@@ -493,7 +531,7 @@ td {
 }
 
 #restofpage_song {
-    background-color: green;
+    background-color: white;
     bottom: 15vh;
     height: 77vh; 
     position: fixed;
