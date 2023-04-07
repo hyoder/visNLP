@@ -37,7 +37,7 @@ function headline_1()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> Miley Cyrus, Liam Hemsworth Did NOT Get Married On Tybee Island, Despite Report (headline content 1) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> 42 last-minute Mothers Day gifts that shell actually love </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -66,7 +66,7 @@ function true_1()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (1) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> 42 last-minute Mothers Day gifts that shell actually love </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -94,7 +94,7 @@ function false_1()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (1) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> 42 last-minute Mothers Day gifts that shell actually love </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -122,7 +122,7 @@ function headline_2()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (2) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Did Miley Cyrus get mad at Liam Hemsworth for refusing to wear his promise ring? </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -150,7 +150,7 @@ function true_2()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (2) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2>Did Miley Cyrus get mad at Liam Hemsworth for refusing to wear his promise ring? </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -178,7 +178,7 @@ function false_2()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (2) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Did Miley Cyrus get mad at Liam Hemsworth for refusing to wear his promise ring? </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -206,7 +206,7 @@ function headline_3()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (3) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Nicole Kidman and Prince Harry named sexiest redheads </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -234,7 +234,7 @@ function true_3()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (3) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Nicole Kidman and Prince Harry named sexiest redheads </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -262,7 +262,7 @@ function false_3()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (3) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Nicole Kidman and Prince Harry named sexiest redheads </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -290,7 +290,7 @@ function headline_4()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (4) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Jim Carrey lawsuit: Unearthed note from ex-girlfriend makes shocking claims </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -318,7 +318,7 @@ function true_4()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (4) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Jim Carrey lawsuit: Unearthed note from ex-girlfriend makes shocking claims </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -346,7 +346,7 @@ function false_4()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (4) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Jim Carrey lawsuit: Unearthed note from ex-girlfriend makes shocking claims </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -374,7 +374,7 @@ function headline_5()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (5) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Brad Pitt Could Get A Full-Time Kid In Custody Battle </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -402,7 +402,7 @@ function true_5()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (5) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Brad Pitt Could Get A Full-Time Kid In Custody Battle </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
@@ -430,7 +430,7 @@ function false_5()
     // title head
     const newsHeadlineContainer = document.createElement('div');
     newsHeadlineContainer.id = 'newsHeadlineContainer';
-    newsHeadlineContainer.innerHTML = "<h2> article headline container content (5) </h2>"
+    newsHeadlineContainer.innerHTML = "<h2> Brad Pitt Could Get A Full-Time Kid In Custody Battle </h2>"
     canv.appendChild(newsHeadlineContainer);
 
     // visuals container
