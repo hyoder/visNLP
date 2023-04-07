@@ -1,29 +1,53 @@
+// const { color } = require("d3");
+
 const canv     = document.getElementById( "canv"     ),
       sidebar  = document.getElementById( "sidebar"  ),
       footer   = document.getElementById( "footer"   ),
       back_btn = document.getElementById( "back_btn" ),
       fwd_btn  = document.getElementById( "fwd_btn"  ),
       adm_btn  = document.getElementById( "adm_btn"  ),
-      statuses = ["background", "text preparation", "one-hot encoding", "generate batch", "multiply matrices", "add bias", "log softmax", "end of epoch"],
+      statuses = ["background", "text preparation", "one-hot encoding", "generate training batch", "multiply matrices", "add bias", "log softmax", "end of epoch"],
       p1_table = document.getElementById( "param1"   ),
       p2_table = document.getElementById( "param2"   ),
       p3_table = document.getElementById( "param3"   ),
       p1_label = document.getElementById( "p1label"  ),
       p2_label = document.getElementById( "p2label"  ),
-      p3_label = document.getElementById( "p3label"  );
+      p3_label = document.getElementById( "p3label"  ),
+      diagram  = document.getElementById( "diagram"  );
 let page_status = 0, rel_page = 0, epoch_status = 0, dict = [], epoch_count = 10, w2v_data;
 function meta()
 {
-    let output  = "<div id=\"meta\">";
-    if( page_status < 3 ) { output += "<h2>word2vec - \"" + statuses[page_status] + "\"</h2>"; }
-    else{ output += "<h2>word2vec - \"" + statuses[rel_page] + "\" (epoch " + (epoch_status+1) + ")</h2>";}    
-    if( page_status > 0 )
+    let output  = "<div id=\"meta_upper\">";
+    if( page_status > 2 )
     {
-        if( canv.dataset.mode === "cbow"     ) { output += "<h4>page #" + (page_status+1) + ", mode: CBOW</h4>";      }
-        if( canv.dataset.mode === "skipgram" ) { output += "<h4>page #" + (page_status+1) + ", mode: skip-gram</h4>"; }
+        output += "<h4 style=\"line-height:4vh\">epoch: " + (epoch_status+1) + "/" + epoch_count + "</h4>";
+        output += "<h4 style=\"line-height:3vh\">mode: " + canv.dataset.mode + "</h4></div>";
+        output += "<div id=\"meta_lower\"><h4>step: " + (rel_page-2) + "/5</div>";
+        output += "<div id=\"meta_progress\">";
+        output += "<div id=\"meta_bar\" style=\"width:" + (((rel_page-2)/5)*74.75) + "vw\"></div></div>"
     }
-    else { output += "<h4>page #" + (page_status+1) + "</h4>"; }
-    return output += "</div>"
+    // else if( page_status > 0 )
+    // {   
+    //     output += "<h4 style=\"line-height:4vh\">epoch: " + (epoch_status+1) + "/" + epoch_count + "</h4>";
+    //     output += "<h4 style=\"line-height:3.5vh\">mode: " + canv.dataset.mode + "</h4>";
+    //     output += "</div>";
+    // }
+    else
+    {
+        output += "<h4 style=\"line-height:4vh\">word2vec</h4>";
+        output += "<h4 style=\"line-height:2.5vh\">" + statuses[page_status] + "</h4>";
+        output += "</div>";
+    }
+    return output;
+    // if( page_status < 3 ) { output += "<h2>word2vec - \"" + statuses[page_status] + "\"</h2>"; }
+    // else{ output += "<h2>word2vec - \"" + statuses[rel_page] + "\" (epoch " + (epoch_status+1) + ")</h2>";}    
+    // if( page_status > 0 )
+    // {
+    //     if( canv.dataset.mode === "cbow"     ) { output += "<h4>page #" + (page_status+1) + ", mode: CBOW</h4>";      }
+    //     if( canv.dataset.mode === "skipgram" ) { output += "<h4>page #" + (page_status+1) + ", mode: skip-gram</h4>"; }
+    // }
+    // else { output += "<h4>page #" + (page_status+1) + "</h4>"; }
+    // return output += "</div>"
 }
 function init()
 {
@@ -99,7 +123,7 @@ function textprep()
 function onehotvec() 
 {
     setfooter();
-    clear_params();
+    clear_params("e");
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style=\"height:8vh\"></div>";
     let t = document.createElement("table");
@@ -151,6 +175,7 @@ function onehotvec()
 function gen_batch() 
 {
     setfooter();
+    make_diagram();
     sidebar_params();
     canv.innerHTML  = meta();
     canv.innerHTML += "<div style=\"height:8vh\"></div>";
@@ -165,7 +190,7 @@ function gen_batch()
             b = document.createElement("table");
         if( i == cntr )              
         {
-            a.textContent = "(center) \""  + dict[i] + "\": ";
+            a.textContent = "(target) \""  + dict[i] + "\": ";
             let ohot = document.createElement("table");
             for( let k = 0 ; k < w2v_data["constants"]["embedding_dim"] ; k++ )
             {
@@ -176,13 +201,14 @@ function gen_batch()
                     ocell.style.width    =   "6vw";
                 ohot.appendChild(ocell);
             }
-            ohot.style.left          = (50+(4*dict.length)) + "vw";
-            ohot.style.position      =                     "fixed";
-            ohot.style.top           =       (24.25+(12.5*i)) + "vh";
-            ohot.style.verticalAlign =                    "middle";
+            ohot.style.backgroundColor =                      "#9d9";
+            ohot.style.left            = (50+(4*dict.length)) + "vw";
+            ohot.style.position        =                     "fixed";
+            ohot.style.top             =     (24.25+(12.5*i)) + "vh";
+            ohot.style.verticalAlign   =                    "middle";
             canv.appendChild(ohot);
-            ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor =        "#bbb"; setfooter("genbatch", "ohot_cntr", cntr ); sidebar_params( 1, cntr, -1 ); } );
-            ohot.addEventListener( "mouseout" , () => { ohot.style.backgroundColor = "transparent"; setfooter();                               sidebar_params(); } );
+            ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor = "#6a6"; setfooter("genbatch", "ohot_cntr", cntr ); sidebar_params( 1, cntr, -1 ); make_diagram("param 1", cntr, -1); } );
+            ohot.addEventListener( "mouseout" , () => { ohot.style.backgroundColor = "#9d9"; setfooter();                               sidebar_params();              make_diagram();                    } );
         }
         else if( i == ctx1 || i == ctx2 )
         {
@@ -197,13 +223,14 @@ function gen_batch()
                     ocell.style.width    =   "6vw";
                 ohot.appendChild(ocell);
             }
+            ohot.style.backgroundColor = "#99d";
             ohot.style.left          = (50+(4*dict.length)) + "vw";
             ohot.style.position      =                     "fixed";
             ohot.style.top           =       (24.25+(12.5*i)) + "vh";
             ohot.style.verticalAlign =                    "middle";
-            if( i == ctx1 ) { ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor =        "#bbb"; setfooter("genbatch", "ohot_ctx1", ctx1 ); sidebar_params( 1, ctx1, -1 ); } ); }
-            if( i == ctx2 ) { ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor =        "#bbb"; setfooter("genbatch", "ohot_ctx2", ctx2 ); sidebar_params( 1, ctx2, -1 ); } ); }
-                              ohot.addEventListener( "mouseout" , () => { ohot.style.backgroundColor = "transparent"; setfooter();                               sidebar_params(); } );
+            if( i == ctx1 ) { ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor = "#66a"; setfooter("genbatch", "ohot_ctx1", ctx1 ); sidebar_params( 1, ctx1, -1 ); make_diagram("param 1", ctx1, -1); } ); }
+            if( i == ctx2 ) { ohot.addEventListener( "mouseover", () => { ohot.style.backgroundColor = "#66a"; setfooter("genbatch", "ohot_ctx2", ctx2 ); sidebar_params( 1, ctx2, -1 ); make_diagram("param 1", ctx2, -1); } ); }
+                              ohot.addEventListener( "mouseout" , () => { ohot.style.backgroundColor = "#99d"; setfooter();                               sidebar_params();              make_diagram();                    } );
             canv.appendChild(ohot);
         }
         else if( i >=    0 )              { a.textContent = "\"" + dict[i] + "\": "; a.style.opacity = "50%"; }
@@ -272,8 +299,8 @@ function gen_batch()
             c.style.fontSize = "1.5vw";
             c.style.height = "8vh";
             c.style.width = "4vw";
-            if( i!= -1 ) { c.addEventListener( "mouseover", () => { sidebar_params( 1, i, -1 ); } ); }
-                           c.addEventListener( "mouseout" , () => { sidebar_params(); } );
+            if( i!= -1 ) { c.addEventListener( "mouseover", () => { sidebar_params( 1, i, -1 ); make_diagram("param 1",i,-1); } ); }
+                           c.addEventListener( "mouseout" , () => { sidebar_params();           make_diagram(); } );
             z.appendChild(c);
         }
         b.appendChild(z);
@@ -318,9 +345,10 @@ function mat_mult() {
             c.style.width  = "5vw";
             r.appendChild(c); 
         }
-        r.addEventListener( "mouseover", () => { r.style.backgroundColor =        "#bbb"; setfooter( "matmult", "t1", i ); sidebar_params( 1, w2v_data["batch"]["contexts"][i], -1 ); } );
-        r.addEventListener( "mouseout" , () => { r.style.backgroundColor = "transparent"; setfooter();                     sidebar_params(); } );
-        t1.appendChild(r); 
+        r.style.backgroundColor = "#99d";
+        r.addEventListener( "mouseover", () => { r.style.backgroundColor = "#66a"; setfooter( "matmult", "t1", i ); sidebar_params( 1, w2v_data["batch"]["contexts"][i], -1 ); make_diagram( "param 1", w2v_data["batch"]["contexts"][i], -1 ); } );
+        r.addEventListener( "mouseout" , () => { r.style.backgroundColor = "#99d"; setfooter();                     sidebar_params(); make_diagram(); } );
+        t1.appendChild(r);  //66a 99d
     }
     for( let i = 0 ; i < d2[0].length ; i++ ) 
     {
@@ -329,10 +357,11 @@ function mat_mult() {
         {
             let c = document.createElement("td");
             c.textContent = d2[j][i];
+            c.style.backgroundColor = "#5cf";
             c.style.height = "5vh";
             c.style.width  = "5vw";
-            c.addEventListener( "mouseover", () => { c.style.backgroundColor =        "#bbb"; sidebar_params( 2, i, j ); } );
-            c.addEventListener( "mouseout" , () => { c.style.backgroundColor = "transparent"; sidebar_params(); } );
+            c.addEventListener( "mouseover", () => { c.style.backgroundColor = "#18b"; sidebar_params( 2, i, j ); } );
+            c.addEventListener( "mouseout" , () => { c.style.backgroundColor = "#5cf"; sidebar_params(); } );
             r.appendChild(c); 
         }
         t2.appendChild(r); 
@@ -424,8 +453,9 @@ function add_bias() {
                     t2c.textContent  = d2[j];
                     t2c.style.width  = "5vw";
                     t2c.style.height = "5vh";
-                    t2c.addEventListener( "mouseover", () => { t2c.style.backgroundColor =        "#bbb"; setfooter( "addbias", "t2", i, j ); sidebar_params( 3, j ); } );
-                    t2c.addEventListener( "mouseout" , () => { t2c.style.backgroundColor = "transparent"; setfooter();                        sidebar_params(); } );
+                    t2c.style.backgroundColor = "#fbb"; //#b55
+                    t2c.addEventListener( "mouseover", () => { t2c.style.backgroundColor = "#b55"; setfooter( "addbias", "t2", i, j ); sidebar_params( 3, j ); } );
+                    t2c.addEventListener( "mouseout" , () => { t2c.style.backgroundColor = "#fbb"; setfooter();                        sidebar_params(); } );
                     t2r.appendChild(t2c);
             }
             let t1c = document.createElement("td"),
@@ -439,9 +469,9 @@ function add_bias() {
                 t1c.addEventListener( "mouseover", () => { t1c.style.backgroundColor =        "#bbb"; setfooter( "addbias", "t1", i, j ); } );
                 t1c.addEventListener( "mouseout" , () => { t1c.style.backgroundColor = "transparent"; setfooter(); } );
                 t1r.appendChild(t1c);
-                t3c.addEventListener( "mouseover", () => { t1c.style.backgroundColor =        "#bbb"; t2r.cells[j].style.backgroundColor =        "#bbb"; sidebar_params( 3, j );
+                t3c.addEventListener( "mouseover", () => { t1c.style.backgroundColor =        "#bbb"; t2r.cells[j].style.backgroundColor = "#b55"; sidebar_params( 3, j );
                                                            t3c.style.backgroundColor =        "#bbb"; setfooter( "addbias", "t3", i, j ); } );
-                t3c.addEventListener( "mouseout" , () => { t1c.style.backgroundColor = "transparent"; t2r.cells[j].style.backgroundColor = "transparent"; sidebar_params();
+                t3c.addEventListener( "mouseout" , () => { t1c.style.backgroundColor = "transparent"; t2r.cells[j].style.backgroundColor = "#fbb"; sidebar_params();
                                                            t3c.style.backgroundColor = "transparent"; setfooter(); } );
                 t3r.appendChild(t3c);
         }
@@ -557,18 +587,18 @@ function log_softmax() {
                 t1.     style.left     =   "50vw";
                 t2.     style.left     =   "50vw";
                 t3.     style.left     =   "50vw";
-                t1.     style.top      = "27.5vh";
-                t2.     style.top      = "47.5vh";
-                t3.     style.top      = "67.5vh";
+                t1.     style.top      = "25.5vh";
+                t2.     style.top      = "45.5vh";
+                t3.     style.top      = "65.5vh";
                 t1label.style.position =  "fixed";
                 t2label.style.position =  "fixed";
                 t3label.style.position =  "fixed";
                 t1label.style.left     =   "50vw";
                 t2label.style.left     =   "50vw";
                 t3label.style.left     =   "50vw";
-                t1label.style.top      =   "24vh";
-                t2label.style.top      =   "44vh";
-                t3label.style.top      =   "64vh";
+                t1label.style.top      =   "22vh";
+                t2label.style.top      =   "42vh";
+                t3label.style.top      =   "62vh";
                 canv.appendChild(t1);
                 canv.appendChild(t2);
                 canv.appendChild(t3);
@@ -579,7 +609,7 @@ function log_softmax() {
 function end_epoch() 
 {
     setfooter();
-    clear_params();
+    clear_params("e");
     canv.innerHTML  = meta();
     let t1 = document.createElement("table"),
         d1 = w2v_data["calcs"]["log_softmax"],
@@ -602,10 +632,10 @@ function end_epoch()
     }
     t1     .style.position =  "fixed";
     t1     .style.left     =   "30vw";
-    t1     .style.top      = "25.5vh";
+    t1     .style.top      = "23.5vh";
     t1label.style.position =  "fixed";
     t1label.style.left     =   "30vw";
-    t1label.style.top      =   "22vh";
+    t1label.style.top      =   "20vh";
     canv.appendChild(t1);
     canv.appendChild(t1label);
     let arrow = document.createElement("div");
@@ -613,14 +643,14 @@ function end_epoch()
         arrow.style.fontSize = "4vw";
         arrow.style.position = "fixed";
         arrow.style.left = "58vw";
-        arrow.style.top = "26.65vh";
+        arrow.style.top = "24.65vh";
     canv.appendChild(arrow);
     let         curr_p1                 = document.createElement("table"),                  next_p1                 = document.createElement("table"),
                 curr_p2                 = document.createElement("table"),                  next_p2                 = document.createElement("table"),
                 curr_p3                 = document.createElement("table"),                  next_p3                 = document.createElement("table"),
-                curr_p1_label           = document.createElement("p"),                      next_p1_label           = document.createElement("p"),
-                curr_p2_label           = document.createElement("p"),                      next_p2_label           = document.createElement("p"),
-                curr_p3_label           = document.createElement("p"),                      next_p3_label           = document.createElement("p"),
+                curr_p1_label           = document.createElement("h3"),                     next_p1_label           = document.createElement("h3"),
+                curr_p2_label           = document.createElement("h3"),                     next_p2_label           = document.createElement("h3"),
+                curr_p3_label           = document.createElement("h3"),                     next_p3_label           = document.createElement("h3"),
                 curr_d1                 = w2v_data["params"]["param 1"],                    next_d1                 = w2v_data["next_params"]["param 1"],
                 curr_d2                 = w2v_data["params"]["param 2"],                    next_d2                 = w2v_data["next_params"]["param 2"],
                 curr_d3                 = w2v_data["params"]["param 3"],                    next_d3                 = w2v_data["next_params"]["param 3"],
@@ -630,24 +660,50 @@ function end_epoch()
                 curr_p3_label.innerHTML = "param 3 (epoch #" + (1+epoch_status) + ")";      next_p3_label.innerHTML = "param 3 (epoch #" + (2+epoch_status) + ")";
     for( let i = 0 ; i < curr_d1.length ; i++ )
     {
-        let     curr_p1_row               = document.createElement("tr"),                   next_p1_row                        = document.createElement("tr");
+        let     curr_p1_row                        = document.createElement("tr"),          next_p1_row                        = document.createElement("tr");
         for( let j = 0 ; j < curr_d1[0].length ; j++ )
         {
-            let curr_p1_cell              = document.createElement("td"),                   next_p1_cell                       = document.createElement("td");
-                curr_p1_cell.textContent  = curr_d1[i][j];                                  next_p1_cell.textContent           = next_d1[i][j];
-                curr_p1_cell.style.height = "3vh";                                          next_p1_cell.style.height          = "3vh";
-                curr_p1_cell.style.width  = "9vw";                                          next_p1_cell.style.width           = "9vw";
-                 if( curr_d1[i][j] > next_d1[i][j] ) {                                      next_p1_cell.style.backgroundColor = "#faa"; console.log("red"); }
-            else if( curr_d1[i][j] < next_d1[i][j] ) {                                      next_p1_cell.style.backgroundColor = "#afa"; console.log("green"); }
+            let curr_p1_cell                       = document.createElement("td"),          next_p1_cell                       = document.createElement("td");
+                curr_p1_cell.textContent           = curr_d1[i][j];                         next_p1_cell.textContent           = next_d1[i][j];
+                curr_p1_cell.style.height          = "3vh";                                 next_p1_cell.style.height          = "3vh";
+                curr_p1_cell.style.width           = "9vw";                                 next_p1_cell.style.width           = "9vw";
+                curr_p1_cell.style.backgroundColor = "#fc5";                                next_p1_cell.style.backgroundColor = "#fc5";
+                 if( curr_d1[i][j] > next_d1[i][j] ) {                                      next_p1_cell.style.backgroundColor = "#f55"; }
+            else if( curr_d1[i][j] < next_d1[i][j] ) {                                      next_p1_cell.style.backgroundColor = "#5f5"; }
+                curr_p1_cell.addEventListener( "mouseover", () => { curr_p1_cell.style.backgroundColor = "#b81"; setfooter("endepoch", "p1", i, j) } );
+                curr_p1_cell.addEventListener( "mouseout" , () => { curr_p1_cell.style.backgroundColor = "#fc5"; setfooter();                           } );
+                next_p1_cell.addEventListener( "mouseover", () => { 
+                         if( curr_d1[i][j] > next_d1[i][j] ) { next_p1_cell.style.backgroundColor = "#c33"; }
+                    else if( curr_d1[i][j] < next_d1[i][j] ) { next_p1_cell.style.backgroundColor = "#3c3"; }
+                    else                                     { next_p1_cell.style.backgroundColor = "#b81"; }
+                    setfooter("endepoch", "p1", i, j); } );
+                next_p1_cell.addEventListener( "mouseout" , () => { 
+                         if( curr_d1[i][j] > next_d1[i][j] ) { next_p1_cell.style.backgroundColor = "#f55"; }
+                    else if( curr_d1[i][j] < next_d1[i][j] ) { next_p1_cell.style.backgroundColor = "#5f5"; }
+                    else                                     { next_p1_cell.style.backgroundColor = "#fc5"; }
+                   setfooter(); } );
                 curr_p1_row.appendChild( curr_p1_cell );                                    next_p1_row.appendChild( next_p1_cell );
         }
                 curr_p1.appendChild( curr_p1_row );                                         next_p1.appendChild( next_p1_row );
-        let     curr_p3_cell              = document.createElement( "td" ),                 next_p3_cell                       = document.createElement( "td" );
-                curr_p3_cell.textContent  = curr_d3[i];                                     next_p3_cell.textContent           = next_d3[i];
-                curr_p3_cell.style.height =   "3vh";                                        next_p3_cell.style.height          =   "3vh";
-                curr_p3_cell.style.width  = "5.4vw";                                        next_p3_cell.style.width           = "5.4vw";
-             if( curr_d3[i] > next_d3[i] ) {                                                next_p3_cell.style.backgroundColor =  "#faa"; }
-        else if( curr_d3[i] < next_d3[i] ) {                                                next_p3_cell.style.backgroundColor =  "#afa"; }
+        let     curr_p3_cell                       = document.createElement( "td" ),        next_p3_cell                       = document.createElement( "td" );
+                curr_p3_cell.textContent           = curr_d3[i];                            next_p3_cell.textContent           = next_d3[i];
+                curr_p3_cell.style.height          =      "3vh";                            next_p3_cell.style.height          =      "3vh";
+                curr_p3_cell.style.width           =    "5.4vw";                            next_p3_cell.style.width           =    "5.4vw";
+                curr_p3_cell.style.backgroundColor =     "#fbb";                            next_p3_cell.style.backgroundColor =     "#fbb";
+             if( curr_d3[i] > next_d3[i] ) {                                                next_p3_cell.style.backgroundColor =     "#f55"; }
+        else if( curr_d3[i] < next_d3[i] ) {                                                next_p3_cell.style.backgroundColor =     "#5f5"; }
+                curr_p3_cell.addEventListener( "mouseover", () => { curr_p3_cell.style.backgroundColor = "#b55"; setfooter("endepoch", "p3", i ) } );
+                curr_p3_cell.addEventListener( "mouseout" , () => { curr_p3_cell.style.backgroundColor = "#fbb"; setfooter();                    } );
+                next_p3_cell.addEventListener( "mouseover", () => { 
+                         if( curr_d3[i] > next_d3[i] ) { next_p3_cell.style.backgroundColor = "#c33"; }
+                    else if( curr_d3[i] < next_d3[i] ) { next_p3_cell.style.backgroundColor = "#3c3"; }
+                    else                               { next_p3_cell.style.backgroundColor = "#b55"; }
+                   setfooter("endepoch", "p3", i); } );
+                next_p3_cell.addEventListener( "mouseout" , () => { 
+                         if( curr_d3[i] > next_d3[i] ) { next_p3_cell.style.backgroundColor = "#f55"; }
+                    else if( curr_d3[i] < next_d3[i] ) { next_p3_cell.style.backgroundColor = "#5f5"; }
+                    else                               { next_p3_cell.style.backgroundColor = "#fbb"; }
+                    setfooter(); } );
                 curr_p3_row.appendChild( curr_p3_cell );                                    next_p3_row.appendChild( next_p3_cell );
     }
                 curr_p3.appendChild( curr_p3_row );                                         next_p3.appendChild( next_p3_row );
@@ -656,12 +712,25 @@ function end_epoch()
         let     curr_p2_row               = document.createElement("tr"),                   next_p2_row                        = document.createElement("tr");
         for( let j = 0 ; j < curr_d2.length ; j++ )
         {
-            let curr_p2_cell              = document.createElement("td"),                   next_p2_cell                       = document.createElement("td");
-                curr_p2_cell.textContent  = curr_d2[j][i];                                  next_p2_cell.textContent           = next_d2[j][i];
-                curr_p2_cell.style.height =   "3vh";                                        next_p2_cell.style.height          =   "3vh";
-                curr_p2_cell.style.width  = "5.4vw";                                        next_p2_cell.style.width           = "5.4vw";
-                 if( curr_d2[j][i] > next_d2[j][i] ) {                                      next_p2_cell.style.backgroundColor =  "#faa"; }
-            else if( curr_d2[j][i] < next_d2[j][i] ) {                                      next_p2_cell.style.backgroundColor =  "#faa"; }
+            let curr_p2_cell                       = document.createElement("td"),          next_p2_cell                       = document.createElement("td");
+                curr_p2_cell.textContent           = curr_d2[j][i];                         next_p2_cell.textContent           = next_d2[j][i];
+                curr_p2_cell.style.height          =         "3vh";                         next_p2_cell.style.height          =         "3vh";
+                curr_p2_cell.style.width           =       "5.4vw";                         next_p2_cell.style.width           =       "5.4vw";
+                curr_p2_cell.style.backgroundColor =        "#5cf";                         next_p2_cell.style.backgroundColor =        "#5cf";
+                 if( curr_d2[j][i] > next_d2[j][i] ) {                                      next_p2_cell.style.backgroundColor =        "#f55"; }
+            else if( curr_d2[j][i] < next_d2[j][i] ) {                                      next_p2_cell.style.backgroundColor =        "#5f5"; }
+                curr_p2_cell.addEventListener( "mouseover", () => { curr_p2_cell.style.backgroundColor = "#18b"; setfooter("endepoch", "p2", j, i); } );
+                curr_p2_cell.addEventListener( "mouseout" , () => { curr_p2_cell.style.backgroundColor = "#5cf"; setfooter();                       } );
+                next_p2_cell.addEventListener( "mouseover", () => {
+                         if( curr_d2[j][i] > next_d2[j][i] ) { next_p2_cell.style.backgroundColor = "#c33"; }
+                    else if( curr_d2[j][i] < next_d2[j][i] ) { next_p2_cell.style.backgroundColor = "#3c3"; }
+                    else                                     { next_p2_cell.style.backgroundColor = "#18b"; }
+                    setfooter("endepoch", "p2", j, i ); } );
+                next_p2_cell.addEventListener( "mouseout" , () => {
+                         if( curr_d2[j][i] > next_d2[j][i] ) { next_p2_cell.style.backgroundColor = "#f55"; }
+                    else if( curr_d2[j][i] < next_d2[j][i] ) { next_p2_cell.style.backgroundColor = "#5f5"; }
+                    else                                     { next_p2_cell.style.backgroundColor = "#5cf"; }
+                    setfooter(); } );
                 curr_p2_row.appendChild( curr_p2_cell );                                    next_p2_row.appendChild( next_p2_cell );
         }
                 curr_p2.appendChild( curr_p2_row );                                         next_p2.appendChild( next_p2_row );
@@ -691,9 +760,76 @@ function end_epoch()
                 canv.appendChild( curr_p2_label );                                          canv.appendChild( next_p2_label );
                 canv.appendChild( curr_p3_label );                                          canv.appendChild( next_p3_label );
 }
+function make_diagram( which, x, y )
+{
+    if( canv.dataset.mode === "cbow" )
+    {
+        let input1 = document.getElementById("cbow_input_1"),
+            input2 = document.getElementById("cbow_input_2"),
+            param1 = document.getElementById("cbow_p1"),
+            hidden = document.getElementById("cbow_hidden"),
+            param2 = document.getElementById("cbow_p2"),
+            output = document.getElementById("cbow_output");
+        input1.innerHTML = "";
+        input2.innerHTML = "";
+        param1.innerHTML = "";
+        // hidden.innerHTML = "";
+        param2.innerHTML = "";
+        output.innerHTML = "";
+        for( let i = 0 ; i < w2v_data["params"]["param 1"].length ; i++ )
+        {
+            let row1 = document.createElement("tr"),
+                row2 = document.createElement("tr"),
+                row3 = document.createElement("tr"),
+                cel1 = document.createElement("td"),
+                cel2 = document.createElement("td"),
+                cel3 = document.createElement("td");
+                if( i == w2v_data["batch"]["contexts"][0] ) { cel1.textContent = "1"; cel1.style.backgroundColor = "#006"; cel1.style.color = "#fff"; }
+                else { cel1.textContent = "0"; }
+                if( i == w2v_data["batch"]["contexts"][1] ) { cel2.textContent = "1"; cel2.style.backgroundColor = "#006"; cel2.style.color = "#fff"; }
+                else { cel2.textContent = "0"; }
+                if( i == w2v_data["batch"]["centers" ][0] ) { cel3.textContent = "1"; cel3.style.backgroundColor = "#060"; cel3.style.color = "#fff"; }
+                else { cel3.textContent = "0"; }
+                row1.appendChild(cel1);
+                row2.appendChild(cel2);
+                row3.appendChild(cel3);
+                input1.appendChild(row1);
+                input2.appendChild(row2);
+                output.appendChild(row3);
+            let p1row = document.createElement("tr");
+            for( let j = 0 ; j < w2v_data["params"]["param 1"][0].length ; j++ )
+            {
+                let p1cel = document.createElement("td");
+                p1cel.textContent = (Math.round(100 * w2v_data["params"]["param 1"][i][j]) / 100);
+                if( which == "param 1" && (x == i || x == -1) && (y == j || y == -1) ) { p1cel.style.backgroundColor = "#b81"; }
+                else { p1cel.style.backgroundColor = "#fc5"; }
+                p1cel.addEventListener( "mouseover", () => { sidebar_params(1,i,j); p1cel.style.backgroundColor = "#b81"; } );
+                p1cel.addEventListener( "mouseout" , () => { sidebar_params();      p1cel.style.backgroundColor = "#fc5"; } );
+                p1row.appendChild(p1cel);
+            }
+            param1.appendChild(p1row);
+        }
+        for( let i = 0 ; i < w2v_data["params"]["param 2"][0].length ; i++ )
+        {
+            let p2row = document.createElement("tr");
+            for( let j = 0 ; j < w2v_data["params"]["param 2"].length ; j++ )
+            {
+                let p2cel = document.createElement("td");
+                p2cel.textContent = (Math.round(100*w2v_data["params"]["param 2"][j][i]) / 100 );
+                if( which == "param 2" && (x == i || x == -1) && (y == j || y == -1) ) { p2cel.style.backgroundColor = "#18b"; }
+                else { p2cel.style.backgroundColor = "#5cf"; }
+                p2cel.addEventListener( "mouseover", () => { sidebar_params(2,i,j); p2cel.style.backgroundColor = "#18b"; } );
+                p2cel.addEventListener( "mouseout" , () => { sidebar_params();      p2cel.style.backgroundColor = "#5cf"; } );
+                p2row.appendChild(p2cel);
+            }
+            param2.appendChild(p2row);
+        }
+    }
+}
 function sidebar_params(param, x, y)
 {
     clear_params();
+    diagram.style.display = "inline-block";
     let p1 = w2v_data["params"]["param 1"],
         p2 = w2v_data["params"]["param 2"],
         p3 = w2v_data["params"]["param 3"];
@@ -708,16 +844,21 @@ function sidebar_params(param, x, y)
         {
             let p1_cell = document.createElement("td");
             p1_cell.textContent = p1[i][j];
-            if( param == 1 && ( x == i || x == -1 ) && ( y == j || y == -1 ) ) { p1_cell.style.backgroundColor = "#777"; }
-            else { p1_cell.style.backgroundColor = "#bbb"; }
+            if( param == 1 && ( x == i || x == -1 ) && ( y == j || y == -1 ) ) { p1_cell.style.backgroundColor = "#b81"; }
+            else { p1_cell.style.backgroundColor = "#fc5"; }
+            p1_cell.addEventListener( "mouseover", () => { make_diagram("param 1",i,j); p1_cell.style.backgroundColor = "#b81"; } );
+            p1_cell.addEventListener( "mouseout" , () => { make_diagram();              p1_cell.style.backgroundColor = "#fc5"} );
             p1_row.appendChild( p1_cell );
             
         }
         p1_table.appendChild( p1_row );
         let p3_cell = document.createElement("td");
         p3_cell.textContent = p3[i];
-        if( param == 3 && ( x == i || x == -1 ) ) { p3_cell.style.backgroundColor = "#999"; }
-        else { p3_cell.style.backgroundColor = "#bbb"; }
+        p3_cell.style.backgroundColor = "#fbb";
+        if( param == 3 && ( x == i || x == -1 ) ) { p3_cell.style.backgroundColor = "#b55"; }
+        else { p3_cell.style.backgroundColor = "#fbb"; }
+        p3_cell.addEventListener( "mouseover", () => { p3_cell.style.backgroundColor = "#b55"; } );
+        p3_cell.addEventListener( "mouseout" , () => { p3_cell.style.backgroundColor = "#fbb"; } );
         p3_row.appendChild( p3_cell );
     }
     p3_table.appendChild( p3_row );
@@ -728,15 +869,18 @@ function sidebar_params(param, x, y)
         {
             let p2_cell = document.createElement("td");
             p2_cell.textContent = p2[j][i];
-            if( param == 2 && ( x == i || x == -1 ) && ( y == j || y == -1 ) ) { p2_cell.style.backgroundColor = "#777"; }
-            else { p2_cell.style.backgroundColor = "#bbb"; }
+            if( param == 2 && ( x == i || x == -1 ) && ( y == j || y == -1 ) ) { p2_cell.style.backgroundColor = "#18b"; }
+            else { p2_cell.style.backgroundColor = "#5cf"; }
+            p2_cell.addEventListener( "mouseover", () => { make_diagram("param 2",i,j); p2_cell.style.backgroundColor = "#18b"; } );
+            p2_cell.addEventListener( "mouseout" , () => { make_diagram();              p2_cell.style.backgroundColor = "#5cf"; } );
             p2_row.appendChild( p2_cell );
         }
         p2_table.appendChild( p2_row );
     }
 }
-function clear_params()
+function clear_params(e)
 {
+    if(e){ diagram.style.display = "none"; }
     while( p1_table.firstChild ) { p1_table.removeChild( p1_table.firstChild ); }
     while( p2_table.firstChild ) { p2_table.removeChild( p2_table.firstChild ); }
     while( p3_table.firstChild ) { p3_table.removeChild( p3_table.firstChild ); }
@@ -784,9 +928,9 @@ function setfooter( input, content, i, j ) {
                 else { footer.innerHTML = "<h2>" + type + "for word #" + i + " in the corpus dictionary, \"" + w2v_data["constants"]["vocabulary"][i-1] + "\"</h2>"; }
                 switch( content )
                 {
-                    case    "center": footer.innerHTML += "<h2>this is the center word that word2vec will be seeking to find in this epoch</h2>";         break;
+                    case    "center": footer.innerHTML += "<h2>this is the target word that word2vec will be seeking to find in this epoch</h2>";         break;
                     case   "context": footer.innerHTML += "<h2>this is one of the context words that word2vec will using as an input in this epoch</h2>"; break;
-                    case "ohot_cntr": footer.innerHTML += "<h2>this is the center word that word2vec will be seeking to find in this epoch</h2>";         break;
+                    case "ohot_cntr": footer.innerHTML += "<h2>this is the target word that word2vec will be seeking to find in this epoch</h2>";         break;
                     case "ohot_ctx1": footer.innerHTML += "<h2>this is one of the context words that word2vec will using as an input in this epoch</h2>"; break;
                     case "ohot_ctx2": footer.innerHTML += "<h2>this is one of the context words that word2vec will using as an input in this epoch</h2>"; break;
                 }
@@ -842,9 +986,26 @@ function setfooter( input, content, i, j ) {
             {
                 switch( content )
                 {
-                    case    "t1": footer.innerHTML = "<h2>log_softmax results from prev page:</h2><h2>" + w2v_data["calcs"]["softmax"][i][j] + "</h2>"; break;
-                    case  "adam": footer.innerHTML = "<h2>utilizes adam optimizer to improve output quality</h2><h2>visit the adam optimizer page for more information</h2>"; break;
-                    case "model": footer.innerHTML = "<h2>this is just an example model image i am going to add one for each epoch and add source links to the db</h2>"; break;
+                    case   "t1": footer.innerHTML  = "<h2>log_softmax results from prev page:</h2><h2>" + w2v_data["calcs"]["log_softmax_footer"][i][j] + "</h2>"; break;
+                    case "adam": footer.innerHTML  = "<h2>utilizes adam optimizer to improve output quality</h2><h2>visit the adam optimizer page for more information</h2>"; break;
+                    case   "p1": let p1string      = "<h2>parameter 1 - word embedding weights</h2><br>";
+                                     p1string     += "<h2>value in epoch #" + (epoch_status+1) + ": " + w2v_data[     "params"]["param 1"][i][j] + "</h2>";
+                                     p1string     += "<h2>value in epoch #" + (epoch_status+2) + ": " + w2v_data["next_params"]["param 1"][i][j]; 
+                                      if( w2v_data["params"]["param 1"][i][j] > w2v_data["next_params"]["param 1"][i][j] ) { p1string += " (decrease)"; }
+                                 else if( w2v_data["params"]["param 1"][i][j] < w2v_data["next_params"]["param 1"][i][j] ) { p1string += " (increase)"; }
+                                 footer.innerHTML  = p1string + "</h2>"; break;
+                    case   "p2": let p2string  = "<h2>parameter 2 - linear function weights</h2><br>";
+                                     p2string += "<h2>value in epoch #" + (epoch_status+1) + ": " + w2v_data[     "params"]["param 2"][i][j] + "</h2>";
+                                     p2string += "<h2>value in epoch #" + (epoch_status+2) + ": " + w2v_data["next_params"]["param 2"][i][j];
+                                      if( w2v_data["params"]["param 2"][i][j] > w2v_data["next_params"]["param 2"][i][j] ) { p2string += " (decrease)"; }
+                                 else if( w2v_data["params"]["param 2"][i][j] < w2v_data["next_params"]["param 2"][i][j] ) { p2string += " (increase)"; }
+                                 footer.innerHTML  = p2string + "</h2>"; break;
+                    case   "p3": let p3string  = "<h2>parameter 3 - linear function bias</h2><br>";
+                                     p3string += "<h2>value in epoch #" + (epoch_status+1) + ": " + w2v_data[     "params"]["param 3"][i] + "</h2>";
+                                     p3string += "<h2>value in epoch #" + (epoch_status+2) + ": " + w2v_data["next_params"]["param 3"][i];
+                                      if( w2v_data["params"]["param 3"][i] > w2v_data["next_params"]["param 3"][i] ) { p3string += " (decrease)"; }
+                                 else if( w2v_data["params"]["param 3"][i] < w2v_data["next_params"]["param 3"][i] ) { p3string += " (increase)"; }
+                                 footer.innerHTML  = p3string + "</h2>"; break;
                 }
                 break;
             }
@@ -865,21 +1026,21 @@ function updater( val )
         rel_page = page_status - epoch_status*5;
         page = statuses[rel_page];
     }
-         if( val ==  1 && page === "end of epoch"     ) {                          adm_btn.style.display = "inline-block"; }
-         if( val == -1 && page === "log softmax"      ) {                          adm_btn.style.display =         "none"; }
-         if( val ==  1 && page === "text preparation" ) { setTimeout( function() {  textprep(); }, 200 ); }
-    else if( val ==  1 && page === "generate batch"   ) { setTimeout( function() { minihelper1(); }, 200 ); }
-    else if( val == -1 && page === "end of epoch"     ) { setTimeout( function() { minihelper2(); }, 200 ); }
+         if( val ==  1 && page === "end of epoch"            ) {                          adm_btn.style.display = "inline-block"; }
+         if( val == -1 && page === "log softmax"             ) {                          adm_btn.style.display =         "none"; }
+         if( val ==  1 && page === "text preparation"        ) { setTimeout( function() {    textprep(); }, 200 ); }
+    else if( val ==  1 && page === "generate training batch" ) { setTimeout( function() { minihelper1(); }, 200 ); }
+    else if( val == -1 && page === "end of epoch"            ) { setTimeout( function() { minihelper2(); }, 200 ); }
     else {
         switch( page ) {
-            case "background":            init(); break;
-            case "text preparation":  textprep(); break;
-            case "one-hot encoding": onehotvec(); break;
-            case "generate batch":   gen_batch(); break;
-            case "multiply matrices": mat_mult(); break;
-            case "add bias":          add_bias(); break;
-            case "log softmax":    log_softmax(); break;
-            case "end of epoch":     end_epoch(); break;
+            case "background":                   init(); break;
+            case "text preparation":         textprep(); break;
+            case "one-hot encoding":        onehotvec(); break;
+            case "generate training batch": gen_batch(); break;
+            case "multiply matrices":        mat_mult(); break;
+            case "add bias":                 add_bias(); break;
+            case "log softmax":           log_softmax(); break;
+            case "end of epoch":            end_epoch(); break;
         }
     }
     console.log( "page_num: " + page_status + ", page: " + page );
