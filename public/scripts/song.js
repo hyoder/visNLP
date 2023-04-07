@@ -39,7 +39,7 @@ function songs_intro()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> intro Slide Title </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2>Song Curation Applicatio!</h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -77,7 +77,7 @@ function songs1()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide Title </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2>  </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
