@@ -17,27 +17,18 @@ const canv     = document.getElementById( "canv"     ),
 let page_status = 0, rel_page = 0, epoch_status = 0, dict = [], epoch_count = 10, w2v_data;
 function meta()
 {
-    let output  = "<div id=\"meta_upper\">";
+    let output  = "";
     if( page_status > 2 )
     {
+        output += "<div id=\"meta_upper\">";
         output += "<h4 style=\"line-height:4vh\">epoch: " + (epoch_status+1) + "/" + epoch_count + "</h4>";
         output += "<h4 style=\"line-height:3vh\">mode: " + canv.dataset.mode + "</h4></div>";
         output += "<div id=\"meta_lower\"><h4>step: " + (rel_page-2) + "/5</div>";
         output += "<div id=\"meta_progress\">";
         output += "<div id=\"meta_bar\" style=\"width:" + (((rel_page-2)/5)*74.75) + "vw\"></div></div>"
+        output += "<div><h1 id=\"meta_title\">word2vec - " + statuses[rel_page] + "</h1></div>";
     }
-    // else if( page_status > 0 )
-    // {   
-    //     output += "<h4 style=\"line-height:4vh\">epoch: " + (epoch_status+1) + "/" + epoch_count + "</h4>";
-    //     output += "<h4 style=\"line-height:3.5vh\">mode: " + canv.dataset.mode + "</h4>";
-    //     output += "</div>";
-    // }
-    else
-    {
-        output += "<h4 style=\"line-height:4vh\">word2vec</h4>";
-        output += "<h4 style=\"line-height:2.5vh\">" + statuses[page_status] + "</h4>";
-        output += "</div>";
-    }
+    else { output += "<div><h1 id=\"meta_title\">word2vec - " + statuses[page_status] + "</h1></div>"; }
     return output;
     // if( page_status < 3 ) { output += "<h2>word2vec - \"" + statuses[page_status] + "\"</h2>"; }
     // else{ output += "<h2>word2vec - \"" + statuses[rel_page] + "\" (epoch " + (epoch_status+1) + ")</h2>";}    
@@ -170,6 +161,8 @@ function onehotvec()
     }
     t.style.height = "40vh";
     t.style.width  = "60vw";
+    t.style.position = "fixed";
+    t.style.left = "25vw";
     canv.appendChild(t);
 }
 function gen_batch() 

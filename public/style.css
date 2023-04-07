@@ -560,7 +560,13 @@ td {
     height: 100%;
     position: relative;
 }
-
+#meta_title {
+    color: #8b0000;
+    font-size: 3vw;
+    padding-top: 2vh;
+    position: fixed;
+    width: 74.75vw;
+}
 #meta_adam {
     background-color: white;
     border-radius: 0 0 10px 0;
