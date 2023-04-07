@@ -39,7 +39,7 @@ function songs_intro()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2>Song Curation Applicatio!</h2>"
+    songTitleHeaderContainer.innerHTML = "<h2>Song Curation Application!</h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -196,7 +196,7 @@ function songs2()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Recommended Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -304,7 +304,7 @@ function songs3()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Recommended Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -412,7 +412,7 @@ function songs4()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Recommended Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -520,7 +520,7 @@ function songs5()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Recommended Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -627,7 +627,7 @@ function songs6()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Recommended Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -735,7 +735,7 @@ function songs7()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Recommended Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -842,7 +842,7 @@ function songs8()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Recommended Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -950,7 +950,7 @@ function songs9()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Recommended Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -1058,7 +1058,7 @@ function songs10()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Recommended Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -1182,27 +1182,27 @@ function setfooter( input ) // takes input from event listener and then
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // SLIDE DESCRIPTIONS
-        case "songs_intro": footer.innerHTML = "<h2> desc intro </h2>"
+        case "songs_intro": footer.innerHTML = "<h2>Plot of Song Title Embeddings</h2>"
                             break;
-        case "songs1":      footer.innerHTML = "<h2> slide desc 1</h2>"
+        case "songs1":      footer.innerHTML = "<h2>Recommendations For: Bad Day - Daniel Powter</h2>"
                             break;
-        case "songs2":      footer.innerHTML = "<h2> slide desc 2</h2>"
+        case "songs2":      footer.innerHTML = "<h2>Recommendations For: Born In The U.S.A. - Bruce Springsteen</h2>"
                             break;
-        case "songs3":      footer.innerHTML = "<h2> slide desc 3</h2>"
+        case "songs3":      footer.innerHTML = "<h2>Recommendations For: Chasing Cars - Snow Patrol</h2>"
                             break;
-        case "songs4":      footer.innerHTML = "<h2> slide desc 4</h2>"
+        case "songs4":      footer.innerHTML = "<h2>Recommendations For: Cheerleader - OMI</h2>"
                             break;
-        case "songs5":      footer.innerHTML = "<h2> slide desc 5</h2>"
+        case "songs5":      footer.innerHTML = "<h2>Recommendations For: Electric Feel - MGMT</h2>"
                             break;
-        case "songs6":      footer.innerHTML = "<h2> slide desc 6</h2>"
+        case "songs6":      footer.innerHTML = "<h2>Recommendations For: Wake Me Up - Avicii</h2>"
                             break;
-        case "songs7":      footer.innerHTML = "<h2> slide desc 7</h2>"
+        case "songs7":      footer.innerHTML = "<h2>Recommendations For: Mr Brightside - The Killers</h2>"
                             break;
-        case "songs8":      footer.innerHTML = "<h2> slide desc 8</h2>"
+        case "songs8":      footer.innerHTML = "<h2>Recommendations For: Now - Paramore</h2>"
                             break;
-        case "songs9":      footer.innerHTML = "<h2> slide desc 9</h2>"
+        case "songs9":      footer.innerHTML = "<h2>Recommendations For: Move Along - The All-American Rejects</h2>"
                             break;   
-        case "songs10":      footer.innerHTML = "<h2> slide desc 10</h2>"
+        case "songs10":      footer.innerHTML = "<h2>Recommendations For: Mad Sounds - Arctic Monkeys</h2>"
                             break;
         case "songs10":      footer.innerHTML = "<h2> buffer page desc </h2>"
                             break;
@@ -1236,7 +1236,7 @@ function setsidebar( input )
     // FORMATTING FOR THE TEXT IN CSS @ (#sidebar_new_text_container p)
     sidebar_curr_param_text_container.id = 'sidebar_new_text_container';
     // CHANGE THIS TEXT
-    sidebar_curr_param_text_container.innerHTML = "<p> Select A Song to... and something and more words to more word content </p>";
+    sidebar_curr_param_text_container.innerHTML = "<p> Select A Song From The Dropdown Below:</p>";
     // IF SIDEBAR TEXT IS VARIABLE FROM SLIDE TO SLIDE (use commented logic instead)..
     // if ( page_status == 0 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 1/15 text </p>"; }
     // else if ( page_status == 1 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 2/15 text </p>"; }
