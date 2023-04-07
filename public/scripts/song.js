@@ -749,7 +749,7 @@ function songs7()
 
     // create the image element
     const img = document.createElement('img');
-    img.src = 'assets/song_tsne_plots/Mr Brightside - The Killers.png';
+    img.src = 'assets/song_tsne_plots/Mr. Brightside - The Killers.png';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'cover';
@@ -761,7 +761,7 @@ function songs7()
 
     // TABLE DATA 
 
-    let table_data =   [['Mr Brightside - The Killers', 'Cosine Similarity'],
+    let table_data =   [['Mr. Brightside - The Killers', 'Cosine Similarity'],
                         ['1: Love Will Tear Us Apart - Joy Division', '0.9996'],
                         ['2: Sleeping Sickness - City and Colour', '0.9995'],
                         ['3: The Outsiders - NEEDTOBREATHE', '0.9988'],
@@ -1196,7 +1196,7 @@ function setfooter( input ) // takes input from event listener and then
                             break;
         case "songs6":      footer.innerHTML = "<h2>Recommendations For: Wake Me Up - Avicii</h2>"
                             break;
-        case "songs7":      footer.innerHTML = "<h2>Recommendations For: Mr Brightside - The Killers</h2>"
+        case "songs7":      footer.innerHTML = "<h2>Recommendations For: Mr. Brightside - The Killers</h2>"
                             break;
         case "songs8":      footer.innerHTML = "<h2>Recommendations For: Now - Paramore</h2>"
                             break;
