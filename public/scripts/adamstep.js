@@ -1820,7 +1820,8 @@ function second_moment_a()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    // .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -4060,7 +4061,8 @@ function setfooter( input ) // takes input from event listener and then
                                         break;  
         case "second_moment_a":         footer_desc.innerHTML = "Update the biased second raw moment estimate (v<sub>t</sub>). The biased second raw moment estimate vector is set to zero prior to updating. First, <span style='font-weight: bold'>calculate the square of the current gradient (g<sup>2</sup><sub>t</sub>) by squaring the current gradient (g<sub>t</sub>).</span>";
                                         footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● <span style='color: #32cd32'>g<sup><span style='color: rgb(0, 140, 255)'>2</span></sup><sub>t</sub></span> </h2>";
+                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● <span style='color: #d40000'>g<sup><span style='color: rgb(0, 140, 255)'>2</span></sup><sub>t</sub></span> </h2>";
+                                        // footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● <span style='color: #32cd32'>g<sup><span style='color: rgb(0, 140, 255)'>2</span></sup><sub>t</sub></span> </h2>";
                                         break;  
         case "second_moment_b":         footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (v<sub>t</sub>). Next, <span style='font-weight: bold'>the square of the current gradient (g<sup>2</sup><sub>t</sub>) is scaled by the complementary factor (1 -  β<sub>2</sub>)</span>, which determines how much weight to give to the new information. Beta2 (β<sub>2</sub>) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.999 in this simulation.";
                                         footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
@@ -4353,7 +4355,9 @@ function setsidebar( input )
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 &nbsp; (Initialize Vectors) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 &nbsp; (Initialize Vectors) </p>" }
     if ( eq_state >= 8 && eq_state <= 22 || eq_state <= 7 && epoch_status > 0 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> while θ<sub>t</sub> not converged do </span> </p>" } else { 
+        // sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> while θ<sub>t</sub> not converged do </span> </p>" } else { 
+        // sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> while </span> θ<sub>t</sub> not converged <span style='font-weight: bold'> do </span> </p>" }
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: d40000; font-weight: bold;'> while θ<sub>t</sub> not converged do </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> while </span> θ<sub>t</sub> not converged <span style='font-weight: bold'> do </span> </p>" }
     if ( eq_state == 8 )  { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </span> </p>" } else { 
@@ -4362,7 +4366,9 @@ function setsidebar( input )
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </p>" }
     if ( eq_state >= 12 && eq_state <= 15 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </span> </p>" } else { 
+        // sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </span> </p>" } else { 
+        // sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </p>" }
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </p>" }    
     if ( eq_state == 16 )  { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </span> </p>" } else { 
@@ -4415,6 +4421,9 @@ function setsidebar( input )
         },
         success: function(data) {
         // Create a new plotly graph with the received data
+        data.marker = {
+            color: 'red'
+          };
         var plotData = [data];
         var plotLayout = {
             margin: {

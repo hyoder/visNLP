@@ -115,7 +115,8 @@ td {
     font-family:'Segoe UI';
 }
 #canv_adam h3{
-    color: rgb(0, 140, 255);
+    /* color: rgb(0, 140, 255); */
+    color: #8b0000;
     font-size: 2vw;
 }
 
@@ -559,7 +560,7 @@ td {
 }
 #meta_adam_progress_bar {
     /* background-color: rgb(0, 140, 255); */
-    background-color: #b80101;
+    background-color: #d40000;
     height: 100%;
 }
 
@@ -1384,21 +1385,24 @@ td {
 }
 
 #my-table-container-g1 {
-    background-color: #32cd32;
+    /* background-color: #32cd32; */
+    background-color: #d40000;
     position: absolute;
     left: 28%;
     top: 18%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g2 {
-    background-color: #32cd32;
+    /* background-color: #32cd32; */
+    background-color: #d40000;
     position: absolute;
     left: 48%;
     top: 18%;
     transform: translate(-50%, -50%);
 }
 #my-table-container-g3 {
-    background-color: #32cd32;
+    /* background-color: #32cd32; */
+    background-color: #d40000;
     position: absolute;
     left: 64%;
     top: 18%;
