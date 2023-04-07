@@ -104,7 +104,7 @@ function false_1()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Chasing Cars - Snow Patrol.png';
+    img.src = 'assets/first-graph.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -160,7 +160,7 @@ function true_2()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/second-graph.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -188,7 +188,7 @@ function false_2()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/second-graph.jpg';
     newsVisualContainer.appendChild(img);
     
 }
@@ -244,7 +244,7 @@ function true_3()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/third-graph.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -272,7 +272,7 @@ function false_3()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/third-graph.jpg';
     newsVisualContainer.appendChild(img);
     
 }
@@ -328,7 +328,7 @@ function true_4()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/fourth-graph.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -356,7 +356,7 @@ function false_4()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/fourth-graph.jpg';
     newsVisualContainer.appendChild(img);
     
 }
