@@ -77,7 +77,7 @@ function songs1()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2>  </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -88,7 +88,7 @@ function songs1()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' > Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -185,7 +185,7 @@ function songs2()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide 2 Title </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -196,7 +196,7 @@ function songs2()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -293,7 +293,7 @@ function songs3()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide 3 Title </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -304,7 +304,7 @@ function songs3()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -401,7 +401,7 @@ function songs4()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide Title 4 </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -412,7 +412,7 @@ function songs4()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -509,7 +509,7 @@ function songs5()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide Title 5 </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -520,7 +520,7 @@ function songs5()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -616,7 +616,7 @@ function songs6()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide Title 6 </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -627,7 +627,7 @@ function songs6()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -724,7 +724,7 @@ function songs7()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide Title 7 </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -735,7 +735,7 @@ function songs7()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -831,7 +831,7 @@ function songs8()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide Title 8 </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -842,7 +842,7 @@ function songs8()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -939,7 +939,7 @@ function songs9()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide Title 9 </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -950,7 +950,7 @@ function songs9()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
@@ -1047,7 +1047,7 @@ function songs10()
     // Tiltle head
     const songTitleHeaderContainer = document.createElement('div');
     songTitleHeaderContainer.id = 'songTitleHeaderContainer';
-    songTitleHeaderContainer.innerHTML = "<h2> Slide Title 10 </h2>"
+    songTitleHeaderContainer.innerHTML = "<h2> Song Recommendations! </h2>"
     canv.appendChild(songTitleHeaderContainer);
 
     // visuals container
@@ -1058,7 +1058,7 @@ function songs10()
     // table
     const songTableContainer = document.createElement('div');
     songTableContainer.id = 'songTableContainer';
-    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  table title </h2>"
+    songTableContainer.innerHTML = "<h2 style='margin-bottom:1.5vh;margin-top:8vh;' >  Ten Most Similar Songs </h2>"
     songVisualContainer.appendChild(songTableContainer)
 
     // plot
