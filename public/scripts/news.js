@@ -48,7 +48,7 @@ function headline_1()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/plot.jpg';
+    img.src = 'assets/final-graph-pre.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -76,7 +76,7 @@ function true_1()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Born In The U.S.A. - Bruce Springsteen.png';
+    img.src = 'assets/first-graph.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -132,7 +132,7 @@ function headline_2()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/final-graph-pre.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -216,7 +216,7 @@ function headline_3()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/final-graph-pre.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -300,7 +300,7 @@ function headline_4()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/final-graph-pre.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -384,7 +384,7 @@ function headline_5()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/final-graph-pre.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -412,7 +412,7 @@ function true_5()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/last-graph.jpg';
     newsVisualContainer.appendChild(img);
 
 }
@@ -440,7 +440,7 @@ function false_5()
 
     // APPEND IMAGE
     const img = document.createElement('img');
-    img.src = 'assets/Bad Day - Daniel Powter.png';
+    img.src = 'assets/last-graph.jpg';
     newsVisualContainer.appendChild(img);
     
 }
@@ -477,9 +477,9 @@ function setfooter( input ) // takes input from event listener and then
                             break;
         case "headline_5":  footer.innerHTML = "<h2> headline question footer (5) </h2>"
                             break;
-        case "true_5":      footer.innerHTML = "<h2> if they chose true content (5) </h2>"
+        case "true_5":      footer.innerHTML = "<h2>That is incorrect! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
-        case "false_5":     footer.innerHTML = "<h2> if they chose false content (5) </h2>"
+        case "false_5":     footer.innerHTML = "<h2>That is correct! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
     }
 }
@@ -508,7 +508,7 @@ function setsidebar( input )
     // FORMATTING FOR THE TEXT IN CSS @ (#sidebar_new_text_container p)
     sidebar_curr_param_text_container.id = 'sidebar_new_text_container';
     // CHANGE THIS TEXT
-    sidebar_curr_param_text_container.innerHTML = "<p> Is this news article ?something? more words more words ... </p>";
+    sidebar_curr_param_text_container.innerHTML = "<p>Do you think the news article title to the right is real or fake?</p>";
     // IF SIDEBAR TEXT IS VARIABLE FROM SLIDE TO SLIDE (use commented logic instead)..
     // if ( page_status == 0 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 1/15 text </p>"; }
     // else if ( page_status == 1 ) { sidebar_curr_param_text_container.innerHTML = "<p> slide 2/15 text </p>"; }
