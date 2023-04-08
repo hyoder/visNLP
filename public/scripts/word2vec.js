@@ -141,12 +141,18 @@ function onehotvec()
             let c = document.createElement("td");
                  if( j ==  i ) { c.textContent = "1"; c.style.backgroundColor =        "#000"; c.style.color  = "#fff"; }
             else if( i == -1 ) { c.textContent =   j; c.style.backgroundColor = "transparent"; c.style.border =  "0px"; }
-            else               { c.textContent = "0"; c.style.backgroundColor =        "#aaa"; }
+            else               { c.textContent = "0"; c.style.backgroundColor =        "#bbb"; }
             c.style.fontSize = "1.5vw";
             c.style.height   =   "8vh";
             c.style.width    =   "8vw";
-            c.addEventListener( "mouseover", () => { setfooter( "onehot", c.textContent, i, j ); } );
-            c.addEventListener( "mouseout" , () => { setfooter(); } );
+            c.addEventListener( "mouseover", () => { 
+                if( i != -1 && c.textContent == "1" ) { c.style.backgroundColor = "#333"; }
+                if( i != -1 && c.textContent == "0" ) { c.style.backgroundColor = "#888"; }
+                setfooter( "onehot", c.textContent, i, j ); } );
+            c.addEventListener( "mouseout" , () => { 
+                if( i != -1 && c.textContent == "1" ) { c.style.backgroundColor = "#000"; }
+                if( i != -1 && c.textContent == "0" ) { c.style.backgroundColor = "#bbb"; }
+                setfooter(); } );
             z.appendChild(c);
         }
         b.appendChild(z);
