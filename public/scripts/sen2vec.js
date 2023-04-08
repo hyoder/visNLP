@@ -391,7 +391,7 @@ function Input()
     container2.style.marginTop = '350px';
 
     const img = document.createElement('img');
-    img.src = 'assets/para2vecstep1.png';
+    img.src = 'assets/para2vecstep2.png';
     img.style.marginTop = "250px";
     img.style.marginBottom = "10px";
     img.style.marginLeft = "10px";
@@ -477,7 +477,7 @@ function Input()
     container2.style.marginTop = '350px';
 
     const img = document.createElement('img');
-    img.src = 'assets/para2vecstep1.png';
+    img.src = 'assets/para2vecstep2.png';
     img.style.marginTop = "250px";
     img.style.marginBottom = "10px";
     img.style.marginLeft = "10px";
@@ -584,7 +584,7 @@ function Input()
     container3.style.marginTop = '350px';
 
     const img = document.createElement('img');
-    img.src = 'assets/para2vecstep1.png';
+    img.src = 'assets/para2vecstep3.png';
     img.style.marginTop = "250px";
     img.style.marginBottom = "10px";
     img.style.marginLeft = "10px";
@@ -692,7 +692,7 @@ function Input()
     container4.style.marginTop = '350px';
 
     const img = document.createElement('img');
-    img.src = 'assets/para2vecstep1.png';
+    img.src = 'assets/para2vecstep4.png';
     img.style.marginTop = "250px";
     img.style.marginBottom = "10px";
     img.style.marginLeft = "10px";
@@ -816,7 +816,7 @@ function Input()
     container4.style.marginTop = '350px';
 
     const img = document.createElement('img');
-    img.src = 'assets/para2vecstep1.png';
+    img.src = 'assets/para2vecstep5.png';
     img.style.marginTop = "250px";
     img.style.marginBottom = "10px";
     img.style.marginLeft = "10px";
@@ -849,7 +849,7 @@ function setfooter( input ) // takes input from event listener and then
         case "step3": footer.innerHTML = "<h2>In this step, Sen2vec initializes the word and paragraph weight matrices along with the bias matrix. The size of the word weight matrix is based on the vocabulary size of the data, in this case, the vocabulary is 13. The size of the paragraph weight matrix is based on the number of paragraphs in the data, which is 5. The size of the bias matrix is based on the input matrix, and is intialized as a 0 matrix. All of these matrices have the same dimensions as the vector dimensions in the parameters.</h2>"; break;
         case "step5": footer.innerHTML = "<h2>In this step, the bias matrix is added to the predicted center word matrix to introduce another parameter that improves the accuracy of the model. The hyperbolic tangent function is then applied to the result matrix to introduce non linearity to the model. This allows the model to capture more complex relationships between words and paragraphs. </h2>"; break;
         case "step6": footer.innerHTML = "<h2>In this step, the hyperbolic tangent matrix is transformed by the softmax function to get the probability distribution of the vocabulary. The result matrix then uses the true center word matrix, which was gathered from the input matrix, to calculate the negative log likelihood loss of the predicted center word matrix. The negative log likelihood loss is a measure of how well the model predicts the true center word.</h2>"; break;
-        case "step7": footer.innerHTML = "<h2>In this step, the negative log likelihood loss values are sent to the adam optimizer to update the weights. The weights will be updated for the word and paragraph matrices along with the bias matrix. The updated weights and bias matrices are then used in the next batch of training vectors. Once all training vectors have been trained, that is the end of one epoch. Once the number of epochs set in the parameter are met, the paragraph weight matrix is returned and is now ready to be used in other applications. Red indicates a decrease in value and green indicates increase.</h2>"; break;
+        case "step7": footer.innerHTML = "<h2>In this step, the negative log likelihood loss values are sent to the adam optimizer to update the weights. The weights will be updated for the word and paragraph matrices along with the bias matrix. The updated matrices are used in the next batch of training vectors. Once all training vectors have been trained, that is the end of one epoch. Once the number of epochs set in the parameter are met, the paragraph weight matrix is returned and is now ready to be used in other applications. Red indicates a decrease in value and green indicates increase.</h2>"; break;
     }
 
 
