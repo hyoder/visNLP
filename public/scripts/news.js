@@ -482,31 +482,31 @@ function setfooter( input ) // takes input from event listener and then
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // SLIDE DESCRIPTIONS
-        case "headline_1": footer.innerHTML = "<h2> headline question footer (1) </h2>"
+        case "headline_1": footer.innerHTML = "<h2> Predict if this news article is real or fake based on the title </h2>"
                             break;
-        case "true_1":      footer.innerHTML = "<h2> if they chose true content (1) </h2>"
+        case "true_1":      footer.innerHTML = "<h2>That is correct! This article is from the real article dataset and the svm model was accurate and predicted it to be real.  </h2>"
                             break;
-        case "false_1":      footer.innerHTML = "<h2> if they chose false content (1) </h2>"
+        case "false_1":      footer.innerHTML = "<h2>That is incorrect! This article is from the real article dataset and the svm model was accurate and predicted it to be real.  </h2>"
                             break;
-        case "headline_2":  footer.innerHTML = "<h2> headline question footer (2) </h2>"
+        case "headline_2":  footer.innerHTML = "<h2>Predict if this news article is real or fake based on the title </h2>"
                             break;
-        case "true_2":      footer.innerHTML = "<h2> if they chose true content (2) </h2>"
+        case "true_2":      footer.innerHTML = "<h2>That is incorrect! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
-        case "false_2":     footer.innerHTML = "<h2> if they chose false content (2) </h2>"
+        case "false_2":     footer.innerHTML = "<h2>That is correct! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake.  </h2>"
                             break;
-        case "headline_3":  footer.innerHTML = "<h2> headline question footer (3) </h2>"
+        case "headline_3":  footer.innerHTML = "<h2>Predict if this news article is real or fake based on the title </h2>"
                             break;
-        case "true_3":      footer.innerHTML = "<h2> if they chose true content (3) </h2>"
+        case "true_3":      footer.innerHTML = "<h2>That is incorrect! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
-        case "false_3":      footer.innerHTML = "<h2> if they chose false content (3) </h2>"
+        case "false_3":      footer.innerHTML = "<h2>That is correct! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
-        case "headline_4":  footer.innerHTML = "<h2> headline question footer (4) </h2>"
+        case "headline_4":  footer.innerHTML = "<h2>Predict if this news article is real or fake based on the title</h2>"
                             break;
-        case "true_4":      footer.innerHTML = "<h2> if they chose true content (4) </h2>"
+        case "true_4":      footer.innerHTML = "<h2>That is correct! This article is from the real article dataset and the svm model was accurate and predicted it to be real.  </h2>"
                             break;
-        case "false_4":     footer.innerHTML = "<h2> if they chose false content (4) </h2>"
+        case "false_4":     footer.innerHTML = "<h2>That is incorrect! This article is from the real article dataset and the svm model was accurate and predicted it to be real.  </h2>"
                             break;
-        case "headline_5":  footer.innerHTML = "<h2> headline question footer (5) </h2>"
+        case "headline_5":  footer.innerHTML = "<h2>Predict if this news article is real or fake based on the title </h2>"
                             break;
         case "true_5":      footer.innerHTML = "<h2>That is incorrect! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
