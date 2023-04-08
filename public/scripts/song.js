@@ -1204,7 +1204,7 @@ function setfooter( input ) // takes input from event listener and then
                             break;   
         case "songs10":      footer.innerHTML = "<h2>Recommendations For: Mad Sounds - Arctic Monkeys</h2>"
                             break;
-        case "songs10":      footer.innerHTML = "<h2> buffer page desc </h2>"
+        case "buffer_page": footer.innerHTML = "<h2> Generating... </h2>"
                             break;
     }
 }
@@ -1266,7 +1266,7 @@ function updater( val )
 
     
     // set buffer animation time in ms
-    let buffer_delay = 800;
+    let buffer_delay = 100;
 
     if (page != 'songs_intro') {
     setTimeout(function() {
@@ -1310,7 +1310,7 @@ function updater( val )
             songs10(); 
             break;
         }
-        }, 3000);
+        }, 2200);
     }, buffer_delay);
     } else {
         setTimeout(songs_intro(), 400);
