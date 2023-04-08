@@ -4014,7 +4014,7 @@ function setfooter( input ) // takes input from event listener and then
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // SLIDE DESCRIPTIONS
-        case "intro":                   footer_desc.innerHTML = "Perform a new optimization step with the Adam Optimization Method. An optimization step can be generally broken into the (5) following parts: <ol><li>Perform a forward pass in the model with inputs</li><li>Compute the loss at the specific iteration on outputs</li><li>Get the gradients of loss function with respect to the parameters</li><li>Compute the first and second moment estimates of the gradients</li><li>Perform an update on the model parameters</li></ol>";
+        case "intro":                   footer_desc.innerHTML = "Perform a new optimization step with the Adam Optimization Method. The simulation breaks the process into the (5) following parts: <ol><li>Perform a forward pass in the model with inputs</li><li>Compute the loss at the specific iteration on outputs</li><li>Get the gradients of loss function with respect to the parameters</li><li>Compute the first and second moment estimates of the gradients</li><li>Perform an update on the model parameters</li></ol>";
                                         footer_eq_title.innerHTML = "";
                                         footer_eq.innerHTML = "";
                                         break;
