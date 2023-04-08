@@ -339,19 +339,19 @@ td {
 #prev_btn {
     background-color: #ddd;
     color: #8b0000;
-    left: 0.75vw;
+    left: 0.55vw;
     position: fixed;
-    top: 90vh;
-    width: 11vw;
+    top: 90.7vh;
+    width: 11.5vw;
 }
 #prev_btn:hover { background-color: #fff; }
 #next_btn {
     background-color: #ddd;
     color: #8b0000;
-    left: 13vw;
+    left: 12.3vw;
     position: fixed;
-    top: 90vh;
-    width: 11vw;
+    top: 90.7vh;
+    width: 11.7vw;
 }
 #next_btn:hover { background-color: #fff; }
 
