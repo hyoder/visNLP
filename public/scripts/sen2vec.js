@@ -55,8 +55,8 @@ function ModelSelection()
     img.style.marginLeft = "50px";
     img.style.marginRight = "50px";
     img.style.marginBottom = "100px";
-    img.style.width = '50%';
-    img.style.height = '50%';
+    img.style.width = '65%';
+    img.style.height = '55%';
     sidebar.appendChild(img);
 }
 
@@ -211,8 +211,8 @@ function Input()
     tableContainer.style.justifyContent = "space-between";
   
     const table1 = document.createElement("table");
-    table1.style.marginTop = "10px";
-    table1.style.marginLeft = "50px";
+    table1.style.marginTop = "200px";
+    table1.style.marginLeft = "10px";
     table1.innerHTML += "<caption style=\"font-size: 30px\"> DM Input Matrix With Words </caption>";
     table1.innerHTML += "<tr><td><div>Paragraph ID<div></td><td><div>Context Word<div></td><td><div>Context Word<div></td><td><div>Center Word<div></td></tr>";
     table1.innerHTML += "<tr><td><div>0<div></td><td><div>love<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
@@ -227,8 +227,8 @@ function Input()
     table1.innerHTML += "<tr><td><div>4<div></td><td><div>dislike<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
 
     const table2 = document.createElement("table");
-    table2.style.marginTop = "10px";
-    table2.style.marginRight = "50px";
+    table2.style.marginTop = "200px";
+    table2.style.marginRight = "10px";
     table2.innerHTML += "<caption style=\"font-size: 30px\"> DM Input Matrix With Values</caption>";
     table2.innerHTML += "<tr><td><div>Paragraph ID<div></td><td><div>Context Word<div></td><td><div>Context Word<div></td><td><div>Center Word<div></td></tr>";
     table2.innerHTML += "<tr><td><div>0<div></td><td><div>-1.689, 0.213, 0.871, 0.928<div></td><td><div>-0.388, 0.987, 0.346, 1.243<div></td><td><div>1.538, 0.735, 0.120, 1.486<div></td></tr>";
@@ -245,20 +245,20 @@ function Input()
     const container = document.createElement("div");
     container.innerHTML += ">>";
     container.style.fontSize = "32px";
-    container.style.marginTop = '75px';
-
-    tableContainer.appendChild(table1);
-    tableContainer.appendChild(container);
-    tableContainer.appendChild(table2);
+    container.style.marginTop = '300px';
 
     const img = document.createElement('img');
     img.src = 'assets/para2vecstep1.png';
-    img.style.marginTop = "100px";
+    img.style.marginTop = "200px";
     img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
     img.style.width = '17%';
     img.style.height = 'auto';
-    canv.appendChild(img);
-    
+
+    tableContainer.appendChild(img);
+    tableContainer.appendChild(table1);
+    tableContainer.appendChild(container);
+    tableContainer.appendChild(table2);
   
     canv.appendChild(tableContainer);
 
@@ -340,9 +340,9 @@ function Input()
     tableContainer.style.display = "flex";
   
     const table1 = document.createElement("table");
-    table1.style.marginTop = "10px";
-    table1.style.marginLeft = "175px";
-    table1.style.marginRight = "125px";
+    table1.style.marginTop = "200px";
+    table1.style.marginLeft = "10px";
+    table1.style.marginRight = "100px";
     table1.innerHTML += "<caption style=\"font-size: 30px\"> Initialize Word Weight Matrix </caption>";
     table1.innerHTML += "<tr><td><div>0.264<div></td><td><div> -0.441<div></td><td><div> 0.329<div></td><td><div> 0.126<div></td></tr>";
     table1.innerHTML += "<tr><td><div>-0.3017<div></td><td><div> -0.132<div></td><td><div> -0.383<div></td><td><div> 0.107<div></td></tr>";
@@ -358,9 +358,9 @@ function Input()
     table1.innerHTML += "<tr><td><div>0.1058<div></td><td><div> 0.121<div></td><td><div> -0.187<div></td><td><div> -0.228<div></td></tr>";
   
     const table2 = document.createElement("table");
-    table2.style.marginTop = "10px";
-    table2.style.marginLeft = "125px";
-    table2.style.marginRight = "125px";
+    table2.style.marginTop = "200px";
+    table2.style.marginLeft = "100px";
+    table2.style.marginRight = "100px";
     table2.innerHTML += "<caption style=\"font-size: 30px\"> Initialize Paragraph Weight Matrix </caption>";
     table2.innerHTML += "<tr><td><div>0.031<div></td><td><div> 0.398<div></td><td><div> -0.447<div></td><td><div> 0.273<div></td></tr>";
     table2.innerHTML += "<tr><td><div>-0.323<div></td><td><div> -0.002<div></td><td><div> 0.005<div></td><td><div> 0.942<div></td></tr>";
@@ -369,9 +369,9 @@ function Input()
     table2.innerHTML += "<tr><td><div>-0.376<div></td><td><div> -0.109<div></td><td><div> 0.127<div></td><td><div> -0.461<div></td></tr>";
 
     const table3 = document.createElement("table");
-    table3.style.marginTop = "10px";
-    table3.style.marginRight = "125px";
-    table3.style.marginLeft = "125px";
+    table3.style.marginTop = "200px";
+    table3.style.marginRight = "10px";
+    table3.style.marginLeft = "100px";
     table3.innerHTML += "<caption style=\"font-size: 30px\"> Initialize Bias Matrix </caption>";
     table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
     table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
@@ -387,26 +387,27 @@ function Input()
     const container = document.createElement("div");
     container.innerHTML += ">>";
     container.style.fontSize = "32px";
-    container.style.marginTop = '75px';
+    container.style.marginTop = '300px';
 
     const container2 = document.createElement("div");
     container2.innerHTML += ">>";
     container2.style.fontSize = "32px";
-    container2.style.marginTop = '75px';
+    container2.style.marginTop = '300px';
 
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep1.png';
+    img.style.marginTop = "200px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
     tableContainer.appendChild(table1);
     tableContainer.appendChild(container);
     tableContainer.appendChild(table2);
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table3);
-  
-    const img = document.createElement('img');
-    img.src = 'assets/para2vecstep2.png';
-    img.style.marginTop = "100px";
-    img.style.marginBottom = "10px";
-    img.style.width = '17%';
-    img.style.height = 'auto';
-    canv.appendChild(img);
 
     canv.appendChild(tableContainer);
 
@@ -421,8 +422,8 @@ function Input()
     tableContainer.style.justifyContent = "space-between";
   
     const table1 = document.createElement("table");
-    table1.style.marginTop = "10px";
-    table1.style.marginLeft = "10px";
+    table1.style.marginTop = "200px";
+    table1.style.marginLeft = "5px";
     table1.innerHTML += "<caption style=\"font-size: 30px\"> Input Vectors </caption>";
     table1.innerHTML += "<tr><td><div>Paragraph<div></td><td><div>Paragraph<div></td><td><div>Paragraph<div></td><td><div>Paragraph<div></td><td><div>Context 1<div></td><td><div>Context 1<div></td><td><div>Context 1<div></td><td><div>Context 1<div></td><td><div>Context 2<div></td><td><div>Context 2<div></td><td><div>Context 2<div></td><td><div>Context 2<div></td></tr>";
     table1.innerHTML += "<tr><td><div>0.031<div></td><td><div> 0.398<div></td><td><div> -0.447<div></td><td><div> 0.273<div></td><td><div>-1.689<div></td><td><div> 0.213<div></td><td><div> 0.871<div></td><td><div> 0.928<div></td><td><div>-0.388<div></td><td><div> 0.987<div></td><td><div> 0.346<div></td><td><div> 1.243<div></td></tr>";
@@ -437,7 +438,8 @@ function Input()
     table1.innerHTML += "<tr><td><div>-0.376<div></td><td><div> -0.109<div></td><td><div> 0.127<div></td><td><div> -0.461<div></td><td><div>-0.339<div></td><td><div> 1.527<div></td><td><div> 1.276<div></td><td><div> 0.246<div></td><td><div>-0.388<div></td><td><div> 0.987<div></td><td><div> 0.346<div></td><td><div> 1.243<div></td></tr>";
   
     const table2 = document.createElement("table");
-    table2.style.marginTop = "10px";
+    table2.style.marginTop = "200px";
+    table2.style.marginRight = "5px";
     table2.innerHTML += "<caption style=\"font-size: 30px\"> Initial Word Weight Matrix </caption>";
     table2.innerHTML += "<tr><td><div>0.264<div></td><td><div> -0.441<div></td><td><div> 0.329<div></td><td><div> 0.126<div></td></tr>";
     table2.innerHTML += "<tr><td><div>-0.3017<div></td><td><div> -0.132<div></td><td><div> -0.383<div></td><td><div> 0.107<div></td></tr>";
@@ -453,8 +455,9 @@ function Input()
     table2.innerHTML += "<tr><td><div>0.1058<div></td><td><div> 0.121<div></td><td><div> -0.187<div></td><td><div> -0.228<div></td></tr>";
 
     const table3 = document.createElement("table");
-    table3.style.marginTop = "10px";
-    table3.style.marginRight = "10px";
+    table3.style.marginTop = "200px";
+    table3.style.marginRight = "5px";
+    table3.style.marginLeft = "5px";
     table3.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Center Word Matrix </caption>";
     table3.innerHTML += "<tr><td><div>1.088<div></td><td><div> -1.940<div></td><td><div>   0.081<div></td><td><div>  -0.392<div></td></tr>";
     table3.innerHTML += "<tr><td><div>0.405<div></td><td><div> -0.619<div></td><td><div>  -0.088<div></td><td><div>  -0.468<div></td></tr>";
@@ -470,26 +473,27 @@ function Input()
     const container = document.createElement("div");
     container.innerHTML += "*";
     container.style.fontSize = "32px";
-    container.style.marginTop = '75px';
+    container.style.marginTop = '300px';
 
     const container2 = document.createElement("div");
     container2.innerHTML += ">>";
     container2.style.fontSize = "32px";
-    container2.style.marginTop = '75px';
+    container2.style.marginTop = '300px';
 
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep1.png';
+    img.style.marginTop = "200px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
     tableContainer.appendChild(table1);
     tableContainer.appendChild(container);
     tableContainer.appendChild(table2);
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table3);
-  
-    const img = document.createElement('img');
-    img.src = 'assets/para2vecstep2.png';
-    img.style.marginTop = "100px";
-    img.style.marginBottom = "10px";
-    img.style.width = '17%';
-    img.style.height = 'auto';
-    canv.appendChild(img);
 
     canv.appendChild(tableContainer);
 
@@ -504,10 +508,9 @@ function Input()
     tableContainer.style.justifyContent = "space-between";
   
     const table1 = document.createElement("table");
-    table1.style.marginTop = "10px";
-    table1.style.marginLeft = "100px";
-    table1.style.marginRight = "75px";
-    table1.style.height = "10vh";
+    table1.style.marginTop = "200px";
+    table1.style.marginLeft = "10px";
+    table1.style.marginRight = "50px";
     table1.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Center Word Matrix </caption>";
     table1.innerHTML += "<tr><td><div>1.088<div></td><td><div> -1.940<div></td><td><div>   0.081<div></td><td><div>  -0.392<div></td></tr>";
     table1.innerHTML += "<tr><td><div>0.405<div></td><td><div> -0.619<div></td><td><div>  -0.088<div></td><td><div>  -0.468<div></td></tr>";
@@ -521,10 +524,9 @@ function Input()
     table1.innerHTML += "<tr><td><div>1.076<div></td><td><div>  0.719<div></td><td><div>  -0.554<div></td><td><div>  -0.500<div></td></tr>";
 
     const table4 = document.createElement("table");
-    table4.style.marginTop = "10px";
-    table4.style.marginRight = "75px";
-    table4.style.marginLeft = "75px";
-    table4.style.height = "10vh";
+    table4.style.marginTop = "200px";
+    table4.style.marginRight = "50px";
+    table4.style.marginLeft = "50px";
     table4.innerHTML += "<caption style=\"font-size: 30px\"> Bias Matrix </caption>";
     table4.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
     table4.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
@@ -538,10 +540,9 @@ function Input()
     table4.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
 
     const table3 = document.createElement("table");
-    table3.style.marginTop = "10px";
-    table3.style.marginLeft = "75px";
-    table3.style.marginRight = "75px";
-    table3.style.height = "10vh";
+    table3.style.marginTop = "200px";
+    table3.style.marginLeft = "50px";
+    table3.style.marginRight = "50px";
     table3.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Center Word Matrix + Bias</caption>";
     table3.innerHTML += "<tr><td><div>1.088<div></td><td><div> -1.940<div></td><td><div>   0.081<div></td><td><div>  -0.392<div></td></tr>";
     table3.innerHTML += "<tr><td><div>0.405<div></td><td><div> -0.619<div></td><td><div>  -0.088<div></td><td><div>  -0.468<div></td></tr>";
@@ -555,9 +556,9 @@ function Input()
     table3.innerHTML += "<tr><td><div>1.076<div></td><td><div>  0.719<div></td><td><div>  -0.554<div></td><td><div>  -0.500<div></td></tr>";
   
     const table2 = document.createElement("table");
-    table2.style.marginTop = "10px";
-    table2.style.marginRight = "75px";
-    table2.style.marginLeft = "100px";
+    table2.style.marginTop = "200px";
+    table2.style.marginRight = "10px";
+    table2.style.marginLeft = "75px";
     table2.style.height = "10vh";
     table2.innerHTML += "<caption style=\"font-size: 30px\"> Hyperbolic Tangent of Matrix </caption>";
     table2.innerHTML += "<tr><td><div>0.796<div></td><td><div> -0.96<div></td><td><div>   0.081<div></td><td><div> -0.374<div></td></tr>";
@@ -574,18 +575,27 @@ function Input()
     const container = document.createElement("div");
     container.innerHTML += "+";
     container.style.fontSize = "32px";
-    container.style.marginTop = '75px';
+    container.style.marginTop = '300px';
 
     const container2 = document.createElement("div");
     container2.innerHTML += ">>";
     container2.style.fontSize = "32px";
-    container2.style.marginTop = '75px';
+    container2.style.marginTop = '300px';
 
     const container3 = document.createElement("div");
     container3.innerHTML += ">>";
     container3.style.fontSize = "32px";
-    container3.style.marginTop = '75px';
+    container3.style.marginTop = '300px';
 
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep1.png';
+    img.style.marginTop = "200px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
     tableContainer.appendChild(table1);
     tableContainer.appendChild(container);
     tableContainer.appendChild(table4);
@@ -593,14 +603,6 @@ function Input()
     tableContainer.appendChild(table3);
     tableContainer.appendChild(container3);
     tableContainer.appendChild(table2);
-  
-    const img = document.createElement('img');
-    img.src = 'assets/para2vecstep3.png';
-    img.style.marginTop = "100px";
-    img.style.marginBottom = "10px";
-    img.style.width = '17%';
-    img.style.height = 'auto';
-    canv.appendChild(img);
 
     canv.appendChild(tableContainer);
 
@@ -615,7 +617,7 @@ function Input()
     tableContainer.style.justifyContent = "space-between";
 
     const table1 = document.createElement("table");
-    table1.style.marginTop = "10px";
+    table1.style.marginTop = "200px";
     table1.style.marginLeft = "10px";
     table1.style.height = "10vh";
     table1.innerHTML += "<caption style=\"font-size: 30px\"> Hyperbolic Tangent Matrix </caption>";
@@ -631,7 +633,7 @@ function Input()
     table1.innerHTML += "<tr><td><div>0.792<div></td><td><div>  0.617<div></td><td><div> -0.504<div></td><td><div> -0.462<div></td></tr>";
   
     const table2 = document.createElement("table");
-    table2.style.marginTop = "10px";
+    table2.style.marginTop = "200px";
     table2.style.marginLeft = "10px";
     table2.style.height = "10vh";
     table2.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Center Word Matrix After Softmax </caption>";
@@ -647,7 +649,7 @@ function Input()
     table2.innerHTML += "<tr><td><div>0.07 <div></td><td><div> 0.049<div></td><td><div> 0.014<div></td><td><div> 0.014<div></td></tr>";
 
     const table5 = document.createElement("table");
-    table5.style.marginTop = "10px";
+    table5.style.marginTop = "200px";
     table5.style.marginLeft = "10px";
     table5.style.height = "10vh";
     table5.innerHTML += "<caption style=\"font-size: 30px\"> True Center Word Matrix </caption>";
@@ -663,7 +665,7 @@ function Input()
     table5.innerHTML += "<tr><td><div>1.538 <div></td><td><div>0.735 <div></td><td><div>0.120 <div></td><td><div>1.486<div></td></tr>";
 
     const table3 = document.createElement("table");
-    table3.style.marginTop = "10px";
+    table3.style.marginTop = "200px";
     table3.style.marginLeft = "10px";
     table3.style.marginRight = "10px";
     table3.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Center Word Matrix After Loss Function </caption>";
@@ -681,18 +683,27 @@ function Input()
     const container2 = document.createElement("div");
     container2.innerHTML += ">>";
     container2.style.fontSize = "32px";
-    container2.style.marginTop = '75px';
+    container2.style.marginTop = '300px';
 
     const container3 = document.createElement("div");
     container3.innerHTML += ">>";
     container3.style.fontSize = "32px";
-    container3.style.marginTop = '75px';
+    container3.style.marginTop = '300px';
 
     const container4 = document.createElement("div");
     container4.innerHTML += ">>";
     container4.style.fontSize = "32px";
-    container4.style.marginTop = '75px';
+    container4.style.marginTop = '300px';
 
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep1.png';
+    img.style.marginTop = "200px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
     tableContainer.appendChild(table1);
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table2);
@@ -700,14 +711,6 @@ function Input()
     tableContainer.appendChild(table5);
     tableContainer.appendChild(container4);
     tableContainer.appendChild(table3);
-  
-    const img = document.createElement('img');
-    img.src = 'assets/para2vecstep4.png';
-    img.style.marginTop = "100px";
-    img.style.marginBottom = "10px";
-    img.style.width = '17%';
-    img.style.height = 'auto';
-    canv.appendChild(img);
 
     canv.appendChild(tableContainer);
 
@@ -722,7 +725,7 @@ function Input()
     tableContainer.style.justifyContent = "space-between";
 
     const table1 = document.createElement("table");
-    table1.style.marginTop = "10px";
+    table1.style.marginTop = "200px";
     table1.style.marginLeft = "10px";
     table1.innerHTML += "<caption style=\"font-size: 30px\"> Initial Word Weight Matrix </caption>";
     table1.innerHTML += "<tr><td><div>0.264<div></td><td><div> -0.441<div></td><td><div> 0.329<div></td><td><div> 0.126<div></td></tr>";
@@ -739,7 +742,7 @@ function Input()
     table1.innerHTML += "<tr><td><div>0.1058<div></td><td><div> 0.121<div></td><td><div> -0.187<div></td><td><div> -0.228<div></td></tr>";
 
     const table4 = document.createElement("table");
-    table4.style.marginTop = "10px";
+    table4.style.marginTop = "200px";
     table4.innerHTML += "<caption style=\"font-size: 30px\"> Updated Word Weight Matrix </caption>";
     table4.innerHTML += "<tr><td><div>0.264<div></td><td><div> -0.441<div></td><td><div> 0.329<div></td><td><div> 0.126<div></td></tr>";
     table4.innerHTML += "<tr><td><div>-0.3017<div></td><td><div> -0.132<div></td><td><div> -0.383<div></td><td><div> 0.107<div></td></tr>";
@@ -755,7 +758,7 @@ function Input()
     table4.innerHTML += "<tr><td><div>0.1058<div></td><td><div> 0.121<div></td><td><div> -0.187<div></td><td><div> -0.228<div></td></tr>";
 
     const table2 = document.createElement("table");
-    table2.style.marginTop = "10px";
+    table2.style.marginTop = "200px";
     table2.innerHTML += "<caption style=\"font-size: 30px\"> Initial Paragraph Weight Matrix </caption>";
     table2.innerHTML += "<tr><td><div>0.031<div></td><td><div> 0.398<div></td><td><div> -0.447<div></td><td><div> 0.273<div></td></tr>";
     table2.innerHTML += "<tr><td><div>-0.323<div></td><td><div> -0.002<div></td><td><div> 0.005<div></td><td><div> 0.942<div></td></tr>";
@@ -764,7 +767,7 @@ function Input()
     table2.innerHTML += "<tr><td><div>-0.376<div></td><td><div> -0.109<div></td><td><div> 0.127<div></td><td><div> -0.461<div></td></tr>";
 
     const table5 = document.createElement("table");
-    table5.style.marginTop = "10px";
+    table5.style.marginTop = "200px";
     table5.innerHTML += "<caption style=\"font-size: 30px\"> Updated Paragraph Weight Matrix </caption>";
     table5.innerHTML += "<tr><td><div>0.031<div></td><td><div> 0.398<div></td><td><div> -0.447<div></td><td><div> 0.273<div></td></tr>";
     table5.innerHTML += "<tr><td><div>-0.323<div></td><td><div> -0.002<div></td><td><div> 0.005<div></td><td><div> 0.942<div></td></tr>";
@@ -773,7 +776,7 @@ function Input()
     table5.innerHTML += "<tr><td><div>-0.376<div></td><td><div> -0.109<div></td><td><div> 0.127<div></td><td><div> -0.461<div></td></tr>";
 
     const table3 = document.createElement("table");
-    table3.style.marginTop = "10px";
+    table3.style.marginTop = "200px";
     table3.innerHTML += "<caption style=\"font-size: 30px\"> Initial Bias Matrix </caption>";
     table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
     table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
@@ -787,7 +790,7 @@ function Input()
     table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
 
     const table6 = document.createElement("table");
-    table6.style.marginTop = "10px";
+    table6.style.marginTop = "200px";
     table6.style.marginRight = "10px";
     table6.innerHTML += "<caption style=\"font-size: 30px\"> Updated Bias Matrix </caption>";
     table6.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
@@ -804,18 +807,27 @@ function Input()
     const container2 = document.createElement("div");
     container2.innerHTML += ">>";
     container2.style.fontSize = "32px";
-    container2.style.marginTop = '75px';
+    container2.style.marginTop = '300px';
 
     const container3 = document.createElement("div");
     container3.innerHTML += ">>";
     container3.style.fontSize = "32px";
-    container3.style.marginTop = '75px';
+    container3.style.marginTop = '300px';
 
     const container4 = document.createElement("div");
     container4.innerHTML += ">>";
     container4.style.fontSize = "32px";
-    container4.style.marginTop = '75px';
+    container4.style.marginTop = '300px';
 
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep1.png';
+    img.style.marginTop = "200px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
     tableContainer.appendChild(table1);
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table4);
@@ -825,14 +837,6 @@ function Input()
     tableContainer.appendChild(table3);
     tableContainer.appendChild(container4);
     tableContainer.appendChild(table6);
-  
-    const img = document.createElement('img');
-    img.src = 'assets/para2vecstep5.png';
-    img.style.marginTop = "100px";
-    img.style.marginBottom = "10px";
-    img.style.width = '17%';
-    img.style.height = 'auto';
-    canv.appendChild(img);
 
     canv.appendChild(tableContainer);
   }
