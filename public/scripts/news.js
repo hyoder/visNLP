@@ -6,15 +6,11 @@ const      canv = document.getElementById( "canv_news" ),
        next_btn = document.getElementById( "news_next_btn" ),
       reset_btn = document.getElementById( "news_reset_btn" ),
         sidebar = document.getElementById( "sidebar_news"),
-       statuses = ["headline_1", "true_1", "false_1", "headline_2", "true_2", "false_2", "headline_3", "true_3", "false_3", "headline_4", "true_4", "false_4", "headline_5", "true_5", "false_5",];
+       statuses = ["headline_1", "true_1", "false_1", "headline_2", "true_2", "false_2", "headline_3", "true_3", "false_3", "headline_4", "true_4", "false_4", "headline_5", "true_5", "false_5", "buffer_page"];
 // init current page and epoch
 let page_status = 0;
-let epoch_status = 0;
-// init data var
-let adam_data;
 // define page and epoch counts
-let page_count = 15;
-let epoch_count = 20;
+let page_count = 16;
 
 
 function meta() // sets and returns page metadata for meta div (top left corner of canvas)
@@ -446,40 +442,77 @@ function false_5()
 }
 
 
+function buffer_page()
+{
+    // CLEAR CANV
+    canv.innerHTML = '';
+
+    setfooter( "buffer_page" ); 
+    setsidebar( "default" );
+    
+    // SET CONTAINERS
+
+    // visuals container
+    const songVisualContainer = document.createElement('div');
+    songVisualContainer.id = 'songVisualContainer';
+    canv.appendChild(songVisualContainer);
+
+    // LOADING ANIMATION AND TEXT
+    const songPlotContainer = document.createElement('div');
+    songPlotContainer.id = 'songPlotContainer2';
+    songVisualContainer.appendChild(songPlotContainer)
+    // LOADING TEXT
+    songPlotContainer.innerHTML += "<h2 style='margin-bottom:6vh;margin-top:2vh;' > Classifying Article.. </h2>"
+
+    // LOADING GIF
+    const img = document.createElement('img');
+    img.src = 'assets/gifs/ajax-loader.gif';
+    img.style.width = '50%';
+    img.style.height = 'auto';
+
+    // append the image to the songPlotContainer
+    songPlotContainer.appendChild(img);
+
+
+}
+
+
 function setfooter( input ) // takes input from event listener and then 
 {
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // SLIDE DESCRIPTIONS
-        case "headline_1": footer.innerHTML = "<h2> headline question footer (1) </h2>"
+        case "headline_1": footer.innerHTML = "<h2> Predict if this news article is real or fake based on the title </h2>"
                             break;
-        case "true_1":      footer.innerHTML = "<h2> if they chose true content (1) </h2>"
+        case "true_1":      footer.innerHTML = "<h2>That is correct! This article is from the real article dataset and the svm model was accurate and predicted it to be real.  </h2>"
                             break;
-        case "false_1":      footer.innerHTML = "<h2> if they chose false content (1) </h2>"
+        case "false_1":      footer.innerHTML = "<h2>That is incorrect! This article is from the real article dataset and the svm model was accurate and predicted it to be real.  </h2>"
                             break;
-        case "headline_2":  footer.innerHTML = "<h2> headline question footer (2) </h2>"
+        case "headline_2":  footer.innerHTML = "<h2>Predict if this news article is real or fake based on the title </h2>"
                             break;
-        case "true_2":      footer.innerHTML = "<h2> if they chose true content (2) </h2>"
+        case "true_2":      footer.innerHTML = "<h2>That is incorrect! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
-        case "false_2":     footer.innerHTML = "<h2> if they chose false content (2) </h2>"
+        case "false_2":     footer.innerHTML = "<h2>That is correct! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake.  </h2>"
                             break;
-        case "headline_3":  footer.innerHTML = "<h2> headline question footer (3) </h2>"
+        case "headline_3":  footer.innerHTML = "<h2>Predict if this news article is real or fake based on the title </h2>"
                             break;
-        case "true_3":      footer.innerHTML = "<h2> if they chose true content (3) </h2>"
+        case "true_3":      footer.innerHTML = "<h2>That is incorrect! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
-        case "false_3":      footer.innerHTML = "<h2> if they chose false content (3) </h2>"
+        case "false_3":      footer.innerHTML = "<h2>That is correct! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
-        case "headline_4":  footer.innerHTML = "<h2> headline question footer (4) </h2>"
+        case "headline_4":  footer.innerHTML = "<h2>Predict if this news article is real or fake based on the title</h2>"
                             break;
-        case "true_4":      footer.innerHTML = "<h2> if they chose true content (4) </h2>"
+        case "true_4":      footer.innerHTML = "<h2>That is correct! This article is from the real article dataset and the svm model was accurate and predicted it to be real.  </h2>"
                             break;
-        case "false_4":     footer.innerHTML = "<h2> if they chose false content (4) </h2>"
+        case "false_4":     footer.innerHTML = "<h2>That is incorrect! This article is from the real article dataset and the svm model was accurate and predicted it to be real.  </h2>"
                             break;
-        case "headline_5":  footer.innerHTML = "<h2> headline question footer (5) </h2>"
+        case "headline_5":  footer.innerHTML = "<h2>Predict if this news article is real or fake based on the title </h2>"
                             break;
         case "true_5":      footer.innerHTML = "<h2>That is incorrect! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
         case "false_5":     footer.innerHTML = "<h2>That is correct! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
+                            break;
+        case "buffer_page": footer.innerHTML = "<h2> Classifying.. </h2>"
                             break;
     }
 }
@@ -548,13 +581,17 @@ function updater( val )
     let page = statuses[ page_status ];
     console.log("page: " + page);
 
-    // set display delay time in ms
-    let delay = 400;
-    // on pages we expect updates increase delay time
-    //if (page_status == 0 || page_status == page_count - 1){ delay = 500 }    
 
+    // set buffer animation time in ms
+    let buffer_delay = 100;
 
+    if (page_status % 3 != 0) {
     setTimeout(function() {
+        // call buffer() with a delay of 400ms
+        setTimeout(buffer_page, 10);
+
+        // execute switch statement with a delay of 800ms
+        setTimeout(function() {
         switch(page) {
             case "headline_1":
                 headline_1();
@@ -601,9 +638,60 @@ function updater( val )
             case "false_5": 
                 false_5(); 
                 break;
-            
         }
-    }, delay);
+        }, 1200);
+    }, buffer_delay);
+    } else {
+        setTimeout(function() {
+            switch(page) {
+                case "headline_1":
+                    headline_1();
+                    break;
+                case "true_1": 
+                    true_1(); 
+                    break;
+                case "false_1": 
+                    false_1(); 
+                    break;
+                case "headline_2":
+                    headline_2();
+                    break;
+                case "true_2": 
+                    true_2(); 
+                    break;
+                case "false_2": 
+                    false_2(); 
+                    break;
+                case "headline_3":
+                    headline_3();
+                    break;
+                case "true_3": 
+                    true_3(); 
+                    break;
+                case "false_3": 
+                    false_3(); 
+                    break;
+                case "headline_4":
+                    headline_4();
+                    break;
+                case "true_4": 
+                    true_4(); 
+                    break;
+                case "false_4": 
+                    false_4(); 
+                    break;
+                case "headline_5":
+                    headline_5();
+                    break;
+                case "true_5": 
+                    true_5(); 
+                    break;
+                case "false_5": 
+                    false_5(); 
+                    break;
+            }
+            }, 400);
+    }
     
 }
 
