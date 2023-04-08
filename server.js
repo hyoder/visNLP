@@ -9,8 +9,9 @@ const express = require( 'express' ),
        dotenv = require( 'dotenv' ).config(),
           uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_HOST}`,
        client = new mongodb.MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
-let w2v_data = undefined,
-   adam_data = undefined;
+let cbow_data = undefined,
+    skip_data = undefined,
+    adam_data = undefined;
 app.use( bodyp.json() );
 app.use( favicon( path.join( __dirname, 'public', 'favicon.ico' ) ) );
 app.use( express.static( path.join( __dirname + '/public' ) ) );
