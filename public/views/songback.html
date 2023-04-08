@@ -99,22 +99,36 @@
             <h2>Word2vec as a Song Curation Application</h2>
 
             <p>With music moving into the stremaing era, music has become more accessible than ever. With such large 
-                catalogs of music being available, music streaming platforms such as Spotify, Apple Music have to 
-                curate songs that are taylored towards specific a specific user's interests. This word2vec application
+                catalogs of music being available, music streaming platforms such as Spotify, and Apple Music have to 
+                curate songs that are taylored towards specific a specific user's interests. 
             </p>
             
-            <p></p>
-            
-            <p></p>
-            
-            <p></p>
-            </p>
+            <p>Word2vec is a neural network-based approach that can learn high-quality word embeddings from large amounts
+                of text data. These embeddings represent the semantic and syntactic relationships between words, allowing 
+                them to capture the meaning and context of the words. By applying this technique to music data, it is 
+                possible to learn representations of songs that capture their musical features and characteristics.</p>
             
             <!-- Content Sec - How it works -->
-            <h2>Example Plot</h2>
+            <h2>How Our Model Works</h2>
 
-            <img src="/assets/songtsne.png" alt="plot" width=100% height="600"/>
-            <p></p>
+            <p>To create a song curation application using word2vec, song titles and their respective artist names are input
+                into the word2vec code in the form of a csv file, with each song title and associated artist name being read as one word. These 
+                inputs are then transformed into vector embeddings through the word2vec algorithm.
+            </p>
+
+            <p>These newly produced vecotr embeddings are then compared using cosine similarity, a measure of the angle between 
+                two vectors in high-dimensional space. By calculating the cosine similarity between each pair of song title vectors,
+                the model is able to determine the most similar songs based on their semantic meaning.                          
+            </p>
+
+            <h2>Cosine Similarity Clustering</h2>
+            <img src="assets/song_tsne_plots/clustering.png" alt="clustering plot" width=100% height="600"/>
+            <p>Song2vec is a machine learning model that uses the word2vec algorithm to generate vector embeddings as representations 
+                for song titles and artist names. By calculating the cosine similarity between these vectors, the model is able to 
+                determine the most similar songs based on their semantic meaning. Given a certain song title input, Song2vec can 
+                produce a list of the top ten most similar songs as output, along with a tsne scatterplot to visualize the vector locations. 
+                This makes Song2vec a powerful tool for music recommendation and exploration, allowing users to discover new music based on their preferences. 
+             </p>
             
             <p></p> 
 
