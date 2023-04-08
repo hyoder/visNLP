@@ -22,6 +22,9 @@
             <button id="skip_btn"></button>
             <button id="prev_btn"></button>
             <button id="next_btn"></button>
+            <div class="sidebar-web-diagram" id="w2v_web">
+                <img src="/assets/web_diagrams/web_diagram_condensed_word2vec.png" alt="word2vec web diagram">
+            </div>
             <p id="p1label"></p>
             <table id="param1"></table>
             <p id="p2label"></p>
@@ -54,6 +57,44 @@
             <button id="fwd_btn">→</button>
             <button id="adm_btn" onclick="window.location='/adam'"><h3>adam optimizer</h3></button>
             <div id="canv" data-mode="n/a"></div>
+            <div id="w2v_background">
+                <h1 id="meta_title">word2vec - background</h1>
+                <div style="height:11vh"></div>
+                <h2>what is word2vec?</h2>
+                <p>
+                    word2vec is a prominent technique for performing NLP Analytics. It was developed by Tomas Mikolov for Google in 2013. 
+                    word2vec is used to create embedding vectors for each word in the input text, called a “corpus”, allowing computational tasks
+                    to be performed upon the words themselves (through their vector representatives). Word vectorization is one of the most common 
+                    tasks performed using NLP analytics, and there are many other algorithms outside of word2vec for performing word vectorization.
+                </p>
+                <p>
+                    word2vec has two primary modes of operation: <b>continuous bag of words (CBOW for short)</b> and <b>skip-gram</b>.<br><br>
+                    In each iteration of CBOW, there are two words used as inputs, found on either side of a given target word.<br>
+                    Skip-gram works the opposite way, with one input and two target outputs (which are found on either side of it).<br><br>
+                    For example, given the sentence <b>"I don't like apples with worms in them,"</b><br>
+                    CBOW would take the inputs <b>"apples"</b> and <b>"worms"</b> and seek out the embedding for <b>"with"</b> as its target word. <br>
+                    Skip-gram would take the input <b>"like"</b> and seek out the embeddings for <b>"don't"</b> and <b>"apples"</b> on either side of it.
+                </p>
+                <h2>how does word2vec work?</h2>
+                <p>
+                    word2vec works in a series of steps:<br><br>
+                    <b>(1)</b> Multiply input one-hot vectors by a matrix of the initially generated word embedding weights (parameter 1).
+                    These weights are initialized as randomly generated numbers over a uniform distribution. This is our hidden layer matrix.<br>
+                    <b>(2)</b> Perform matrix multiplication between the input embeddings and the matrix of linear weights (parameter 2).
+                    These weights are also randomly generated over a uniform distribution.<br>
+                    <b>(3)</b> Add the linear bias (parameter 3). These values are also randomly generated over a uniform distribution.<br>
+                    <b>(4)</b> Perform a <i>softmax</i> operation on your matrix, which scales your numbers so they maintain relative distance to each
+                    other but now sum to 1. Take the natural log of these results. <br>
+                    <b>(5)</b> These results run through the Adam Optimizer and a Negative Log Likelihood Loss (NLLLoss) function to take our results
+                    and update all 3 parameters accordingly. See the designated Adam Optimizer section of the platform for more information on this.
+                </p>
+                <h2>word2vec extensions</h2>
+                <p>
+                    As you will see later on in this platform, word2vec can be extended for use on larger scales than just words. For sentences,
+                    word2vec extends to sen2vec. For paragraphs, it extends to para2vec. It can also be extended to doc2vec, as explored in our
+                    fake news application, though visNLP 2.0 does not contain a step-by-step doc2vec example.
+                </p>
+            </div>
         </div>
         <script src="../scripts/word2vec.js" defer></script>
     </body>

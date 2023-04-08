@@ -28,6 +28,7 @@ function meta()
         output += "<div id=\"meta_bar\" style=\"width:" + (((rel_page-2)/5)*74.75) + "vw\"></div></div>"
         output += "<div><h1 id=\"meta_title\">word2vec - " + statuses[rel_page] + "</h1></div>";
     }
+    else if ( page_status == 0 ) {}
     else { output += "<div><h1 id=\"meta_title\">word2vec - " + statuses[page_status] + "</h1></div>"; }
     return output;
     // if( page_status < 3 ) { output += "<h2>word2vec - \"" + statuses[page_status] + "\"</h2>"; }
@@ -43,6 +44,8 @@ function meta()
 function init()
 {
     setfooter();
+    document.getElementById("w2v_background").style.display = "block";
+    document.getElementById("w2v_web"       ).style.display = "block";
     canv.dataset.mode = "n/a";
     canv.innerHTML  = meta();
     let cbow_btn = document.getElementById("cbow_btn"),
@@ -50,7 +53,7 @@ function init()
         prev_btn = document.getElementById("prev_btn"),
         next_btn = document.getElementById("next_btn");
         cbow_btn.style.display = "block";
-        skip_btn.style.display = "block";
+        skip_btn.style.display = "none";
         prev_btn.style.display = "block";
         next_btn.style.display = "block";
         cbow_btn.innerHTML = "<h1>word2vec step-by-step: CBOW</h1>";
@@ -68,6 +71,8 @@ function init()
 }
 function textprep()
 {
+    document.getElementById("w2v_background").style.display = "none";
+    document.getElementById("w2v_web"       ).style.display = "none";
     cbow_btn.style.display = "none";
     skip_btn.style.display = "none";
     prev_btn.style.display = "none";
