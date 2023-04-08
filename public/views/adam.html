@@ -65,7 +65,7 @@
             speed up convergence and improve performance. In this simulation, we will explore how the Adam optimizer
             works, step by step, using a real-data example on a word2vec CBOW model (refer to the word2vec section to
             learn more about word2vec and the CBOW architecture). We'll show you the real data flow of tensors through
-            the optimizer, and explain where and how different parameters affect the Adam optimization process. </p>
+            the optimizer, and explain where and how different hyper-parameters affect the Adam optimization process. </p>
 
         <!-- content sec | HOW IT WORKS -->
 
@@ -79,15 +79,15 @@
         <p> Further, the Adam optimizer also utilizes the momentum concept to carry forward the previous gradient values
             and use them in current iterations, helping it converge faster. The optimizer has several hyperparameters,
             such as the learning rate, momentum, and the decay rates, which can be tuned to optimize the model's
-            performance. In our simulation, we'll be able to visualize where these parameters come into play during the
+            performance. In our simulation, we'll be able to visualize where these hyper-parameters come into play during the
             optimization process. </p>
 
-        <p> The Process of Performing an optimization step is shown with the following steps: </p>
+        <p> The full process of an optimization step in the simulation is summarized with the following steps: </p>
 
         <ul>
-            <li>Perform a forward pass in the model with the inputs</li>
-            <li>Compute the loss at the specific iteration on the outputs</li>
-            <li>Get the gradients of loss function with respect to the parameters</li>
+            <li>Perform a forward pass in the model with model inputs</li>
+            <li>Compute the loss at the specific iteration based on model outputs</li>
+            <li>Get the gradients of the loss function with respect to the parameters</li>
             <li>Update the biased first moment estimate</li>
             <li>Update the biased second raw moment estimate</li>
             <li>Compute the bias-corrected first moment estimate</li>
@@ -102,7 +102,7 @@
                 alt="adam algo">
         </div>
 
-        <p> At each iteration of the optimization process, we perform a forward pass in the model with the inputs and
+        <p> In summary, at each iteration of the optimization process, we perform a forward pass in the model with the inputs and
             compute the loss at the specific iteration on the outputs. The Adam optimizer then gets the gradients of the
             loss function with respect to the parameters, and updates the biased first and second moment estimates.
             These estimates are then used to compute the bias-corrected first and second moment estimates, which are

@@ -322,6 +322,7 @@ td {
 
 #cbow_btn {
     background-color: #ddd;
+    border-radius: 0.25vh;
     left: 0.55vw;
     position: fixed;
     top: 8.8vh;
@@ -330,6 +331,7 @@ td {
 #cbow_btn:hover { background-color: #fff; }
 #skip_btn {
     background-color: #ddd;
+    border-radius: 0.25vh;
     left: 0.75vw;
     position: fixed;
     top: 18vh;
@@ -338,20 +340,24 @@ td {
 #skip_btn:hover { background-color: #fff; }
 #prev_btn {
     background-color: #ddd;
+    border-radius: 0.25vh;
     color: #8b0000;
     left: 0.55vw;
     position: fixed;
     top: 91.1vh;
     width: 11.6vw;
+    z-index: 5;
 }
 #prev_btn:hover { background-color: #fff; }
 #next_btn {
     background-color: #ddd;
+    border-radius: 0.25vh;
     color: #8b0000;
     left: 12.3vw;
     position: fixed;
     top: 91.1vh;
     width: 11.7vw;
+    z-index: 5;
 }
 #next_btn:hover { background-color: #fff; }
 
