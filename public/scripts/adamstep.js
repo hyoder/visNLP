@@ -219,7 +219,7 @@ function cbow_contexts()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('At Pos')
@@ -249,7 +249,7 @@ function cbow_contexts()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text2 = svg2.append('text')
     .text('At Pos')
@@ -280,7 +280,7 @@ function cbow_contexts()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg3.append("text")
     .attr("x", 50)
@@ -391,7 +391,7 @@ function cbow_linear_dot_prod()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Dot Prod')
@@ -424,7 +424,7 @@ function cbow_linear_dot_prod()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -531,7 +531,7 @@ function cbow_linear_bias_sum()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Plus')
@@ -563,7 +563,7 @@ function cbow_linear_bias_sum()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -670,7 +670,7 @@ function nll_loss_softmax()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -769,7 +769,7 @@ function nll_loss_log()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -881,7 +881,7 @@ function nll_loss_epoch_avg()
     .attr("d", arrowPath1)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg1.append("text")
     .attr("x", 50)
@@ -913,7 +913,7 @@ function nll_loss_epoch_avg()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text2 = svg2.append('text')
     .text('At Pos')
@@ -944,7 +944,7 @@ function nll_loss_epoch_avg()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg3.append("text")
     .attr("x", 50)
@@ -1184,7 +1184,7 @@ function first_moment_a()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Dot Prod')
@@ -1212,7 +1212,7 @@ function first_moment_a()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -1399,7 +1399,7 @@ function first_moment_b()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Dot Prod')
@@ -1427,7 +1427,7 @@ function first_moment_b()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -1608,7 +1608,7 @@ function first_moment_c()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Plus')
@@ -1636,7 +1636,7 @@ function first_moment_c()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -1726,7 +1726,6 @@ function first_moment_c()
     mainContentContainer.appendChild(tableTitleContainer12); 
 }
 
-testtttt = "<h2> m<sub>t</sub> ← <span style='color: #32cd32'>β<sub>1</sub> ● m<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>+ (1 - β<sub>1</sub>) ● g<sub>t</sub></span> </h2>"
 
 function second_moment_a()
 {
@@ -1820,7 +1819,8 @@ function second_moment_a()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    // .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -1993,7 +1993,7 @@ function second_moment_b()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Dot Prod')
@@ -2021,7 +2021,7 @@ function second_moment_b()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -2206,7 +2206,7 @@ function second_moment_c()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Dot Prod')
@@ -2234,7 +2234,7 @@ function second_moment_c()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -2415,7 +2415,7 @@ function second_moment_d()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Plus')
@@ -2443,7 +2443,7 @@ function second_moment_d()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -2640,7 +2640,7 @@ function bc_first_moment()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Divide')
@@ -2668,7 +2668,7 @@ function bc_first_moment()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -2853,7 +2853,7 @@ function bc_second_moment()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Divide')
@@ -2881,7 +2881,7 @@ function bc_second_moment()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -3052,7 +3052,7 @@ function update_params_a()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -3225,7 +3225,7 @@ function update_params_b()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Plus')
@@ -3253,7 +3253,7 @@ function update_params_b()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -3434,7 +3434,7 @@ function update_params_c()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Divide')
@@ -3462,7 +3462,7 @@ function update_params_c()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -3660,7 +3660,7 @@ function update_params_d()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Dot Prod')
@@ -3688,7 +3688,7 @@ function update_params_d()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -3869,7 +3869,7 @@ function update_params_e()
     .attr('cx', 50)
     .attr('cy', 50)
     .attr('r', 50)
-    .attr('fill', 'rgb(0, 140, 255)');
+    .attr('fill', '#8b0000');
     // create the text
     const text = svg.append('text')
     .text('Subtract')
@@ -3897,7 +3897,7 @@ function update_params_e()
     .attr("d", arrowPath)
     .attr("stroke", 'rgb(0, 140, 255)')
     .attr("stroke-width", "1")
-    .attr("fill", 'rgb(0, 140, 255)');
+    .attr("fill", '#8b0000');
     // create text element
     svg2.append("text")
     .attr("x", 50)
@@ -4014,93 +4014,94 @@ function setfooter( input ) // takes input from event listener and then
     switch( input ) {
         case "default": footer.innerHTML = "<h2>sample footer</h2>"; break;
         // SLIDE DESCRIPTIONS
-        case "intro":                   footer_desc.innerHTML = "Perform a new optimization step with the Adam Optimization Method. An optimization step can be generally broken into the (5) following parts: <ol><li>Perform a forward pass in the model with inputs</li><li>Compute the loss at the specific iteration on outputs</li><li>Get the gradients of loss function with respect to the parameters</li><li>Compute the first and second moment estimates of the gradients</li><li>Perform an update on the model parameters</li></ol>";
+        case "intro":                   footer_desc.innerHTML = "Perform a new optimization step with the Adam Optimization Method. The simulation breaks the process into the (5) following parts: <ol><li>Perform a forward pass in the model with inputs</li><li>Compute the loss at the specific iteration on outputs</li><li>Get the gradients of loss function with respect to the parameters</li><li>Compute the first and second moment estimates of the gradients</li><li>Perform an update on the model parameters</li></ol>";
                                         footer_eq_title.innerHTML = "";
                                         footer_eq.innerHTML = "";
                                         break;
         case "cbow_contexts":           footer_desc.innerHTML = "Perform a forward pass in the model. Performing an optimization step is dependant on the loss implementation and in turn is also dependant on the specific model being implemented. <span style='font-weight: bold'>In this simulation we perform a forward pass in a CBOW model.</span> This begins by taking the embeddings of the contexts and creating a single context vector.";
                                         footer_eq_title.innerHTML = "<h2> Generate Contexts: </h2>";
-                                        footer_eq.innerHTML = "<h2> contexts-vector = <span style='color: #32cd32'>contexts</span><span style='color: rgb(0, 140, 255)'> ● embeddings</span></h2>";
+                                        footer_eq.innerHTML = "<h2> contexts-vector = <span style='color: #d40000'>contexts</span><span style='color: rgb(0, 140, 255)'> ● embeddings</span></h2>";
                                         break;
         case "cbow_linear_dot_prod":    footer_desc.innerHTML = "Pass the context vector obtained in the previous step through the linear layer. In the first part of the Linear transformation take the <span style='font-weight: bold'>dot product</span> of the <span style='font-weight: bold'>model input</span> (context vector) with the <span style='font-weight: bold'>model weights</span> (param-2)";
                                         footer_eq_title.innerHTML = "<h2> Linear Pass: </h2>";
-                                        footer_eq.innerHTML = "<h2> output = <span style='color: #32cd32'>weights</span><span style='color: rgb(0, 140, 255)'> ● input</span> + bias </h2>";
+                                        footer_eq.innerHTML = "<h2> output = <span style='color: #d40000'>weights</span><span style='color: rgb(0, 140, 255)'> ● input</span> + bias </h2>";
                                         break;
         case "cbow_linear_bias_sum":    footer_desc.innerHTML = "Continue through the linear layer. In the second part of the Linear transformation take the <span style='font-weight: bold'>sum</span> of the <span style='font-weight: bold'>product</span> computed in the previous step with the <span style='font-weight: bold'>model bias</span> (param-3). ";
                                         footer_eq_title.innerHTML = "<h2> Linear Pass: </h2>";
-                                        footer_eq.innerHTML = "<h2> output = <span style='color: #32cd32'>weights ● input </span><span style='color: rgb(0, 140, 255)'>+ bias</span> </h2>";
+                                        footer_eq.innerHTML = "<h2> output = <span style='color: #d40000'>weights ● input </span><span style='color: rgb(0, 140, 255)'>+ bias</span> </h2>";
                                         break;
         case "nll_loss_softmax":        footer_desc.innerHTML = "Apply the activation function to the result of the linear-transform performed in the previous step. <span style='font-weight: bold'>In this simulation we will use negative log-likelihood loss (NLL-Loss).</span> The first part of NLL-Loss is to <span style='font-weight: bold'>perform a softmax transform per row</span>. This normalizes each row to have values within the range (0,1) to preserves the ratios of magnitude of values within a column. The result can now be interpreted as probabilities that sum up to 1.";
                                         footer_eq_title.innerHTML = "<h2> NLL-Loss: </h2>";
-                                        footer_eq.innerHTML = "<h2> loss = log ( <span style='color: rgb(0, 140, 255)'>softmax ( <span style='color: #32cd32'>input</span> )</span> ) </h2>";
+                                        footer_eq.innerHTML = "<h2> loss = log ( <span style='color: rgb(0, 140, 255)'>softmax ( <span style='color: #d40000'>input</span> )</span> ) </h2>";
                                         break;    
         case "nll_loss_log":            footer_desc.innerHTML = "Continue applying the activation function to the result of the previous step. The second part of NLL-Loss is to <span style='font-weight: bold'>compute the log of each probability on a value by value basis.</span> The resulting loss vector measures the negative log-probabilities of the target word for each training example, and can be interpreted as a measure of the dissimilarity between the predicted distribution and the true distribution of the target word. Minimizing the NLL loss corresponds to maximizing the likelihood of the observed data under the model.";
                                         footer_eq_title.innerHTML = "<h2> NLL-Loss: </h2>";
-                                        footer_eq.innerHTML = "<h2> loss = <span style='color: #32cd32'>log ( <span style='color: rgb(0, 140, 255)'>softmax ( input )</span> )</span> </h2>";
+                                        footer_eq.innerHTML = "<h2> loss = <span style='color: #d40000'>log ( <span style='color: rgb(0, 140, 255)'>softmax ( input )</span> )</span> </h2>";
                                         break;      
         case "nll_loss_epoch_avg":      footer_desc.innerHTML = "Take the horizontal average of our loss vector obtained in the previous step. Then obtain the loss value at the position of the current center by taking the dot product of the average vector and the center one-hot vector. <span style='font-weight: bold'>This scalar loss value is used as a general measure of the loss at the current iteration of the training, and can be used to indicator for model training performance.</span> Note that the full model loss vector computed in the previous step will be used in the optimization step.";
                                         footer_eq_title.innerHTML = "<h2> Iteration Loss: </h2>";
-                                        footer_eq.innerHTML = "<h2> loss-scalar =  <span style='color: #32cd32'>-avg ( <span style='color: rgb(0, 140, 255)'>loss</span> ) ● center</span> </h2>";
+                                        footer_eq.innerHTML = "<h2> loss-scalar =  <span style='color: #d40000'>-avg ( <span style='color: rgb(0, 140, 255)'>loss</span> ) ● center</span> </h2>";
                                         break;         
         case "gradients":               footer_desc.innerHTML = "Obtain the gradient of the loss function w.r.t. the model parameters at the current timestep (t) using backpropagation. The chain rule of differentiation is used during backpropagation to calculate the gradients of the loss function for each parameter, starting from the output layer and working backward towards the input layer. The loss function in this simulation is the negative log probability of the target word given the context words. <span style='font-weight: bold'>The resulting gradient vector (g<sub>t</sub>) consists of partial derivatives of the loss function for each parameter.</span> The gradient vector indicates the direction of the steepest descent of the loss function for the model parameters and guides towards a set of parameters that minimizes the loss.";
                                         footer_eq_title.innerHTML = "<h2> Get Gradients: </h2>";
-                                        footer_eq.innerHTML = "<h2> <span style='color: rgb(0, 140, 255)'>g<sub>t</sub></span> <span style='color: #32cd32'>← ∇θ ƒ<sub>t</sub> (θ<sub>t-1</sub>)</span> </h2>";
+                                        footer_eq.innerHTML = "<h2> <span style='color: rgb(0, 140, 255)'>g<sub>t</sub></span> <span style='color: #d40000'>← ∇θ ƒ<sub>t</sub> (θ<sub>t-1</sub>)</span> </h2>";
                                         break;    
         case "first_moment_a":          footer_desc.innerHTML = "Update the biased first moment estimate (m<sub>t</sub>). The biased first moment estimate vector is set to zero prior to updating. First, <span style='font-weight: bold'>the current gradient (g<sub>t</sub>) is scaled by the complementary factor (1 - β<sub>1</sub>), which determines how much weight to give to the new information.</span> Beta1 (β<sub>1</sub>) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.9 in this simulation.";
                                         footer_eq_title.innerHTML = "<h2> Biased First Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + <span style='color: #32cd32'>(1 - β<sub>1</sub>)</span> <span style='color: rgb(0, 140, 255)'>● g<sub>t</sub></span> </h2>";
+                                        footer_eq.innerHTML = "<h2> m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + <span style='color: #d40000'>(1 - β<sub>1</sub>)</span> <span style='color: rgb(0, 140, 255)'>● g<sub>t</sub></span> </h2>";
                                         break;     
         case "first_moment_b":          footer_desc.innerHTML = "Continue update on the biased first moment estimate (m<sub>t</sub>). Next, <span style='font-weight: bold'>the previous estimate (m<sub>t-1</sub>) is scaled by the hyperparameter Beta1(β<sub>1</sub>)</span>, which determines how much weight to give to the past estimate.";
                                         footer_eq_title.innerHTML = "<h2> Biased First Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> m<sub>t</sub> ← <span style='color: #32cd32'>β<sub>1</sub></span> <span style='color: rgb(0, 140, 255)'>● m<sub>t-1</sub></span> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </h2>";
+                                        footer_eq.innerHTML = "<h2> m<sub>t</sub> ← <span style='color: #d40000'>β<sub>1</sub></span> <span style='color: rgb(0, 140, 255)'>● m<sub>t-1</sub></span> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </h2>";
                                         break;  
         case "first_moment_c":          footer_desc.innerHTML = "Continue update on the biased first moment estimate (m<sub>t</sub>). Finally, <span style='font-weight: bold'>sum both intermediate products calculated in pt.(1) and pt.(2)</span>. This <span style='font-weight: bold'>yields the updated estimate of the biased first moment vector</span> which will be later used to adjust the learning rate for each parameter during the optimization process. By taking into account the history of gradients, Adam optimization can adaptively adjust the learning rate for each parameter and converge more quickly to the optimal solution.";
                                         footer_eq_title.innerHTML = "<h2> Biased First Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> m<sub>t</sub> ← <span style='color: #32cd32'>β<sub>1</sub> ● m<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>+ (1 - β<sub>1</sub>) ● g<sub>t</sub></span> </h2>";
+                                        footer_eq.innerHTML = "<h2> m<sub>t</sub> ← <span style='color: #d40000'>β<sub>1</sub> ● m<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>+ (1 - β<sub>1</sub>) ● g<sub>t</sub></span> </h2>";
                                         break;  
         case "second_moment_a":         footer_desc.innerHTML = "Update the biased second raw moment estimate (v<sub>t</sub>). The biased second raw moment estimate vector is set to zero prior to updating. First, <span style='font-weight: bold'>calculate the square of the current gradient (g<sup>2</sup><sub>t</sub>) by squaring the current gradient (g<sub>t</sub>).</span>";
                                         footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● <span style='color: #32cd32'>g<sup><span style='color: rgb(0, 140, 255)'>2</span></sup><sub>t</sub></span> </h2>";
+                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● <span style='color: #d40000'>g<sup><span style='color: rgb(0, 140, 255)'>2</span></sup><sub>t</sub></span> </h2>";
+                                        // footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● <span style='color: #32cd32'>g<sup><span style='color: rgb(0, 140, 255)'>2</span></sup><sub>t</sub></span> </h2>";
                                         break;  
         case "second_moment_b":         footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (v<sub>t</sub>). Next, <span style='font-weight: bold'>the square of the current gradient (g<sup>2</sup><sub>t</sub>) is scaled by the complementary factor (1 -  β<sub>2</sub>)</span>, which determines how much weight to give to the new information. Beta2 (β<sub>2</sub>) is a hyperparameter that controls the influence of the previous estimate on the current estimate, and is set to 0.999 in this simulation.";
                                         footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + <span style='color: #32cd32'>(1 - β<sub>2</sub>)</span> <span style='color: rgb(0, 140, 255)'>● g<sup>2</sup><sub>t</sub></span> </h2>";
+                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + <span style='color: #d40000'>(1 - β<sub>2</sub>)</span> <span style='color: rgb(0, 140, 255)'>● g<sup>2</sup><sub>t</sub></span> </h2>";
                                         break;  
         case "second_moment_c":         footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (v<sub>t</sub>). Next, <span style='font-weight: bold'>the previous estimate is scaled by the hyperparameter Beta2 (β<sub>2</sub>)</span>, which determines how much weight to give to the past estimate.";
                                         footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← <span style='color: #32cd32'>β<sub>2</sub></span> <span style='color: rgb(0, 140, 255)'>● v<sub>t-1</sub></span> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </h2>";
+                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← <span style='color: #d40000'>β<sub>2</sub></span> <span style='color: rgb(0, 140, 255)'>● v<sub>t-1</sub></span> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </h2>";
                                         break;  
         case "second_moment_d":         footer_desc.innerHTML = "Continue update on the biased second raw moment estimate (v<sub>t</sub>). Finally, <span style='font-weight: bold'>sum both intermediate products calculated in pt.(2) and pt.(3)</span>. This <span style='font-weight: bold'>yields the updated estimate of the biased second raw moment vector</span> which will be later used to adjust the learning rate for each parameter during the optimization process. By taking into account the history of squared gradients, Adam optimization can adaptively adjust the learning rate for each parameter and converge more quickly to the optimal solution.";
                                         footer_eq_title.innerHTML = "<h2> Biased Second Raw Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← <span style='color: #32cd32'>β<sub>2</sub> ● v<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>+ (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub></span> </h2>";
+                                        footer_eq.innerHTML = "<h2> v<sub>t</sub> ← <span style='color: #d40000'>β<sub>2</sub> ● v<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>+ (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub></span> </h2>";
                                         break;  
         case "bc_first_moment":         footer_desc.innerHTML = "Compute the bias-corrected first moment estimate (<span>m&#770;</span><sub>t</sub>). <span style='font-weight: bold'>Take the previously updated biased first moment estimate (m<sub>t</sub>), and divide it by the bias correction factor (1 - Beta1 ** t).</span> Where Beta1 (β<sub>1</sub>) is the hyperparameter that controls the influence of the past estimates on the current estimate, and time-step (t) is current iteration count. This corrects the bias introduced when initializing (m<sub>t</sub>) to a zero vector, where the first moment estimate is biased towards 0 and the performance of convergence can be hindered.";
                                         footer_eq_title.innerHTML = "<h2> Bias-Corrected First Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> <span>m&#770;</span><sub>t</sub> ← <span style='color: #32cd32'>m<sub>t</sub></spam> <span style='color: rgb(0, 140, 255)'>/ (1 - β<sup>t</sup><sub>1</sub>)</span> </h2>";
+                                        footer_eq.innerHTML = "<h2> <span>m&#770;</span><sub>t</sub> ← <span style='color: #d40000'>m<sub>t</sub></spam> <span style='color: rgb(0, 140, 255)'>/ (1 - β<sup>t</sup><sub>1</sub>)</span> </h2>";
                                         break;          
         case "bc_second_moment":        footer_desc.innerHTML = "Compute the bias-corrected first moment estimate (<span>v&#770;</span><sub>t</sub>). <span style='font-weight: bold'>Take the previously updated biased first moment estimate (v<sub>t</sub>), and divide it by the bias correction factor (1 - Beta2 ** t).</span> Where Beta2 (β<sub>2</sub>) is the hyperparameter that controls the influence of the past estimates on the current estimate, and time-step (t) is current iteration count. This corrects the bias introduced when initializing (v<sub>t</sub>) to a zero vector, where the first moment estimate is biased towards 0 and the performance of convergence can be hindered.";
                                         footer_eq_title.innerHTML = "<h2> Bias-Corrected Second Raw Moment Estimate: </h2>";
-                                        footer_eq.innerHTML = "<h2> <span>v&#770;</span><sub>t</sub> ← <span style='color: #32cd32'>v<sub>t</sub></spam> <span style='color: rgb(0, 140, 255)'>/ (1 - β<sup>t</sup><sub>2</sub>)</span> </h2>";
+                                        footer_eq.innerHTML = "<h2> <span>v&#770;</span><sub>t</sub> ← <span style='color: #d40000'>v<sub>t</sub></spam> <span style='color: rgb(0, 140, 255)'>/ (1 - β<sup>t</sup><sub>2</sub>)</span> </h2>";
                                         break;     
         case "update_params_a":         footer_desc.innerHTML = "Update the parameters (θ<sub>t</sub>). First, <span style='font-weight: bold'>take the square root of the previously computed bias-corrected second raw moment estimate (<span>v&#770;</span><sub>t</sub>).</span> The denominator is effectively a measure of the variance of the gradient. If the variance is large, a smaller updates occurs. Conversely, If the variance is small, a larger updates occurs. This helps to prevent oscillations in the optimization process and results in more stable updates to the parameters.";
                                         footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
-                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( <span style='color: rgb(0, 140, 255)'>sqrt ( <span style='color: #32cd32'><span>v&#770;</span><sub>t</sub></span> )</span> + 𝝐  ) </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( <span style='color: rgb(0, 140, 255)'>sqrt ( <span style='color: #d40000'><span>v&#770;</span><sub>t</sub></span> )</span> + 𝝐  ) </h2>";
                                         break;     
         case "update_params_b":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Next, <span style='font-weight: bold'>add epsilon (𝝐) to the square root of the bias-corrected second raw moment estimate computed in pt.(1).</span> This is a small constant added to the denominator to avoid division by zero. In this simulation (𝝐) is set to 10<sup>-8</sup> , which is a standard default value commonly used for epsilon. ";
                                         footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
-                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( <span style='color: #32cd32'>sqrt ( <span>v&#770;</span><sub>t</sub> )</span> <span style='color: rgb(0, 140, 255)'>+ 𝝐</span>  ) </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( <span style='color: #d40000'>sqrt ( <span>v&#770;</span><sub>t</sub> )</span> <span style='color: rgb(0, 140, 255)'>+ 𝝐</span>  ) </h2>";
                                         break;     
         case "update_params_c":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Next, <span style='font-weight: bold'>divide the previously computed bias corrected first moment estimate by the sum computed in pt.(2).</span> Dividing the bias-corrected first moment estimate (<span>m&#770;</span><sub>t</sub>) by the bias-corrected second raw moment estimate (<span>v&#770;</span><sub>t</sub>) effectively scales bias-corrected first moment estimate (<span>m&#770;</span><sub>t</sub>) by a factor that is inversely proportional to the variance of the gradient. This ensures that the update step for the parameters is not biased towards one direction or the other due to the biased first moment estimate.";
                                         footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
-                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span style='color: #32cd32'><span>m&#770;</span><sub>t</sub></span> <span style='color: rgb(0, 140, 255)'>/ ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span style='color: #d40000'><span>m&#770;</span><sub>t</sub></span> <span style='color: rgb(0, 140, 255)'>/ ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;     
         case "update_params_d":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Next, <span style='font-weight: bold'>multiply the quotient computed in pt.(3) by the models learning rate denoted by alpha (𝞪).</span> The learning rate is a hyperparameter that determines the step size for updating the parameter. This controls the size of the step taken in the direction of the estimated gradient when updating the model parameters. Effective learning rates are determined by the specific model, in this simulation we use a learning rate (𝞪) value of 0.05 .";
                                         footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
-                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - <span style='color: #32cd32'>𝞪</span> <span style='color: rgb(0, 140, 255)'>● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← θ<sub>t-1</sub> - <span style='color: #d40000'>𝞪</span> <span style='color: rgb(0, 140, 255)'>● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;        
         case "update_params_e":         footer_desc.innerHTML = "Continue updating the parameters (θ<sub>t</sub>). Finally we <span style='font-weight: bold'>subtract our update (the right side of the equation) from the previous parameters (θ<sub>t-1</sub>)</span> . This <span style='font-weight: bold'>yields the updated parameters (θ<sub>t</sub>) , completing the update step using Adam optimization. These new parameters are now passed back into our objective function</span>, in this case CBOW Word2Vec.  ";
                                         footer_eq_title.innerHTML = "<h2> Update Parameters: </h2>";
-                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← <span style='color: #32cd32'>θ<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>- 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
+                                        footer_eq.innerHTML = "<h2> θ<sub>t</sub> ← <span style='color: #d40000'>θ<sub>t-1</sub></span> <span style='color: rgb(0, 140, 255)'>- 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  )</span> </h2>";
                                         break;                     
     }
 }
@@ -4338,46 +4339,50 @@ function setsidebar( input )
     //    custom state  } else { 
     //    default state }
     if ( eq_state == 1 && epoch_status == 0 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: 𝞪 &nbsp; (Stepsize) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: #d40000; font-weight: bold;'> Require: 𝞪 &nbsp; (Stepsize) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> 𝞪 &nbsp; (Stepsize) </p>" }
     if ( eq_state == 1 && epoch_status == 0 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: β<sub>1</sub>, β<sub>2</sub> ∈ [0,1) &nbsp; (Decay Rates) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: #d40000; font-weight: bold;'> Require: β<sub>1</sub>, β<sub>2</sub> ∈ [0,1) &nbsp; (Decay Rates) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> β<sub>1</sub>, β<sub>2</sub> ∈ [0,1) &nbsp; (Decay Rates) </p>" }
     if ( eq_state == 1 && epoch_status == 0 || eq_state >= 2 && eq_state <= 7 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: ƒ(θ) &nbsp; (Objective Function) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: #d40000; font-weight: bold;'> Require: ƒ(θ) &nbsp; (Objective Function) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> ƒ(θ) &nbsp; (Objective Function) </p>" }
     if ( eq_state == 1 && epoch_status == 0 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: rgb(0, 140, 255); font-weight: bold;'> Require: θ<sub>0</sub> &nbsp; (Initial Parameters) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> <span style='color: #d40000; font-weight: bold;'> Require: θ<sub>0</sub> &nbsp; (Initial Parameters) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> <span style='font-weight: bold'> Require: </span> θ<sub>0</sub> &nbsp; (Initial Parameters) </p>" }
     if ( eq_state == 1 && epoch_status == 0 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 &nbsp; (Initialize Vectors) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 &nbsp; (Initialize Vectors) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; m<sub>0</sub>, v<sub>0</sub>, t ← 0, 0, 0 &nbsp; (Initialize Vectors) </p>" }
     if ( eq_state >= 8 && eq_state <= 22 || eq_state <= 7 && epoch_status > 0 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> while θ<sub>t</sub> not converged do </span> </p>" } else { 
+        // sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> while θ<sub>t</sub> not converged do </span> </p>" } else { 
+        // sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> while </span> θ<sub>t</sub> not converged <span style='font-weight: bold'> do </span> </p>" }
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> while θ<sub>t</sub> not converged do </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> while </span> θ<sub>t</sub> not converged <span style='font-weight: bold'> do </span> </p>" }
     if ( eq_state == 8 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; g<sub>t</sub> ← ∇<sub>θ</sub> ƒ<sub>t</sub> (θ<sub>t-1</sub>) </p>" }
     if ( eq_state >= 9 && eq_state <= 11 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; m<sub>t</sub> ← β<sub>1</sub> ● m<sub>t-1</sub> + (1 - β<sub>1</sub>) ● g<sub>t</sub> </p>" }
     if ( eq_state >= 12 && eq_state <= 15 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </span> </p>" } else { 
+        // sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </span> </p>" } else { 
+        // sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </p>" }
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; v<sub>t</sub> ← β<sub>2</sub> ● v<sub>t-1</sub> + (1 - β<sub>2</sub>) ● g<sup>2</sup><sub>t</sub> </p>" }    
     if ( eq_state == 16 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>m&#770;</span><sub>t</sub> ← m<sub>t</sub> / (1 - β<sup>t</sup><sub>1</sub>) </p>" }   
     if ( eq_state == 17 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> <span>v&#770;</span><sub>t</sub> ← v<sub>t</sub> / (1 - β<sup>t</sup><sub>2</sub>) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> <span>v&#770;</span><sub>t</sub> ← v<sub>t</sub> / (1 - β<sup>t</sup><sub>2</sub>) </span> </p>" } else { 
             sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span>v&#770;</span><sub>t</sub> ← v<sub>t</sub> / (1 - β<sup>t</sup><sub>2</sub>) </p>" }   
     if ( eq_state >= 18 && eq_state <= 22 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  ) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  ) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; &nbsp; &nbsp; θ<sub>t</sub> ← θ<sub>t-1</sub> - 𝞪 ● <span>m&#770;</span><sub>t</sub> / ( sqrt ( <span>v&#770;</span><sub>t</sub> ) + 𝝐  ) </p>" }   
     if ( eq_state == 22 && epoch_status >= epoch_count - 1 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> end while </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> end while </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> end while </span> </p>" }   
     if ( eq_state == 22 && epoch_status >= epoch_count - 1 )  { 
-        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: rgb(0, 140, 255); font-weight: bold;'> return 0<sub>t</sub> &nbsp; (Resulting Parameters) </span> </p>" } else { 
+        sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='color: #d40000; font-weight: bold;'> return 0<sub>t</sub> &nbsp; (Resulting Parameters) </span> </p>" } else { 
         sidebar_adam_eq_container.innerHTML += "<p> &nbsp; &nbsp; <span style='font-weight: bold'> return </span> 0<sub>t</sub> &nbsp; (Resulting Parameters) </p>" }   
 
 
@@ -4415,6 +4420,9 @@ function setsidebar( input )
         },
         success: function(data) {
         // Create a new plotly graph with the received data
+        data.marker = {
+            color: 'red'
+          };
         var plotData = [data];
         var plotLayout = {
             margin: {

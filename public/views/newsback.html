@@ -60,7 +60,7 @@
         <div id="navbar">
             <button class="navelement" id="homenav" onclick="window.location='/'">
               <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
-              <h1>VisNLP 2.0 Home</h1>
+              <h1>visNLP 2.0 Home</h1>
             </button>
             <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
             <button class="navelement"        onclick="window.location='/senback'"   ><h1>Sen2Vec</h1></button>
@@ -133,8 +133,14 @@
             <p>For our project the two ground truth datasets used for training the model were called Politifact and Gossipcop, 
                information from the articles such as the url, title, and tweets regarding the topic was all collected as well.</p> 
 
-            <p>In order to make these predictions the Para2vec algorithm analyzes the semantic meaning of the words in the article, as well as their relationships to each other
-                and vectorizes the outputs of these findings. Once the</p>
+            <p>In order to make these predictions the Para2vec algorithm analyzes the semantic meaning of the words in the article,
+                as well as their relationships to each other and vectorizes the outputs of these findings. Once the vectors have been 
+                established, linear support vector machine (SVM) technology is used to categorize the article headlines. The SVM technology works by 
+                mapping the data points to a high-dimensional feature space which in this case would be based on the semantics of the words
+                being used within the article titles. Overall in the case of this project the articles are either categorized as being real or fake.
+                You can try this technology out yourself by clicking the "Para2vec News Application" button in the top left of the sidebar.
+                
+            </p>
             
             <div style="height:5vh;"></div>
         </div>
