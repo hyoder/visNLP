@@ -1,59 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>visNLP</title>
-    <link rel="stylesheet" href="./style.css"/>
-  </head>
-  <body>
-    <div id="navbar">
-      <button class="navelement-curr"  class="curr-nav-elt" id="homenav" onclick="window.location='/'">
-        <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
-        <h1>visNLP 2.0 Home</h1>
-      </button>
-      <!-- <button class="navelement" onclick="window.location='/intro'"     ><h1>NLP Basics</h1></button> -->
-      <button class="navelement"        onclick="window.location='/w2v'"       ><h1>Word2Vec</h1></button>
-      <button class="navelement"        onclick="window.location='/senback'"   ><h1>Sen2Vec</h1></button>
-      <button class="navelement"        onclick="window.location='/paraback'"  ><h1>Para2Vec</h1></button>
-      <button class="navelement"        onclick="window.location='/adam'"      ><h1>Adam Optimizer</h1></button>
-      <button class="navelement"        onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
-      <button class="navelement"        onclick="window.location='/newsback'"  ><h1>Fake News App</h1></button>
-    </div>
 
-    <div id="sidebar_adam">
-      <button id="switch_adam_button" onclick="window.location.href='https://wpi.qualtrics.com/jfe/form/SV_6tmUcW0IJnEmDHg'" target='_blank'>
-        <h1> Complete Our Platform Survey! </h1>
-      </button>
-      <div style="height:75.2vh;"></div>
-      <!-- <button class="prev-topic-button" onclick="window.location='/p2v'">
+<head>
+  <title>visNLP</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div id="navbar">
+    <button class="navelement-curr" class="curr-nav-elt" id="homenav" onclick="window.location='/'">
+      <img src="assets/wpi_logo_transparent_white.png" alt="wpi logo2" class="nav-button-icon">
+      <h1>visNLP 2.0 Home</h1>
+    </button>
+    <!-- <button class="navelement" onclick="window.location='/intro'"     ><h1>NLP Basics</h1></button> -->
+    <button class="navelement" onclick="window.location='/w2v'">
+      <h1>Word2Vec</h1>
+    </button>
+    <button class="navelement" onclick="window.location='/senback'">
+      <h1>Sen2Vec</h1>
+    </button>
+    <button class="navelement" onclick="window.location='/paraback'">
+      <h1>Para2Vec</h1>
+    </button>
+    <button class="navelement" onclick="window.location='/adam'">
+      <h1>Adam Optimizer</h1>
+    </button>
+    <button class="navelement" onclick="window.location='/songback'">
+      <h1>Songs Recs App</h1>
+    </button>
+    <button class="navelement" onclick="window.location='/newsback'">
+      <h1>Fake News App</h1>
+    </button>
+  </div>
+
+  <div id="sidebar_adam">
+    <button id="switch_adam_button"
+      onclick="window.location.href='https://wpi.qualtrics.com/jfe/form/SV_6tmUcW0IJnEmDHg'" target='_blank'>
+      <h1> Complete Our Platform Survey! </h1>
+    </button>
+    <div style="height:75.2vh;"></div>
+    <!-- <button class="prev-topic-button" onclick="window.location='/p2v'">
           <h2>Prev:</h2>
           <h1>Para2Vec</h1>
       </button> -->
-      <button style="margin-left:50%;" class="next-topic-button" onclick="window.location='/w2v'">
-          <h2>Next:</h2>
-          <h1>Word2Vec</h1>
-      </button>
+    <button style="margin-left:50%;" class="next-topic-button" onclick="window.location='/w2v'">
+      <h2>Next:</h2>
+      <h1>Word2Vec</h1>
+    </button>
   </div>
 
-    <div id="restofpage_home">
-      <div id="homepage_top_text">
-        <h1> VisNLP 2.0 | A Visual-Based Educational Support Platform for Teaching and Learning Neural Network-Based NLP Analytics </h1>        
-        <h2>We propose a web-based visual platform that facilitates learning and teaching of neural network-based natural language processing (NLP) analytical methods. Our aim is threefold: 
-          <span style="font-weight: bold;">(1)</span> To present several popular neural network-based NLP methods in a step-by-step linear format that is easy to comprehend. 
-          <span style="font-weight: bold;">(2)</span> To address the 'black box' problem present in neural network-based NLP learning resources through continuous real-data examples.
-          <span style="font-weight: bold;">(3)</span> To enable users to interpret model outputs through interactive visual demos that apply neural network-based NLP model outputs.</h2>
-        <div class="homepage-image-container">
-          <img src="assets/web_diagrams/web_diagram_condensed_home.png" alt="web diagram">
-        </div>
-        <h3> Project Credits </h3>
-        <h2> <span style='font-weight: bold'>Developed By:</span> Jack Gomes, Daniel Johnson, Garrett McMerriman, John Prominski, Henry Yoder</h2>
-        <h2> <span style='font-weight: bold'>Advised By:</span> Professor Chun-Kit Ngan, WPI.</h2>
-        <div class="homepage-image-container2">
-          <img src="assets/wpi_logo_transparent.png" alt="wpi logo">
-        </div>
-        <div style="height:3vh;"></div>
+  <div id="restofpage_home">
+    <div id="homepage_top_text">
+      <h1> VisNLP 2.0 | A Visual-Based Educational Support Platform for Teaching and Learning Neural Network-Based NLP
+        Analytics </h1>
+      <h2>We propose a web-based visual platform that facilitates learning and teaching of neural network-based natural
+        language processing (NLP) analytical methods. Our aim is threefold:
+        <span style="font-weight: bold;">(1)</span> To present several popular neural network-based NLP methods in a
+        step-by-step linear format that is easy to comprehend.
+        <span style="font-weight: bold;">(2)</span> To address the 'black box' problem present in neural network-based
+        NLP learning resources through continuous real-data examples.
+        <span style="font-weight: bold;">(3)</span> To enable users to interpret model outputs through interactive
+        visual demos that apply neural network-based NLP model outputs.
+      </h2>
+      <div class="homepage-image-container">
+        <img src="assets/web_diagrams/web_diagram_condensed_home.png" alt="web diagram">
       </div>
-      
+      <h2>
+        <span style="font-weight: bold;">Project Background:</span> Natural Language Processing (NLP) is a field of study that focuses on enabling computers to understand,
+        interpret, and generate human language. It's the technology behind chatbots, virtual assistants, and even
+        voice-controlled devices like Siri and Alexa. NLP can also be used to perform tasks such as sentiment analysis,
+        text summarization, and language translation. With NLP, computers are able to process and analyze vast amounts
+        of text data, provide insights and automate various language-related tasks.
+      </h2>
+      <div style="height:10vh;"></div>
+      <h3> Project Credits </h3>
+      <h2> <span style='font-weight: bold'>Developed By:</span> Jack Gomes, Daniel Johnson, Garrett McMerriman, John
+        Prominski, Henry Yoder</h2>
+      <h2> <span style='font-weight: bold'>Advised By:</span> Professor Chun-Kit Ngan, WPI.</h2>
+      <div class="homepage-image-container2">
+        <img src="assets/wpi_logo_transparent.png" alt="wpi logo">
+      </div>
+      <div style="height:3vh;"></div>
     </div>
-    <script src="./scripts.js"></script>
-  </body>
+
+  </div>
+  <script src="./scripts.js"></script>
+</body>
+
 </html>
