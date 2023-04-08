@@ -37,7 +37,7 @@ function ModelSelection()
 
     const img = document.createElement('img');
     img.src = 'assets/para2vecstep.png';
-    img.style.width = '25%';
+    img.style.width = '40%';
     img.style.height = 'auto';
     sidebar.appendChild(img);
 }
@@ -104,7 +104,7 @@ function Input()
   tableContainer.style.justifyContent = "space-between";
 
   const table1 = document.createElement("table");
-  table1.style.marginTop = "250px";
+  table1.style.marginTop = "10px";
   table1.style.marginRight = "10px";
   table1.style.marginLeft = "10px";
   table1.innerHTML += "<caption style=\"font-size: 30px\"> Input Data for Sen2vec Algorithm </caption>";
@@ -115,7 +115,7 @@ function Input()
   table1.innerHTML += "<tr><td><div>I dislike Data Science<div></td></tr>";
 
   const table3 = document.createElement("table");
-  table3.style.marginTop = "100px";
+  table3.style.marginTop = "10px";
   table3.style.marginRight = "10px";
   table3.style.marginLeft = "10px";
   table3.innerHTML += "<caption style=\"font-size: 30px\"> Create Paragraph IDs </caption>";
@@ -126,7 +126,7 @@ function Input()
   table3.innerHTML += "<tr><td><div> 4 <div></td><td><div>I dislike Data Science<div></td></tr>";
 
   const table2 = document.createElement("table");
-  table2.style.marginTop = "100px";
+  table2.style.marginTop = "10px";
   table2.style.marginLeft = "10px";
   table2.style.marginRight = '10px';
   table2.innerHTML += "<caption style=\"font-size: 30px\"> Create Vocabulary </caption>";
@@ -138,7 +138,7 @@ function Input()
   table2.innerHTML += "<tr><td><div>is<div></td><td><div>boring<div></td></tr>";
 
   const table4 = document.createElement("table");
-  table4.style.marginTop = "100px";
+  table4.style.marginTop = "10px";
   table4.style.marginRight = "10px";
   table4.style.marginLeft = "10px";
   table4.innerHTML += "<caption style=\"font-size: 30px\"> Initialize Word Vectors </caption>";
@@ -174,7 +174,7 @@ function Input()
 
   const img = document.createElement('img');
   img.src = 'assets/para2vecstep.png';
-  img.style.width = '20%';
+  img.style.width = '15%';
   img.style.height = 'auto';
   canv.appendChild(img);
 
