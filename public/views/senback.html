@@ -21,7 +21,7 @@
     </div>
 
     <div id="sidebar_adam">
-        <button id="switch_adam_button" onclick="window.location='/s2v'">
+        <button id="switch_adam_button" onclick="window.location='/sen2vec'">
             <h1>Sen2Vec Step-by-Step Simulation</h1>
         </button>
         
@@ -46,72 +46,55 @@
         <h1> Sentence2Vec </h1>
 
         <!-- content sec | TOPIC RUNDOWN -->
-        <h2> Introduction to the Adam Optimizer </h2>
+        <h2> Introduction to the Sentence2vec Algorithm </h2>
 
-        <p> In NLP and machine learning in general, the goal is to train a model that can accurately predict outcomes
-            based on input data. The process of training a machine learning model involves iteratively adjusting the
-            model's parameters until it can produce accurate predictions on new data. An optimizer is a key component of
-            this process, responsible for adjusting the model's parameters to minimize the error or loss between its
-            predictions and the true labels. </p>
+        <p> Sentence embedding, also known as Sen2Vec, is a powerful technique in natural language processing that 
+            represents text data as a dense numerical vector. This approach allows for the application of machine learning 
+            algorithms to text data, enabling tasks such as sentiment analysis, text classification, and information 
+            retrieval. Sen2Vec is especially useful for NLP applications where the meaning of text is more important 
+            than its surface level characteristics, such as spelling and grammar. </p>
 
-        <p> Optimizers are critical for achieving good performance in machine learning models. They help the model
-            converge more quickly and improve its accuracy on the training data, allowing it to generalize better to new
-            data. There are many types of optimizers, each with their own strengths and weaknesses, and choosing the
-            right one can make a significant difference in the performance of the model. </p>
+        <p> Sen2Vec is based on the idea that words and sentences with similar meanings are often used in similar contexts.
+            The technique involves training a machine learning model to predict the context of a given word or sentence, and 
+            then using the learned representation of that context as the sentence embedding. This approach is similar to word 
+            embedding, but instead of representing individual words, the embedding represents the entire sentence. </p>
 
-        <p> The Adam optimizer is a popular choice for many machine learning tasks because it combines the benefits of
-            two other optimization algorithms, AdaGrad and RMSProp, to achieve faster convergence and better
-            performance. It's a variant of stochastic gradient descent that uses adaptive learning rates and momentum to
-            speed up convergence and improve performance. In this simulation, we will explore how the Adam optimizer
-            works, step by step, using a real-data example on a word2vec CBOW model (refer to the word2vec section to
-            learn more about word2vec and the CBOW architecture). We'll show you the real data flow of tensors through
-            the optimizer, and explain where and how different parameters affect the Adam optimization process. </p>
+        <p> The Sen2Vec technique has been widely adopted in a variety of NLP applications and has been shown to achieve 
+            state-of-the-art results on many benchmark datasets. By enabling the efficient representation of text data in 
+            a numerical form, Sen2Vec has opened up new possibilities for NLP research and applications. </p>
 
         <!-- content sec | HOW IT WORKS -->
 
-        <h2> How the Adam Optimizer Works </h2>
+        <h2> How the Sen2vec Algorithm Works </h2>
 
-        <p> At a high level, the Adam optimizer combines the benefits of two other optimization algorithms: AdaGrad and
-            RMSProp. It maintains a running estimate of the first and second moments of the gradient, which allows it to
-            adaptively adjust the learning rate for each parameter. This adaptive learning rate can help avoid the
-            common issue of using a fixed learning rate that is too large or too small. </p>
+        <p> Sen2Vec is a technique used in natural language processing (NLP) to convert a sequence of words into a 
+            mathematical representation. The approach is based on the idea that words that appear in similar contexts are 
+            semantically similar. Sen2Vec uses a neural network to learn these contextual relationships between words. The network 
+            is trained on large amounts of text data. The trained model can then be used to convert sentences or paragraphs into a 
+            vector representation, where each dimension of the vector represents a specific semantic feature. This vector 
+            representation can be used for a variety of NLP tasks, such as text classification or information retrieval. </p>
 
-        <p> Further, the Adam optimizer also utilizes the momentum concept to carry forward the previous gradient values
-            and use them in current iterations, helping it converge faster. The optimizer has several hyperparameters,
-            such as the learning rate, momentum, and the decay rates, which can be tuned to optimize the model's
-            performance. In our simulation, we'll be able to visualize where these parameters come into play during the
-            optimization process. </p>
+        <p> The Sen2Vec technique has several advantages over traditional NLP techniques that rely on hand-crafted features. 
+            Since it learns the context-dependent relationships between words automatically, it can capture subtle semantic 
+            relationships that might be missed by other approaches. Additionally, because the technique uses a neural network, 
+            it can scale to very large datasets and can be easily trained on new data. Sen2Vec has become a popular technique 
+            in NLP and is widely used in applications such as sentiment analysis, document classification, and machine translation. </p>
 
-        <p> The Process of Performing an optimization step is shown with the following steps: </p>
+        <p> The Process of Performing Sen2vec: </p>
 
         <ul>
-            <li>Perform a forward pass in the model with the inputs</li>
-            <li>Compute the loss at the specific iteration on the outputs</li>
-            <li>Get the gradients of loss function with respect to the parameters</li>
-            <li>Update the biased first moment estimate</li>
-            <li>Update the biased second raw moment estimate</li>
-            <li>Compute the bias-corrected first moment estimate</li>
-            <li>Compute the bias-corrected second raw moment estimate</li>
-            <li>Perform an update on the model parameters</li>
+            <li>Input Data is fed into sen2vec algorithm </li>
+            <li>Creates paragraph IDs and vocabulary, initializing word vectors</li>
+            <li>Input matrix is created based on the paragraph ID, context words, and center words </li>
+            <li>Word and paragraph weight matrices are initialized along with a bias matrix</li>
+            <li>The predicted center word matrix is computed and softmax is applied</li>
+            <li>Negative log likelihood loss is calculated using both the predicted center word matrix and the true word matrix</li>
+            <li>The adam optimizer is then used to update the word and paragraph weight matrices along with the bias matrices</li>
+            <li>The corresponding updated matrices are used in the next epoch</li>
+            <li>This process is repeated until optimization is met, resulting in the final paragraph vectors</li>
         </ul>
 
-        <p> Specifically, the full Adam optimization algorithm is shown below: </p>
-
-        <div id="adam-overview-img">
-            <img src="https://www.researchgate.net/publication/339075038/figure/fig2/AS:855577622241282@1580997009299/Adam-optimizer-algorithm.ppm"
-                alt="adam algo">
-        </div>
-
-        <p> At each iteration of the optimization process, we perform a forward pass in the model with the inputs and
-            compute the loss at the specific iteration on the outputs. The Adam optimizer then gets the gradients of the
-            loss function with respect to the parameters, and updates the biased first and second moment estimates.
-            These estimates are then used to compute the bias-corrected first and second moment estimates, which are
-            used to perform an update on the model parameters. By performing these steps iteratively over many epochs,
-            the Adam optimizer helps the model converge more quickly and achieve better performance on the training
-            data. The different components of this algorithm are covered in more detail in the step-by-step simulation.
-        </p>
-
-        <div style="height:5vh;"></div>
+        <p> The step-by-step simulation provides a more detailed explanation of the individual components of this algorithm. </p>
 
     </div>
 </body>
