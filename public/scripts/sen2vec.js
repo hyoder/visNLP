@@ -34,8 +34,9 @@ function ModelSelection()
     btn2.addEventListener( "mouseover", () => { setfooter( "dbo" ); } );
     btn1.addEventListener( "mouseout",  () => { setfooter( "default" ); } ); //resets footer when mouse off
     btn2.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
-    var img = document.createElement('img');
-    img.src = 'assets\para2vecstep.png';
+
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep.png';
     canv.appendChild(img);
 }
 
@@ -169,9 +170,10 @@ function Input()
   tableContainer.appendChild(container3);
   tableContainer.appendChild(table4);
 
-  var img = document.createElement('img');
-  img.src = 'assets\para2vecstep1.png';
+  const img = document.createElement('img');
+  img.src = 'assets/para2vecstep.png';
   canv.appendChild(img);
+
   canv.appendChild(tableContainer);
 }
 
@@ -224,8 +226,8 @@ function Input()
     tableContainer.appendChild(container);
     tableContainer.appendChild(table2);
 
-    var img = document.createElement('img');
-    img.src = 'assets\para2vecstep1.png';
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep2.png';
     canv.appendChild(img);
     
   
@@ -369,8 +371,8 @@ function Input()
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table3);
   
-    var img = document.createElement('img');
-    img.src = 'assets\para2vecstep2.png';
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep2.png';
     canv.appendChild(img);
 
     canv.appendChild(tableContainer);
@@ -448,8 +450,8 @@ function Input()
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table3);
   
-    var img = document.createElement('img');
-    img.src = 'assets\para2vecstep2.png';
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep2.png';
     canv.appendChild(img);
 
     canv.appendChild(tableContainer);
@@ -531,8 +533,8 @@ function Input()
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table2);
   
-    var img = document.createElement('img');
-    img.src = 'assets\para2vecstep3.png';
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecste3.png';
     canv.appendChild(img);
 
     canv.appendChild(tableContainer);
@@ -634,8 +636,8 @@ function Input()
     tableContainer.appendChild(container4);
     tableContainer.appendChild(table3);
   
-    var img = document.createElement('img');
-    img.src = 'assets\para2vecstep4.png';
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep4.png';
     canv.appendChild(img);
 
     canv.appendChild(tableContainer);
@@ -754,8 +756,8 @@ function Input()
     tableContainer.appendChild(container4);
     tableContainer.appendChild(table6);
   
-    var img = document.createElement('img');
-    img.src = 'assets\para2vecstep5.png';
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep5.png';
     canv.appendChild(img);
 
     canv.appendChild(tableContainer);
