@@ -3,13 +3,13 @@ const      canv = document.getElementById( "canv" ),
          footer = document.getElementById( "footer"),
        back_btn = document.getElementById( "back_btn" ),
         fwd_btn = document.getElementById( "fwd_btn" ),
-       statuses = ["Model Selection", "Input and Initialization","Input Matrix","Initialize Weight + Bias Matrices","Compute Center Word Matrix","Compute Softmax and Loss Function","Update Weight and Bias Matrices"];
+       statuses = ["Model Selection", "Input and Initialization","Input Matrix","Initialize Weight + Bias Matrices","Compute Center Word Matrix","Hyperbolic Tangent Function","Compute Softmax and Loss Function","Update Weight and Bias Matrices"];
 let page_status = 0;
 function meta() // sets and returns page metadata for meta div (top left corner of canvas)
 {
     let output  = "<div id=\"meta\">";
         output += "<h2>Sen2vec - \"" + statuses[page_status] + "\"</h2>";
-        output += "<h3>page " + page_status + " out of 6</h3>";
+        output += "<h3>page " + page_status + " out of 7</h3>";
         output += "</div>"
     return output;
 }
@@ -35,7 +35,7 @@ function ModelSelection()
     btn1.addEventListener( "mouseout",  () => { setfooter( "default" ); } ); //resets footer when mouse off
     btn2.addEventListener( "mouseout",  () => { setfooter( "default" ); } );
     var img = document.createElement('img');
-    img.src = 'assets\Para2vecArchitecture.png';
+    img.src = 'assets\para2vecstep.png';
     canv.appendChild(img);
 }
 
@@ -169,6 +169,9 @@ function Input()
   tableContainer.appendChild(container3);
   tableContainer.appendChild(table4);
 
+  var img = document.createElement('img');
+  img.src = 'assets\para2vecstep1.png';
+  canv.appendChild(img);
   canv.appendChild(tableContainer);
 }
 
@@ -220,6 +223,11 @@ function Input()
     tableContainer.appendChild(table1);
     tableContainer.appendChild(container);
     tableContainer.appendChild(table2);
+
+    var img = document.createElement('img');
+    img.src = 'assets\para2vecstep1.png';
+    canv.appendChild(img);
+    
   
     canv.appendChild(tableContainer);
 
@@ -291,7 +299,6 @@ function Input()
     tableContainer2.appendChild(table3);
 
     sidebar.appendChild(tableContainer2);
-
   }
 
   function Initialize() {
@@ -362,6 +369,10 @@ function Input()
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table3);
   
+    var img = document.createElement('img');
+    img.src = 'assets\para2vecstep2.png';
+    canv.appendChild(img);
+
     canv.appendChild(tableContainer);
 
   }
@@ -437,11 +448,15 @@ function Input()
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table3);
   
+    var img = document.createElement('img');
+    img.src = 'assets\para2vecstep2.png';
+    canv.appendChild(img);
+
     canv.appendChild(tableContainer);
 
   }
 
-  function ComputeSoftmax() {
+  function HiddenLayer() {
     setfooter("default");
     canv.innerHTML = meta();
   
@@ -451,7 +466,8 @@ function Input()
   
     const table1 = document.createElement("table");
     table1.style.marginTop = "250px";
-    table1.style.marginLeft = "10px";
+    table1.style.marginLeft = "175px";
+    table1.style.marginRight = "125px";
     table1.style.height = "10vh";
     table1.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Center Word Matrix </caption>";
     table1.innerHTML += "<tr><td><div>1.088, -1.940,   0.081,  -0.392<div></td><td><div>";
@@ -467,7 +483,8 @@ function Input()
 
     const table4 = document.createElement("table");
     table4.style.marginTop = "250px";
-    table4.style.marginLeft = "10px";
+    table4.style.marginRight = "125px";
+    table4.style.marginLeft = "125px";
     table4.style.height = "10vh";
     table4.innerHTML += "<caption style=\"font-size: 30px\"> Bias Matrix </caption>";
     table4.innerHTML += "<tr><td><div>0,0,0,0<div></td><td><div>";
@@ -480,6 +497,71 @@ function Input()
     table4.innerHTML += "<tr><td><div>0,0,0,0<div></td><td><div>";
     table4.innerHTML += "<tr><td><div>0,0,0,0<div></td><td><div>";
     table4.innerHTML += "<tr><td><div>0,0,0,0<div></td><td><div>";
+  
+    const table2 = document.createElement("table");
+    table2.style.marginTop = "250px";
+    table2.style.marginRight = "125px";
+    table2.style.marginLeft = "125px";
+    table2.style.height = "10vh";
+    table2.innerHTML += "<caption style=\"font-size: 30px\"> Hyperbolic Tangent Matrix After Bias </caption>";
+    table2.innerHTML += "<tr><td><div>0.796 -0.96   0.081 -0.374<div></td><td><div>";
+    table2.innerHTML += "<tr><td><div>0.385 -0.551 -0.088 -0.437<div></td><td><div>";
+    table2.innerHTML += "<tr><td><div>0.013 -0.768 -0.028  0.101<div></td><td><div>";
+    table2.innerHTML += "<tr><td><div>0.44  -0.42   0.031 -0.205<div></td><td><div>";
+    table2.innerHTML += "<tr><td><div>-0.006  0.54  -0.331 -0.406<div></td><td><div>";
+    table2.innerHTML += "<tr><td><div> 0.266 -0.126 -0.193 -0.335<div></td><td><div>";
+    table2.innerHTML += "<tr><td><div>0.767 -0.836 -0.322 -0.494<div></td><td><div>";
+    table2.innerHTML += "<tr><td><div>-0.027 -0.636  0.312  0.353<div></td><td><div>";
+    table2.innerHTML += "<tr><td><div>0.203 -0.601  0.012 -0.262<div></td><td><div>";
+    table2.innerHTML += "<tr><td><div>0.792  0.617 -0.504 -0.462<div></td><td><div>";
+
+    const container = document.createElement("div");
+    container.innerHTML += "+";
+    container.style.fontSize = "32px";
+    container.style.marginTop = '35vh';
+
+    const container2 = document.createElement("div");
+    container2.innerHTML += ">>";
+    container2.style.fontSize = "32px";
+    container2.style.marginTop = '35vh';
+
+    tableContainer.appendChild(table1);
+    tableContainer.appendChild(container);
+    tableContainer.appendChild(table4);
+    tableContainer.appendChild(container2);
+    tableContainer.appendChild(table2);
+  
+    var img = document.createElement('img');
+    img.src = 'assets\para2vecstep3.png';
+    canv.appendChild(img);
+
+    canv.appendChild(tableContainer);
+
+  }
+  
+  function ComputeSoftmax() {
+    setfooter("default");
+    canv.innerHTML = meta();
+  
+    const tableContainer = document.createElement("div");
+    tableContainer.style.display = "flex";
+    tableContainer.style.justifyContent = "space-between";
+
+    const table1 = document.createElement("table");
+    table1.style.marginTop = "250px";
+    table1.style.marginLeft = "10px";
+    table1.style.height = "10vh";
+    table1.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Center Word Matrix After Bias + Hyperbolic Tangent function </caption>";
+    table1.innerHTML += "<tr><td><div>0.796 -0.96   0.081 -0.374<div></td><td><div>";
+    table1.innerHTML += "<tr><td><div>0.385 -0.551 -0.088 -0.437<div></td><td><div>";
+    table1.innerHTML += "<tr><td><div>0.013 -0.768 -0.028  0.101<div></td><td><div>";
+    table1.innerHTML += "<tr><td><div>0.44  -0.42   0.031 -0.205<div></td><td><div>";
+    table1.innerHTML += "<tr><td><div>-0.006  0.54  -0.331 -0.406<div></td><td><div>";
+    table1.innerHTML += "<tr><td><div> 0.266 -0.126 -0.193 -0.335<div></td><td><div>";
+    table1.innerHTML += "<tr><td><div>0.767 -0.836 -0.322 -0.494<div></td><td><div>";
+    table1.innerHTML += "<tr><td><div>-0.027 -0.636  0.312  0.353<div></td><td><div>";
+    table1.innerHTML += "<tr><td><div>0.203 -0.601  0.012 -0.262<div></td><td><div>";
+    table1.innerHTML += "<tr><td><div>0.792  0.617 -0.504 -0.462<div></td><td><div>";
   
     const table2 = document.createElement("table");
     table2.style.marginTop = "250px";
@@ -529,11 +611,6 @@ function Input()
     table3.innerHTML += "<tr><td><div>-2.932  1.677  0.742  0.513<div></td><td><div>";
     table3.innerHTML += "<tr><td><div>4.1    2.222  0.516  6.305<div></td><td><div>";
 
-    const container = document.createElement("div");
-    container.innerHTML += "+";
-    container.style.fontSize = "32px";
-    container.style.marginTop = '35vh';
-
     const container2 = document.createElement("div");
     container2.innerHTML += ">>";
     container2.style.fontSize = "32px";
@@ -550,8 +627,6 @@ function Input()
     container4.style.marginTop = '35vh';
 
     tableContainer.appendChild(table1);
-    tableContainer.appendChild(container);
-    tableContainer.appendChild(table4);
     tableContainer.appendChild(container2);
     tableContainer.appendChild(table2);
     tableContainer.appendChild(container3);
@@ -559,6 +634,10 @@ function Input()
     tableContainer.appendChild(container4);
     tableContainer.appendChild(table3);
   
+    var img = document.createElement('img');
+    img.src = 'assets\para2vecstep4.png';
+    canv.appendChild(img);
+
     canv.appendChild(tableContainer);
 
   }
@@ -675,6 +754,10 @@ function Input()
     tableContainer.appendChild(container4);
     tableContainer.appendChild(table6);
   
+    var img = document.createElement('img');
+    img.src = 'assets\para2vecstep5.png';
+    canv.appendChild(img);
+
     canv.appendChild(tableContainer);
   }
   
@@ -706,6 +789,7 @@ function updater( val ) // takes input of 1 to advance page or -1 to go back a p
         case "Input Matrix": InputMatrix(); break;
         case "Initialize Weight + Bias Matrices": Initialize(); break;
         case "Compute Center Word Matrix": ComputeCenter(); break;
+        case "Hyperbolic Tangent Function": HiddenLayer(); break;
         case "Compute Softmax and Loss Function": ComputeSoftmax(); break;
         case "Update Weight and Bias Matrices": UpdateWeightBias(); break;
     }

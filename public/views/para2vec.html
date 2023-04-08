@@ -17,12 +17,21 @@
             <button class="navelement"        onclick="window.location='/songback'"  ><h1>Songs Recs App</h1></button>
             <button class="navelement"        onclick="window.location='/newsback'"  ><h1>Fake News App</h1></button>
         </div>
-        <div id="restofpage_NSB">
-            <div style="height:3vh;"></div>
-            <h2>para2vec!</h2>
-            <div style="height:10vh;"></div>
-            <h2>... someday</h2>
+        <div id="sidebar">
+            <p id="p1label"></p>
+            <table id="param1"></table>
+            <p id="p2label"></p>
+            <table id="param2"></table>
+            <p id="p3label"></p>
+            <table id="param3"></table>
         </div>
-        <script src="../scripts.js"></script>
+        <div id="footer"></div>
+        <div id="restofpage">
+            <div style="height:3vh;"></div>
+            <button id="back_btn">←</button>
+            <button id="fwd_btn">→</button>
+            <div id="canv" data-mode="n/a"></div>
+        </div>
+        <script src="../scripts/para2vec.js" defer></script>
     </body>
 </html>
