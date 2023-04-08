@@ -462,7 +462,7 @@ function buffer_page()
     songPlotContainer.id = 'songPlotContainer2';
     songVisualContainer.appendChild(songPlotContainer)
     // LOADING TEXT
-    songPlotContainer.innerHTML += "<h2 style='margin-bottom:6vh;margin-top:2vh;' > Generating Outs.. </h2>"
+    songPlotContainer.innerHTML += "<h2 style='margin-bottom:6vh;margin-top:2vh;' > Classifying Article.. </h2>"
 
     // LOADING GIF
     const img = document.createElement('img');
@@ -512,7 +512,7 @@ function setfooter( input ) // takes input from event listener and then
                             break;
         case "false_5":     footer.innerHTML = "<h2>That is correct! This article is from the fake article dataset and the svm model was accurate and predicted it to be fake. </h2>"
                             break;
-        case "buffer_page": footer.innerHTML = "<h2> Classifying... </h2>"
+        case "buffer_page": footer.innerHTML = "<h2> Classifying.. </h2>"
                             break;
     }
 }

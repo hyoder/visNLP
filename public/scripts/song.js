@@ -1204,7 +1204,7 @@ function setfooter( input ) // takes input from event listener and then
                             break;   
         case "songs10":      footer.innerHTML = "<h2>Recommendations For: Mad Sounds - Arctic Monkeys</h2>"
                             break;
-        case "buffer_page": footer.innerHTML = "<h2> Generating... </h2>"
+        case "buffer_page": footer.innerHTML = "<h2> Generating.. </h2>"
                             break;
     }
 }
