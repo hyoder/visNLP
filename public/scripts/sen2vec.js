@@ -37,7 +37,7 @@ function ModelSelection()
 
     const img = document.createElement('img');
     img.src = 'assets/para2vecstep.png';
-    canv.appendChild(img);
+    sidebar.appendChild(img);
 }
 
 function Input()
@@ -172,6 +172,8 @@ function Input()
 
   const img = document.createElement('img');
   img.src = 'assets/para2vecstep.png';
+  img.style.width = '50%';
+  img.style.height = 'auto';
   canv.appendChild(img);
 
   canv.appendChild(tableContainer);
