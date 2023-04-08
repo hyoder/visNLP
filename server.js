@@ -13,7 +13,7 @@ let cbow_data = undefined,
     skip_data = undefined,
     adam_data = undefined;
 app.use( bodyp.json() );
-app.use( favicon( path.join( __dirname, '/public', 'favicon.ico' ) ) );
+app.use( favicon( path.join( __dirname, 'public', 'favicon.ico' ) ) );
 app.use( express.static( path.join( __dirname + '/public' ) ) );
 client.connect();
 cbow_data = client.db('w2v').collection('cbow');
