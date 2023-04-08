@@ -58,8 +58,8 @@ function init()
         next_btn.style.display = "block";
         cbow_btn.innerHTML = "<h1>word2vec step-by-step: CBOW</h1>";
         skip_btn.innerHTML = "<h1>word2vec step-by-step: skip-gram</h1>";
-        prev_btn.innerHTML = "<h2>prev:</h2><h1>home</h1>";
-        next_btn.innerHTML = "<h2>next:</h2><h1>sen2vec</h1>";
+        prev_btn.innerHTML = "<h2>Prev:</h2><h1>Home</h1>";
+        next_btn.innerHTML = "<h2>Next:</h2><h1>Sen2Vec</h1>";
         cbow_btn.addEventListener( "click"    , () => { canv.dataset.mode =     "cbow"; getData(epoch_status, canv.dataset.mode); updater(1); } );
         skip_btn.addEventListener( "click"    , () => { canv.dataset.mode = "skipgram"; getData(epoch_status, canv.dataset.mode); updater(1); } );
         prev_btn.addEventListener( "click"    , () => { window.location = '/'       ; } );
