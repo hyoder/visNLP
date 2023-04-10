@@ -24,7 +24,7 @@ function meta()
         output += "<div id=\"meta_lower\"><h4>step: " + (page_status) + "/7</div>";
         output += "<div id=\"meta_progress\">";
         output += "<div id=\"meta_bar\" style=\"width:" + (((page_status)/7)*74.75) + "vw\"></div></div>"
-        output += "<div><h1 id=\"meta_title\">sen2vec - " + statuses[page_status] + "</h1></div>";
+        output += "<div><h1 id=\"meta_title\">para2vec - " + statuses[page_status] + "</h1></div>";
     return output}
 
 function ModelSelection()
@@ -34,7 +34,7 @@ function ModelSelection()
     canv.dataset.mode = "n/a";
     canv.innerHTML  = meta();//starts by populating meta div
     canv.innerHTML += "<div style=\"height:15vh\"></div>"; //im just gonna leave the html here from w2v page 1 but this is how u add the html
-    canv.innerHTML += "<h2>Select model for sen2vec:</h2>";
+    canv.innerHTML += "<h2>Select model for para2vec:</h2>";
     let btn_holder  = "<div style=\"position:fixed;right:16.5vw;top:35vh;\">"
         btn_holder += "<button id = \"btn1\">DM</button>"
         btn_holder += "<button id = \"btn2\">DBOW</button>"
@@ -76,7 +76,7 @@ function Input()
   table7.style.marginRight = "150px";
   table7.style.color = "white";
   table7.style.borderColor = "white";
-  table7.innerHTML += "<caption style=\"font-size: 30px\"> Sen2vec Parameters </caption>";
+  table7.innerHTML += "<caption style=\"font-size: 30px\"> Para2vec Parameters </caption>";
   table7.innerHTML += "<tr><td><div>Epoch = 1<div></td></tr>";
   table7.innerHTML += "<tr><td><div>Batch Size = 2<div></td></tr>";
   table7.innerHTML += "<tr><td><div>Vector Dimensions = 4<div></td></tr>";
@@ -90,11 +90,11 @@ function Input()
   table5.style.color = "white";
   table5.style.borderColor = "white";
   table5.innerHTML += "<caption style=\"font-size: 30px\"> Input Data </caption>";
-  table5.innerHTML += "<tr><td><div>I love Data Science<div></td></tr>";
-  table5.innerHTML += "<tr><td><div>I enjoy Data Science<div></td></tr>";
-  table5.innerHTML += "<tr><td><div>Data Science is my favorite, because I love Data Science<div></td></tr>";
-  table5.innerHTML += "<tr><td><div>I do enjoy Data Science<div></td></tr>";
-  table5.innerHTML += "<tr><td><div>I dislike Data Science<div></td></tr>";
+  table5.innerHTML += "<tr><td><div>I love Data Science. I really like Data Science.<div></td></tr>";
+  table5.innerHTML += "<tr><td><div>I dislike Data Science. I really dislike it.<div></td></tr>";
+  table5.innerHTML += "<tr><td><div>I really love Data Science. I love, and enjoy it.<div></td></tr>";
+  table5.innerHTML += "<tr><td><div>I really enjoy Data Science. I love it.<div></td></tr>";
+  table5.innerHTML += "<tr><td><div>I love and dislike Data Science. I enjoy Data Science. <div></td></tr>";
 
   const table6 = document.createElement("table");
   table6.style.marginTop = "50px";
@@ -104,12 +104,19 @@ function Input()
   table6.style.color = "white";
   table6.style.borderColor = "white";
   table6.innerHTML += "<caption style=\"font-size: 30px\"> Vocabulary </caption>";
-  table6.innerHTML += "<tr><td><div>I<div></td><td><div>favorite<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>love<div></td><td><div>because<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>data<div></td><td><div>do<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>science<div></td><td><div>my<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>enjoy<div></td><td><div>dislike<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>is<div></td><td><div>boring<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>I<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>love<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>data<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>science<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>.<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>really<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>like<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>dislike<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>it<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>,<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>enjoy<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>and<div></td></tr>";
+  
 
   tableContainer2.appendChild(table7);
   tableContainer2.appendChild(table5);
@@ -127,47 +134,47 @@ function Input()
   table1.style.marginTop = "250px";
   table1.style.marginRight = "10px";
   table1.style.marginLeft = "10px";
-  table1.innerHTML += "<caption style=\"font-size: 30px\"> Input Data for Sen2vec Algorithm </caption>";
-  table1.innerHTML += "<tr><td><div>I love Data Science<div></td></tr>";
-  table1.innerHTML += "<tr><td><div>I enjoy Data Science<div></td></tr>";
-  table1.innerHTML += "<tr><td><div>Data Science is my favorite, because I love Data Science<div></td></tr>";
-  table1.innerHTML += "<tr><td><div>I do enjoy Data Science<div></td></tr>";
-  table1.innerHTML += "<tr><td><div>I dislike Data Science<div></td></tr>";
+  table1.innerHTML += "<caption style=\"font-size: 30px\"> Input Data for Para2vec Algorithm </caption>";
+  table1.innerHTML += "<tr><td><div>I love Data Science. I really like Data Science.<div></td></tr>";
+  table1.innerHTML += "<tr><td><div>I dislike Data Science. I really dislike it.<div></td></tr>";
+  table1.innerHTML += "<tr><td><div>I really love Data Science. I love, and enjoy it.<div></td></tr>";
+  table1.innerHTML += "<tr><td><div>I really enjoy Data Science. I love it.<div></td></tr>";
+  table1.innerHTML += "<tr><td><div>I love and dislike Data Science. I enjoy Data Science.<div></td></tr>";
 
   const table3 = document.createElement("table");
   table3.style.marginTop = "250px";
   table3.style.marginRight = "10px";
   table3.style.marginLeft = "10px";
   table3.innerHTML += "<caption style=\"font-size: 30px\"> Create Paragraph IDs </caption>";
-  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 0 <div></td><td><div>I love Data Science<div></td></tr>";
-  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 1 <div></td><td><div>I enjoy Data Science<div></td></tr>";
-  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 2 <div></td><td><div>Data Science is my favorite, because I love Data Science<div></td></tr>";
-  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 3 <div></td><td><div>I do enjoy Data Science<div></td></tr>";
-  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 4 <div></td><td><div>I dislike Data Science<div></td></tr>";
+  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 0 <div></td><td><div>I love Data Science. I really like Data Science.<div></td></tr>";
+  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 1 <div></td><td><div>I dislike Data Science. I really dislike it.<div></td></tr>";
+  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 2 <div></td><td><div>I really love Data Science. I love, and enjoy it.<div></td></tr>";
+  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 3 <div></td><td><div>I really enjoy Data Science. I love it.<div></td></tr>";
+  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 4 <div></td><td><div>I love and dislike Data Science. I enjoy Data Science.<div></td></tr>";
 
   const table2 = document.createElement("table");
   table2.style.marginTop = "250px";
   table2.style.marginLeft = "10px";
   table2.style.marginRight = '10px';
   table2.innerHTML += "<caption style=\"font-size: 30px\"> Create Vocabulary </caption>";
-  table2.innerHTML += "<tr><td><div>I<div></td><td><div>favorite<div></td></tr>";
-  table2.innerHTML += "<tr><td><div>love<div></td><td><div>because<div></td></tr>";
-  table2.innerHTML += "<tr><td><div>data<div></td><td><div>do<div></td></tr>";
-  table2.innerHTML += "<tr><td><div>science<div></td><td><div>my<div></td></tr>";
-  table2.innerHTML += "<tr><td><div>enjoy<div></td><td><div>dislike<div></td></tr>";
-  table2.innerHTML += "<tr><td><div>is<div></td><td><div>boring<div></td></tr>";
+  table2.innerHTML += "<tr><td><div>I<div></td><td><div>like<div></td></tr>";
+  table2.innerHTML += "<tr><td><div>love<div></td><td><div>dislike<div></td></tr>";
+  table2.innerHTML += "<tr><td><div>data<div></td><td><div>it<div></td></tr>";
+  table2.innerHTML += "<tr><td><div>science<div></td><td><div>,<div></td></tr>";
+  table2.innerHTML += "<tr><td><div>.<div></td><td><div>enjoy<div></td></tr>";
+  table2.innerHTML += "<tr><td><div>really<div></td><td><div>and<div></td></tr>";
 
   const table4 = document.createElement("table");
   table4.style.marginTop = "250px";
   table4.style.marginRight = "10px";
   table4.style.marginLeft = "10px";
   table4.innerHTML += "<caption style=\"font-size: 30px\"> Initialize Word Vectors </caption>";
-  table4.innerHTML += "<tr><td><div>I <div></td><td><div>0.237, 0.016, 0.583, 0.286<div></td><td><div>favorite <div></td><td><div>1.154, 0.616, 0.893, 0.643<div></td></tr>";
-  table4.innerHTML += "<tr><td><div>love <div></td><td><div>-1.689, 0.213, 0.871, 0.928<div></td><td><div>because <div></td><td><div>0.507, 0.264, 0.739, 0.234<div></td></tr>";
-  table4.innerHTML += "<tr><td><div>data <div></td><td><div>1.538, 0.735, 0.120, 1.486<div></td><td><div>do <div></td><td><div>0.147, 0.246, 0.829, 0.873<div></td></tr>";
-  table4.innerHTML += "<tr><td><div>science <div></td><td><div>-0.388, 0.987, 0.346, 1.243<div></td><td><div>my <div></td><td><div>-0.707, -0.124, -0.829, 0.123<div></td></tr>";
-  table4.innerHTML += "<tr><td><div>enjoy<div></td><td><div>-0.829, 0.378, 0.199, 0.128<div></td><td><div>dislike <div></td><td><div>-0.339, 1.527, 1.276, 0.246<div></td></tr>";
-  table4.innerHTML += "<tr><td><div>is <div></td><td><div>-1.710, 0.233, 0.789,-0.123<div></td><td><div>boring <div></td><td><div>1.129, 0.125, 0.525, 0.245<div></td></tr>";
+  table4.innerHTML += "<tr><td><div>I <div></td><td><div>0.237, 0.016, 0.583, 0.286<div></td><td><div>like <div></td><td><div>1.154, 0.616, 0.893, 0.643<div></td></tr>";
+  table4.innerHTML += "<tr><td><div>love <div></td><td><div>-1.689, 0.213, 0.871, 0.928<div></td><td><div>dislike <div></td><td><div>0.507, 0.264, 0.739, 0.234<div></td></tr>";
+  table4.innerHTML += "<tr><td><div>data <div></td><td><div>1.538, 0.735, 0.120, 1.486<div></td><td><div>it <div></td><td><div>0.147, 0.246, 0.829, 0.873<div></td></tr>";
+  table4.innerHTML += "<tr><td><div>science <div></td><td><div>-0.388, 0.987, 0.346, 1.243<div></td><td><div>, <div></td><td><div>-0.707, -0.124, -0.829, 0.123<div></td></tr>";
+  table4.innerHTML += "<tr><td><div>.<div></td><td><div>-0.829, 0.378, 0.199, 0.128<div></td><td><div>enjoy <div></td><td><div>-0.339, 1.527, 1.276, 0.246<div></td></tr>";
+  table4.innerHTML += "<tr><td><div>really <div></td><td><div>-1.710, 0.233, 0.789,-0.123<div></td><td><div>and <div></td><td><div>1.129, 0.125, 0.525, 0.245<div></td></tr>";
 
   const container = document.createElement("div");
   container.innerHTML += ">>";
@@ -210,15 +217,15 @@ function Input()
     table1.innerHTML += "<caption style=\"font-size: 30px\"> DM Input Matrix With Words </caption>";
     table1.innerHTML += "<tr><td><div>Paragraph ID<div></td><td><div>Context Word<div></td><td><div>Context Word<div></td><td><div>Center Word<div></td></tr>";
     table1.innerHTML += "<tr><td><div>0<div></td><td><div>love<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
-    table1.innerHTML += "<tr><td><div>1<div></td><td><div>I<div></td><td><div>data<div></td><td><div>enjoy<div></td></tr>";
-    table1.innerHTML += "<tr><td><div>2<div></td><td><div>my<div></td><td><div>because<div></td><td><div>favorite<div></td></tr>";
-    table1.innerHTML += "<tr><td><div>3<div></td><td><div>do<div></td><td><div>enjoy<div></td><td><div>data<div></td></tr>";
-    table1.innerHTML += "<tr><td><div>4<div></td><td><div>I<div></td><td><div>data<div></td><td><div>dislike<div></td></tr>";
-    table1.innerHTML += "<tr><td><div>0<div></td><td><div>I<div></td><td><div>data<div></td><td><div>love<div></td></tr>";
-    table1.innerHTML += "<tr><td><div>1<div></td><td><div>enjoy<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
-    table1.innerHTML += "<tr><td><div>2<div></td><td><div>science<div></td><td><div>my<div></td><td><div>is<div></td></tr>";
-    table1.innerHTML += "<tr><td><div>3<div></td><td><div>do<div></td><td><div>data<div></td><td><div>enjoy<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>1<div></td><td><div>science<div></td><td><div>I<div></td><td><div>.<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>2<div></td><td><div>love<div></td><td><div>and<div></td><td><div>,<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>3<div></td><td><div>love<div></td><td><div>.<div></td><td><div>it<div></td></tr>";
     table1.innerHTML += "<tr><td><div>4<div></td><td><div>dislike<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0<div></td><td><div>like<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>1<div></td><td><div>really<div></td><td><div>it<div></td><td><div>dislike<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>2<div></td><td><div>really<div></td><td><div>data<div></td><td><div>love<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>3<div></td><td><div>I<div></td><td><div>it<div></td><td><div>love<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>4<div></td><td><div>love<div></td><td><div>dislike<div></td><td><div>and<div></td></tr>";
 
     const table2 = document.createElement("table");
     table2.style.marginTop = "232px";
@@ -265,15 +272,15 @@ function Input()
     table3.innerHTML += "<caption style=\"font-size: 30px\"> DM Input Matrix With Words </caption>";
     table3.innerHTML += "<tr><td><div>Paragraph ID<div></td><td><div>Context Word<div></td><td><div>Context Word<div></td><td><div>Center Word<div></td></tr>";
     table3.innerHTML += "<tr><td><div>0<div></td><td><div>love<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
-    table3.innerHTML += "<tr><td><div>1<div></td><td><div>I<div></td><td><div>data<div></td><td><div>enjoy<div></td></tr>";
-    table3.innerHTML += "<tr><td><div>2<div></td><td><div>my<div></td><td><div>because<div></td><td><div>favorite<div></td></tr>";
-    table3.innerHTML += "<tr><td><div>3<div></td><td><div>do<div></td><td><div>enjoy<div></td><td><div>data<div></td></tr>";
-    table3.innerHTML += "<tr><td><div>4<div></td><td><div>I<div></td><td><div>data<div></td><td><div>dislike<div></td></tr>";
-    table3.innerHTML += "<tr><td><div>0<div></td><td><div>I<div></td><td><div>data<div></td><td><div>love<div></td></tr>";
-    table3.innerHTML += "<tr><td><div>1<div></td><td><div>enjoy<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
-    table3.innerHTML += "<tr><td><div>2<div></td><td><div>science<div></td><td><div>my<div></td><td><div>is<div></td></tr>";
-    table3.innerHTML += "<tr><td><div>3<div></td><td><div>do<div></td><td><div>data<div></td><td><div>enjoy<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>1<div></td><td><div>science<div></td><td><div>I<div></td><td><div>.<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>2<div></td><td><div>love<div></td><td><div>and<div></td><td><div>,<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>3<div></td><td><div>love<div></td><td><div>.<div></td><td><div>it<div></td></tr>";
     table3.innerHTML += "<tr><td><div>4<div></td><td><div>dislike<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>like<div></td><td><div>science<div></td><td><div>data<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>1<div></td><td><div>really<div></td><td><div>it<div></td><td><div>dislike<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>2<div></td><td><div>really<div></td><td><div>data<div></td><td><div>love<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>3<div></td><td><div>I<div></td><td><div>it<div></td><td><div>love<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>4<div></td><td><div>love<div></td><td><div>dislike<div></td><td><div>and<div></td></tr>";
 
     const tableContainer2 = document.createElement("div");
     tableContainer2.style.display = "flex";
@@ -286,7 +293,7 @@ function Input()
     table7.style.marginBottom = "10px";
     table7.style.color = "white";
     table7.style.borderColor = "white";
-    table7.innerHTML += "<caption style=\"font-size: 30px\"> Sen2vec Parameters </caption>";
+    table7.innerHTML += "<caption style=\"font-size: 30px\"> Para2vec Parameters </caption>";
     table7.innerHTML += "<tr><td><div>Epoch = 1<div></td></tr>";
     table7.innerHTML += "<tr><td><div>Batch Size = 2<div></td></tr>";
     table7.innerHTML += "<tr><td><div>Vector Dimensions = 4<div></td></tr>";
@@ -300,11 +307,11 @@ function Input()
     table5.style.color = "white";
     table5.style.borderColor = "white";
     table5.innerHTML += "<caption style=\"font-size: 30px\"> Input Data </caption>";
-    table5.innerHTML += "<tr><td><div>I love Data Science<div></td></tr>";
-    table5.innerHTML += "<tr><td><div>I enjoy Data Science<div></td></tr>";
-    table5.innerHTML += "<tr><td><div>Data Science is my favorite, because I love Data Science<div></td></tr>";
-    table5.innerHTML += "<tr><td><div>I do enjoy Data Science<div></td></tr>";
-    table5.innerHTML += "<tr><td><div>I dislike Data Science<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>I love Data Science. I really like Data Science.<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>I dislike Data Science. I really dislike it.<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>I really love Data Science. I love, and enjoy it.<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>I really enjoy Data Science. I love it.<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>I love and dislike Data Science. I enjoy Data Science.<div></td></tr>";
 
     const table6 = document.createElement("table");
     table6.style.marginTop = "10px";
@@ -313,12 +320,12 @@ function Input()
     table6.style.color = "white";
     table6.style.borderColor = "white";
     table6.innerHTML += "<caption style=\"font-size: 30px\"> Vocabulary </caption>";
-    table6.innerHTML += "<tr><td><div>I<div></td><td><div>favorite<div></td></tr>";
-    table6.innerHTML += "<tr><td><div>love<div></td><td><div>because<div></td></tr>";
-    table6.innerHTML += "<tr><td><div>data<div></td><td><div>do<div></td></tr>";
-    table6.innerHTML += "<tr><td><div>science<div></td><td><div>my<div></td></tr>";
-    table6.innerHTML += "<tr><td><div>enjoy<div></td><td><div>dislike<div></td></tr>";
-    table6.innerHTML += "<tr><td><div>is<div></td><td><div>boring<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>I<div></td><td><div>like<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>love<div></td><td><div>dislike<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>data<div></td><td><div>it<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>science<div></td><td><div>,<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>.<div></td><td><div>enjoy<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>really<div></td><td><div>and<div></td></tr>";
 
     tableContainer2.appendChild(table7);
     tableContainer2.appendChild(table5);
@@ -840,13 +847,13 @@ function Input()
 function setfooter( input ) // takes input from event listener and then 
 {
     switch( input ) {
-        case "default": footer.innerHTML = "<h2>Welcome to the Sen2vec step-by-step simulation!<div>The sidebar contains an image of the Sen2vec architecture that will be updated throughout the simulation to display the current architecture.<div>Please select a model to continue.</h2>"; break;
-        case "dm": footer.innerHTML = "<h2>Distributed Memory (DM) is one of two models for Sen2vec</h2>"; break;
-        case "dbo": footer.innerHTML = "<h2>Distribute Bag of Words (DBOW) is one of two models for Sen2vec</h2>"; break;
+        case "default": footer.innerHTML = "<h2>Welcome to the Para2vec step-by-step simulation!<div>The sidebar contains an image of the Para2vec architecture that will be updated throughout the simulation to display the current architecture.<div>Please select a model to continue.</h2>"; break;
+        case "dm": footer.innerHTML = "<h2>Distributed Memory (DM) is one of two models for Para2vec</h2>"; break;
+        case "dbo": footer.innerHTML = "<h2>Distribute Bag of Words (DBOW) is one of two models for Para2vec</h2>"; break;
         case "step4": footer.innerHTML = "<h2>In this step, input vectors are created by the concatenation of paragraph IDs and context words. The values for the paragraphs are taken by the paragraph weight matrix associated with each paragraph. Since batch size is 2 in the parameters, a batch of two input vectors is randomly selected and multiplied by the initial word weight matrix. This results in the predicted value for the center words of the given training vectors.</h2>"; break;
-        case "step1": footer.innerHTML = "<h2>In this step, data is used as input for the Sen2vec algortithm. Sen2vec creates paragraph IDs based on the input data with 0 based indexing. Text processing occurs to create a vocabulary based on the unique words in the data. Each word in the vocabulary is then intialized as a vector based on the vector dimensions in the Sen2vec parameters.</h2>"; break;
-        case "step2": footer.innerHTML = "<h2>In this step, the paragraph ID, context word vectors, and center word vectors are concatenated to form an input matrix to be used in Sen2vec training. Context word size is determined in the parameters, in this example context size is 1, therefore it takes 1 word from the left and right of the center word as context. The size of the input matrix is based on the amount of pre-generated batches, in this example we have 2.</h2>"; break;
-        case "step3": footer.innerHTML = "<h2>In this step, Sen2vec initializes the word and paragraph weight matrices along with the bias matrix. The size of the word weight matrix is based on the vocabulary size of the data, in this case, the vocabulary is 13. The size of the paragraph weight matrix is based on the number of paragraphs in the data, which is 5. The size of the bias matrix is based on the input matrix, and is intialized as a 0 matrix. All of these matrices have the same dimensions as the vector dimensions in the parameters.</h2>"; break;
+        case "step1": footer.innerHTML = "<h2>In this step, data is used as input for the Para2vec algortithm. Para2vec creates paragraph IDs based on the input data with 0 based indexing. Text processing occurs to create a vocabulary based on the unique words in the data. Each word in the vocabulary is then intialized as a vector based on the vector dimensions in the Para2vec parameters.</h2>"; break;
+        case "step2": footer.innerHTML = "<h2>In this step, the paragraph ID, context word vectors, and center word vectors are concatenated to form an input matrix to be used in Para2vec training. Context word size is determined in the parameters, in this example context size is 1, therefore it takes 1 word from the left and right of the center word as context. The size of the input matrix is based on the amount of pre-generated batches, in this example we have 2.</h2>"; break;
+        case "step3": footer.innerHTML = "<h2>In this step, Para2vec initializes the word and paragraph weight matrices along with the bias matrix. The size of the word weight matrix is based on the vocabulary size of the data, in this case, the vocabulary is 13. The size of the paragraph weight matrix is based on the number of paragraphs in the data, which is 5. The size of the bias matrix is based on the input matrix, and is intialized as a 0 matrix. All of these matrices have the same dimensions as the vector dimensions in the parameters.</h2>"; break;
         case "step5": footer.innerHTML = "<h2>In this step, the bias matrix is added to the predicted center word matrix to introduce another parameter that improves the accuracy of the model. The hyperbolic tangent function is then applied to the result matrix to introduce non linearity to the model. This allows the model to capture more complex relationships between words and paragraphs. </h2>"; break;
         case "step6": footer.innerHTML = "<h2>In this step, the hyperbolic tangent matrix is transformed by the softmax function to get the probability distribution of the vocabulary. The result matrix then uses the true center word matrix, which was gathered from the input matrix, to calculate the negative log likelihood loss of the predicted center word matrix. The negative log likelihood loss is a measure of how well the model predicts the true center word.</h2>"; break;
         case "step7": footer.innerHTML = "<h2>In this step, the negative log likelihood loss values are sent to the adam optimizer to update the weights. The weights will be updated for the word and paragraph matrices along with the bias matrix. The updated matrices are used in the next batch of training vectors. Once all training vectors have been trained, that is the end of one epoch. Once the number of epochs set in the parameter are met, the paragraph weight matrix is returned and is now ready to be used in other applications. Red indicates a decrease in value and green indicates increase.</h2>"; break;

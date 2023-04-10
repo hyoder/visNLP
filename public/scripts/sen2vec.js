@@ -110,6 +110,12 @@ function Input()
   table6.innerHTML += "<tr><td><div>science<div></td><td><div>my<div></td></tr>";
   table6.innerHTML += "<tr><td><div>enjoy<div></td><td><div>dislike<div></td></tr>";
   table6.innerHTML += "<tr><td><div>is<div></td><td><div>boring<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>favorite<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>because<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>do<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>my<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>dislike<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>boring<div></td></tr>";
 
   tableContainer2.appendChild(table7);
   tableContainer2.appendChild(table5);
