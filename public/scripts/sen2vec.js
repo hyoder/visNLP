@@ -104,12 +104,12 @@ function Input()
   table6.style.color = "white";
   table6.style.borderColor = "white";
   table6.innerHTML += "<caption style=\"font-size: 30px\"> Vocabulary </caption>";
-  table6.innerHTML += "<tr><td><div>I<div></td><td><div>favorite<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>love<div></td><td><div>because<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>data<div></td><td><div>do<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>science<div></td><td><div>my<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>enjoy<div></td><td><div>dislike<div></td></tr>";
-  table6.innerHTML += "<tr><td><div>is<div></td><td><div>boring<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>I<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>love<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>data<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>science<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>enjoy<div></td></tr>";
+  table6.innerHTML += "<tr><td><div>is<div></td></tr>";
   table6.innerHTML += "<tr><td><div>favorite<div></td></tr>";
   table6.innerHTML += "<tr><td><div>because<div></td></tr>";
   table6.innerHTML += "<tr><td><div>do<div></td></tr>";
