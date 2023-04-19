@@ -19,8 +19,6 @@ let page_status = 0;
 function meta()
 {
     let output  = "";
-        output += "<div id=\"meta_upper\">";
-        output += "<h4 style=\"line-height:3vh\">mode: " + canv.dataset.mode + "</h4></div>";
         output += "<div id=\"meta_lower\"><h4>step: " + (page_status) + "/7</div>";
         output += "<div id=\"meta_progress\">";
         output += "<div id=\"meta_bar\" style=\"width:" + (((page_status)/7)*74.75) + "vw\"></div></div>"
@@ -67,6 +65,7 @@ function Input()
 
  const tableContainer2 = document.createElement("div");
  tableContainer2.style.display = "flex";
+ tableContainer2.style.overflow = 'auto';
  tableContainer2.style.justifyContent = "space-between";
  tableContainer2.style.flexDirection = "column";
 
@@ -128,6 +127,7 @@ function Input()
 
   const tableContainer = document.createElement("div");
   tableContainer.style.display = "flex";
+  tableContainer.style.overflow = 'auto';
   tableContainer.style.justifyContent = "space-between";
 
   const table1 = document.createElement("table");
@@ -145,6 +145,8 @@ function Input()
   table3.style.marginTop = "250px";
   table3.style.marginRight = "10px";
   table3.style.marginLeft = "10px";
+  table3.style.width= "80vw";
+  table3.style.height= "40vh";
   table3.innerHTML += "<caption style=\"font-size: 30px\"> Create Paragraph IDs </caption>";
   table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 0 <div></td><td><div>I love Data Science. I really like Data Science.<div></td></tr>";
   table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 1 <div></td><td><div>I dislike Data Science. I really dislike it.<div></td></tr>";
@@ -168,6 +170,8 @@ function Input()
   table4.style.marginTop = "250px";
   table4.style.marginRight = "10px";
   table4.style.marginLeft = "10px";
+  table4.style.width= "80vw";
+  table4.style.height= "40vh";
   table4.innerHTML += "<caption style=\"font-size: 30px\"> Initialize Word Vectors </caption>";
   table4.innerHTML += "<tr><td><div>I <div></td><td><div>0.237, 0.016, 0.583, 0.286<div></td><td><div>like <div></td><td><div>1.154, 0.616, 0.893, 0.643<div></td></tr>";
   table4.innerHTML += "<tr><td><div>love <div></td><td><div>-1.689, 0.213, 0.871, 0.928<div></td><td><div>dislike <div></td><td><div>0.507, 0.264, 0.739, 0.234<div></td></tr>";
@@ -209,6 +213,7 @@ function Input()
     canv.innerHTML += "<tr><td>&nbsp;</td></tr>";
     const tableContainer = document.createElement("div");
     tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
     tableContainer.style.justifyContent = "space-between";
   
     const table1 = document.createElement("table");
@@ -230,6 +235,8 @@ function Input()
     const table2 = document.createElement("table");
     table2.style.marginTop = "232px";
     table2.style.marginRight = "10px";
+    table2.style.width= "80vw";
+    table2.style.height= "40vh";
     table2.innerHTML += "<caption style=\"font-size: 30px\"> DM Input Matrix With Values</caption>";
     table2.innerHTML += "<tr><td><div>Paragraph ID<div></td><td><div>Context Word<div></td><td><div>Context Word<div></td><td><div>Center Word<div></td></tr>";
     table2.innerHTML += "<tr><td><div>0<div></td><td><div>-1.689, 0.213, 0.871, 0.928<div></td><td><div>-0.388, 0.987, 0.346, 1.243<div></td><td><div>1.538, 0.735, 0.120, 1.486<div></td></tr>";
@@ -284,6 +291,7 @@ function Input()
 
     const tableContainer2 = document.createElement("div");
     tableContainer2.style.display = "flex";
+    tableContainer2.style.overflow = 'auto';
     tableContainer2.style.flexDirection = "column";
 
     const table7 = document.createElement("table");
@@ -341,6 +349,7 @@ function Input()
   
     const tableContainer = document.createElement("div");
     tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
   
     const table1 = document.createElement("table");
     table1.style.marginTop = "250px";
@@ -422,6 +431,7 @@ function Input()
   
     const tableContainer = document.createElement("div");
     tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
     tableContainer.style.justifyContent = "space-between";
   
     const table1 = document.createElement("table");
@@ -508,6 +518,7 @@ function Input()
   
     const tableContainer = document.createElement("div");
     tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
     tableContainer.style.justifyContent = "space-between";
   
     const table1 = document.createElement("table");
@@ -617,6 +628,7 @@ function Input()
   
     const tableContainer = document.createElement("div");
     tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
     tableContainer.style.justifyContent = "space-between";
 
     const table1 = document.createElement("table");
@@ -725,6 +737,7 @@ function Input()
   
     const tableContainer = document.createElement("div");
     tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
     tableContainer.style.justifyContent = "space-between";
 
     const table1 = document.createElement("table");
@@ -846,6 +859,7 @@ function Input()
   
 function setfooter( input ) // takes input from event listener and then 
 {
+    let footer = document.getElementById('footer');  
     switch( input ) {
         case "default": footer.innerHTML = "<h2>Welcome to the Para2vec step-by-step simulation!<div>The sidebar contains an image of the Para2vec architecture that will be updated throughout the simulation to display the current architecture.<div>Please select a model to continue.</h2>"; break;
         case "dm": footer.innerHTML = "<h2>Distributed Memory (DM) is one of two models for Para2vec</h2>"; break;
@@ -858,8 +872,7 @@ function setfooter( input ) // takes input from event listener and then
         case "step6": footer.innerHTML = "<h2>In this step, the hyperbolic tangent matrix is transformed by the softmax function to get the probability distribution of the vocabulary. The result matrix then uses the true center word matrix, which was gathered from the input matrix, to calculate the negative log likelihood loss of the predicted center word matrix. The negative log likelihood loss is a measure of how well the model predicts the true center word.</h2>"; break;
         case "step7": footer.innerHTML = "<h2>In this step, the negative log likelihood loss values are sent to the adam optimizer to update the weights. The weights will be updated for the word and paragraph matrices along with the bias matrix. The updated matrices are used in the next batch of training vectors. Once all training vectors have been trained, that is the end of one epoch. Once the number of epochs set in the parameter are met, the paragraph weight matrix is returned and is now ready to be used in other applications. Red indicates a decrease in value and green indicates increase.</h2>"; break;
     }
-
-
+    footer.style.overflow='auto';
 }
 function removeContent() {
     const sidebar = document.getElementById("sidebar");
