@@ -332,10 +332,10 @@ td {
 #skip_btn {
     background-color: #ddd;
     border-radius: 0.25vh;
-    left: 0.75vw;
+    left: 0.55vw;
     position: fixed;
     top: 18vh;
-    width: 23.25vw;
+    width: 23.5vw;
 }
 #skip_btn:hover { background-color: #fff; }
 #prev_btn {
@@ -553,6 +553,7 @@ td {
     border-radius: 0 0 1vh 0;
     border-right:  0.25vh solid #000;
     box-sizing: border-box;
+    display: block;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.2vw;
     height: 8vh;

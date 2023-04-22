@@ -53,7 +53,7 @@ function init()
         prev_btn = document.getElementById("prev_btn"),
         next_btn = document.getElementById("next_btn");
         cbow_btn.style.display = "block";
-        skip_btn.style.display = "none";
+        skip_btn.style.display = "block";
         prev_btn.style.display = "block";
         next_btn.style.display = "block";
         cbow_btn.innerHTML = "<h1>word2vec step-by-step: CBOW</h1>";
