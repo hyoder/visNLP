@@ -62,6 +62,8 @@ function Input()
 {
   sidebar.innerHTML = "";
   setfooter("step1");
+  canv.dataset.mode === "dm";
+  if (canv.dataset.mode === "dm"); {
 
  const tableContainer2 = document.createElement("div");
  tableContainer2.style.display = "flex";
@@ -93,7 +95,7 @@ function Input()
   table5.innerHTML += "<tr><td><div>I enjoy Data Science<div></td></tr>";
   table5.innerHTML += "<tr><td><div>Data Science is my favorite, because I love Data Science<div></td></tr>";
   table5.innerHTML += "<tr><td><div>I do enjoy Data Science<div></td></tr>";
-  table5.innerHTML += "<tr><td><div>I dislike Data Science<div></td></tr>";
+  table5.innerHTML += "<tr><td><div>I dislike boring Data Science<div></td></tr>";
 
   const table6 = document.createElement("table");
   table6.style.marginTop = "50px";
@@ -138,7 +140,7 @@ function Input()
   table1.innerHTML += "<tr><td><div>I enjoy Data Science<div></td></tr>";
   table1.innerHTML += "<tr><td><div>Data Science is my favorite, because I love Data Science<div></td></tr>";
   table1.innerHTML += "<tr><td><div>I do enjoy Data Science<div></td></tr>";
-  table1.innerHTML += "<tr><td><div>I dislike Data Science<div></td></tr>";
+  table1.innerHTML += "<tr><td><div>I dislike boring Data Science<div></td></tr>";
 
   const table3 = document.createElement("table");
   table3.style.marginTop = "250px";
@@ -149,7 +151,7 @@ function Input()
   table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 1 <div></td><td><div>I enjoy Data Science<div></td></tr>";
   table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 2 <div></td><td><div>Data Science is my favorite, because I love Data Science<div></td></tr>";
   table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 3 <div></td><td><div>I do enjoy Data Science<div></td></tr>";
-  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 4 <div></td><td><div>I dislike Data Science<div></td></tr>";
+  table3.innerHTML += "<tr><td style=\"padding:10px;\"><div> 4 <div></td><td><div>I dislike boring Data Science<div></td></tr>";
 
   const table2 = document.createElement("table");
   table2.style.marginTop = "250px";
@@ -200,12 +202,13 @@ function Input()
   tableContainer.appendChild(container3);
   tableContainer.appendChild(table4);
 
-  canv.appendChild(tableContainer);
+  canv.appendChild(tableContainer);}
 }
 
   function InputMatrix() {
     sidebar.innerHTML = '';
     setfooter("step2");
+    canv.dataset.mode = "dm";
     canv.innerHTML = meta();
     canv.innerHTML += "<tr><td>&nbsp;</td></tr>";
     const tableContainer = document.createElement("div");
@@ -316,7 +319,7 @@ function Input()
     table5.innerHTML += "<tr><td><div>I enjoy Data Science<div></td></tr>";
     table5.innerHTML += "<tr><td><div>Data Science is my favorite, because I love Data Science<div></td></tr>";
     table5.innerHTML += "<tr><td><div>I do enjoy Data Science<div></td></tr>";
-    table5.innerHTML += "<tr><td><div>I dislike Data Science<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>I dislike boring Data Science<div></td></tr>";
 
     const table6 = document.createElement("table");
     table6.style.marginTop = "10px";
@@ -342,6 +345,7 @@ function Input()
 
   function Initialize() {
     setfooter("step3");
+    canv.dataset.mode = "dm";
     canv.innerHTML = meta();
   
     const tableContainer = document.createElement("div");
@@ -424,6 +428,7 @@ function Input()
 
   function ComputeCenter() {
     setfooter("step4");
+    canv.dataset.mode = "dm";
     canv.innerHTML = meta();
   
     const tableContainer = document.createElement("div");
@@ -511,6 +516,7 @@ function Input()
 
   function HiddenLayer() {
     setfooter("step5");
+    canv.dataset.mode = "dm";
     canv.innerHTML = meta();
   
     const tableContainer = document.createElement("div");
@@ -621,6 +627,7 @@ function Input()
   
   function ComputeSoftmax() {
     setfooter("step6");
+    canv.dataset.mode = "dm";
     canv.innerHTML = meta();
   
     const tableContainer = document.createElement("div");
@@ -730,6 +737,572 @@ function Input()
 
   function UpdateWeightBias() {
     setfooter("step7");
+    canv.dataset.mode = "dm";
+    canv.innerHTML = meta();
+  
+    const tableContainer = document.createElement("div");
+    tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
+    tableContainer.style.justifyContent = "space-between";
+
+    const table1 = document.createElement("table");
+    table1.style.marginTop = "250px";
+    table1.style.marginLeft = "10px";
+    table1.innerHTML += "<caption style=\"font-size: 30px\"> Initial Word Weight Matrix </caption>";
+    table1.innerHTML += "<tr><td><div>0.264<div></td><td><div> -0.441<div></td><td><div> 0.329<div></td><td><div> 0.126<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.3017<div></td><td><div> -0.132<div></td><td><div> -0.383<div></td><td><div> 0.107<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.1947<div></td><td><div> -0.267<div></td><td><div> -0.122<div></td><td><div> -0.013<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.2895<div></td><td><div> -0.869<div></td><td><div> 0.188<div></td><td><div> -0.041<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.1398<div></td><td><div> 0.877<div></td><td><div> -0.199<div></td><td><div> -0.076<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.1572<div></td><td><div> 0.047<div></td><td><div> -0.071<div></td><td><div> 0.209<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.3528<div></td><td><div> 0.294<div></td><td><div> 0.167<div></td><td><div> -0.204<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.1549<div></td><td><div> -0.828<div></td><td><div> 0.285<div></td><td><div> 0.167<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.2036<div></td><td><div> -0.192<div></td><td><div> 0.148<div></td><td><div> 0.134<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.2754<div></td><td><div> 0.074<div></td><td><div> -0.325<div></td><td><div> -0.215<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.3442<div></td><td><div> -0.206<div></td><td><div> -0.007<div></td><td><div> -0.106<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.1058<div></td><td><div> 0.121<div></td><td><div> -0.187<div></td><td><div> -0.228<div></td></tr>";
+
+    const table4 = document.createElement("table");
+    table4.style.marginTop = "250px";
+    table4.innerHTML += "<caption style=\"font-size: 30px\"> Updated Word Weight Matrix </caption>";
+    table4.innerHTML += "<tr><td style='background-color:red'><div>0.147<div></td><td style='background-color:red'><div> -0.895<div></td><td style='background-color:red'><div> 0.282<div></td><td style='background-color:green'><div> 0.784<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:red'><div>-0.3258<div></td><td style='background-color:green'><div> -0.032<div></td><td style='background-color:green'><div> -0.248<div></td><td style='background-color:green'><div> 0.253<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:green'><div>-0.025<div></td><td style='background-color:red'><div> -0.369<div></td><td style='background-color:green'><div> -0.012<div></td><td style='background-color:red'><div> -0.089<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:red'><div>0.186<div></td><td style='background-color:green'><div> -0.458<div></td><td style='background-color:green'><div> 0.784<div></td><td style='background-color:red'><div> -0.098<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:green'><div>-0.001<div></td><td style='background-color:green'><div> 0.984<div></td><td style='background-color:red'><div> -0.369<div></td><td style='background-color:green'><div> 1.22<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:red'><div>0.103<div></td><td style='background-color:red'><div> 0.001<div></td><td style='background-color:red'><div> -0.121<div></td><td style='background-color:green'><div> 1.209<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:red'><div>0.145<div></td><td style='background-color:green'><div> 0.394<div></td><td style='background-color:red'><div> 0.161<div></td><td style='background-color:red'><div> -1.204<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:green'><div>-0.1069<div></td><td style='background-color:red'><div> -0.987<div></td><td style='background-color:green'><div> 0.385<div></td><td style='background-color:green'><div> 1.167<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:red'><div>-0.359<div></td><td style='background-color:green'><div> -0.025<div></td><td style='background-color:red'><div> 0.098<div></td><td style='background-color:red'><div> 0.022<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:green'><div>0.385<div></td><td style='background-color:green'><div> 0.451<div></td><td style='background-color:red'><div> -0.542<div></td><td style='background-color:red'><div> -0.810<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:green'><div>0.3789<div></td><td style='background-color:red'><div> -0.692<div></td><td style='background-color:red'><div> -0.058<div></td><td style='background-color:green'><div> 0.736<div></td></tr>";
+    table4.innerHTML += "<tr><td style='background-color:green'><div>0.1471<div></td><td style='background-color:red'><div> 0.027<div></td><td style='background-color:green'><div> -0.198<div></td><td style='background-color:red'><div> -0.520<div></td></tr>";
+
+    const table2 = document.createElement("table");
+    table2.style.marginTop = "250px";
+    table2.innerHTML += "<caption style=\"font-size: 30px\"> Initial Paragraph Weight Matrix </caption>";
+    table2.innerHTML += "<tr><td><div>0.031<div></td><td><div> 0.398<div></td><td><div> -0.447<div></td><td><div> 0.273<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>-0.323<div></td><td><div> -0.002<div></td><td><div> 0.005<div></td><td><div> 0.942<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>-0.043<div></td><td><div> 0.027<div></td><td><div> -0.224<div></td><td><div> -0.094<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.119<div></td><td><div> 0.118<div></td><td><div> 0.427<div></td><td><div> 0.102<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>-0.376<div></td><td><div> -0.109<div></td><td><div> 0.127<div></td><td><div> -0.461<div></td></tr>";
+
+    const table5 = document.createElement("table");
+    table5.style.marginTop = "250px";
+    table5.innerHTML += "<caption style=\"font-size: 30px\"> Updated Paragraph Weight Matrix </caption>";
+    table5.innerHTML += "<tr><td style='background-color:red'><div>0.025<div></td><td style='background-color:green'><div> 0.451<div></td><td style='background-color:green'><div> -0.256<div></td><td style='background-color:green'><div> 0.284<div></td></tr>";
+    table5.innerHTML += "<tr><td style='background-color:green'><div>-0.154<div></td><td style='background-color:red'><div> -0.062<div></td><td style='background-color:red'><div> 0.001<div></td><td style='background-color:green'><div> 0.987<div></td></tr>";
+    table5.innerHTML += "<tr><td style='background-color:red'><div>-0.089<div></td><td style='background-color:green'><div> 0.456<div></td><td style='background-color:green'><div> -0.147<div></td><td style='background-color:green'><div> -0.023<div></td></tr>";
+    table5.innerHTML += "<tr><td style='background-color:red'><div>0.021<div></td><td style='background-color:green'><div> 0.254<div></td><td style='background-color:green'><div> 0.578<div></td><td style='background-color:red'><div> 0.057<div></td></tr>";
+    table5.innerHTML += "<tr><td style='background-color:green'><div>-0.245<div></td><td style='background-color:green'><div> -0.012<div></td><td style='background-color:green'><div> 0.250<div></td><td style='background-color:green'><div> -0.261<div></td></tr>";
+
+    const table3 = document.createElement("table");
+    table3.style.marginTop = "250px";
+    table3.innerHTML += "<caption style=\"font-size: 30px\"> Initial Bias Matrix </caption>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+
+    const table6 = document.createElement("table");
+    table6.style.marginTop = "250px";
+    table6.style.marginRight = "10px";
+    table6.innerHTML += "<caption style=\"font-size: 30px\"> Updated Bias Matrix </caption>";
+    table6.innerHTML += "<tr><td style='background-color:green'><div>0.25<div></td><td style='background-color:red'><div>-0.12<div></td><td style='background-color:green'><div>0.84<div></td><td style='background-color:red'><div>-0.91<div></td></tr>";
+    table6.innerHTML += "<tr><td style='background-color:red'><div>-0.74<div></td><td style='background-color:green'><div>1.78<div></td><td style='background-color:red'><div>-0.74<div></td><td style='background-color:green'><div>1.68<div></td></tr>";
+    table6.innerHTML += "<tr><td style='background-color:red'><div>-1.24<div></td><td style='background-color:red'><div>-1.45<div></td><td style='background-color:green'><div>0.62<div></td><td style='background-color:red'><div>-0.45<div></td></tr>";
+    table6.innerHTML += "<tr><td style='background-color:red'><div>-0.62<div></td><td style='background-color:green'><div>1.98<div></td><td style='background-color:green'><div>1.25<div></td><td style='background-color:red'><div>-1.68<div></td></tr>";
+    table6.innerHTML += "<tr><td style='background-color:red'><div>-0.64<div></td><td style='background-color:red'><div>-0.62<div></td><td style='background-color:green'><div>0.84<div></td><td style='background-color:green'><div>0.30<div></td></tr>";
+    table6.innerHTML += "<tr><td style='background-color:green'><div>1.62<div></td><td style='background-color:green'><div>0.78<div></td><td style='background-color:red'><div>-0.74<div></td><td style='background-color:green'><div>0.01<div></td></tr>";
+    table6.innerHTML += "<tr><td style='background-color:green'><div>0.89<div></td><td style='background-color:green'><div>1.54<div></td><td style='background-color:green'><div>0.54<div></td><td style='background-color:red'><div>-0.36<div></td></tr>";
+    table6.innerHTML += "<tr><td style='background-color:red'><div>-0.76<div></td><td style='background-color:green'><div>1.02<div></td><td style='background-color:green'><div>0.98<div></td><td style='background-color:red'><div>-0.78<div></td></tr>";
+    table6.innerHTML += "<tr><td style='background-color:green'><div>0.78<div></td><td style='background-color:red'><div>-0.71<div></td><td style='background-color:red'><div>-0.84<div></td><td style='background-color:green'><div>0.99<div></td></tr>";
+    table6.innerHTML += "<tr><td style='background-color:red'><div>-0.98<div></td><td style='background-color:green'><div>1.61<div></td><td style='background-color:red'><div>-0.74<div></td><td style='background-color:red'><div>-1.48<div></td></tr>";
+
+    const container2 = document.createElement("div");
+    container2.innerHTML += ">>";
+    container2.style.fontSize = "32px";
+    container2.style.marginTop = '350px';
+
+    const container3 = document.createElement("div");
+    container3.innerHTML += ">>";
+    container3.style.fontSize = "32px";
+    container3.style.marginTop = '350px';
+
+    const container4 = document.createElement("div");
+    container4.innerHTML += ">>";
+    container4.style.fontSize = "32px";
+    container4.style.marginTop = '350px';
+
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep5.png';
+    img.style.marginTop = "250px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
+    tableContainer.appendChild(table1);
+    tableContainer.appendChild(container2);
+    tableContainer.appendChild(table4);
+    tableContainer.appendChild(table2);
+    tableContainer.appendChild(container3);
+    tableContainer.appendChild(table5);
+    tableContainer.appendChild(table3);
+    tableContainer.appendChild(container4);
+    tableContainer.appendChild(table6);
+
+    canv.appendChild(tableContainer);
+  }
+
+  function InputMatrixDbow() {
+    sidebar.innerHTML = '';
+    setfooter("step2DBOW");
+    canv.dataset.mode = "dbow";
+    canv.innerHTML = meta();
+    canv.innerHTML += "<tr><td>&nbsp;</td></tr>";
+    const tableContainer = document.createElement("div");
+    tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
+    tableContainer.style.justifyContent = "space-between";
+  
+    const table1 = document.createElement("table");
+    table1.style.marginTop = "232px";
+    table1.style.marginLeft = "10px";
+    table1.style.marginRight = "100px";
+    table1.innerHTML += "<caption style=\"font-size: 30px\"> DBOW Input Matrix With Words </caption>";
+    table1.innerHTML += "<tr><td><div>Paragraph ID<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>1<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>2<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>3<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>4<div></td></tr>";
+
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep1.png';
+    img.style.marginTop = "232px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
+    tableContainer.appendChild(table1);
+  
+    canv.appendChild(tableContainer);
+
+    const table3 = document.createElement("table");
+    table3.style.marginTop = "5px";
+    table3.style.marginRight = "100px";
+    table3.style.marginLeft = "100px";
+    table3.style.color = "white";
+    table3.style.borderColor = "white";
+    table3.innerHTML += "<caption style=\"font-size: 30px\"> DBOW Input Matrix </caption>";
+    table3.innerHTML += "<tr><td><div>Paragraph ID<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>1<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>2<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>3<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>4<div></td></tr>";
+
+    const tableContainer2 = document.createElement("div");
+    tableContainer2.style.display = "flex";
+    tableContainer2.style.overflow = 'auto';
+    tableContainer2.style.flexDirection = "column";
+
+    const table7 = document.createElement("table");
+    table7.style.marginTop = "10px";
+    table7.style.marginLeft = "150px";
+    table7.style.marginRight = "150px";
+    table7.style.marginBottom = "10px";
+    table7.style.color = "white";
+    table7.style.borderColor = "white";
+    table7.innerHTML += "<caption style=\"font-size: 30px\"> Sen2vec Parameters </caption>";
+    table7.innerHTML += "<tr><td><div>Epoch = 1<div></td></tr>";
+    table7.innerHTML += "<tr><td><div>Batch Size = 2<div></td></tr>";
+    table7.innerHTML += "<tr><td><div>Vector Dimensions = 4<div></td></tr>";
+    table7.innerHTML += "<tr><td><div>Learning Rate = 1e^-3<div></td></tr>";
+    table7.innerHTML += "<tr><td><div>Context Size = 0<div></td></tr>";
+
+    const table5 = document.createElement("table");
+    table5.style.marginRight = "100px";
+    table5.style.marginTop = "10px";
+    table5.style.marginLeft = "100px";
+    table5.style.color = "white";
+    table5.style.borderColor = "white";
+    table5.innerHTML += "<caption style=\"font-size: 30px\"> Input Data </caption>";
+    table5.innerHTML += "<tr><td><div>I love Data Science<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>I enjoy Data Science<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>Data Science is my favorite, because I love Data Science<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>I do enjoy Data Science<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>I dislike boring Data Science<div></td></tr>";
+
+    const table6 = document.createElement("table");
+    table6.style.marginTop = "10px";
+    table6.style.marginLeft = "150px";
+    table6.style.marginRight = "150px";
+    table6.style.color = "white";
+    table6.style.borderColor = "white";
+    table6.innerHTML += "<caption style=\"font-size: 30px\"> Vocabulary </caption>";
+    table6.innerHTML += "<tr><td><div>I<div></td><td><div>favorite<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>love<div></td><td><div>because<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>data<div></td><td><div>do<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>science<div></td><td><div>my<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>enjoy<div></td><td><div>dislike<div></td></tr>";
+    table6.innerHTML += "<tr><td><div>is<div></td><td><div>boring<div></td></tr>";
+
+    tableContainer2.appendChild(table7);
+    tableContainer2.appendChild(table5);
+    tableContainer2.appendChild(table6);
+    tableContainer2.appendChild(table3);
+
+    sidebar.appendChild(tableContainer2);
+  }
+
+  function InitializeDbow() {
+    setfooter("step3");
+    canv.dataset.mode = "dbow";
+    canv.innerHTML = meta();
+  
+    const tableContainer = document.createElement("div");
+    tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
+  
+    const table1 = document.createElement("table");
+    table1.style.marginTop = "250px";
+    table1.style.marginLeft = "30px";
+    table1.style.marginRight = "120px";
+    table1.innerHTML += "<caption style=\"font-size: 30px\"> Initialize Word Weight Matrix </caption>";
+    table1.innerHTML += "<tr><td><div>0.264<div></td><td><div> -0.441<div></td><td><div> 0.329<div></td><td><div> 0.126<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.3017<div></td><td><div> -0.132<div></td><td><div> -0.383<div></td><td><div> 0.107<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.1947<div></td><td><div> -0.267<div></td><td><div> -0.122<div></td><td><div> -0.013<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.2895<div></td><td><div> -0.869<div></td><td><div> 0.188<div></td><td><div> -0.041<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.1398<div></td><td><div> 0.877<div></td><td><div> -0.199<div></td><td><div> -0.076<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.1572<div></td><td><div> 0.047<div></td><td><div> -0.071<div></td><td><div> 0.209<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.3528<div></td><td><div> 0.294<div></td><td><div> 0.167<div></td><td><div> -0.204<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.1549<div></td><td><div> -0.828<div></td><td><div> 0.285<div></td><td><div> 0.167<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.2036<div></td><td><div> -0.192<div></td><td><div> 0.148<div></td><td><div> 0.134<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.2754<div></td><td><div> 0.074<div></td><td><div> -0.325<div></td><td><div> -0.215<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.3442<div></td><td><div> -0.206<div></td><td><div> -0.007<div></td><td><div> -0.106<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.1058<div></td><td><div> 0.121<div></td><td><div> -0.187<div></td><td><div> -0.228<div></td></tr>";
+  
+    const table2 = document.createElement("table");
+    table2.style.marginTop = "250px";
+    table2.style.marginLeft = "120px";
+    table2.style.marginRight = "120px";
+    table2.innerHTML += "<caption style=\"font-size: 30px\"> Initialize Paragraph Weight Matrix </caption>";
+    table2.innerHTML += "<tr><td><div>0.031<div></td><td><div> 0.398<div></td><td><div> -0.447<div></td><td><div> 0.273<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>-0.323<div></td><td><div> -0.002<div></td><td><div> 0.005<div></td><td><div> 0.942<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>-0.043<div></td><td><div> 0.027<div></td><td><div> -0.224<div></td><td><div> -0.094<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.119<div></td><td><div> 0.118<div></td><td><div> 0.427<div></td><td><div> 0.102<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>-0.376<div></td><td><div> -0.109<div></td><td><div> 0.127<div></td><td><div> -0.461<div></td></tr>";
+
+    const table3 = document.createElement("table");
+    table3.style.marginTop = "250px";
+    table3.style.marginRight = "10px";
+    table3.style.marginLeft = "120px";
+    table3.innerHTML += "<caption style=\"font-size: 30px\"> Initialize Bias Matrix </caption>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td></tr>";
+
+    const container = document.createElement("div");
+    container.innerHTML += ">>";
+    container.style.fontSize = "32px";
+    container.style.marginTop = '350px';
+
+    const container2 = document.createElement("div");
+    container2.innerHTML += ">>";
+    container2.style.fontSize = "32px";
+    container2.style.marginTop = '350px';
+
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep2.png';
+    img.style.marginTop = "250px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
+    tableContainer.appendChild(table1);
+    tableContainer.appendChild(container);
+    tableContainer.appendChild(table2);
+    tableContainer.appendChild(container2);
+    tableContainer.appendChild(table3);
+
+    canv.appendChild(tableContainer);
+
+  }
+
+  function ComputeCenterDbow() {
+    setfooter("step4DBOW");
+    canv.dataset.mode = "dbow";
+    canv.innerHTML = meta();
+  
+    const tableContainer = document.createElement("div");
+    tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
+    tableContainer.style.justifyContent = "space-between";
+  
+    const table1 = document.createElement("table");
+    table1.style.marginTop = "250px";
+    table1.style.marginLeft = "5px";
+    table1.innerHTML += "<caption style=\"font-size: 30px\"> Input Vectors </caption>";
+    table1.innerHTML += "<tr><td><div>Paragraph<div></td><td><div>Paragraph<div></td><td><div>Paragraph<div></td><td><div>Paragraph<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.031<div></td><td><div> 0.398<div></td><td><div> -0.447<div></td><td><div> 0.273<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.323<div></td><td><div> -0.002<div></td><td><div> 0.005<div></td><td><div> 0.942<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.043<div></td><td><div> 0.027<div></td><td><div> -0.224<div></td><td><div> -0.094<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.119<div></td><td><div> 0.118<div></td><td><div> 0.427<div></td><td><div> 0.102<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.376<div></td><td><div> -0.109<div></td><td><div> 0.127<div></td><td><div> -0.461<div></td></tr>";
+  
+    const table2 = document.createElement("table");
+    table2.style.marginTop = "250px";
+    table2.style.marginRight = "5px";
+    table2.innerHTML += "<caption style=\"font-size: 30px\"> Transpose of Initial Word Weight Matrix </caption>";
+    table2.innerHTML += "<tr><td><div>0.264<div></td><td><div> -0.3017<div></td><td><div> -0.1947<div></td><td><div> 0.2895 <div></td><td><div> -0.1398 <div></td><td><div>0.1572 <div></td><td><div>0.3528 <div></td><td><div>-0.1549 <div></td><td><div>-0.2036 <div></td><td><div>0.2754 <div></td><td><div>0.3442 <div></td><td><div> 0.1058<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>-0.441<div></td><td><div> -0.132<div></td><td><div> -0.267<div></td><td><div> -0.869 <div></td><td><div> 0.877 <div></td><td><div>0.047 <div></td><td><div>0.294 <div></td><td><div>-0.828 <div></td><td><div>-0.192 <div></td><td><div>0.074 <div></td><td><div>-0.206 <div></td><td><div> 0.121<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.329<div></td><td><div> -0.383<div></td><td><div> -0.122<div></td><td><div> 0.188 <div></td><td><div> -0.199 <div></td><td><div>-0.071 <div></td><td><div>0.167 <div></td><td><div>0.285 <div></td><td><div>0.148 <div></td><td><div>-0.325 <div></td><td><div>-0.007 <div></td><td><div> -0.187<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.126<div></td><td><div> 0.107<div></td><td><div> -0.013<div></td><td><div> -0.041 <div></td><td><div> -0.076 <div></td><td><div>0.209 <div></td><td><div>-0.204 <div></td><td><div>0.167 <div></td><td><div>0.134 <div></td><td><div>-0.215 <div></td><td><div>-0.106 <div></td><td><div> -0.228<div></td></tr>";
+
+    const table3 = document.createElement("table");
+    table3.style.marginTop = "250px";
+    table3.style.marginRight = "5px";
+    table3.style.marginLeft = "5px";
+    table3.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Word Matrix </caption>";
+    table3.innerHTML += "<tr><td><div>-0.28<div></td><td><div> 0.139<div></td><td><div>   -0.061<div></td><td><div>  -0.432 <div></td><td><div> 0.413<div></td><td><div>0.112<div></td><td><div>-0.108<div></td><td><div>-0.416<div></td><td><div>-0.112<div></td><td><div>0.125<div></td><td><div> -0.097<div></td><td><div>0.073<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0.036<div></td><td><div> 0.197<div></td><td><div>   0.051<div></td><td><div>  -0.129 <div></td><td><div> -0.029<div></td><td><div>0.146<div></td><td><div>-0.305<div></td><td><div>0.21<div></td><td><div>0.193<div></td><td><div>-0.293<div></td><td><div> -0.211<div></td><td><div>-0.25<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>-0.109<div></td><td><div> 0.085<div></td><td><div>   0.03<div></td><td><div>  -0.074 <div></td><td><div> 0.081<div></td><td><div>-0.009<div></td><td><div>-0.033<div></td><td><div>-0.095<div></td><td><div>-0.042<div></td><td><div>0.083<div></td><td><div> -0.009<div></td><td><div>0.062<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0.133<div></td><td><div> -0.204<div></td><td><div>   -0.108<div></td><td><div>  0.008 <div></td><td><div> -0.006<div></td><td><div>0.015<div></td><td><div>0.096<div></td><td><div>0.023<div></td><td><div>0.03<div></td><td><div>-0.119<div></td><td><div> 0.003<div></td><td><div>-0.076<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>-0.067<div></td><td><div> 0.03<div></td><td><div>   0.093<div></td><td><div>  0.029 <div></td><td><div> -0.033<div></td><td><div>-0.17<div></td><td><div>-0.021<div></td><td><div>0.108<div></td><td><div>0.055<div></td><td><div>-0.054<div></td><td><div> -0.059<div></td><td><div>0.028<div></td></tr>";
+
+    const container = document.createElement("div");
+    container.innerHTML += "*";
+    container.style.fontSize = "32px";
+    container.style.marginTop = '350px';
+
+    const container2 = document.createElement("div");
+    container2.innerHTML += ">>";
+    container2.style.fontSize = "32px";
+    container2.style.marginTop = '350px';
+
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep2.png';
+    img.style.marginTop = "250px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
+    tableContainer.appendChild(table1);
+    tableContainer.appendChild(container);
+    tableContainer.appendChild(table2);
+    tableContainer.appendChild(container2);
+    tableContainer.appendChild(table3);
+
+    canv.appendChild(tableContainer);
+
+  }
+
+  function HiddenLayerDbow() {
+    setfooter("step5DBOW");
+    canv.dataset.mode = "dbow";
+    canv.innerHTML = meta();
+  
+    const tableContainer = document.createElement("div");
+    tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
+    tableContainer.style.justifyContent = "space-between";
+  
+    const table1 = document.createElement("table");
+    table1.style.marginTop = "250px";
+    table1.style.marginLeft = "10px";
+    table1.style.marginRight = "50px";
+    table1.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Word Matrix </caption>";
+    table1.innerHTML += "<tr><td><div>-0.28<div></td><td><div> 0.139<div></td><td><div>   -0.061<div></td><td><div>  -0.432 <div></td><td><div> 0.413<div></td><td><div>0.112<div></td><td><div>-0.108<div></td><td><div>-0.416<div></td><td><div>-0.112<div></td><td><div>0.125<div></td><td><div> -0.097<div></td><td><div>0.073<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.036<div></td><td><div> 0.197<div></td><td><div>   0.051<div></td><td><div>  -0.129 <div></td><td><div> -0.029<div></td><td><div>0.146<div></td><td><div>-0.305<div></td><td><div>0.21<div></td><td><div>0.193<div></td><td><div>-0.293<div></td><td><div> -0.211<div></td><td><div>-0.25<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.109<div></td><td><div> 0.085<div></td><td><div>   0.03<div></td><td><div>  -0.074 <div></td><td><div> 0.081<div></td><td><div>-0.009<div></td><td><div>-0.033<div></td><td><div>-0.095<div></td><td><div>-0.042<div></td><td><div>0.083<div></td><td><div> -0.009<div></td><td><div>0.062<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.133<div></td><td><div> -0.204<div></td><td><div>   -0.108<div></td><td><div>  0.008 <div></td><td><div> -0.006<div></td><td><div>0.015<div></td><td><div>0.096<div></td><td><div>0.023<div></td><td><div>0.03<div></td><td><div>-0.119<div></td><td><div> 0.003<div></td><td><div>-0.076<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.067<div></td><td><div> 0.03<div></td><td><div>   0.093<div></td><td><div>  0.029 <div></td><td><div> -0.033<div></td><td><div>-0.17<div></td><td><div>-0.021<div></td><td><div>0.108<div></td><td><div>0.055<div></td><td><div>-0.054<div></td><td><div> -0.059<div></td><td><div>0.028<div></td></tr>";
+
+    const table4 = document.createElement("table");
+    table4.style.marginTop = "250px";
+    table4.style.marginRight = "50px";
+    table4.style.marginLeft = "50px";
+    table4.innerHTML += "<caption style=\"font-size: 30px\"> Transpose of Bias Matrix </caption>";
+    table4.innerHTML += "<tr><td><div>0<div></td><td><div> 0<div></td><td><div>   0<div></td><td><div>  0 <div></td><td><div> 0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table4.innerHTML += "<tr><td><div>0<div></td><td><div> 0<div></td><td><div>   0<div></td><td><div>  0 <div></td><td><div> 0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table4.innerHTML += "<tr><td><div>0<div></td><td><div> 0<div></td><td><div>   0<div></td><td><div>  0 <div></td><td><div> 0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table4.innerHTML += "<tr><td><div>0<div></td><td><div> 0<div></td><td><div>   0<div></td><td><div>  0 <div></td><td><div> 0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table4.innerHTML += "<tr><td><div>0<div></td><td><div> 0<div></td><td><div>   0<div></td><td><div>  0 <div></td><td><div> 0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+
+    const table3 = document.createElement("table");
+    table3.style.marginTop = "250px";
+    table3.style.marginLeft = "50px";
+    table3.style.marginRight = "50px";
+    table3.innerHTML += "<caption style=\"font-size: 30px\"> Predicted Word Matrix + Bias</caption>";
+    table3.innerHTML += "<tr><td><div>-0.28<div></td><td><div> 0.139<div></td><td><div>   -0.061<div></td><td><div>  -0.432 <div></td><td><div> 0.413<div></td><td><div>0.112<div></td><td><div>-0.108<div></td><td><div>-0.416<div></td><td><div>-0.112<div></td><td><div>0.125<div></td><td><div> -0.097<div></td><td><div>0.073<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0.036<div></td><td><div> 0.197<div></td><td><div>   0.051<div></td><td><div>  -0.129 <div></td><td><div> -0.029<div></td><td><div>0.146<div></td><td><div>-0.305<div></td><td><div>0.21<div></td><td><div>0.193<div></td><td><div>-0.293<div></td><td><div> -0.211<div></td><td><div>-0.25<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>-0.109<div></td><td><div> 0.085<div></td><td><div>   0.03<div></td><td><div>  -0.074 <div></td><td><div> 0.081<div></td><td><div>-0.009<div></td><td><div>-0.033<div></td><td><div>-0.095<div></td><td><div>-0.042<div></td><td><div>0.083<div></td><td><div> -0.009<div></td><td><div>0.062<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0.133<div></td><td><div> -0.204<div></td><td><div>   -0.108<div></td><td><div>  0.008 <div></td><td><div> -0.006<div></td><td><div>0.015<div></td><td><div>0.096<div></td><td><div>0.023<div></td><td><div>0.03<div></td><td><div>-0.119<div></td><td><div> 0.003<div></td><td><div>-0.076<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>-0.067<div></td><td><div> 0.03<div></td><td><div>   0.093<div></td><td><div>  0.029 <div></td><td><div> -0.033<div></td><td><div>-0.17<div></td><td><div>-0.021<div></td><td><div>0.108<div></td><td><div>0.055<div></td><td><div>-0.054<div></td><td><div> -0.059<div></td><td><div>0.028<div></td></tr>";
+  
+    const table2 = document.createElement("table");
+    table2.style.marginTop = "250px";
+    table2.style.marginRight = "10px";
+    table2.style.marginLeft = "75px";
+    table2.style.height = "10vh";
+    table2.innerHTML += "<caption style=\"font-size: 30px\"> Hyperbolic Tangent of Matrix </caption>";
+    table2.innerHTML += "<tr><td><div>-0.273<div></td><td><div> 0.138<div></td><td><div>   -0.061<div></td><td><div>  -0.407 <div></td><td><div> 0.391<div></td><td><div>0.112<div></td><td><div>-0.107<div></td><td><div>-0.394<div></td><td><div>-0.112<div></td><td><div>0.124<div></td><td><div> -0.097<div></td><td><div>0.073<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.036<div></td><td><div> 0.194<div></td><td><div>   0.051<div></td><td><div>  -0.129 <div></td><td><div> -0.029<div></td><td><div>0.145<div></td><td><div>-0.296<div></td><td><div>0.207<div></td><td><div>0.191<div></td><td><div>-0.285<div></td><td><div> -0.208<div></td><td><div>-0.245<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>-0.108<div></td><td><div> 0.085<div></td><td><div>   0.03<div></td><td><div>  -0.074 <div></td><td><div> 0.081<div></td><td><div>-0.009<div></td><td><div>-0.033<div></td><td><div>-0.095<div></td><td><div>-0.042<div></td><td><div>0.083<div></td><td><div> -0.009<div></td><td><div>0.062<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.132<div></td><td><div> -0.201<div></td><td><div>   -0.108<div></td><td><div>  0.008 <div></td><td><div> -0.006<div></td><td><div>0.015<div></td><td><div>0.096<div></td><td><div>0.023<div></td><td><div>0.03<div></td><td><div>-0.119<div></td><td><div> 0.003<div></td><td><div>-0.076<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>-0.067<div></td><td><div> 0.03<div></td><td><div>   0.093<div></td><td><div>  0.029 <div></td><td><div> -0.033<div></td><td><div>-0.168<div></td><td><div>-0.021<div></td><td><div>0.107<div></td><td><div>0.054<div></td><td><div>-0.054<div></td><td><div> -0.059<div></td><td><div>0.028<div></td></tr>";
+
+    const container = document.createElement("div");
+    container.innerHTML += "+";
+    container.style.fontSize = "32px";
+    container.style.marginTop = '350px';
+
+    const container2 = document.createElement("div");
+    container2.innerHTML += ">>";
+    container2.style.fontSize = "32px";
+    container2.style.marginTop = '350px';
+
+    const container3 = document.createElement("div");
+    container3.innerHTML += ">>";
+    container3.style.fontSize = "32px";
+    container3.style.marginTop = '350px';
+
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep3.png';
+    img.style.marginTop = "250px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
+    tableContainer.appendChild(table1);
+    tableContainer.appendChild(container);
+    tableContainer.appendChild(table4);
+    tableContainer.appendChild(container2);
+    tableContainer.appendChild(table3);
+    tableContainer.appendChild(container3);
+    tableContainer.appendChild(table2);
+
+    canv.appendChild(tableContainer);
+
+  }
+
+  function ComputeSoftmaxDbow() {
+    setfooter("step6DBOW");
+    canv.dataset.mode = "dbow";
+    canv.innerHTML = meta();
+  
+    const tableContainer = document.createElement("div");
+    tableContainer.style.display = "flex";
+    tableContainer.style.overflow = 'auto';
+    tableContainer.style.justifyContent = "space-between";
+
+    const table1 = document.createElement("table");
+    table1.style.marginTop = "250px";
+    table1.style.marginLeft = "10px";
+    table1.style.height = "10vh";
+    table1.innerHTML += "<caption style=\"font-size: 30px\"> Hyperbolic Tangent Matrix </caption>";
+    table1.innerHTML += "<tr><td><div>-0.273<div></td><td><div> 0.138<div></td><td><div>   -0.061<div></td><td><div>  -0.407 <div></td><td><div> 0.391<div></td><td><div>0.112<div></td><td><div>-0.107<div></td><td><div>-0.394<div></td><td><div>-0.112<div></td><td><div>0.124<div></td><td><div> -0.097<div></td><td><div>0.073<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.036<div></td><td><div> 0.194<div></td><td><div>   0.051<div></td><td><div>  -0.129 <div></td><td><div> -0.029<div></td><td><div>0.145<div></td><td><div>-0.296<div></td><td><div>0.207<div></td><td><div>0.191<div></td><td><div>-0.285<div></td><td><div> -0.208<div></td><td><div>-0.245<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.108<div></td><td><div> 0.085<div></td><td><div>   0.03<div></td><td><div>  -0.074 <div></td><td><div> 0.081<div></td><td><div>-0.009<div></td><td><div>-0.033<div></td><td><div>-0.095<div></td><td><div>-0.042<div></td><td><div>0.083<div></td><td><div> -0.009<div></td><td><div>0.062<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>0.132<div></td><td><div> -0.201<div></td><td><div>   -0.108<div></td><td><div>  0.008 <div></td><td><div> -0.006<div></td><td><div>0.015<div></td><td><div>0.096<div></td><td><div>0.023<div></td><td><div>0.03<div></td><td><div>-0.119<div></td><td><div> 0.003<div></td><td><div>-0.076<div></td></tr>";
+    table1.innerHTML += "<tr><td><div>-0.067<div></td><td><div> 0.03<div></td><td><div>   0.093<div></td><td><div>  0.029 <div></td><td><div> -0.033<div></td><td><div>-0.168<div></td><td><div>-0.021<div></td><td><div>0.107<div></td><td><div>0.054<div></td><td><div>-0.054<div></td><td><div> -0.059<div></td><td><div>0.028<div></td></tr>";
+  
+    const table2 = document.createElement("table");
+    table2.style.marginTop = "250px";
+    table2.style.marginLeft = "10px";
+    table2.style.height = "10vh";
+    table2.innerHTML += "<caption style=\"font-size: 30px\"> Softmax Matrix of Predicted Words </caption>";
+    table2.innerHTML += "<tr><td><div>0.013<div></td><td><div> 0.019<div></td><td><div>   0.016<div></td><td><div>  0.011 <div></td><td><div> 0.025<div></td><td><div>0.019<div></td><td><div>0.015<div></td><td><div>0.011<div></td><td><div>0.015<div></td><td><div>0.019<div></td><td><div> 0.015<div></td><td><div>0.018<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.017<div></td><td><div> 0.02<div></td><td><div>   0.018<div></td><td><div>  0.015 <div></td><td><div> 0.016<div></td><td><div>0.019<div></td><td><div>0.013<div></td><td><div>0.021<div></td><td><div>0.02<div></td><td><div>0.013<div></td><td><div> 0.014<div></td><td><div>0.013<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.015<div></td><td><div> 0.018<div></td><td><div>   0.017<div></td><td><div>  0.016 <div></td><td><div> 0.018<div></td><td><div>0.017<div></td><td><div>0.016<div></td><td><div>0.015<div></td><td><div>0.016<div></td><td><div>0.018<div></td><td><div> 0.017<div></td><td><div>0.018<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.019<div></td><td><div> 0.014<div></td><td><div>   0.015<div></td><td><div>  0.017 <div></td><td><div> 0.017<div></td><td><div>0.017<div></td><td><div>0.019<div></td><td><div>0.017<div></td><td><div>0.017<div></td><td><div>0.015<div></td><td><div> 0.017<div></td><td><div>0.016<div></td></tr>";
+    table2.innerHTML += "<tr><td><div>0.016<div></td><td><div> 0.017<div></td><td><div>   0.018<div></td><td><div>  0.017 <div></td><td><div> 0.016<div></td><td><div>0.014<div></td><td><div>0.017<div></td><td><div>0.019<div></td><td><div>0.018<div></td><td><div>0.016<div></td><td><div> 0.016<div></td><td><div>0.017<div></td></tr>";
+
+    const table5 = document.createElement("table");
+    table5.style.marginTop = "250px";
+    table5.style.marginLeft = "10px";
+    table5.style.height = "10vh";
+    table5.innerHTML += "<caption style=\"font-size: 30px\"> True Center Word Matrix </caption>";
+    table5.innerHTML += "<tr><td><div> 0.237<div></td><td><div> -1.689<div></td><td><div>   1.538<div></td><td><div>  -0.388 <div></td><td><div> 0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>0.237<div></td><td><div> 0<div></td><td><div>   1.538<div></td><td><div> -0.388 <div></td><td><div> -0.829<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>0.237<div></td><td><div> -1.689<div></td><td><div>   1.538<div></td><td><div>  -0.388 <div></td><td><div> 0<div></td><td><div>-1.710<div></td><td><div>1.154<div></td><td><div>0.507<div></td><td><div>0<div></td><td><div>-0.707<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>0.237<div></td><td><div> 0<div></td><td><div>   1.538<div></td><td><div>  -0.388 <div></td><td><div>-0.829<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0.147<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table5.innerHTML += "<tr><td><div>0.237<div></td><td><div> 0<div></td><td><div>   1.538<div></td><td><div>  -0.388 <div></td><td><div> 0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> -0.339<div></td><td><div>1.129<div></td></tr>";
+
+    const table3 = document.createElement("table");
+    table3.style.marginTop = "250px";
+    table3.style.marginLeft = "10px";
+    table3.style.marginRight = "10px";
+    table3.innerHTML += "<caption style=\"font-size: 30px\"> Negative Log Likelihood Loss Matrix </caption>";
+    table3.innerHTML += "<tr><td><div> 1.032<div></td><td><div> -6.664<div></td><td><div>   6.375<div></td><td><div>  -1.742<div></td><td><div> 0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0.959<div></td><td><div> 0<div></td><td><div>   6.203<div></td><td><div> -1.634 <div></td><td><div> -3.409<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0.993<div></td><td><div> -6.753<div></td><td><div>   6.235<div></td><td><div>  -1.613 <div></td><td><div> 0<div></td><td><div>-6.998<div></td><td><div>4.75<div></td><td><div>2.118<div></td><td><div>0<div></td><td><div>-2.828<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0.937<div></td><td><div> 0<div></td><td><div>   6.446<div></td><td><div>  -1.581 <div></td><td><div>-3.39<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0.596<div></td><td><div>0<div></td><td><div> 0<div></td><td><div>0<div></td></tr>";
+    table3.innerHTML += "<tr><td><div>0.984<div></td><td><div> 0<div></td><td><div>   6.138<div></td><td><div>  -1.573 <div></td><td><div> 0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div>0<div></td><td><div> -1.404<div></td><td><div>4.578<div></td></tr>";
+
+    const container2 = document.createElement("div");
+    container2.innerHTML += ">>";
+    container2.style.fontSize = "32px";
+    container2.style.marginTop = '350px';
+
+    const container3 = document.createElement("div");
+    container3.innerHTML += ">>";
+    container3.style.fontSize = "32px";
+    container3.style.marginTop = '350px';
+
+    const container4 = document.createElement("div");
+    container4.innerHTML += ">>";
+    container4.style.fontSize = "32px";
+    container4.style.marginTop = '350px';
+
+    const img = document.createElement('img');
+    img.src = 'assets/para2vecstep4.png';
+    img.style.marginTop = "250px";
+    img.style.marginBottom = "10px";
+    img.style.marginLeft = "10px";
+    img.style.width = '17%';
+    img.style.height = 'auto';
+
+    tableContainer.appendChild(img);
+    tableContainer.appendChild(table1);
+    tableContainer.appendChild(container2);
+    tableContainer.appendChild(table2);
+    tableContainer.appendChild(container3);
+    tableContainer.appendChild(table5);
+    tableContainer.appendChild(container4);
+    tableContainer.appendChild(table3);
+
+    canv.appendChild(tableContainer);
+
+  }
+
+  function UpdateWeightBiasDbow() {
+    setfooter("step7");
+    canv.dataset.mode = "dbow";
     canv.innerHTML = meta();
   
     const tableContainer = document.createElement("div");
@@ -862,12 +1435,16 @@ function setfooter( input ) // takes input from event listener and then
         case "dm": footer.innerHTML = "<h2>Distributed Memory (DM) is one of two models for Sen2vec</h2>"; break;
         case "dbo": footer.innerHTML = "<h2>Distribute Bag of Words (DBOW) is one of two models for Sen2vec</h2>"; break;
         case "step4": footer.innerHTML = "<h2>In this step, input vectors are created by the concatenation of paragraph IDs and context words. The values for the paragraphs are taken by the paragraph weight matrix associated with each paragraph. Since batch size is 2 in the parameters, a batch of two input vectors is randomly selected and multiplied by the initial word weight matrix. This results in the predicted value for the center words of the given training vectors.</h2>"; break;
-        case "step1": footer.innerHTML = "<h2>In this step, data is used as input for the Sen2vec algortithm. Sen2vec creates paragraph IDs based on the input data with 0 based indexing. Text processing occurs to create a vocabulary based on the unique words in the data. Each word in the vocabulary is then intialized as a vector based on the vector dimensions in the Sen2vec parameters.</h2>"; break;
+        case "step1": footer.innerHTML = "<h2>In this step, data is used as input for the Sen2vec algorithm. Sen2vec creates paragraph IDs based on the input data with 0 based indexing. Text processing occurs to create a vocabulary based on the unique words in the data. Each word in the vocabulary is then intialized as a vector based on the vector dimensions in the Sen2vec parameters.</h2>"; break;
         case "step2": footer.innerHTML = "<h2>In this step, the paragraph ID, context word vectors, and center word vectors are concatenated to form an input matrix to be used in Sen2vec training. Context word size is determined in the parameters, in this example context size is 1, therefore it takes 1 word from the left and right of the center word as context. The size of the input matrix is based on the amount of pre-generated batches, in this example we have 2.</h2>"; break;
-        case "step3": footer.innerHTML = "<h2>In this step, Sen2vec initializes the word and paragraph weight matrices along with the bias matrix. The size of the word weight matrix is based on the vocabulary size of the data, in this case, the vocabulary is 13. The size of the paragraph weight matrix is based on the number of paragraphs in the data, which is 5. The size of the bias matrix is based on the input matrix, and is intialized as a 0 matrix. All of these matrices have the same dimensions as the vector dimensions in the parameters.</h2>"; break;
+        case "step3": footer.innerHTML = "<h2>In this step, Sen2vec initializes the word and paragraph weight matrices along with the bias matrix. The size of the word weight matrix is based on the vocabulary size of the data, in this case, the vocabulary is 12. The size of the paragraph weight matrix is based on the number of paragraphs in the data, which is 5. The size of the bias matrix is based on the input matrix, and is intialized as a 0 matrix. All of these matrices have the same dimensions as the vector dimensions in the parameters.</h2>"; break;
         case "step5": footer.innerHTML = "<h2>In this step, the bias matrix is added to the predicted center word matrix to introduce another parameter that improves the accuracy of the model. The hyperbolic tangent function is then applied to the result matrix to introduce non linearity to the model. This allows the model to capture more complex relationships between words and paragraphs. </h2>"; break;
         case "step6": footer.innerHTML = "<h2>In this step, the hyperbolic tangent matrix is transformed by the softmax function to get the probability distribution of the vocabulary. The result matrix then uses the true center word matrix, which was gathered from the input matrix, to calculate the negative log likelihood loss of the predicted center word matrix. The negative log likelihood loss is a measure of how well the model predicts the true center word.</h2>"; break;
-        case "step7": footer.innerHTML = "<h2>In this step, the negative log likelihood loss values are sent to the adam optimizer to update the weights. The weights will be updated for the word and paragraph matrices along with the bias matrix. The updated matrices are used in the next batch of training vectors. Once all training vectors have been trained, that is the end of one epoch. Once the number of epochs set in the parameter are met, the paragraph weight matrix is returned and is now ready to be used in other applications. Red indicates a decrease in value and green indicates increase.</h2>"; break;
+        case "step7": footer.innerHTML = "<h2>In this step, the negative log likelihood loss values are sent to the adam optimizer to update the weights. The weights will be updated for the word and paragraph matrices along with the bias matrix. The updated matrices are used in the next batch of training vectors. Once all training vectors have been trained, that is the end of one epoch. Once the number of epochs set in the parameter are met, the paragraph weight matrix is returned and is now ready to be used in other applications. Red indicates a decrease in value and green indicates an increase.</h2>"; break;
+        case "step2DBOW": footer.innerHTML = "<h2>In this step, the paragraph ID is taken to form an input matrix to be used in Sen2vec training. Context word size is determined in the parameters, in this example context size is 0 as the DBOW model must have context size = 0 to run. The size of the input matrix is based on the amount of paragraphs in the input data, in this example we have 5.</h2>"; break;
+        case "step4DBOW": footer.innerHTML = "<h2>In this step, input vectors are created by the paragraph IDs. The values for the paragraphs are taken by the paragraph weight matrix associated with each paragraph. Since batch size is 2 in the parameters, a batch of two input vectors is randomly selected and multiplied by the transpose of the initial word weight matrix. This results in the predicted value for the words of the given training vectors.</h2>"; break;
+        case "step5DBOW": footer.innerHTML = "<h2>In this step, the bias matrix is added to the predicted word matrix to introduce another parameter that improves the accuracy of the model. The hyperbolic tangent function is then applied to the result matrix to introduce non linearity to the model. This allows the model to capture more complex relationships between words and paragraphs. </h2>"; break;
+        case "step6DBOW": footer.innerHTML = "<h2>In this step, the hyperbolic tangent matrix is transformed by the softmax function to get the probability distribution of the vocabulary. The result matrix then uses the true word matrix, which was gathered from the input matrix, to calculate the negative log likelihood loss of the predicted word matrix. The negative log likelihood loss is a measure of how well the model predicts the true word probability distribution.</h2>"; break;
     }
     footer.style.overflow='auto';
 }
@@ -887,12 +1464,66 @@ function updater( val ) // takes input of 1 to advance page or -1 to go back a p
     {
         case "Introduction and Model Selection": ModelSelection(); break;
         case "Initialization of Data": Input(); break;
-        case "Input Matrix": InputMatrix(); break;
-        case "Initialize Weight + Bias": Initialize(); break;
-        case "Predict Center Word": ComputeCenter(); break;
-        case "Hyperbolic Tangent": HiddenLayer(); break;
-        case "Softmax and Loss": ComputeSoftmax(); break;
-        case "Update Weight and Bias": UpdateWeightBias(); break;
+        case "Input Matrix": 
+        if(canv.dataset.mode == 'dm')
+        {
+          InputMatrix(); 
+        }
+        else if(canv.dataset.mode == "dbow")
+        {
+          InputMatrixDbow();
+        }
+        break;
+        case "Initialize Weight + Bias": 
+        if(canv.dataset.mode == 'dm')
+        {
+          Initialize(); 
+        }
+        else if(canv.dataset.mode == "dbow")
+        {
+          InitializeDbow();
+        }
+        break;
+        case "Predict Center Word":
+        if(canv.dataset.mode == 'dm')
+        {
+          ComputeCenter(); 
+        }
+        else if(canv.dataset.mode == "dbow")
+        {
+          ComputeCenterDbow();
+        }
+        break;
+        case "Hyperbolic Tangent": 
+        if(canv.dataset.mode == 'dm')
+        {
+          HiddenLayer(); 
+        }
+        else if(canv.dataset.mode == "dbow")
+        {
+          HiddenLayerDbow();
+        }
+        break;
+        case "Softmax and Loss": 
+        if(canv.dataset.mode == 'dm')
+        {
+          ComputeSoftmax(); 
+        }
+        else if(canv.dataset.mode == "dbow")
+        {
+          ComputeSoftmaxDbow();
+        }
+        break;
+        case "Update Weight and Bias": 
+        if(canv.dataset.mode == 'dm')
+        {
+          UpdateWeightBias(); 
+        }
+        else if(canv.dataset.mode == "dbow")
+        {
+          UpdateWeightBiasDbow();
+        }
+        break;
     }
 }
 window.onload = (e) => {
