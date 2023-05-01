@@ -62,8 +62,6 @@ function Input()
 {
   sidebar.innerHTML = "";
   setfooter("step1");
-  canv.dataset.mode === "dm";
-  if (canv.dataset.mode === "dm"); {
 
  const tableContainer2 = document.createElement("div");
  tableContainer2.style.display = "flex";
@@ -202,7 +200,7 @@ function Input()
   tableContainer.appendChild(container3);
   tableContainer.appendChild(table4);
 
-  canv.appendChild(tableContainer);}
+  canv.appendChild(tableContainer);
 }
 
   function InputMatrix() {
@@ -877,7 +875,7 @@ function Input()
     table1.style.marginTop = "232px";
     table1.style.marginLeft = "10px";
     table1.style.marginRight = "100px";
-    table1.innerHTML += "<caption style=\"font-size: 30px\"> DBOW Input Matrix With Words </caption>";
+    table1.innerHTML += "<caption style=\"font-size: 30px\"> DBOW Input Matrix With Paragraph IDs </caption>";
     table1.innerHTML += "<tr><td><div>Paragraph ID<div></td></tr>";
     table1.innerHTML += "<tr><td><div>0<div></td></tr>";
     table1.innerHTML += "<tr><td><div>1<div></td></tr>";
